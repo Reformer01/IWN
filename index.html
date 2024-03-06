@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
+    <meta name="author" content="Armaaneth Esiri">
+    <title>I-World Networks|| Connecting possibilities</title>
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./Assets/css/responsivecss.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Back to top Button -->
+    <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 20H9v-8H4.16L12 4.16L19.84 12H15z"/></svg>
+    </button>
+    <!-- Back to top Button -->
+
+    <!-- Header Beginning -->
+    <div class="header">
+        <!-- Navbar beginning -->
+        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Internet Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Google Cloud Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                                <a class="dropdown-item" href="#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.html">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="subscribe-btn ms-auto">
+                        <!-- <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a> -->
+                        <a class="nav-link lato" href="#">
+                            <img src="./Assets/icons/phone.svg" width="20" height="20" alt="">
+                            +234 807 767 5560</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Ending of navbar -->
+        <div class="header-content">
+            <!-- Carousel Beginning -->
+            <div class="carousel-container">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="2000">
+                            <img src="./Assets/img/home_internet.jpg" class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
+                            <img src="./Assets/img/Home-MOBILE.jpg" class="d-lg-none mobile-view c-md-none d-lg-none w-100 object-fit-contain img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="./Assets/img/smb.jpg" class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
+                            <img src="./Assets/img/SMB-MOBILE.jpg" class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="./Assets/img/enterprise.jpg" class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
+                            <img src="./Assets/img/Enterprise-MOBILE.jpg" class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="./Assets/img/MPLS.jpg" class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
+                            <img src="./Assets/img/MPLS-MOBILE.jpg" class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="./Assets/img/MITS.jpg" class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
+                            <img src="./Assets/img/MITSMOBILE.jpg" class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="./Assets/img/google.jpg" class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
+                            <img src="./Assets/img/Cloud-MOBILE.jpg" class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid" alt="...">
+                        </div>
+                        <!-- Images for smaller screens -->
+                        <!-- 
+                        <div class="carousel-item d-block d-md-none">
+                            <img src="./Assets/img/responsive-business-bg.png" class="d-block w-100 object-fit-cover img-fluid" alt="...">
+                        </div> -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Header -->
+
+    <!-- Home About us Section -->
+    <div class="container-fluid header-about ">
+        <!--Section: Content-->
+        <section class="text-start container pt-2">
+            <h4 class=" fs-3 fw-bold">Who we were</h4>
+            <hr class="hr">
+            <p class="fs-6 about-us-text">
+                I-World Networks is a leading and one of the fastest growing Information and Communication solutions and service provider in Nigeria.
+                <br> Our resilient nationwide IP-MPLS, Metro Fiber and Wireless Infrastructure across major cities in Nigeria enable us to provide cost effective, reliable, and high-quality network and cloud services with world class support to our growing and satisfied customers.  
+            </p>
+            <br>
+            <div class="container about-list1">
+                <div class="about-list-row1 justify-content-center row mb-2">
+                    <div class="col border pt-2  mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/calendar_icon.svg" width="30" height="30" alt="">
+                        Established in 2019</div>
+                    <div class="col border  mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/user_icon.svg" width="30" height="30" alt="">
+                        Over 7,000 Customers and still growing.</div>
+                    <div class="col border pt-2   mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/license_icon2.svg" width="30" height="30" alt="">
+                        Licensed by NCC  </div>
+                    <div class="col border   mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/award_icon.svg" width="30" height="30" alt="">
+                        Awarded the Best ISP by Computer Society  of Nigeria</div>
+                </div>
+                <div class="about-list-row1 justify-content-center row ">
+                    <div class="col border pt-2  mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/education_icon.svg" width="30" height="30" alt="">
+                        Best ISPs for Education Sector </div>
+                    <div class="col border pt-2  mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/google-cloud.svg" width="30" height="30" alt="">
+                        Google Cloud Partner </div>
+                    <div class="col border   mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/cloud_infrastructure_icon.svg" width="30" height="30" alt="">
+                        One of the largest wireless network in Nigeria's South-West.</div>
+                    <div class="col border   mx-1 lato fs-6 fw-bold aboutText text-start">
+                        <img src="./Assets/icons/about-icons/customer_support_icon.svg" width="30" height="30" alt="">
+                        Best in Customer Service Support 2021 2022, 2023 </div>
+                </div>
+            </div>
+            <div class="container about-list2">
+                <div class="row my-3 px-3">
+                    <ul class="">
+                        <li class="col lato text-start fs-6">Established in 2019</li>
+                        <li class="col lato text-start fs-6">Over 7,000 Customers </li>
+                        <li class="col lato text-start fs-6">Licensed by NCC  </li>
+                        <li class="col lato text-start fs-6">Awarded the Best ISP by Computer Society  of Nigeria</li>
+                        <li class="col lato text-start fs-6">Best ISPs for Education Sector </li>
+                        <li class="col lato text-start fs-6">Google Cloud Partner </li>
+                        <li class="col lato text-start fs-6">The largest Fixed Wireless Infrastructure in the South-West Region of Nigeria</li>
+                        <li class="col lato text-start fs-6">Best in Customer Service Support 2021 2022, 2023,2024 </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="container mt-3">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-sm-12 border px-3 py-2 me-2 my-2 shadow-sm">
+                        <p class="mission fw-bold fs-4">Our Mission</p>
+                        <p class="lato fs-6">
+                            I-World Networks envisions a landscape where customers are guided by our expertise and backed by our world-class infrastructure to achieve unparalleled growth, agility, and sustainability in their business and lifestyle.
+                        </p>
+                    </div>
+                    <div class="col-md-5 col-sm-12 border px-3 py-2 my-2 shadow-sm">
+                        <p class="vision fw-bold fs-4">Our Vision</p>
+                        <p class="lato fs-6">
+                            Our mission is to be the preferred Connectivity and Cloud Solution Provider in Nigeria and to be the catalyst for a more connected and empowered future.
+                            <br>
+                            Proudly Nigeria
+                            <img src="./Assets/icons/about-icons/nigeria_icon.svg" width="30" height="30" alt="">  
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Section: Content--> 
+    </div>
+
+    <!-- How it works section -->
+    <section class="bg-white mt-5 services-container pt-5" name="services" id="services">
+        <div class="container">
+                <h2 class="text-start mb-4 fw-bold fs-3">Our Services</h2>
+                <hr class="hr">
+                <div class="service-container mt-2 text-start">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 col-sm-12 services py-2 px-3 mx-2 mt-2">
+                                <div class="service d-flex flex-column align-items-start justify-content-center">
+                                    <div class="">
+                                        <img src="./Assets/icons/home_wifi_icon.svg" width="50" height="50" alt="">
+                                        <h5 class="service-title fw-bold ">Home Internet</h5>
+                                        <p class="lato service-text">
+                                        I-World offers affordable high-speed Wi-Fi for your home, perfect for entertainment and security needs. <br>
+                                        Enjoy 4K streaming and gaming without interruptions. Optimized for popular streaming platforms like Netflix, YouTube, and more.
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <p class="btn btn-warn">
+                                            <a href="./internet_for_home.html" class="text-decoration-none fw-bold text-white">Learn More>></a> 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 services  py-2 px-3 mx-2 mt-2">
+                                <div class="service d-flex flex-column align-items-start justify-content-between h-100">
+                                    <div class="">
+                                        <img src="./Assets/icons/internet_business_icon.svg" width="50" height="50" alt="">
+                                        <h5 class="service-title fw-bold ">Small Business Internet</h5>
+                                        <p class="lato service-text">
+                                            Our small business internet provides high-speed, reliable connectivity tailored for small businesses, essential for online operations and communication.
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <p class="btn btn-warn">
+                                            <a href="./Internet_for_business.html" class="text-decoration-none fw-bold text-white">Learn More>></a> 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 services py-2 px-3 mx-2 mt-2">
+                                <div class="service h-100  d-flex flex-column align-items-start justify-content-between">
+                                    <div class="">
+                                        <img src="./Assets/icons/network-enterprise-icon.svg" width="50" height="50" alt="">
+                                        <h5 class="service-title fw-bold ">Enterprise Internet</h5>
+                                        <p class="lato service-text">
+                                            Elevate your business connectivity with I-World Enterprise Internet. <br> Our robust solutions meet modern business needs.
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <p class="btn btn-warn">
+                                            <a href="./enterprise_internet.html" class="text-decoration-none fw-bold text-white">Learn More>></a> 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">                        
+                            <div class="col-md-3 col-sm-12 services d-flex align-items-start justify-content-center py-2 px-3 mx-2 mt-3">
+                                <div class="service ">
+                                    <img src="./Assets/icons/internet-icon.svg" width="50" height="50" alt="">
+                                    <h5 class="service-title fw-bold ">Managed Service Provider</h5>
+                                    <p class="lato service-text">
+                                        Revolutionizing IT with premier solutions, I-World Networks ensures streamlined operations, fortified security, and cost savings. <br> Trust us for comprehensive IT support, empowering your business growth.
+                                    </p>
+                                    <p class="btn btn-warn">
+                                        <a href="./smb_msp.html" class="text-decoration-none fw-bold text-white">Learn More>></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 services d-flex align-items-start justify-content-center py-2 px-3 mx-2 mt-3">
+                                <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
+                                    <div class="">
+                                        <img src="./Assets/icons/mpls-icon.svg" width="50" height="50" alt="">
+                                        <h5 class="service-title fw-bold ">Multi-Label Protocol Switching (MPLS)</h5>
+                                        <p class="lato service-text">
+                                            Our cutting-edge solution optimizes data routing, allowing simultaneous handling of multiple labels for enhanced network efficiency and performance.
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <p class="btn btn-warn">
+                                            <a href="./mpls.html" class="text-decoration-none fw-bold text-white">Learn More>></a> 
+                                        </p>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 services d-flex align-items-start justify-content-center py-2 px-3 mx-2 mt-3">
+                                <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
+                                    <div class="">
+                                        <img src="./Assets/icons/google-cloud.svg" width="50" height="50" alt="google-cloud icon">
+                                        <h5 class="service-title fw-bold ">Google Cloud Services</h5>
+                                        <p class="lato service-text">
+                                            At I-world Networks, we are Making cloud-first tech choices to benefit the planet, your people, and your profitability to give you a competitive edge — now and into the future.
+                                        </p>
+                                    </div>
+                                    <div class="align-self-start">
+                                        <p class="btn btn-warn">
+                                            <a href="./Google_Workspace.html" class="text-decoration-none fw-bold text-white">Learn More>></a> 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!-- How it works container -->
+
+    <!-- NGN Google for Education Preview beginning -->
+    <div class="container-fluid ngn-edu-container pt-2 pb-5" id="Nigerian_Google_for_Education_Program">
+        <div class="text-start container">
+            <hr class="hr">
+            <h2 class="fw-bold">Nigeria Google For Education Program</h2>
+            <p>
+                I-World Networks Nigeria Google for Education is an initial 10Million USD investment program in Nigeria Education sector to help K-12 and Higher Institutions develop world class digital learning infrastructure, training, and capacity building to launch their school into world class digital learning center using the Google for Education learning platform. <br>
+            </p>
+            <div class="d-flex align-items-center justify-content-center mb-1">
+                <img src="./Assets/img/ngn_edu_student.png" alt="" class="img-fluid">
+            </div>
+            <p class="fs-6">Nigeria Google for Education Program by I-World Networks is; <br> Supported by <br> Stanbic IBTC, WIOCC <br> Backboned by Google Equiano Subsea Cable  </p>
+            <span class="fw-bold fs-6">Benefits of Becoming a Google for Education Partner School</span>
+            <div class="">
+                <ul class="list-unstyled">
+                    <li>81% of students feel that Google Workspace for Education tools improve their grades and efficiency.</li>
+                    <li>99% of schools confirmed cost reduction in learning content delivered to their students</li>
+                    <li>90% reduction in the cost of digital infrastructure and operation</li>
+                    <li>82% of students confirmed that Chromebook devices allow them to spend more time studying</li>
+                    <li>40% more enrollment in schools with Google Workspace for Education</li>
+                </ul>
+                <hr class="hr">
+            </div>
+        </div>
+    </div>
+    <div class="bg-white pt-4">
+        <div class="container">
+            <h4 class="fw-bold">Project Cost covered by Nigeria Google for Education Program on your campus. </h4>
+            <hr class="hr">
+            <div class=" justify-content-center row my-2">
+                <div class="col-md-3 col-sm-12 border p-4 mx-1 lato fs-6 aboutText bg-white text-start">
+                    <img src="./Assets/icons/ngn-edu-icons/student_icon.svg" width="30" height="30" alt="">
+                    <h5 class="fw-bold">Google for Education Plus</h5>
+                    <p>
+                        The most advanced All-in-One Solution with advanced security and analytics, teaching, and features and more.  
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-12 border p-4  mx-1 lato fs-6 aboutText bg-white text-start">
+                    <img src="./Assets/icons/ngn-edu-icons/study_icon.svg" width="30" height="30" alt="">
+                    <h5 class="fw-bold">Google Digital learning Centre</h5>
+                    <p>
+                        A well-equipped learning center that will train your educators on how to use Google for Education tools to deliver enrich and personalize teaching and learning.  
+                    </p>
+                    </div>
+                <div class="col-md-3 col-sm-12 border p-4 mx-1 lato fs-6 aboutText bg-white text-start">
+                    <img src="./Assets/icons/ngn-edu-icons/student_laptop.svg" width="30" height="30" alt="">
+                    <h5 class="fw-bold">Chromebook for all students</h5>
+                    <p>
+                        The most used digital learning device in the world. Over 50Million + Chromebooks used in classroom across the world.  
+                    </p>
+                </div>
+            </div>
+            <div class="about-list-row1 justify-content-center row ">
+                <div class="col-md-3 col-sm-12 border p-4  mx-1 lato fs-6 aboutText bg-white text-start">
+                    <img src="./Assets/icons/ngn-edu-icons/tools_icon.svg" width="30" height="30" alt="">
+                    <h5 class="fw-bold">World Class campus network and internet infrastructure</h5>
+                    <p>
+                        to support the Google for Education Digital learning Eco system to keep students and educators connected.    
+                    </p>
+                    </div>
+                <div class="col-md-3 col-sm-12 border p-4   mx-1 lato fs-6 aboutText bg-white text-start">
+                    <img src="./Assets/icons/ngn-edu-icons/speed_icon.svg" width="30" height="30" alt="">
+                    <h5 class="fw-bold">High Speed Internet Backbone</h5>
+                    <p>
+                        Via Google Equiano Subsea Cable on bandwidth capacity up to 10Gbps per School to support digital learning ecosystem.   
+                    </p>
+                    </div>
+                <div class="col-md-3 col-sm-12 border p-4   mx-1 lato fs-6 aboutText bg-white text-start">
+                    <img src="./Assets/icons/ngn-edu-icons/handshake_icon.svg" width="30" height="30" alt="">
+                    <h5 class="fw-bold">Google for Education Plus</h5>
+                    <p>
+                        The most advanced All-in-One Solution with advanced security and analytics, teaching, and features and more.  
+                    </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="gray-bg py-3 mt-2">
+        <div class="container">
+            <div class="row my-3 gfe-text w-100 " style="height: 250px;">
+                <div class="col-md-6 col-sm-12">
+                    <div class="fs-5 fw-bold">Helping equip the next generation with future skills. </div>
+                    <p  class="fs-6">
+                        More than 65% of learners will work in Jobs that don't even exist today but may aren't yet developing the problem-solving skills and basic digital competencies they'll need to be prepared for the future. <br> <br> That is why your school need to join the Nigeria Google for Education to enjoy direct investment to upgrade your school to digital learning hub. <br> We are preparing learners with the adaptive skills they need to tackle the future's biggest challenges.  
+                    </p>
+                </div>
+                <div class="col-md-6 col-sm-12 h-100 d-flex align-items-center justify-content-end gfe-inner-text " >
+                    <img src="./Assets/img/ngn-edu-img1.jpg" alt="" width="350" class="img-fluid  gfe-img ">
+                </div>
+            </div>
+            <hr class="hr">
+            <p class="fs-6">
+                <img src="./Assets/img/iwn-google-logo-noBg.png" class="img-fluid" height="40" width="180"  alt="">
+                <br>
+                <span class="fw-bold">2024/2025 application coming soon!</span> For more information call 0906-000-9738
+            </p>
+        </div>
+    </div>
+    
+    <!-- NGN Google for Education Preview ending -->
+
+    <!-- Footer section Beginning -->
+    <footer class=" text-start border pt-5 text-white bg-black">
+        <!-- Grid container -->
+        <div class="container">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row py-5">
+                    <!--Grid column-->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
+            
+                        <ul class="list-unstyled mb-0">
+                        <li class="mt-2">
+                            <a class="text-white" href="./index.html">Home</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./about.html">About Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./careers.html">Careers</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
+                        <ul class="list-unstyled mb-0">
+                            
+                            <li class="mt-2">
+                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Grid column-->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mt-2">
+                                <a class="text-white" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Grid Column -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 703 551 7854</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5560</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5565</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 706 605 3380</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 814 994 5984
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
+                        </a>
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
+                        </a>
+                        <!--Grid column-->
+                        <div class="">
+                            <p class="fw-bold">Sign up for our newsletter</p>
+                            <!-- Email input -->
+                            <div data-mdb-input-init class="form-outline ">
+                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
+                            </div>
+                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                <!--Grid row-->
+                </div>
+            </section>
+        <!-- Section: Links -->
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!--============================== Scripts==================================== -->
+    <!--  Preloader Functionality -->
+    <script>
+        $(document).ready(function() {
+        //Preloader
+        preloaderFadeOutTime = 500;
+        function hidePreloader() {
+        var preloader = $('.spinner-wrapper');
+        preloader.fadeOut(preloaderFadeOutTime);
+        }
+        hidePreloader();
+        });
+    </script>
+    <!--======================== Back to top Button Functionality========================== -->
+    <script>
+        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            BacktoTopBtn.style.display = "block";
+        } else {
+            BacktoTopBtn.style.display = "none";
+        }
+        }
+        function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <!--======================== Back to top Button Functionality========================== -->
+
+    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./Assets/js/app.js"></script>
+    <script src="./Assets/js/dropdown.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="untitled.js"></script>
+
+</body>
+</html>

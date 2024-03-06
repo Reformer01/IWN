@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
+        <meta name="author" content="Armaaneth Esiri">
+        <title>I-World Networks|| Connecting possibilities</title>
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="./Assets/icons/favicon/favicon.ico" type="image/x-icon">
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" href="./Assets/css/style.css">
+        <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="./Assets/css/responsivecss.css">
+    
+        <!-- RECAPTCHA -->
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+
+        <!-- Google Fonts  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <style>
+            .home-internet-header{
+                width: 100%;
+                height: auto;
+            }
+            .home-internet-header .home-internet-header-content{
+                width: 100%;
+                height: 70vh;
+                background: url(./Assets/img/home_internet.jpg) center;
+                background-size: cover;
+            }
+            
+        </style>
+    </head>
+<body class="overflow-x-hidden">
+    <!--======================= Back to top button beginning======================= -->
+    <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M15 20H9v-8H6.16L12 4.16L19.84 12H15z"/>
+        </svg>
+    </button>
+    <!--======================= Back to top button ending======================== -->
+    <!-- Header Beginning -->
+    <div class="home-internet-header">
+        <!-- Navbar beginning -->
+        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Internet Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Google Cloud Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                                <a class="dropdown-item" href="#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.html">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="subscribe-btn ms-auto">
+                        <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Ending of navbar -->
+        <!-- Header content beginning -->
+        <div class="home-internet-header-content "></div>
+        <!-- Ending of Home-internet header -->
+    </div>
+
+    <!-- About Home Internet -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <h4 class=" fs-3 fw-bold">Home Internet</h4>
+            <p class="fs-6 about-us-text">
+                I-World will provide your home and entire family with the most cost-effective high-speed WI-FI Internet. <br> Our Home WI-FI is designed and built for Home Entertainment, Security, 4K Smart TV Streaming without buffering and Gaming. <br>Our Home WI-FI is also optimized for Netflix, ShowMax Amazon Video, YouTube, Apple TV, Spotify, and numerous streaming platforms.  
+            </p>  
+            <hr class="hr">
+            <h4 class=" fs-4 fw-bold">Our Home Internet features. </h4>
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="col-md-3 col-sm-12 services p-4 mt-2">
+                        <div class="service d-flex flex-column align-items-start justify-content-center">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/unlimited.svg" width="50" height="50" alt="">
+                                <h5 class="service-title fw-bold ">Unlimited Data</h5>
+                                <p class=" service-text">
+                                    No Data limit, No throttle, No Dongle and you can connect multiple devices at any time. You can download and stream as you like.  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 services  p-4 mt-2">
+                        <div class="service d-flex flex-column align-items-start justify-content-between h-100">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/smart-home.svg" width="50" height="50" alt="">
+                                <h5 class="service-title fw-bold ">WI-FI Coverage for the Entire Home</h5>
+                                <p class=" service-text">
+                                    We will blanket your entire home with WI-FI coverage so that you can stay connected wherever you are in your Home.  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 services  p-4 mt-2">
+                        <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/couple.svg" width="50" height="50" alt="">
+                                <h5 class="service-title fw-bold ">Senior Citizen Discount</h5>
+                                <p class=" service-text">
+                                    I-World Networks celebrate our senior citizens with 25% discount on all I-World Services including monthly subscription for their home internet service.  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 services p-4 mt-2">
+                        <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/affiliate-marketing.svg" width="50" height="50" alt="google-cloud icon">
+                                <h5 class="service-title fw-bold ">Referral Pay Discount</h5>
+                                <p class=" service-text">
+                                    Every time you refer your friend or family to subscribed to our home internet, you will get the next subscription FREE. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">                        
+                    <div class="col-md-3 col-sm-12 services p-4 mt-2">
+                        <div class="service ">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/vlogger.svg" width="50" height="50" alt="">
+                                <h5 class="service-title fw-bold ">No Buffering for Smart TV and Streaming Devices</h5>
+                                <p class=" service-text">
+                                    Our Home WI-FI is designed and built for streaming and home entertainment. The low latency and high bandwidth optimized for 4K streaming without buffering.  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 services p-4 mt-2">
+                        <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/game-controller.svg" width="50" height="50" alt="">
+                                <h5 class="service-title fw-bold ">Optimized for Gaming  </h5>
+                                <p class=" service-text">
+                                    Are you a gamer?  Our Home Internet is the best choice for home gaming and gaming centers. We will provide you with a dedicated custom plan that will meet your bandwidth demand and provide you with the best gaming experience.  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 services p-4 mt-2">
+                        <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/cctv-camera.svg" width="50" height="50" alt="google-cloud icon">
+                                <h5 class="service-title fw-bold ">Optimized for Home Security  </h5>
+                                <p class=" service-text">
+                                    I-World Home Internet is enabled for all your home security gadget so that you can view and monitor your home and properties anywhere you are in the world with smart security camera, surveillance and alarm system. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 services p-4 mt-2">
+                        <div class="service ">
+                            <div class="">
+                                <img src="./Assets/icons/home_internet_icons/vlogger.svg" width="50" height="50" alt="">
+                                <h5 class="service-title fw-bold ">Travelling and Diasporan Home Internet  </h5>
+                                <p class=" service-text">
+                                    Looking for a cost-effective way to stay connected to your properties and loved ones in Nigeria while living abroad or traveling? Our custom home internet plan provides various speed options whether you're in or out of Nigeria.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataplans -->
+    <div class="container-fluid gray-bg">
+        <div class="dp-section  py-4 container">
+            <h5 class="dataplan-title fw-bold fs-3 text-start">Choose your Preferred Plan</h5>
+            <hr class="hr">
+            <div class="container-fluid mt-4 d-flex flex-column align-items-center">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                        <a href="#home_SRF" id="dp-lite" class="text-decoration">
+                            <div class="card border h-100">
+                                <div class="card-header bg-white w-100">
+                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">H-Lite</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="card-text list-group list-group-flush ps-0">
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦18,275</strong> per month</li>
+                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
+                                        <li class="lato list-group-item px-3">99.8% up-time</li>    
+                                        <li class="lato list-group-item px-3">One-off installation fee</li>    
+                                        <li class="lato list-group-item px-3">No speed throttling</li>
+                                        <li class="lato list-group-item px-3">6x faster than 4G </li>
+                                        <li class="lato list-group-item px-3">Multiple device connectivity</li>
+                                        <li class="lato list-group-item px-3">24/7 Customer Support Service</li>      
+                                        <li class="lato list-group-item px-3">Get your 1st Month Free </li>
+                                        <!-- <li class="lato list-unstyled px-3">Click Here </li> -->
+                                    </ul>
+                                </div>
+                                <div class=" px-3 w-100 mt-2">
+                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <a href="#home_SRF" id="dp-lite" class="text-decoration">
+                            <div class="card border h-100">
+                                <div class="card-header bg-white w-100">
+                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">H-Max</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="card-text list-group list-group-flush ps-0">
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦32,250 </strong> per month</li>
+                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
+                                        <li class="lato list-group-item px-3">99.8% up-time</li>    
+                                        <li class="lato list-group-item px-3">One-off installation fee</li>    
+                                        <li class="lato list-group-item px-3">No speed throttling</li>
+                                        <li class="lato list-group-item px-3">6x faster than 4G </li>
+                                        <li class="lato list-group-item px-3">Multiple device connectivity</li>
+                                        <li class="lato list-group-item px-3">24/7 Customer Support Service</li>      
+                                        <li class="lato list-group-item px-3">Get your 1st Month Free </li>
+                                    </ul>
+                                </div>
+                                <div class=" px-3 w-100 mt-2">
+                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <a href="#home_SRF" id="dp-lite" class="text-decoration">
+                            <div class="card border h-100">
+                                <div class="card-header bg-white w-100">
+                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">H-Pro</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="card-text list-group list-group-flush ps-0">
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦43,000</strong> per month</li>
+                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
+                                        <li class="lato list-group-item px-3">99.8% up-time</li>    
+                                        <li class="lato list-group-item px-3">One-off installation fee</li>    
+                                        <li class="lato list-group-item px-3">No speed throttling</li>
+                                        <li class="lato list-group-item px-3">6x faster than 4G </li>
+                                        <li class="lato list-group-item px-3">Multiple device connectivity</li>
+                                        <li class="lato list-group-item px-3">24/7 Customer Support Service</li>      
+                                        <li class="lato list-group-item px-3">Get your 1st Month Free </li>
+                                        <!-- <li class="lato list-unstyled px-3">Click Here </li> -->
+                                    </ul>
+                                </div>
+                                <div class=" px-3 w-100 mt-2">
+                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <a href="#home_SRF" id="dp-lite" class="text-decoration">
+                            <div class="card border h-100">
+                                <div class="card-header bg-white w-100">
+                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">H-Custom</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="card-text list-group list-group-flush ps-0">
+                                        <li class="lato list-unstyled p-3">Need a <span class="fs-5 fw-bold">Custom</span> Home Plan?</li>
+                                        <li class="lato list-group-item px-3">Tailored to your need only?</li>    
+                                        <li class="lato list-group-item px-3">Are you running a special business?</li>    
+                                        <li class="lato list-group-item px-3">Do you require more block of IPs</li>
+                                        <li class="lato list-group-item px-3">Do you require a bundled service?</li>
+                                        <li class="lato list-group-item px-3">Got a device with high internet demands?</li>
+                                        <li class="lato list-group-item px-3">Whatever your special need?</li>      
+                                        <li class="lato list-group-item px-3">Get a free survey and quote Here</li>
+                                        <!-- <li class="lato list-unstyled px-3">Click Here </li> -->
+                                    </ul>
+                                </div>
+                                <div class=" px-3 w-100">
+                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <!-- dataplans section ending  -->
+
+    <!-- Router -->
+    <div class="container py-3">
+        <h5 class="fw-bold fs-3 text-start">Need an Advance WI-FI Router?  (Optional) </h5>
+        <hr class="hr">
+        <div class="">
+            <div class="row">
+                <div class="col-md">
+                    <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
+                        <img src="./Assets/img/routers/1.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Wall Mount Mesh.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
+                        <img src="./Assets/img/routers/2.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Gaming Router for Gamers</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
+                        <img src="./Assets/img/routers/3.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Tabletop Air Cube WI-FI Router</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md">
+                  <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
+                        <img src="./Assets/img/routers/4.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Mesh Router for bigger homes. </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                  <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
+                        <img src="./Assets/img/routers/5.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Roof Mount Uni-fi WI-FI 6 Access point</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                  <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
+                        <img src="./Assets/img/routers/6.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Power Backup </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataplans differences -->
+    <div class="container-fluid bg-green py-3 mt-5">
+        <div class="container">
+            <h5 class="dataplan-title fw-bold fs-3 text-start">How to choose a Service plan that suits your home and lifestyle? </h5>
+            <hr class="hr">
+            <div class="card-group">
+              <div class="card border">
+                <h5 class="card-header fw-bold">H-Lite</h5>
+                <div class="card-body p-3">
+                  <p class="card-text">Optimized for Streaming and Home Entertainment</p>
+                  <p class="card-text">Ideal for Small Family</p>
+                  <p class="card-text">Connect multiple gadgets</p>
+                  <p class="card-text">Guarantee speed all time</p>
+                  <p class="card-text">Optimized for Home Security real time monitoring</p>
+                  <p class="card-text">Unlimited Data</p>
+                </div>
+              </div>
+              <div class="card border">
+                <h5 class="card-header fw-bold">H-Max (Most Popular)</h5>
+                <div class="card-body p-3">
+                  <p class="card-text">Optimized for Streaming and Home Entertainment</p>
+                  <p class="card-text">Ideal for Small & Medium Sized Family</p>
+                  <p class="card-text">Connect multiple gadgets</p>
+                  <p class="card-text">50% more guaranteed Internet Speed than H-Lite</p>
+                  <p class="card-text">Optimized for Home Security and real time monitoring</p>
+                  <p class="card-text">Unlimited Data</p>
+                </div>
+              </div>
+              <div class="card border">
+                <h5 class="card-header fw-bold">H-Pro</h5>
+                <div class="card-body p-3">
+                  <p class="card-text">Optimized for Streaming, Home Entertainment and Gaming</p>
+                  <p class="card-text">Ideal for all family size, remote workers, and Home Office</p>
+                  <p class="card-text">Connect multiple gadgets</p>
+                  <p class="card-text">100% more guaranteed Internet speed than H-Lite</p>
+                  <p class="card-text">Optimized for Home Security, real time online monitoring and IOT (Internet of Things)</p>
+                  <p class="card-text">Unlimited Data</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guarantee -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+            <h5 class="fw-bold fs-3">Subscribe Now!</h5>
+            <p>Click here to subscribe now & get 30 days subscription FREE!</p>
+            <button class="btn btn-warn"><a href="#home_SRF" class="text-white fs-5">Subscribe Now</a> </button>
+            <p class="mt-3 fw-bold">30 days money back guarantee If you don't like our service, we will refund your money back 100%</p>
+            </div>
+        </div>
+        <!-- Delivery Process -->
+        <div class=" mb-4">
+            <h5 class=" mb-4 fw-bold fs-4">Our Service Delivery Process to Your Home</h5>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                <div class="card border px-3 d-flex align-items-center h-100">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Step 1</h5>
+                    <img src="./Assets/icons/home_internet_icons/service.svg" width="40" height="40" alt="">
+                    <p class="card-text">Complete our Service Request Form</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card border px-3 d-flex align-items-center h-100">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Step 2</h5>
+                    <img src="./Assets/icons/home_internet_icons/surveying.svg" width="40" height="40" alt="">
+                    <p class="card-text">On-site Assessment and Survey</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card border px-3 d-flex align-items-center h-100">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Step 3</h5>
+                    <img src="./Assets/icons/home_internet_icons/technician.svg" width="40" height="40" alt="">
+                    <p class="card-text">Installation & Activation of Home Internet Service</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SRF FORM FOR HOME -->
+    <div class="container-fluid gray-bg" id="home_SRF">
+        <div class="container pt-3 pb-5">
+            <h5 class="fw-bold fs-3">Service Request Form</h5>
+            <hr class="hr">
+            <form>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="home-name" class="form-label ">Name</label>
+                    <input required type="text" class="form-control" id="home-name">
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label ">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="phoneNo" class="form-label ">Phone Number</label>
+                  <input required type="tel" class="form-control" id="phoneNo">
+                </div>
+                <div class="col-md-6">
+                    <label for="whatsapp" class="form-label ">WhatsApp Number</label>
+                    <input required type="tel" class="form-control" id="whatsapp">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md">
+                    <label for="address" class="form-label ">Home Address</label>
+                    <input required type="text" class="form-control" id="address" name="address" required>
+                </div>
+                
+                  <!-- <div class="col-md-6">
+                      <label for="whatsapp" class="form-label ">WhatsApp Number</label>
+                      <input required type="tel" class="form-control" id="whatsapp">
+                  </div> -->
+              </div>
+              <div class="mb-3">
+                <label class="form-label ">Select Plan:</label><br>
+                <div class="">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="plan" id="hlite" value="H-Lite">
+                    <label class="form-check-label" for="hlite">H-Lite</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="plan" id="hmax" value="H-Max">
+                    <label class="form-check-label" for="hmax">H-Max</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="plan" id="hpro" value="H-Pro">
+                    <label class="form-check-label" for="hpro">H-Pro</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="plan" id="hcustom" value="H-Custom">
+                    <label class="form-check-label" for="hcustom">H-Custom</label>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">How best to contact you:</label><br>
+                <div class="">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="contact[]" id="whatsappCheck" value="WhatsApp">
+                    <label class="form-check-label" for="whatsappCheck">WhatsApp</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="contact[]" id="emailCheck" value="Email">
+                    <label class="form-check-label" for="emailCheck">Email</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="contact[]" id="phoneCheck" value="Phone Call">
+                    <label class="form-check-label" for="phoneCheck">Phone Call</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="contact[]" id="smsCheck" value="SMS">
+                    <label class="form-check-label" for="smsCheck">SMS</label>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Best time to contact you:</label><br>
+                <div class="d-flex flex-row">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input me-4" type="checkbox" name="time[]" id="daytimeCheck" value="Daytime">
+                    <label class="form-check-label" for="daytimeCheck">Daytime</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input mx-4" type="checkbox" value="evening" id="evening">
+                    <label class="form-check-label" for="evening">Evening</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input mx-4" type="checkbox" value="anytime" id="anytime">
+                    <label class="form-check-label" for="anytime">Anytime</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input mx-4" type="checkbox" value="weekend" id="weekend">
+                    <label class="form-check-label" for="weekend">Weekend</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-warn px-5 text-uppercase" class="g-recaptcha"  data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit' id="srf-home-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Coverage section beginning -->
+    <div class="coverage container">
+        <div class="coverage-content row align-items-center justify-content-evenly">
+            <div class="coverage-list col-lg-6">
+                <h5 class=" fw-bold fs-3">I-World Home Internet coverage</h5>
+                <ul class="list-unstyled">
+                    <li class="coverage-place my-2  fs-5">Abeokuta</li>
+                    <li class="coverage-place my-2  fs-5">Agbara & Agbara Industrial Estate </li>
+                    <li class="coverage-place my-2  fs-5">Akure</li>
+                    <li class="coverage-place my-2  fs-5">Ibadan</li>
+                    <li class="coverage-place my-2  fs-5">Ibadan - Abeokuta Expressway </li>
+                    <li class="coverage-place my-2  fs-5">Ijebu Ode</li>
+                    <li class="coverage-place my-2  fs-5">Mowe, Ibafo, Magboro & Lagos-Ibadan Expressway </li>
+                    <li class="coverage-place my-2  fs-5">Oshogbo</li>
+                    <li class="coverage-place my-2  fs-5">Sango Ota</li>
+                    <li class="coverage-place my-2  fs-5">Shagamu</li>
+                </ul>
+            </div>
+            <div class="coverage-img col-lg-6">
+                <img src="./Assets/img/Directions-amico.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <!-- Coverage section ending -->
+
+
+
+
+
+
+
+    <!-- Footer section Beginning -->
+    <footer class=" text-start border pt-5 text-white bg-black">
+        <!-- Grid container -->
+        <div class="container">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row py-5">
+                    <!--Grid column-->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
+            
+                        <ul class="list-unstyled mb-0">
+                        <li class="mt-2">
+                            <a class="text-white" href="./index.html">Home</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./about.html">About Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./careers.html">Careers</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
+                        <ul class="list-unstyled mb-0">
+                            
+                            <li class="mt-2">
+                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Grid column-->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mt-2">
+                                <a class="text-white" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Grid Column -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 703 551 7854</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5560</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5565</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 706 605 3380</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 814 994 5984
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
+                        </a>
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
+                        </a>
+                        <!--Grid column-->
+                        <div class="">
+                            <p class="fw-bold">Sign up for our newsletter</p>
+                            <!-- Email input -->
+                            <div data-mdb-input-init class="form-outline ">
+                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
+                            </div>
+                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                <!--Grid row-->
+                </div>
+            </section>
+        <!-- Section: Links -->
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+
+
+
+    <!-- Javascripts -->
+    <!--======================== Back to top Button Functionality========================== -->
+    <script>
+        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            BacktoTopBtn.style.display = "block";
+        } else {
+            BacktoTopBtn.style.display = "none";
+        }
+        }
+        function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <!--======================== Back to top Button Functionality========================== -->
+    <!-- ===============================RECAPTCHA================================= -->
+    <script>
+        function onSubmit(token) {
+            console.log("done");
+            document.getElementById("srf-home-btn").submit();
+        }
+    </script>
+    <!-- ===============================RECAPTCHA================================= -->
+
+    <script src="./Assets/js/accordion.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="./Assets/js/app.js"></script>
+    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./Assets/js/dropdown.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
