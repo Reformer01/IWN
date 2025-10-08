@@ -16,6 +16,9 @@
     <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Toastr Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
 </head>
 <body class="overflow-x-hidden">
     
@@ -176,23 +179,23 @@
             <p class="fs-4 fw-bold">Submit CV /Resume /Portfolio</p>
             <hr class="hr">
             <form>
-                <!-- First Row -->
+                <input type="hidden" name="subject" value="Career Application">
+                <input type="hidden" name="form_source" value="Career Form">
                 <div class="lato row mb-3">
                     <div class="lato col-md-6">
                         <label for="firstName" class="lato form-label">First Name: </label>
-                        <input type="text" class="lato form-control" id="firstName" name="firstName" required>
+                        <input type="text" class="lato form-control" id="firstName" name="first_name" required>
                     </div>
                     <div class="lato col-md-6">
                         <label for="lastName" class="lato form-label">Last Name: </label>
-                        <input type="text" class="lato form-control" id="lastName" name="lastName" required>
+                        <input type="text" class="lato form-control" id="lastName" name="last_name" required>
                     </div>
                 </div>
             
-                <!-- Second Row -->
                 <div class="lato row mb-3">
                     <div class="lato col-md-6">
                         <label for="phoneNo" class="lato form-label">Phone Number</label>
-                        <input type="phoneNo" class="lato form-control" id="phoneNo" name="phoneNo" required>
+                        <input type="phoneNo" class="lato form-control" id="phoneNo" name="phone_number" required>
                     </div>
                     <div class="lato col-md-6">
                         <label for="position" class="lato form-label">Select Position</label>
@@ -205,7 +208,6 @@
                     </div>
                 </div>
 
-                <!-- Third Row -->
                 <div class="lato row mb-3">
                     <div class="lato col-md-6">
                         <label for="email" class="lato form-label">Email Address: </label>
@@ -226,24 +228,22 @@
                             <option value="Shagamu">Shagamu</option>
                         </select>
                     </div>
-                    <!-- <div class="lato col-md-6">
-                        <label for="location" class="lato form-label">Location</label>
-                        <input type="tel" class="lato form-control" id="location" name="location" required>
-                    </div> -->
+                    <div class="lato col-md-6">
+                        <label for="address" class="lato form-label">Address</label>
+                        <input type="text" class="lato form-control" id="address" name="address" required>
+                    </div>
                 </div>
             
-                <!-- File Input Elements -->
                 <div class="lato mb-3">
                     <label for="file2" class="lato form-label">Add Cover Letter</label>
-                    <input type="file" class="lato form-control" id="file2" required name="file2" accept=".pdf" placeholder="Upload Cover Letter">
+                    <input type="file" class="lato form-control" id="file2" required name="cover" accept=".pdf" placeholder="Upload Cover Letter">
                 </div>
             
                 <div class="lato mb-3">
                     <label for="file3" class="lato form-label">Submit CV /Resume/ Portfolio</label>
-                    <input type="file" class="lato form-control" id="file3" name="file3" accept=".doc, .docx" required placeholder="Upload CV">
+                    <input type="file" class="lato form-control" id="file3" name="cv" accept=".doc, .docx" required placeholder="Upload CV">
                 </div>
             
-                <!-- Submit Button -->
                 <div class="mb-4">
                     <button type="submit" class="lato w-auto fw-bold fs-5 btn btn-warn px-5 text-uppercase">Submit</button>
                 </div>
@@ -435,10 +435,14 @@
     <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./Assets/js/app.js"></script>
     <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Toastr Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom Script -->
+    <script src="Assets/js/forms.js"></script>
     
 </body>
 </html>

@@ -119,11 +119,17 @@
 /* CSS for medium devices (desktops) */
 @media (min-width: 768px) and (max-width: 991.98px) {
     /* Your CSS styles here */
+    .gfe-text{
+        height: auto !important;
+    }
 }
 
 /* CSS for large devices (desktops) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     /* Your CSS styles here */
+    .gfe-text{
+        height: auto !important;
+    }
 }
 
 /* CSS for extra large devices (large desktops) */

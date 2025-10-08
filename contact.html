@@ -17,7 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+        <!-- Toastr Css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     </head> 
 <body class="overflow-x-hidden">
@@ -91,23 +92,28 @@
     <div class="pt-5 contact-form gray-bg">
         <div class="container">
             <h2 class="fw-bold">Contact Form</h2>
+            <hr class="hr">
             <p class="lato">Our dedicated customer support team is available 24/7 to address any inquiries, technical issues, or general assistance you may require.</p>
+            <!-- <div data-paperform-id="yunj8juk"></div>
+            <script>(function() {var script = document.createElement('script'); script.src = "https://paperform.co/__embed.min.js"; document.body.appendChild(script); })()</script> -->
             <form> 
+                <input type="hidden" name="subject" value="Support Contact">
+                <input type="hidden" name="form_source" value="Contact Form">
                 <div class="row my-2">
                     <div class="col-md-6 col-12">
                         <label class="lato" for="customer-name">Name:</label>
-                        <input type="text" class="form-control lato" id="customer-name" required placeholder="Enter Full Name">
+                        <input type="text" class="form-control lato" name="name" id="customer-name" required placeholder="Enter Full Name">
                     </div>
     
                     <div class="col-md-6 col-12">
                         <label class="lato" for="customer-email">Email:</label>
-                        <input type="email" class="form-control lato" id="customer-email" required placeholder="Enter Valid Email Address">
+                        <input type="email" class="form-control lato" name="email" id="customer-email" required placeholder="Enter Valid Email Address">
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col">
                         <label class="lato" for="customer-message">Message:</label>
-                        <textarea class="form-control lato" id="customer-message" rows="4" required placeholder="Enter Comment or Message"></textarea>
+                        <textarea class="form-control lato" id="customer-message" name="message" rows="4" required placeholder="Enter Comment or Message"></textarea>
                     </div>
                 </div>
                 <div class="">
@@ -266,10 +272,15 @@
         }
     </script>
     <!--======================== Back to top Button Functionality========================== -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./Assets/js/accordion.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./Assets/js/app.js"></script>
+    <!-- Toastr Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom Script -->
+    <script src="Assets/js/forms.js"></script>
 
 </body>
 </html>

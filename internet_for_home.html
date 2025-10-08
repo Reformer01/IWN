@@ -20,6 +20,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+        <!-- Toastr Css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
         <style>
             .home-internet-header{
                 width: 100%;
@@ -250,7 +253,7 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦32,250 </strong> per month</li>
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦26,875 </strong> per month</li>
                                         <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
                                         <li class="lato list-group-item px-3">99.8% up-time</li>    
                                         <li class="lato list-group-item px-3">One-off installation fee</li>    
@@ -275,7 +278,7 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦43,000</strong> per month</li>
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦32,250</strong> per month</li>
                                         <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
                                         <li class="lato list-group-item px-3">99.8% up-time</li>    
                                         <li class="lato list-group-item px-3">One-off installation fee</li>    
@@ -477,14 +480,16 @@
 
     <!-- SRF FORM FOR HOME -->
     <div class="container-fluid gray-bg" id="home_SRF">
-        <div class="container pt-3 pb-5">
+        <div class="container py-4">
             <h5 class="fw-bold fs-3">Service Request Form</h5>
             <hr class="hr">
             <form>
+                <input type="hidden" name="subject" value="IP Order Service Request">
+                <input type="hidden" name="request_source" value="Internet for Home">
               <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="home-name" class="form-label ">Name</label>
-                    <input required type="text" class="form-control" id="home-name">
+                    <input type="text" name="name" class="form-control" id="home-name" required>
                 </div>
                 <div class="col-md-6">
                     <label for="email" class="form-label ">Email Address</label>
@@ -494,23 +499,23 @@
               <div class="row mb-3">
                 <div class="col-md-6">
                   <label for="phoneNo" class="form-label ">Phone Number</label>
-                  <input required type="tel" class="form-control" id="phoneNo">
+                  <input required type="tel" name="phone_number" class="form-control" id="phoneNo">
                 </div>
                 <div class="col-md-6">
-                    <label for="whatsapp" class="form-label ">WhatsApp Number</label>
-                    <input required type="tel" class="form-control" id="whatsapp">
+                    <label for="alt-phone" class="form-label ">Alternate Phone Number</label>
+                    <input required type="tel" name="alternate_phone_number" class="form-control" id="alt-phone">
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-md">
                     <label for="address" class="form-label ">Home Address</label>
-                    <input required type="text" class="form-control" id="address" name="address" required>
+                    <input required type="text" class="form-control" id="address" name="home_address" required>
                 </div>
                 
-                  <!-- <div class="col-md-6">
-                      <label for="whatsapp" class="form-label ">WhatsApp Number</label>
-                      <input required type="tel" class="form-control" id="whatsapp">
-                  </div> -->
+                <div class="col-md-6">
+                    <label for="whatsapp" class="form-label ">WhatsApp Number</label>
+                    <input required type="tel" name="whatsapp_number" class="form-control" id="whatsapp">
+                </div>
               </div>
               <div class="mb-3">
                 <label class="form-label ">Select Plan:</label><br>
@@ -558,19 +563,19 @@
                 <label class="form-label">Best time to contact you:</label><br>
                 <div class="d-flex flex-row">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input me-4" type="checkbox" name="time[]" id="daytimeCheck" value="Daytime">
+                    <input class="form-check-input me-4" type="checkbox" name="contact_time[]" id="daytimeCheck" value="Daytime">
                     <label class="form-check-label" for="daytimeCheck">Daytime</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input mx-4" type="checkbox" value="evening" id="evening">
+                    <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Evening" id="evening">
                     <label class="form-check-label" for="evening">Evening</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input mx-4" type="checkbox" value="anytime" id="anytime">
+                    <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Anytime" id="anytime">
                     <label class="form-check-label" for="anytime">Anytime</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input mx-4" type="checkbox" value="weekend" id="weekend">
+                    <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Weekend" id="weekend">
                     <label class="form-check-label" for="weekend">Weekend</label>
                   </div>
                 </div>
@@ -779,9 +784,13 @@
     <script src="./Assets/js/app.js"></script>
     <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Toastr Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom Script -->
+    <script src="Assets/js/forms.js"></script>
 </body>
 </html>

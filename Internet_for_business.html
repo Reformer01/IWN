@@ -15,6 +15,8 @@
     <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Toastr Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 <body class="overflow-x-hidden">
     <!--======================= Back to top button beginning======================= -->
@@ -57,7 +59,7 @@
                                 Google Cloud Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
                                 <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
                                 <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
                             </div>
@@ -405,39 +407,41 @@
             </section>
         </div>
     </div>
-
     <!-- Section ending -->
 
     <!-- Business SRF Beginning -->
     <div class="container-fluid gray-bg pt-3" id="business_SRF">
-        <div class="container pt-3 pb-5">
+        <div class="container">
             <h5 class="fw-bold fs-3">Service Request Form</h5>
             <hr class="hr">
+            
             <form>
+                <input type="hidden" name="subject" value="IP Order Service Request">
+                <input type="hidden" name="request_source" value="Internet for Business">
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="business-name" class="form-label ">Business Name</label>
-                        <input required type="text" class="form-control" id="business-name">
+                        <input required type="text" class="form-control" id="business-name" name="business_name">
                     </div>
                     <div class="col-md-6">
                         <label for="business-address" class="form-label ">Business Address</label>
-                        <input required type="text" class="form-control" id="business-address" name="business-address" required>
+                        <input required type="text" class="form-control" id="business-address" name="business_address" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="business-phoneNo" class="form-label ">Business Phone Number</label>
-                    <input required type="tel" class="form-control" id="business-phoneNo">
+                    <input required type="tel" class="form-control" id="business-phoneNo" name="business_phone_number">
                 </div>
                 <div class="col-md-6">
                     <label for="business-whatsapp" class="form-label ">Business WhatsApp Number</label>
-                    <input required type="tel" class="form-control" id="business-whatsapp">
+                    <input required type="tel" class="form-control" id="business-whatsapp" name="business_whatsapp_number">
                 </div>
                 </div>
                 <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="business-email" class="form-label ">Business Email Address</label>
-                    <input type="email" class="form-control" id="business-email" name="business-email" required>
+                    <input type="email" class="form-control" id="business-email" name="business_email" required>
                 </div>
                 <div class="col-md-6">
                     <div class="">
@@ -492,19 +496,19 @@
                             <label class="form-label">Best time to contact you:</label><br>
                             <div class="d-flex flex-row">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input me-4" type="checkbox" name="time[]" id="daytimeCheck" value="Daytime">
+                                <input class="form-check-input me-4" type="checkbox" name="contact_time[]" id="daytimeCheck" value="Daytime">
                                 <label class="form-check-label" for="daytimeCheck">Day</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" value="evening" id="evening">
+                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Evening" id="evening">
                                 <label class="form-check-label" for="evening">Evening</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" value="anytime" id="anytime">
+                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Anytime" id="anytime">
                                 <label class="form-check-label" for="anytime">Anytime</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" value="weekend" id="weekend">
+                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Weekend" id="weekend">
                                 <label class="form-check-label" for="weekend">Weekend</label>
                             </div>
                             </div>
@@ -695,9 +699,13 @@
     <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./Assets/js/app.js"></script>
     <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Toastr Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom Script -->
+    <script src="Assets/js/forms.js"></script>
 </body>
 </html>
