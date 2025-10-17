@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WSHR85KZCD');
+</script>
+        
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
         <meta name="author" content="Armaaneth Esiri">
-        <title>I-World Networks|| Connecting possibilities</title>
+        <title>I-World Networks|| Home Internet</title>
         <!-- FAVICON -->
         <link rel="shortcut icon" href="./Assets/icons/favicon/favicon.ico" type="image/x-icon">
+        
         <!-- STYLESHEETS -->
         <link rel="stylesheet" href="./Assets/css/style.css">
         <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-    
-        <!-- RECAPTCHA -->
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-
-        <!-- Google Fonts  -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
         <!-- Toastr Css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
@@ -38,6 +43,8 @@
         </style>
     </head>
 <body class="overflow-x-hidden">
+    
+
     <!--======================= Back to top button beginning======================= -->
     <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
@@ -78,7 +85,7 @@
                                 Google Cloud Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
                                 <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
                                 <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
                             </div>
@@ -92,6 +99,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./contact.html">Contact Us</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://app.iwn.ng/login">Client Zone</a>   
+                        </li>
                     </ul>
                     <div class="subscribe-btn ms-auto">
                         <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
@@ -104,6 +114,60 @@
         <div class="home-internet-header-content "></div>
         <!-- Ending of Home-internet header -->
     </div>
+
+    <!-- Client Zone Widget - Add this before the closing </body> tag on all pages -->
+<div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+      <div class="widget-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
+          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        <span>Client Zone</span>
+      </div>
+    </a>
+  </div>
+  
+  <style>
+    .client-zone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F58C29; /* IWN Orange from brand colors */
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    
+    .client-zone-btn:hover {
+      background-color: #FF6600; /* IWN darker Orange from brand colors */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      #client-zone-widget {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .client-zone-btn {
+        padding: 10px 16px;
+      }
+    }
+  </style>
+  
+
 
     <!-- About Home Internet -->
     <div class="container-fluid py-5">
@@ -214,7 +278,7 @@
     <!-- Dataplans -->
     <div class="container-fluid gray-bg">
         <div class="dp-section  py-4 container">
-            <h5 class="dataplan-title fw-bold fs-3 text-start">Choose your Preferred Plan</h5>
+            <h5 class="dataplan-title fw-bold fs-3 text-start">Choose your Shared Access Plan for Home</h5>
             <hr class="hr">
             <div class="container-fluid mt-4 d-flex flex-column align-items-center">
                 <div class="row">
@@ -226,8 +290,9 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦18,275</strong> per month</li>
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦27,500</strong> per month</li>
                                         <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
+                                        <li class="lato list-group-item px-3">Up to 20mbps</li>    
                                         <li class="lato list-group-item px-3">99.8% up-time</li>    
                                         <li class="lato list-group-item px-3">One-off installation fee</li>    
                                         <li class="lato list-group-item px-3">No speed throttling</li>
@@ -253,8 +318,9 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦26,875 </strong> per month</li>
-                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦36,500 </strong> per month</li>
+                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>
+                                        <li class="lato list-group-item px-3">Up to 20mbps</li>    
                                         <li class="lato list-group-item px-3">99.8% up-time</li>    
                                         <li class="lato list-group-item px-3">One-off installation fee</li>    
                                         <li class="lato list-group-item px-3">No speed throttling</li>
@@ -278,8 +344,9 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦32,250</strong> per month</li>
-                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>    
+                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦43,500</strong> per month</li>
+                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>
+                                        <li class="lato list-group-item px-3">Up to 20mbps</li>
                                         <li class="lato list-group-item px-3">99.8% up-time</li>    
                                         <li class="lato list-group-item px-3">One-off installation fee</li>    
                                         <li class="lato list-group-item px-3">No speed throttling</li>
@@ -327,67 +394,108 @@
               </div>
         </div>
     </div>
-    <!-- dataplans section ending  -->
 
-    <!-- Router -->
-    <div class="container py-3">
-        <h5 class="fw-bold fs-3 text-start">Need an Advance WI-FI Router?  (Optional) </h5>
-        <hr class="hr">
-        <div class="">
-            <div class="row">
-                <div class="col-md">
-                    <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
-                        <img src="./Assets/img/routers/1.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
-                        <div class="card-body mt-3">
-                            <h5 class="card-title">Wall Mount Mesh.</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
-                        <img src="./Assets/img/routers/2.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
-                        <div class="card-body mt-3">
-                            <h5 class="card-title">Gaming Router for Gamers</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
-                        <img src="./Assets/img/routers/3.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
-                        <div class="card-body mt-3">
-                            <h5 class="card-title">Tabletop Air Cube WI-FI Router</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md">
-                  <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
-                        <img src="./Assets/img/routers/4.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
-                        <div class="card-body mt-3">
-                            <h5 class="card-title">Mesh Router for bigger homes. </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                  <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
-                        <img src="./Assets/img/routers/5.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
-                        <div class="card-body mt-3">
-                            <h5 class="card-title">Roof Mount Uni-fi WI-FI 6 Access point</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                  <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">
-                        <img src="./Assets/img/routers/6.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">
-                        <div class="card-body mt-3">
-                            <h5 class="card-title">Power Backup </h5>
-                        </div>
-                    </div>
+        <!-- Guarantee -->
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                <h5 class="fw-bold fs-3">Exclusive Discounts for Our Valued Customers</h5>
+                <p>Discover how loyalty pays with I-World Networks' premium discount programs.</p>
+                <button class="btn btn-warn"><a href="https://iwn.ng/Loyalty_&_Discounts.html#" class="text-white fs-5">Click to view discounts</a> </button>
+                <p class="mt-3 fw-bold">Terms and conditions apply.</p>
                 </div>
             </div>
         </div>
+            
+    <!-- dataplans section ending  -->
+
+    <!-- Router -->
+    <!--<div class="container py-3">-->
+    <!--    <h5 class="fw-bold fs-3 text-start">Need an Advance WI-FI Router?  (Optional) </h5>-->
+    <!--    <hr class="hr">-->
+    <!--    <div class="">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-md">-->
+    <!--                <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">-->
+    <!--                    <img src="./Assets/img/routers/1.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">-->
+    <!--                    <div class="card-body mt-3">-->
+    <!--                        <h5 class="card-title">Wall Mount Mesh.</h5>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md">-->
+    <!--                <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">-->
+    <!--                    <img src="./Assets/img/routers/D-Link.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">-->
+    <!--                    <div class="card-body mt-3">-->
+    <!--                        <h5 class="card-title">D-Link Router</h5>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md">-->
+    <!--                <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">-->
+    <!--                    <img src="./Assets/img/routers/3.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">-->
+    <!--                    <div class="card-body mt-3">-->
+    <!--                        <h5 class="card-title">Tabletop Air Cube WI-FI Router</h5>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="row mt-3">-->
+    <!--            <div class="col-md">-->
+    <!--              <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">-->
+    <!--                    <img src="./Assets/img/routers/TP-Link.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">-->
+    <!--                    <div class="card-body mt-3">-->
+    <!--                        <h5 class="card-title">TP-Link Router. </h5>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md">-->
+    <!--              <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">-->
+    <!--                    <img src="./Assets/img/routers/5.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">-->
+    <!--                    <div class="card-body mt-3">-->
+    <!--                        <h5 class="card-title">Roof Mount Uni-fi WI-FI 6 Access point</h5>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md">-->
+    <!--              <div class="card py-3 px-2 border d-flex flex-column align-items-center justify-content-center ">-->
+    <!--                    <img src="./Assets/img/routers/6.jpg" width="200" class="card-img-top object-fit-cover " alt="Router 1">-->
+    <!--                    <div class="card-body mt-3">-->
+    <!--                        <h5 class="card-title">Power Backup </h5>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+
+    <!-- Popup JavaScript 
+    <script>
+        function openPopup() {
+            document.getElementById("popupOverlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popupOverlay").style.display = "none";
+        }
+    </script>-->
+</body>
+<body class="overflow-x-hidden">
+
+
+    <!-- Popup HTML 
+<div class="popup-overlay" id="popupOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000;">
+    <div class="popup-content" style="position: relative; width: 80%; max-width: 800px; background: white; padding: 20px; border-radius: 10px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <button class="close-popup" onclick="closePopup()" style="position: absolute; right: 10px; top: 10px; font-size: 30px; background: #ff0000; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">×</button>
+        <img src="./Assets/img/Promo.jpg" alt="Promotional Flyer" class="popup-image" style="width: 100%; height: auto;">
     </div>
+</div> -->
+
+
+
+
+
 
     <!-- Dataplans differences -->
     <div class="container-fluid bg-green py-3 mt-5">
@@ -480,16 +588,14 @@
 
     <!-- SRF FORM FOR HOME -->
     <div class="container-fluid gray-bg" id="home_SRF">
-        <div class="container py-4">
+        <div class="container pt-3 pb-5">
             <h5 class="fw-bold fs-3">Service Request Form</h5>
             <hr class="hr">
             <form>
-                <input type="hidden" name="subject" value="IP Order Service Request">
-                <input type="hidden" name="request_source" value="Internet for Home">
               <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="home-name" class="form-label ">Name</label>
-                    <input type="text" name="name" class="form-control" id="home-name" required>
+                    <input required type="text" class="form-control" id="home-name">
                 </div>
                 <div class="col-md-6">
                     <label for="email" class="form-label ">Email Address</label>
@@ -499,23 +605,23 @@
               <div class="row mb-3">
                 <div class="col-md-6">
                   <label for="phoneNo" class="form-label ">Phone Number</label>
-                  <input required type="tel" name="phone_number" class="form-control" id="phoneNo">
+                  <input required type="tel" class="form-control" id="phoneNo">
                 </div>
                 <div class="col-md-6">
-                    <label for="alt-phone" class="form-label ">Alternate Phone Number</label>
-                    <input required type="tel" name="alternate_phone_number" class="form-control" id="alt-phone">
+                    <label for="whatsapp" class="form-label ">WhatsApp Number</label>
+                    <input required type="tel" class="form-control" id="whatsapp">
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-md">
                     <label for="address" class="form-label ">Home Address</label>
-                    <input required type="text" class="form-control" id="address" name="home_address" required>
+                    <input required type="text" class="form-control" id="address" name="address" required>
                 </div>
                 
-                <div class="col-md-6">
-                    <label for="whatsapp" class="form-label ">WhatsApp Number</label>
-                    <input required type="tel" name="whatsapp_number" class="form-control" id="whatsapp">
-                </div>
+                  <!-- <div class="col-md-6">
+                      <label for="whatsapp" class="form-label ">WhatsApp Number</label>
+                      <input required type="tel" class="form-control" id="whatsapp">
+                  </div> -->
               </div>
               <div class="mb-3">
                 <label class="form-label ">Select Plan:</label><br>
@@ -563,19 +669,19 @@
                 <label class="form-label">Best time to contact you:</label><br>
                 <div class="d-flex flex-row">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input me-4" type="checkbox" name="contact_time[]" id="daytimeCheck" value="Daytime">
+                    <input class="form-check-input me-4" type="checkbox" name="time[]" id="daytimeCheck" value="Daytime">
                     <label class="form-check-label" for="daytimeCheck">Daytime</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Evening" id="evening">
+                    <input class="form-check-input mx-4" type="checkbox" value="evening" id="evening">
                     <label class="form-check-label" for="evening">Evening</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Anytime" id="anytime">
+                    <input class="form-check-input mx-4" type="checkbox" value="anytime" id="anytime">
                     <label class="form-check-label" for="anytime">Anytime</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Weekend" id="weekend">
+                    <input class="form-check-input mx-4" type="checkbox" value="weekend" id="weekend">
                     <label class="form-check-label" for="weekend">Weekend</label>
                   </div>
                 </div>
@@ -596,6 +702,7 @@
                     <li class="coverage-place my-2  fs-5">Akure</li>
                     <li class="coverage-place my-2  fs-5">Ibadan</li>
                     <li class="coverage-place my-2  fs-5">Ibadan - Abeokuta Expressway </li>
+                    <li class="coverage-place my-2  fs-5">Lagos - Abeokuta Expressway </li>
                     <li class="coverage-place my-2  fs-5">Ijebu Ode</li>
                     <li class="coverage-place my-2  fs-5">Mowe, Ibafo, Magboro & Lagos-Ibadan Expressway </li>
                     <li class="coverage-place my-2  fs-5">Oshogbo</li>
@@ -609,6 +716,62 @@
         </div>
     </div>
     <!-- Coverage section ending -->
+
+
+
+    <!-- Client Zone Widget - Add this before the closing </body> tag on all pages -->
+<div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+      <div class="widget-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
+          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        <span>Client Zone</span>
+      </div>
+    </a>
+  </div>
+  
+  <style>
+    .client-zone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F58C29; /* IWN Orange from brand colors */
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    
+    .client-zone-btn:hover {
+      background-color: #FF6600; /* IWN darker Orange from brand colors */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      #client-zone-widget {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .client-zone-btn {
+        padding: 10px 16px;
+      }
+    }
+  </style>
+  
+
 
 
 
@@ -641,7 +804,9 @@
                         <li class="mt-2">
                             <a class="text-white" href="./careers.html">Careers</a>
                         </li>
-                        
+                        <li class="mt-2">
+                            <a class="text-white" target="_blank" href="https://app.iwn.ng/login">Client zone</a>
+                        </li>
                         </ul>
                     </div>
                     <!--Grid column-->
@@ -666,7 +831,7 @@
                         <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
                         <ul class="list-unstyled mb-0">
                             <li class="mt-2">
-                                <a class="text-white" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education</a>
+                                <a class="text-white" href="./NGFEP.html">Nigeria Google for Education</a>
                             </li>
                             <li class="mt-2">
                                 <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
@@ -683,7 +848,7 @@
                         <ul class="list-unstyled mb-0">
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 703 551 7854</a>
+                                <a class="text-white" href="#">+234 903 984 4309</a>
                             </li>
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
@@ -742,7 +907,7 @@
         </div>
         <!-- Copyright -->
         <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        © 2024 Copyright:
+        © 2025 Copyright:
         <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
         </div>
         <!-- Copyright -->
@@ -784,13 +949,24 @@
     <script src="./Assets/js/app.js"></script>
     <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Toastr Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <!-- Custom Script -->
-    <script src="Assets/js/forms.js"></script>
+    <script src="Assets/js/popup.js"></script>
+    
+        <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>

@@ -20,18 +20,20 @@ $(function(){
             contentType: false,
         })
         .done(function(data){
+            console.log('Server response:', data);
+            console.log('Response type:', typeof data);
             if (data.status === true) {
-                toastr.success(data.message, "Oops...", {"timeOut": "3000"});
+                toastr.success(data.message, "Success");
                 setTimeout(() => {
                     location.href = 'confirmation.html';
-                }, 3e3);
-                
+                }, 3000);
             } else {
-                toastr.error(data.message, "Oops...");
-                
+                toastr.error(data.message, "Error");
+                console.log('Status was false:', data);
             }
-        }).fail(function () {
-            toastr.error("Sorry, we could not proceed with your request.", "Oops...");
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.log('Ajax error:', textStatus, errorThrown);
+            toastr.error("Sorry, we could not proceed with your request.", "Error");
         });
     })
 })

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WSHR85KZCD');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply for jobs at I-World Networks, a leading connectivity service provider in Nigeria.">
+  <meta name="author" content="Armaaneth Esiri">
+  <title>I-World Networks | Job Application</title>
+  <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./Assets/css/style.css">
+  <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./Assets/css/responsivecss.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <style>
+    .client-zone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F58C29;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    .client-zone-btn:hover {
+      background-color: #FF6600;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      #client-zone-widget { bottom: 20px; right: 20px; }
+      .client-zone-btn { padding: 10px 16px; }
+    }
+    .step { display: none; }
+    .step.active { display: block; }
+    .form-section { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px; }
+    .step-indicator { display: flex; justify-content: space-between; margin-bottom: 24px; }
+    .step-indicator .circle { width: 32px; height: 32px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .step-indicator .circle.active { background: #F58C29; color: #fff; }
+    .step-indicator .circle.done { background: #28a745; color: #fff; }
+    .hero-section {
+      background: linear-gradient(90deg, #f8fafc 60%, #F58C29 100%);
+      padding: 48px 0 24px 0;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .hero-section h1 { font-size: 2.5rem; font-weight: bold; color: #222; }
+    .hero-section p { font-size: 1.2rem; color: #444; }
+    .why-work-section {
+      background: #f8fafc;
+      border-radius: 8px;
+      margin: 32px auto 24px auto;
+      max-width: 700px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .why-work-section h3 { color: #F58C29; font-weight: bold; }
+    .why-work-section ul { margin-top: 16px; }
+    .why-work-section li { margin-bottom: 10px; font-size: 1.08rem; }
+    #BacktoTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #F58C29;
+      color: white;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    #BacktoTopBtn:hover { background-color: #FF6600; }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-light">
+  <!-- Back to top Button -->
+  <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 20H9v-8H4.16L12 4.16L19.84 12H15z"/></svg>
+  </button>
+  <!-- Header Beginning -->
+  <div class="career-header">
+    <!-- Navbar beginning -->
+    <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internet Services</a>
+              <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Google Cloud Services</a>
+              <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
+                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="./msp.html">Managed IT Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
+            <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="./Loyalty_&_Discounts.html" target="_blank">Loyalty and Discounts</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a></li>
+          </ul>
+          <div class="subscribe-btn ms-auto">
+            <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Ending of navbar -->
+    <div class="career-header-content py-5"></div>
+  </div>
+  <!-- End of Header -->
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Apply for Your Next Career Opportunity</h1>
+    <p>Join I-World Networks and help us connect Nigeria to the world. We value innovation, teamwork, and growth.</p>
+  </section>
+  <!-- Why Work With Us Section -->
+  <section class="why-work-section">
+    <h3>Why Work With Us?</h3>
+    <ul>
+      <li>Be part of a fast-growing, innovative tech company</li>
+      <li>Collaborative and supportive work environment</li>
+      <li>Opportunities for professional growth and training</li>
+      <li>Competitive salary and benefits</li>
+      <li>Make a real impact in the connectivity industry</li>
+    </ul>
+  </section>
+  <!-- Application Form Section -->
+  <div class="container py-5">
+    <div class="form-section">
+      <h2 class="mb-4 text-center">Job Application</h2>
+      <div class="step-indicator mb-4">
+        <div class="circle step1">1</div>
+        <div class="circle step2">2</div>
+        <div class="circle step3">3</div>
+        <div class="circle step4">4</div>
+      </div>
+      <form id="jobAppForm" enctype="multipart/form-data" novalidate>
+        <!-- Step 1: Basic Info -->
+        <div class="step step-1 active">
+          <div class="mb-3">
+            <label class="form-label">Job Title</label>
+            <input type="text" class="form-control" id="jobTitle" name="job_title" readonly required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="full_name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phone" required>
+          </div>
+        </div>
+        <!-- Step 2: Preset Questions -->
+        <div class="step step-2">
+          <div class="mb-3">
+            <label class="form-label">Why are you interested in this position?</label>
+            <textarea class="form-control" name="why_interested" required></textarea>
+          </div>
+          <!-- Job Experience Section -->
+          <div class="mb-3">
+            <label class="form-label">Relevant Job Experience</label>
+            <div id="experience-list"></div>
+            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-experience">Add Experience</button>
+          </div>
+          <!-- Education Section -->
+          <div class="mb-3">
+            <label class="form-label">Educational Background</label>
+            <div id="education-list"></div>
+            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-education">Add Education</button>
+          </div>
+          <!-- Certificates Section -->
+          <div class="mb-3">
+            <label class="form-label">Certificates (Professional or Otherwise)</label>
+            <div id="certificate-list"></div>
+            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-certificate">Add Certificate</button>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">When can you start?</label>
+            <input type="date" class="form-control" name="start_date" required>
+          </div>
+        </div>
+        <!-- Step 3: File Uploads -->
+        <div class="step step-3">
+          <div class="mb-3">
+            <label class="form-label">Upload CV/Resume (.doc, .docx, .pdf)</label>
+            <input type="file" class="form-control" name="cv" accept=".doc,.docx,.pdf" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Upload Cover Letter (.pdf)</label>
+            <input type="file" class="form-control" name="cover_letter" accept=".pdf" required>
+          </div>
+        </div>
+        <!-- Step 4: Review & Submit -->
+        <div class="step step-4">
+          <h5>Review your application</h5>
+          <ul class="list-group mb-3" id="reviewList"></ul>
+        </div>
+        <input type="hidden" name="subject" value="Career Application">
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary" id="prevBtn" style="display:none">Previous</button>
+          <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+          <button type="submit" class="btn btn-success" id="submitBtn" style="display:none">Submit Application</button>
+        </div>
+      </form>
+      <div class="alert mt-4 d-none" id="formAlert"></div>
+    </div>
+  </div>
+  <!-- Footer section Beginning -->
+  <footer class=" text-start border pt-5 text-white bg-black">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row py-5">
+          <!--Grid column-->
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
+            <ul class="list-unstyled mb-0">
+              <li class="mt-2"><a class="text-white" href="./index.html">Home</a></li>
+              <li class="mt-2"><a class="text-white" href="./about.html">About Us</a></li>
+              <li class="mt-2"><a class="text-white" href="./contact.html">Contact Us</a></li>
+              <li class="mt-2"><a class="text-white" href="./careers.html">Careers</a></li>
+              <li class="mt-2"><a class="text-white" href="ClientZone.html">Client zone</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
+            <ul class="list-unstyled mb-0">
+              <li class="mt-2"><a class="text-white" href="./internet_for_home.html">Internet for Home</a></li>
+              <li class="mt-2"><a class="text-white" href="./Internet_for_business.html">Internet for Business</a></li>
+              <li class="mt-2"><a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
+            <ul class="list-unstyled mb-0">
+              <li class="mt-2"><a class="text-white" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education</a></li>
+              <li class="mt-2"><a class="text-white" href="./Google_Workspace.html">Google Workspace</a></li>
+              <li class="mt-2"><a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
+            <ul class="list-unstyled mb-0">
+              <li class=""><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 903 984 4309</a></li>
+              <li class=""><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 807 767 5560</a></li>
+              <li class=""><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 807 767 5565</a></li>
+              <li class=""><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 706 605 3380</a></li>
+              <li class=""><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 814 994 5984</a></li>
+            </ul>
+          </div>>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <!-- Facebook -->
+            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="https://www.facebook.com/iworldnetworksltd/" role="button">...</a>
+            <!-- Twitter -->
+            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="https://twitter.com/iworldnetworks" role="button">...</a>
+            <!-- Instagram -->
+            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="https://www.instagram.com/iworldnetworks/" role="button">...</a>
+            <!-- LinkedIn -->
+            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="https://ng.linkedin.com/company/iworldnetworksnigeria" role="button">...</a>
+            <div class="">
+              <p class="fw-bold">Sign up for our newsletter</p>
+              <div data-mdb-input-init class="form-outline ">
+                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
+              </div>
+              <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
+      © 2025 Copyright:
+      <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
+    </div>
+  </footer>
+  <!-- Footer section ending -->
+  <!-- Client Zone Widget -->
+  <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+      <div class="widget-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
+          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        <span>Client Zone</span>
+      </div>
+    </a>
+  </div>
+  <!-- Scripts -->
+  <script>
+    function dropdownFunction() {
+      document.getElementById("CoverageDropdown").classList.toggle("show");
+    }
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    let BacktoTopBtn = document.getElementById("BacktoTopBtn");
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        BacktoTopBtn.style.display = "block";
+      } else {
+        BacktoTopBtn.style.display = "none";
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="./Assets/js/app.js"></script>
+  <script src="./Assets/js/dropdown.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="Assets/js/forms.js"></script>
+  <script src="Assets/js/career-form.js"></script>
+  <!-- Tawk.to Script -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Job title from URL
+  function getJobTitleFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('job') || '';
+  }
+  var jobTitleInput = document.getElementById('jobTitle');
+  if (jobTitleInput) {
+    jobTitleInput.value = getJobTitleFromURL();
+  }
+
+  // Multi-step logic
+  let currentStep = 1;
+  const totalSteps = 4;
+  const steps = document.querySelectorAll('.step');
+  const stepCircles = [
+    document.querySelector('.step1'),
+    document.querySelector('.step2'),
+    document.querySelector('.step3'),
+    document.querySelector('.step4')
+  ];
+  function showStep(step) {
+    steps.forEach((el, idx) => {
+      el.classList.toggle('active', idx === step - 1);
+      stepCircles[idx].classList.remove('active', 'done');
+      if (idx < step - 1) stepCircles[idx].classList.add('done');
+      else if (idx === step - 1) stepCircles[idx].classList.add('active');
+    });
+    document.getElementById('prevBtn').style.display = step === 1 ? 'none' : '';
+    document.getElementById('nextBtn').style.display = step === totalSteps ? 'none' : '';
+    document.getElementById('submitBtn').style.display = step === totalSteps ? '' : 'none';
+  }
+  // Make step circles clickable
+  stepCircles.forEach((circle, idx) => {
+    circle.style.cursor = 'pointer';
+    circle.addEventListener('click', function() {
+      currentStep = idx + 1;
+      if (currentStep === totalSteps) fillReview();
+      showStep(currentStep);
+    });
+  });
+  function fillReview() {
+    const form = document.getElementById('jobAppForm');
+    const reviewList = document.getElementById('reviewList');
+    // Experience
+    let expHtml = '';
+    const expDivs = document.querySelectorAll('#experience-list > div');
+    expDivs.forEach((div, i) => {
+      const job = div.querySelector('[name^="experience"][name$="[job_title]"]').value;
+      const company = div.querySelector('[name^="experience"][name$="[company]"]').value;
+      const website = div.querySelector('[name^="experience"][name$="[website]"]').value;
+      const address = div.querySelector('[name^="experience"][name$="[address]"]').value;
+      const contact = div.querySelector('[name^="experience"][name$="[contact]"]').value;
+      const start = div.querySelector('[name^="experience"][name$="[start_date]"]').value;
+      const stillHere = div.querySelector('[name^="experience"][name$="[still_here]"]').checked;
+      let end = '';
+      if (!stillHere) {
+        end = div.querySelector('[name^="experience"][name$="[end_date]"]').value;
+      }
+      const desc = div.querySelector('[name^="experience"][name$="[description]"]').value;
+      expHtml += `<li><b>${job}</b> at ${company} (${start}${stillHere ? ' - Present' : ' to ' + end})<br>
+        Website: ${website || 'N/A'}<br>
+        Address: ${address || 'N/A'}<br>
+        Verifiable Contact: ${contact}<br>
+        ${desc}
+      </li>`;
+    });
+    // Education
+    let eduHtml = '';
+    const eduDivs = document.querySelectorAll('#education-list > div');
+    eduDivs.forEach((div, i) => {
+      const school = div.querySelector('[name^="education"][name$="[school]"]').value;
+      const degree = div.querySelector('[name^="education"][name$="[degree]"]').value;
+      const start = div.querySelector('[name^="education"][name$="[start_date]"]').value;
+      const end = div.querySelector('[name^="education"][name$="[end_date]"]').value;
+      eduHtml += `<li><b>${degree}</b> at ${school} (Admission: ${start} to Graduation: ${end})</li>`;
+    });
+    // Certificates
+    let certHtml = '';
+    const certDivs = document.querySelectorAll('#certificate-list > div');
+    certDivs.forEach((div, i) => {
+      const name = div.querySelector('[name^="certificate"][name$="[name]"]').value;
+      const issuer = div.querySelector('[name^="certificate"][name$="[issuer]"]').value;
+      const dateObtained = div.querySelector('[name^="certificate"][name$="[date_obtained]"]').value;
+      const canExpire = div.querySelector('[name^="certificate"][name$="[can_expire]"]').checked;
+      let expiry = '';
+      if (canExpire) {
+        expiry = div.querySelector('[name^="certificate"][name$="[expiry_date]"]').value;
+      }
+      certHtml += `<li><b>${name}</b> from ${issuer} (Obtained: ${dateObtained}${canExpire ? ', Expires: ' + expiry : ''})</li>`;
+    });
+    reviewList.innerHTML = `
+      <li class="list-group-item"><strong>Job Title:</strong> ${form.job_title.value}</li>
+      <li class="list-group-item"><strong>Name:</strong> ${form.full_name.value}</li>
+      <li class="list-group-item"><strong>Email:</strong> ${form.email.value}</li>
+      <li class="list-group-item"><strong>Phone:</strong> ${form.phone.value}</li>
+      <li class="list-group-item"><strong>Why interested:</strong> ${form.why_interested.value}</li>
+      <li class="list-group-item"><strong>Job Experience:</strong><ul>${expHtml || '<li>None</li>'}</ul></li>
+      <li class="list-group-item"><strong>Education:</strong><ul>${eduHtml || '<li>None</li>'}</ul></li>
+      <li class="list-group-item"><strong>Certificates:</strong><ul>${certHtml || '<li>None</li>'}</ul></li>
+      <li class="list-group-item"><strong>Start Date:</strong> ${form.start_date.value}</li>
+      <li class="list-group-item"><strong>CV:</strong> ${form.cv.files[0] ? form.cv.files[0].name : 'Not uploaded'}</li>
+      <li class="list-group-item"><strong>Cover Letter:</strong> ${form.cover_letter.files[0] ? form.cover_letter.files[0].name : 'Not uploaded'}</li>
+    `;
+  }
+  document.getElementById('nextBtn').addEventListener('click', function() {
+    // Validate only visible fields in the current step
+    const activeStep = document.querySelector('.step.active');
+    const requiredFields = activeStep.querySelectorAll('[required]');
+    let valid = true;
+    requiredFields.forEach(field => {
+      if (field.type === 'file') {
+        if (!field.files || !field.files.length) {
+          field.classList.add('is-invalid');
+          valid = false;
+        } else {
+          field.classList.remove('is-invalid');
+        }
+      } else if (!field.value) {
+        field.classList.add('is-invalid');
+        valid = false;
+      } else {
+        field.classList.remove('is-invalid');
+      }
+    });
+    if (!valid) return;
+    if (currentStep < totalSteps) {
+      currentStep++;
+      if (currentStep === totalSteps) fillReview();
+      showStep(currentStep);
+    }
+  });
+  document.getElementById('prevBtn').addEventListener('click', function() {
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  });
+  showStep(currentStep);
+  // Form submit
+  document.getElementById('jobAppForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const alertBox = document.getElementById('formAlert');
+    alertBox.classList.add('d-none');
+    fetch('Assets/forms/form-validation.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status) {
+        alertBox.className = 'alert alert-success mt-4';
+        alertBox.textContent = 'Application submitted successfully!';
+        alertBox.classList.remove('d-none');
+        document.getElementById('jobAppForm').reset();
+        currentStep = 1;
+        showStep(currentStep);
+      } else {
+        alertBox.className = 'alert alert-danger mt-4';
+        alertBox.textContent = data.message || 'Could not submit application.';
+        alertBox.classList.remove('d-none');
+      }
+    })
+    .catch(() => {
+      alertBox.className = 'alert alert-danger mt-4';
+      alertBox.textContent = 'Network error. Please try again.';
+      alertBox.classList.remove('d-none');
+    });
+  });
+
+  // --- Dynamic Job Experience ---
+  const experienceList = document.getElementById('experience-list');
+  document.getElementById('add-experience').addEventListener('click', function() {
+    const idx = experienceList.children.length;
+    const div = document.createElement('div');
+    div.className = 'border rounded p-3 mb-2 position-relative bg-light';
+    div.innerHTML = `
+      <button type="button" class="btn-close position-absolute top-0 end-0 remove-experience" title="Remove" style="z-index:2"></button>
+      <div class="row g-2">
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][job_title]" placeholder="Job Title" required></div>
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][company]" placeholder="Company" required></div>
+        <div class="col-md-6"><input type="url" class="form-control mb-2" name="experience[${idx}][website]" placeholder="Company Website (optional)"></div>
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][address]" placeholder="Company Address (optional)"></div>
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][contact]" placeholder="Verifiable Contact (required)" required></div>
+        <div class="col-md-6"><label class="form-label small">Job Start Date</label><input type="date" class="form-control mb-2" name="experience[${idx}][start_date]" required></div>
+        <div class="col-md-6 d-flex align-items-end"><div class="form-check mb-2"><input class="form-check-input still-here-toggle" type="checkbox" id="still-here-${idx}" name="experience[${idx}][still_here]"><label class="form-check-label" for="still-here-${idx}">I currently work here</label></div></div>
+        <div class="col-md-6 end-date-field"><label class="form-label small">Job End Date</label><input type="date" class="form-control mb-2" name="experience[${idx}][end_date]"></div>
+        <div class="col-12"><textarea class="form-control mb-2" name="experience[${idx}][description]" placeholder="Briefly describe your job role / roles" rows="2"></textarea></div>
+      </div>
+    `;
+    experienceList.appendChild(div);
+    div.querySelector('.remove-experience').onclick = () => div.remove();
+    // Toggle end date field
+    const toggle = div.querySelector('.still-here-toggle');
+    const endDateField = div.querySelector('.end-date-field');
+    const endDateInput = endDateField.querySelector('input');
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        endDateField.style.display = 'none';
+        endDateInput.required = false;
+        endDateInput.value = '';
+      } else {
+        endDateField.style.display = '';
+        endDateInput.required = true;
+      }
+    });
+    // Default state
+    endDateField.style.display = '';
+    endDateInput.required = true;
+  });
+
+  // --- Dynamic Education ---
+  const educationList = document.getElementById('education-list');
+  document.getElementById('add-education').addEventListener('click', function() {
+    const idx = educationList.children.length;
+    const div = document.createElement('div');
+    div.className = 'border rounded p-3 mb-2 position-relative bg-light';
+    div.innerHTML = `
+      <button type="button" class="btn-close position-absolute top-0 end-0 remove-education" title="Remove" style="z-index:2"></button>
+      <div class="row g-2">
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="education[${idx}][school]" placeholder="School" required></div>
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="education[${idx}][degree]" placeholder="Degree" required></div>
+        <div class="col-md-6"><label class="form-label small">Admission Date</label><input type="date" class="form-control mb-2" name="education[${idx}][start_date]" required></div>
+        <div class="col-md-6"><label class="form-label small">Graduation Date</label><input type="date" class="form-control mb-2" name="education[${idx}][end_date]" required></div>
+      </div>
+    `;
+    educationList.appendChild(div);
+    div.querySelector('.remove-education').onclick = () => div.remove();
+  });
+
+  // --- Dynamic Certificates ---
+  const certificateList = document.getElementById('certificate-list');
+  document.getElementById('add-certificate').addEventListener('click', function() {
+    const idx = certificateList.children.length;
+    const div = document.createElement('div');
+    div.className = 'border rounded p-3 mb-2 position-relative bg-light';
+    div.innerHTML = `
+      <button type="button" class="btn-close position-absolute top-0 end-0 remove-certificate" title="Remove" style="z-index:2"></button>
+      <div class="row g-2">
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="certificate[${idx}][name]" placeholder="Certificate Name" required></div>
+        <div class="col-md-6"><input type="text" class="form-control mb-2" name="certificate[${idx}][issuer]" placeholder="Issuer" required></div>
+        <div class="col-md-6"><label class="form-label small">Date Obtained</label><input type="date" class="form-control mb-2" name="certificate[${idx}][date_obtained]" required></div>
+        <div class="col-md-6 d-flex align-items-end">
+          <div class="form-check mb-2">
+            <input class="form-check-input cert-expiry-toggle" type="checkbox" id="cert-expiry-${idx}" name="certificate[${idx}][can_expire]">
+            <label class="form-check-label" for="cert-expiry-${idx}">Can Expire?</label>
+          </div>
+        </div>
+        <div class="col-md-6 expiry-date-field" style="display:none">
+          <label class="form-label small">Expiry Date</label>
+          <input type="date" class="form-control mb-2" name="certificate[${idx}][expiry_date]">
+        </div>
+      </div>
+    `;
+    certificateList.appendChild(div);
+    div.querySelector('.remove-certificate').onclick = () => div.remove();
+    // Toggle expiry date field
+    const toggle = div.querySelector('.cert-expiry-toggle');
+    const expiryField = div.querySelector('.expiry-date-field');
+    toggle.addEventListener('change', function() {
+      expiryField.style.display = this.checked ? '' : 'none';
+      expiryField.querySelector('input').required = this.checked;
+    });
+  });
+});
+</script>
+</body>
+</html> 

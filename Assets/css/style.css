@@ -2,8 +2,9 @@
 <!-- 
 Name: I-world Networks
 Date: 1st January, 2024
+/* 
 Developer: Armaaneth Esiri
--->
+
 */
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
@@ -16,10 +17,64 @@ Developer: Armaaneth Esiri
 body{
     overflow-x: hidden;
 }
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Major Animations */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
+    20%, 40%, 60%, 80% {transform: translateX(5px);}
+}
+
+@keyframes float {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-20px);}
+    100% {transform: translateY(0px);}
+}
+-->
+
 /* Index: Home Header */
 .header{
     width: 100%;
     height: auto;
+    animation: fadeIn 1s ease-out;
 }
 /* Ending of Index:header */
 
@@ -124,11 +179,13 @@ body{
     padding: 10px;
     border-radius: 50%; 
     font-size: 18px;
+    transition: all 0.3s ease;
 }
 
 #BacktoTopBtn:hover {
     background-color: #ff6600;
     color: #fff;
+    transform: scale(1.1);
 }
 /* End of Back to top Button Styling */
 
@@ -139,6 +196,7 @@ body{
     width: 100%;
     height: 70vh !important;
     background-color: #000;
+    animation: fadeIn 1s ease-out;
 }
 .carousel-container{
     width: 100%;
@@ -172,13 +230,14 @@ Uttar Pradesh, India
 }
 .aboutText{
     box-shadow: 0px 0px 0.5px #59AF17;
+    animation: slideInFromLeft 1s ease-out;
+    transition: transform 0.3s ease;
 }
 .aboutText:hover{
     transition: .2s ease-in-out;
     box-shadow: 1px 2px 2px #59AF17;
+    transform: translateY(-5px);
 }
-/* Index: About us Styling */
-
 
 /* Beginning of Index:our services styling */
 #services{
@@ -188,10 +247,13 @@ Uttar Pradesh, India
 .services{
     background-color: white;
     box-shadow: 0px 0px 1px #59AF17;
+    animation: slideInFromBottom 1s ease-out;
+    transition: transform 0.3s ease;
 }
 .services:hover{
     transition: .5s ease-in-out;
     box-shadow: 1px 2px 2px #59AF17;
+    transform: translateY(-5px);
 }
 /* Index: Our Services Styling */
 
@@ -725,4 +787,450 @@ hr{
     width: 250px !important;
     margin: 0px 0px  !important;
     height: 200px !important;
+}
+
+
+            /* Popup styles */
+.popup-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 9999;
+            }
+
+            .popup-image {
+                max-width: 100%;
+                max-height: 70vh;
+                object-fit: contain;
+            }
+
+            .close-popup {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+                cursor: pointer;
+                color: #333;
+                background: none;
+                border: none;
+                padding: 5px;
+            }
+            .close-popup:hover {
+                color: #ff6600;
+            }
+            
+            @media (max-width: 768px) {
+                .popup-content {
+                    width: 95%;
+                }
+            }
+
+            /* Workspace-Carousel Styling */
+            .workspace-icon-carousel {
+                padding: 40px 0;
+                background: #f8f9fa;
+            }
+            .swiper-slide {
+                text-align: center;
+            }
+            .workspace-icon {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+            }
+            .faq-section {
+                padding: 60px 0;
+            }
+            .accordion-button:not(.collapsed) {
+                background-color: #e7f1ff;
+                color: #0c63e4;
+            }
+            [data-aos] {
+                opacity: 0;
+                transition-property: opacity;
+            }
+            [data-aos].aos-animate {
+                opacity: 1;
+            }
+
+/* Accordion Styling */
+
+            .accordion-button:not(.collapsed) {
+    background-color: #f8f9fa;
+    color: #1a73e8;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+}
+
+.accordion-button::after {
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+.accordion-button {
+    padding: 1rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #f8f9fa;
+}
+
+.accordion-body {
+    padding: 1.25rem;
+    line-height: 1.6;
+}
+/* pricing plan */
+.pricing-plan {
+    border: 4px solid; /* Border thickness */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px; /* Reduced margin for better fitting */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: #ffffff; /* White background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 0 21%; /* Flexbox to allow fitting */
+    max-width: 25%; /* Limit maximum width */
+
+    
+}
+
+.product-price {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight: 200;
+    font-size: 1.4em;
+    color: #2c2c2c;
+    letter-spacing: 0.03em;
+  }
+  
+  .price {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 1.2em;
+    color: blue;
+    letter-spacing: 0.02em;
+  }
+  
+
+.business-starter { border-color: #4285F4; } /* Google Blue */
+.business-standard { border-color: #34A853; } /* Google Green */
+.business-plus { border-color: #FBBC05; } /* Google Yellow */
+.enterprise { border-color: #DB4437; } /* Google Red */
+
+.pricing-plan h2 {
+    color: #333; /* Darker color for contrast */
+    margin: 0;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.8em; /* Increased font size for price */
+    color: #333; /* Color for price text */
+    margin: 0; /* Remove default margin */
+}
+
+.price span {
+    font-size: 0.8em; /* Smaller font for user/mo */
+    display: block; /* Pushes user/mo down */
+    margin-top: 5px; /* Space above */
+    color: #666; /* Lighter color for user/mo */
+}
+
+.feature {
+    border-top: 1px solid #ddd; /* Light separation line */
+    padding: 10px 0;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    background: orange;
+}            .button.start {
+                background: #0d6efd;
+            }            .button.start:hover {
+                background: linear-gradient(to right, #34A853, #FBBC05);
+            }
+            .pricing-plan:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            }
+
+
+
+
+         /* Loyalty & Discounts Page Styles */
+.text-gradient {
+    background: linear-gradient(90deg, #ff6600, #ff9966);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.loyalty-hero {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 80px 0;
+    margin-bottom: 50px;
+}
+
+.custom-shape-divider-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+.custom-shape-divider-bottom .shape-fill {
+    fill: #ff6600;
+}
+
+/* Discount Cards */
+.discount-card {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.discount-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.discount-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.discount-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+    z-index: 2;
+}
+
+.discount-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.discount-badge {
+    display: inline-block;
+    background: #ff6600;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.discount-icon {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modern Price Update Section */
+.price-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.price-card-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,102,0,0.08) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 100%;
+}
+
+.section-title .title-separator {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6600, #ff9966);
+    margin-top: 15px;
+}
+
+.date-icon {
+    color: #ff6600;
+    background: rgba(255, 102, 0, 0.1);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.effective-date-card {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.bandwidth-boost-announcement {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
+}
+
+.announcement-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.boost-percentage {
+    position: relative;
+    display: inline-block;
+}
+
+.boost-percentage:before,
+.boost-percentage:after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background: rgba(255, 255, 255, 0.7);
+    top: 50%;
+}
+
+.boost-percentage:before {
+    left: -40px;
+}
+
+.boost-percentage:after {
+    right: -40px;
+}
+
+/* WhatsApp Widget */
+.whatsapp-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+}
+
+.whatsapp-widget a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: 0;
+}
+
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50% 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  right: 0;
+}
+
+.whatsapp-icon i {
+  font-size: 36px;
+  color: white;
+}
+
+.whatsapp-text {
+  background-color: white;
+  color: #075E54;
+  padding: 8px 15px 8px 20px;
+  border-radius: 30px 0 0 30px;
+  margin-right: 0;
+  font-weight: 500;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: absolute;
+  right: 60px;
+}
+
+.whatsapp-widget:hover .whatsapp-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-widget {
+    right: 0;
+    bottom: 10px;
+  }
+  
+  .whatsapp-widget a {
+    margin-right: 0;
+  }
+  
+  .whatsapp-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .whatsapp-icon i {
+    font-size: 28px;
+  }
+  
+  .whatsapp-text {
+    font-size: 14px;
+    padding: 6px 12px 6px 15px;
+  }
 }

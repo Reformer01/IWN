@@ -1,26 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WSHR85KZCD');
+</script>
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
         <meta name="author" content="Armaaneth Esiri">
-        <title>I-World Networks ||Connecting possibilities</title>
+        <title>I-World Networks || Google Workspace</title>
         <!-- FAVICON -->
         <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
         <!-- STYLESHEETS -->
         <link rel="stylesheet" href="./Assets/css/style.css">
         <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-        <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-
+    <link rel="stylesheet" href="./Assets/css/products-grid.css">
+    <link rel="stylesheet" href="./Assets/css/hero.css">
+    <link rel="stylesheet" href="./Assets/css/carousel.css">
+    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+        <!-- AOS Animation -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
         <!-- Google Fonts  -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+
         <!-- Toastr Css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     </head>
+
+     
+<style>
+    .pricing-plan {
+    border: 4px solid; /* Border thickness */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px; /* Reduced margin for better fitting */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: #ffffff; /* White background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 0 21%; /* Flexbox to allow fitting */
+    max-width: 25%; /* Limit maximum width */
+
+    
+}
+
+.product-price {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight: 200;
+    font-size: 1.4em;
+    color: #2c2c2c;
+    letter-spacing: 0.03em;
+  }
+  
+  .price {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 1.2em;
+    color: blue;
+    letter-spacing: 0.02em;
+  }
+  
+
+.business-starter { border-color: #4285F4; } /* Google Blue */
+.business-standard { border-color: #34A853; } /* Google Green */
+.business-plus { border-color: #FBBC05; } /* Google Yellow */
+.enterprise { border-color: #DB4437; } /* Google Red */
+
+.pricing-plan h2 {
+    color: #333; /* Darker color for contrast */
+    margin: 0;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.8em; /* Increased font size for price */
+    color: #333; /* Color for price text */
+    margin: 0; /* Remove default margin */
+}
+
+.price span {
+    font-size: 0.8em; /* Smaller font for user/mo */
+    display: block; /* Pushes user/mo down */
+    margin-top: 5px; /* Space above */
+    color: #666; /* Lighter color for user/mo */
+}
+
+.feature {
+    border-top: 1px solid #ddd; /* Light separation line */
+    padding: 10px 0;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    background: orange;
+}            .button.start {
+                background: #0d6efd;
+            }            .button.start:hover {
+                background: linear-gradient(to right, #34A853, #FBBC05);
+            }
+            .pricing-plan:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            }
+</style>
+
+
+
+
 <body class="overflow-x-hidden bg-white">
     <!-- Header Beginning -->
     <div class="workspace-header">
@@ -55,7 +160,7 @@
                                 Google Cloud Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
                                 <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
                                 <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
                             </div>
@@ -71,334 +176,882 @@
                         </li>
                     </ul>
                     <div class="subscribe-btn ms-auto">
-                        <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
+                        <a href="#workspace_form" class="button start">Get Started</a>
                     </div>
                 </div>
             </div>
         </nav>
         <!-- Ending of navbar -->
-        <div class="workspace-header-content"></div>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="hero-content" data-aos="fade-right">
+                            <h1 class="hero-title">Transform your<br>workspace today</h1>
+                            <p class="hero-description">Empower your team with advanced collaboration tools, integrated email, calendar, cloud storage, and video conferencing.</p>
+                            <p class="hero-subtitle">Enhance productivity with AI-powered solutions designed for the modern workplace.</p>
+                            <div class="hero-cta">
+                                <a href="#workspace_form" class="btn btn-primary btn-lg">Start Free Trial</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-image" data-aos="fade-left">
+                            <div class="interface-preview">
+                                <img src="./Assets/img/WS3.jpg" alt="Google Workspace Interface" class="img-fluid interface-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- End of Header -->
 
-    <!-- Beginning of Google Workspace Info -->
-    <div class="container-fluid gray-bg mt-5 py-3">
-        <div class="google-info container pt-3">
-            <!--  Google Cloud Services: Google Workspace For Individual-->
-            <h4 class="text-start fw-bold">Google Cloud Services: Google Workspace For Individual</h4>
-            <hr class="hr">
-            <div class="individual-workspace">
-                <span class="fs-6 lato align-center">
-                    Power your business with tools that help you with everyday tasks like scheduling appointments and email marketing, so you have more time to spend connecting with customers and focusing on the work that matters.</span><br><br>
-                    <div class="container d-flex justify-content-center">
-                        <img src="./Assets/img/workspace_individual.png" alt="" class="object-fit-contain img-fluid">
-                    </div>
-                <span class="fs-5 lato fw-bold">
-                    Enjoy the following features:
-                </span>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-3 col-sm-12 aboutText m-2 border p-2">
-                            <img src="./Assets/icons/workspace-icons/individual-icons/video-call.svg" width="40" height="40" alt="" class="">
-                            <h6 class="fw-bold">Extended and engaging video calls </h6>
-                            <p class="lato">
-                                Get premium features for more productive meetings
-                            </p>
-                        </div>
-                        <div class="col-md-3 col-sm-12 aboutText m-2 border p-2">
-                            <img src="./Assets/icons/workspace-icons/individual-icons/database.svg" width="40" height="40" alt="" class="">
-                            <h6 class="fw-bold">1 TB of storage for your business needs</h6>
-                            <p class="lato">
-                                Securely store, share, and collaborate on files and folders from any device
-                            </p>
-                        </div>
-                        <div class="col-md-3 col-sm-12 aboutText m-2 border p-2">
-                            <img src="./Assets/icons/workspace-icons/individual-icons/receptionist.svg" width="40" height="40" alt="" class="">
-                            <h6 class="fw-bold">Advanced appointment scheduling </h6>
-                            <p class="lato">
-                                Let others book meetings with you
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-3 col-sm-12 aboutText m-2 border p-2">
-                            <img src="./Assets/icons/workspace-icons/individual-icons/contact.svg" width="40" height="40" alt="" class="">
-                            <h6 class="fw-bold">Professional email tools </h6>
-                            <p class="lato">
-                                Personalize with custom layouts and mail merge
-                            </p>
-                        </div>
-                        <div class="col-md-3 col-sm-12 aboutText m-2 border p-2">
-                            <img src="./Assets/icons/workspace-icons/individual-icons/digital-signature.svg" width="40" height="40" alt="" class="">
-                            <h6 class="fw-bold">Integrated eSignature (Beta) </h6>
-                            <p class="lato">
-                                Request and capture electronic signatures
-                            </p>
-                        </div>
-                        <div class="col-md-3 col-sm-12 aboutText m-2 border p-2">
-                            <img src="./Assets/icons/workspace-icons/individual-icons/support.svg" width="40" height="40" alt="" class="">
-                            <h6 class="fw-bold">Get personalized live help </h6>
-                            <p class="lato">
-                                Support whenever you need it
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- CTA Button -->
-                <div class="cta">
-                    <a href="#workspace_form" class="btn btn-warn w-auto text-uppercase fw-bold">Try for 30 Days Free</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!--  Google Cloud Services: Google Workspace For SME-->
-    <div class="container py-3">
-        <h4 class="text-start fw-bold">Google Cloud Services: Google Workspace For SME</h4>
-        <hr>
-        <div class="smb-workspace">
-            <span class="fs-6 lato align-center">
-                Use Google Workspace for business email, video conferencing, cloud storage, and file sharing. Get all the tools your team needs to collaborate and get more work done
-            </span> <br> <br>
-            <span class="fs-5 lato fw-bold">
-                Google Workspace Benefits for SMB:
-            </span>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-3 col-sm-12 aboutText bg-white m-2 border p-2">
-                        <img src="./Assets/icons/workspace-icons/smb-icons/new.svg" width="40" height="40" alt="" class="img-fluid">
-                        <h6 class="fw-bold">Take Gmail to work</h6>
-                        <p class="lato">
-                            Google's ultra-reliable servers guarantee 99.9% uptime on your business email. Industry-leading spam filters keep junk out of your inbox.
-                        </p>
-                    </div>
-                    <div class="col-md-3 col-sm-12 aboutText bg-white m-2 border p-2">
-                        <img src="./Assets/icons/workspace-icons/smb-icons/anywhere.svg" width="40" height="40" alt="" class="img-fluid">
-                        <h6 class="fw-bold">Work from anywhere</h6>
-                        <p class="lato">
-                            Collaborate on documents, spreadsheets and presentations across devices. Real-time co-editing helps you get to the final version faster.
-                        </p>
-                    </div>
-                    <div class="col-md-3 col-sm-12 aboutText bg-white m-2 border p-2">
-                        <img src="./Assets/icons/workspace-icons/smb-icons/card.svg" width="40" height="40" alt="" class="img-fluid">
-                        <h6 class="fw-bold">Business-grade security</h6>
-                        <p class="lato">
-                            Keep all your company data safe and protected even in the event of lost or stolen devices and employee turnover. 
-                        </p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-3 col-sm-12 aboutText bg-white m-2 border p-2">
-                        <img src="./Assets/icons/workspace-icons/smb-icons/engineer.svg" width="40" height="40" alt="" class="img-fluid">
-                        <h6 class="fw-bold">Easy IT administration</h6>
-                        <p class="lato">
-                            Set up new team members in minutes. Google Workspace stays up to date automatically, so you won't have to worry about software updates or security patches.
-                        </p>
-                    </div>
-                    <div class="col-md-3 col-sm-12 aboutText bg-white m-2 border p-2">
-                        <img src="./Assets/icons/workspace-icons/smb-icons/paper.svg" width="40" height="40" alt="" class="img-fluid">
-                        <h6 class="fw-bold">Work with popular file types</h6>
-                        <p class="lato">
-                            Easily open and edit common file formats like Microsoft® Word, Excel, and Powerpoint. You can also export and share files with people who don't use Google Workspace.
-                        </p>
-                    </div>
-                    <div class="col-md-3 col-sm-12 aboutText bg-white m-2 border p-2">
-                        <img src="./Assets/icons/workspace-icons/smb-icons/share.svg" width="40" height="40" alt="" class="img-fluid">
-                        <h6 class="fw-bold">Store and share files</h6>
-                        <p class="lato">
-                            Keep all your work in one secure place with cloud storage. Access and share with teammates whenever you need it, from your computer, phone, or tablet
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- CTA Button -->
-            <div class="cta">
-                <a href="#workspace_form" class="btn btn-warn w-auto text-uppercase fw-bold">Try for 30 Days Free</a>
-            </div>
-        </div>
-    </div>
-
-    <!--  Google Cloud Services: Google Workspace For Enterprise-->
-    <div class="container-fluid gray-bg py-3">
+    <!-- Google Workspace Products Grid -->
+    <section class="workspace-products py-5" aria-labelledby="products-heading">
         <div class="container">
-            <!--  Google Cloud Services: Google Workspace For Enterprise-->
-            <h4 class="text-start fw-bold">Google Cloud Services: Google Workspace For Enterprise</h4>
-            <hr class="hr">
-            <div class="enterprise-workspace">
-                <span class="fs-6 lato align-center">
-                    Google Workspace transforms how work gets done.
-                    Familiar cloud-based apps like Gmail, Docs, Drive, Calendar and Meet let your people connect, collaborate and deliver impact from anywhere, on any device, Keeping teams connected and productive from anywhere.
-                </span> <br> <br>
-                <span class="fs-5 lato fw-bold">
-                    Google Workspace Benefits For Enterprise:
-                </span>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="border py-2 col-md-3 col-sm-12 aboutText bg-white m-2 border p-2">
-                            <img src="./Assets/icons/workspace-icons/enterprise_workspace_icons/collaborative.svg" alt="" width="40" height="40" class="img-fluid">
-                            <h6 class="fw-bold">Collaborative Tools</h6>
-                            <p class="lato">
-                                Google Workspace offers a suite of collaborative tools such as Google Docs, Sheets, Slides, and Drive. These tools allow employees to work together in real-time, regardless of their location or preferred work style. 
-                            </p>
-                        </div>
-                        <div class="border py-2 col-md-3 col-sm-12 aboutText  m-2 border p-2" style="background: white;">
-                            <img src="./Assets/icons/workspace-icons/enterprise_workspace_icons/tools.svg" alt="" width="40" height="40" class="img-fluid">
-                            <h6 class="fw-bold">Communication Platforms: </h6>
-                            <p class="lato">
-                                Google Workspace includes communication platforms such as Gmail, Google Meet, and Google Chat. These platforms facilitate effective communication and connection among employees, whether they are working remotely or in the office.
-                            </p>
-                        </div>
-                        <div class="border py-2 col-md-3 col-sm-12 aboutText m-2 border p-2" style="background: white;"> 
-                            <img src="./Assets/icons/workspace-icons/enterprise_workspace_icons/google-assistant.svg" alt="" width="40" height="40" class="img-fluid">
-                            <h6 class="fw-bold">Well-being Resources:</h6>
-                            <p class="lato">
-                                Google Workspace provides access to well-being resources and tools designed to support employee health and wellness. This may include features like Google Calendar for scheduling and managing work-life balance and Google Assistant for managing tasks and reminders.
-                            </p>
-                        </div>
+            <div class="text-center mb-5">
+                <h1 id="products-heading" class="mega-title">Everything you need for seamless collaboration and productivity</h1>
+            </div>
+            <div class="product-grid-container">
+            <div class="product-grid" role="grid" aria-label="Google Workspace Products">
+                <div class="product-item" data-aos="fade-up" role="gridcell">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/gmail.png" alt="" aria-hidden="true">
+                        <h3>Gmail</h3>
+                    </div>
+                    <div class="product-info" role="complementary">
+                        <h4>Gmail</h4>
+                        <p>Secure business email with custom domain, 30GB storage, and advanced spam protection.</p>
+                        <p class="learn-more">
+                            <a href="https://workspace.google.com/products/gmail/" target="_blank" rel="noopener noreferrer" aria-label="Learn more about Gmail">
+                                Learn more <span aria-hidden="true">→</span>
+                            </a>
+                        </p>
                     </div>
                 </div>
-                <!-- CTA Button -->
-                <div class="cta">
-                    <a href="#workspace_form" class="btn btn-warn w-auto text-uppercase fw-bold">Try for 30 Days Free</a>
+                <div class="product-item" data-aos="fade-up" role="gridcell">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/drive.png" alt="Drive">
+                        <h3>Drive</h3>
+                    </div>
+                    <div class="product-info" role="complementary">
+                        <h4>Drive</h4>
+                        <p>Cloud storage with real-time collaboration and AI-powered search</p>
+                         <span class="learn-more"><a href="https://workspace.google.com/products/drive/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/meet.png" alt="Meet">
+                        <h3>Meet</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Meet</h4>
+                        <p>Secure video meetings with AI-powered features</p>
+                         <span class="learn-more"><a href="https://workspace.google.com/products/meet/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/calendar.png" alt="Calendar">
+                        <h3>Calendar</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Calendar</h4>
+                        <p>Smart scheduling with AI assistance and time management</p>
+                        <span class="learn-more"><a href="https://workspace.google.com/products/calendar/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/chat.png" alt="Chat">
+                        <h3>Chat</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Chat</h4>
+                        <p>Team messaging with built-in collaboration tools</p>
+                         <span class="learn-more"><a href="https://workspace.google.com/products/chat/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/docs.png" alt="Docs">
+                        <h3>Docs</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Docs</h4>
+                        <p>AI-powered document creation and real-time collaboration</p>
+                         <span class="learn-more"><a href="https://workspace.google.com/products/docs/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/sheets.png" alt="Sheets">
+                        <h3>Sheets</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Sheets</h4>
+                        <p>Smart spreadsheets with AI formulas and analysis</p>
+                         <span class="learn-more"><a href="https://workspace.google.com/products/sheets/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/slides.png" alt="Slides">
+                        <h3>Slides</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Slides</h4>
+                        <p>Beautiful presentations with AI-powered design suggestions</p>
+                         <span class="learn-more"><a href="https://workspace.google.com/products/slides/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/gemini.png" alt="Gemini">
+                        <h3>Gemini</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Gemini</h4>
+                        <p>Advanced AI assistant integrated across Workspace</p>
+                         <span class="learn-more"><a href="https://workspace.google.com/solutions/ai/" target="_blank">Learn more →</a></span>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/appsheet.png" alt="AppSheet">
+                        <h3>AppSheet</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>AppSheet</h4>
+                        <p>No-code app development platform</p>
+                         <span class="learn-more"><a href="https://about.appsheet.com/home/" target="_blank">Learn more →</a></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+   
+    <!-- End of Google Workspace Products Grid -->
+
+    <!-- Beginning of Google Workspace Info -->
+    <div class="container-fluid py-5">
+        <!-- Individual Workspace Section -->
+        <div class="section-individual mb-5">
+            <div class="container">
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-6">
+                        <h2 class="display-6 fw-bold mb-3">Google Workspace For Individual</h2>
+                        <p class="lead text-muted">Power your business with smart tools that streamline your daily operations, from scheduling to email marketing, giving you more time to focus on what truly matters - your customers. </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="./Assets/img/Google_Workspace.max-2600x2600.jpg" alt="" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+                
+                <h3 class="h4 mb-4">Premium Features</h3>
+                <div class="carousel-wrap">
+                    <div class="carousel-arrow left">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-track">
+                            <!-- Email Card -->
+                            <div class="carousel-card">
+                                <div class="card-bg"></div>
+                                <div class="card-content">
+                                    <div class="card-graphic">
+                                        <img src="./Assets/img/company domain.png" width="48" height="48" alt="">
+                                    </div>
+                                    <h4>Look professional with custom email</h4>
+                                    <p>Stand out with a professional email at your company domain. Create branded layouts and personalize messaging with mail-merge.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Calendar Card -->
+                            <div class="carousel-card">
+                                <div class="card-bg"></div>
+                                <div class="card-content">
+                                    <div class="card-graphic">
+                                        <img src="./Assets/img/Appointment Schedule 2.png" width="48" height="48" alt="">
+                                    </div>
+                                    <h4>Simplify booking with appointment scheduling</h4>
+                                    <p>Let customers book time with you directly within Google Calendar via a personal booking page.</p>
+                                </div>
+                            </div>
+
+                            <!-- Docs Card -->
+                            <div class="carousel-card">
+                                <div class="card-bg"></div>
+                                <div class="card-content">
+                                    <div class="card-graphic">
+                                        <img src="./Assets/img/E-signature.png" width="48" height="48" alt="">
+                                    </div>
+                                    <h4>Streamline contract management with eSignature</h4>
+                                    <p>Request electronic signatures and easily manage vendor agreements, customer contracts, and more.</p>
+                                </div>
+                            </div>
+
+                            <!-- Meet Card -->
+                            <div class="carousel-card">
+                                <div class="card-bg"></div>
+                                <div class="card-content">
+                                    <div class="card-graphic">
+                                        <img src="./Assets/img/enhancedVID.png" width="48" height="48" alt="">
+                                    </div>
+                                    <h4>Enhanced video meetings</h4>
+                                    <p>Host professional video meetings with premium features like recording, attendance tracking, and noise cancellation.</p>
+                                </div>
+                            </div>
+
+                            <!-- Drive Card -->
+                            <div class="carousel-card">
+                                <div class="card-bg"></div>
+                                <div class="card-content">
+                                    <div class="card-graphic">
+                                        <img src="./Assets/img/UP TO 5TB.png" width="48" height="48" alt="">
+                                    </div>
+                                    <h4>Secure cloud storage</h4>
+                                    <p>Get 1TB of secure cloud storage per user, with advanced sharing controls and real-time collaboration.</p>
+                                </div>
+                            </div>
+
+                            <!-- Support Card -->
+                             <div class="carousel-card">
+                                <div class="card-bg"></div>
+                                <div class="card-content">
+                                    <div class="card-graphic">
+                                        <img src="./Assets/img/customer support.jpg" width="48" height="48" alt="">
+                                    </div>
+                                    <h4>24/7 Support</h4>
+                                    <p>Dedicated assistance whenever you need it.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-arrow right">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Try Google Workspace for Free</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SME Workspace Section -->
+        <div class="section-sme bg-light py-5">
+            <div class="container">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <h2 class="display-6 fw-bold mb-4">Google Workspace For SME</h2>
+                        <p class="lead text-muted mb-5">Empower your team with comprehensive collaboration tools, from business email to video conferencing and cloud storage. Google Workspace for Small and Medium Enterprises (SMEs) is tailored to meet the unique needs of growing businesses, providing a suite of applications that enhance productivity, foster teamwork, and streamline operations.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="./Assets/img/WSBUSINESS3.png" alt="SME Workspace" class="img-fluid rounded">
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
+                            <img src="./Assets/icons/workspace-icons/smb-icons/new.svg" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Enterprise-Grade Email</h4>
+                            <p class="text-muted mb-0">99.9% uptime guarantee with advanced spam filtering</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/global-network.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Remote Work Ready</h4>
+                            <p class="text-muted mb-0">Real-time collaboration across all devices and locations</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/protection.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Advanced Security</h4>
+                            <p class="text-muted mb-0">Enterprise-level data protection and device management</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/languages.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Multi-Language Support</h4>
+                            <p class="text-muted mb-0">Language options for diverse teams working in different regions.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/archives.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Archiving and Compliance</h4>
+                            <p class="text-muted mb-0">Centralized storage and compliance management for all your data.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/help-desk.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Support and Training</h4>
+                            <p class="text-muted mb-0">Dedicated support and training resources for your team.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Begin Your Free Trial</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enterprise Workspace Section -->
+        <div class="section-enterprise bg-gradient py-5">
+            <div class="container">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <h2 class="display-6 fw-bold text-black mb-3">Google Workspace For Enterprise</h2>
+                        <p class="lead text-black-50">Transform your organization with powerful cloud-based collaboration tools that enable seamless work from anywhere.
+                            Google Workspace for Enterprises is designed to support large teams by providing innovative solutions that enhance productivity, streamline communication, and foster collaboration across all levels of your organization.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="./Assets/img/WSBUSINESS.png" alt="Enterprise Workspace" class="img-fluid rounded">
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/collaboration (1).png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Advanced Collaboration</h4>
+                            <p class="text-muted mb-0">Real-time co-editing and sharing across Docs, Sheets, and Slides with enterprise-grade controls</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/discussion.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Unified Communication</h4>
+                            <p class="text-muted mb-0">Integrated email, video, and chat platforms for seamless team coordination</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/ai.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">AI-Powered Productivity</h4>
+                            <p class="text-muted mb-0">Smart features and automation to enhance workflow efficiency and team well-being</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/file-transfer.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Secure File Sharing</h4>
+                            <p class="text-muted mb-0">Secure file sharing with access controls and encryption for your organization's data</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">  
+                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/solution.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Integrations with Third-Party Apps</h4> 
+                            <p class="text-muted mb-0">Compatibility with popular productivity tools and applications for enhanced functionality.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">  
+                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
+                            <img src="./Assets/icons/ngn-edu-icons/bar-graph.png" width="48" height="48" alt="" class="mb-3">
+                            <h4 class="h5 fw-bold">Automated Reporting</h4> 
+                            <p class="text-muted mb-0">Smart features and automation to enhance workflow efficiency and team well-being</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gemini AI Features Section
+                <div class="section-gemini py-5">
+                    <div class="container">
+                        <div class="row align-items-center mb-5">
+                            <div class="col-lg-6">
+                                <h2 class="display-6 fw-bold mb-3">Powered by Gemini AI</h2>
+                                <p class="lead text-muted">Experience next-generation AI capabilities integrated across Google Workspace. With Gemini AI, your team can leverage cutting-edge technology to enhance productivity, streamline workflows, and drive innovation in your organization.</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="./Assets/img/GEMINI.jpg" alt="Gemini AI Features" class="img-fluid rounded">
+                            </div>
+                        </div>
+        
+                        <div class="row g-4">
+                            <div class="col-lg-3">
+                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
+                                    <img src="./Assets/icons/ngn-edu-icons/text-analytics.png" width="48" height="48" alt="" class="mb-3">
+                                    <h4 class="h5 fw-bold">Smart Compose</h4>
+                                    <p class="text-muted mb-0">AI-powered writing suggestions that help you draft emails and documents faster</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
+                                    <img src="./Assets/icons/ngn-edu-icons/report.png" width="48" height="48" alt="" class="mb-3">
+                                    <h4 class="h5 fw-bold">Meeting Summaries</h4>
+                                    <p class="text-muted mb-0">Automated meeting notes and action items generated from Google Meet recordings</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
+                                    <img src="./Assets/icons/ngn-edu-icons/analytics.png" width="48" height="48" alt="" class="mb-3">
+                                    <h4 class="h5 fw-bold">Data Analysis</h4>
+                                    <p class="text-muted mb-0">Intelligent insights and visualizations in Sheets with natural language queries</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
+                                    <img src="./Assets/icons/ngn-edu-icons/design-thinking.png" width="48" height="48" alt="" class="mb-3">
+                                    <h4 class="h5 fw-bold">Content Generation</h4>
+                                    <p class="text-muted mb-0">Create presentations, images, and content with AI assistance across apps</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-5">
+                            <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Get Started</a>
+                        </div>
+                    </div>
+                </div> -->
+        
+
+    </div>
+
     <!-- Ending of google workspace info -->
 
-    <!-- Beginning of form section -->
-    <div class="container-fluid py-3">
-        <div class="container py-2" id="workspace_form">
-            <p class="text-start fs-4 fw-bold">Google Workspace Request Form</p>
-            <hr class="">
-            <p class="text-start fs-5 lato">
-                We're excited to learn more about your IT requirements. Please take a moment to provide us with some essential details so that we can tailor our managed services to meet your business needs.
-            </p>
-            <form>
-                <input type="hidden" name="subject" value="IP Order Service Request">
-                <input type="hidden" name="form_source" value="Google Workspace">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="fullName" class="form-label lato">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" name="Name" placeholder="Enter full name">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="businessName" class="form-label lato">Business Name</label>
-                            <input type="text" class="form-control" id="businessName" name="business_name" placeholder="Enter business name">
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="phoneNumber" class="form-label lato">Phone Number</label>
-                            <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder="Enter phone number">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="businessEmail" class="form-label lato">Business Email</label>
-                            <input type="email" class="form-control" id="businessEmail" name="business_email" placeholder="Enter business email">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="companySize" class="form-label lato">Company Size</label>
-                            <select class="form-select" id="companySize" name="company_size">
-                                <option selected disabled>Select company size</option>
-                                <option value="1 - 10">1 - 10</option>
-                                <option value="11 - 20">11 - 20</option>
-                                <option value="21 - 50">21 - 50</option>
-                                <option value="50+">50 and above</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="businessDomain" class="form-label lato">Business Domain Name</label>
-                            <input type="text" class="form-control" id="businessDomain" name="business_domain_name" placeholder="Enter business domain name">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="howDidYouHear" class="form-label lato">How did you hear about us?</label>
-                            <select class="form-select" id="howDidYouHear" name="referral_source">
-                                <option selected disabled>Select option</option>
-                                <option value="Online">Online</option>
-                                <option value="SocialMedia">Social media</option>
-                                <option value="Event">Event</option>
-                                <option value="CoWorkingSpace">Co-working space</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class=nter">
-                    <button type="submit" class="btn btn-warn w-auto text-uppercase fw-bold">Submit</button>
-                    <p class="my-2 lato">
-                        Thank you for choosing I-World Networks! We will contact you within the hour.
-                    </p>
-                </div>
-            </form>
+    
+
+    <!-- Pricing Plans -->
+
+    <h1 class="heading text-center pb-5">Google Workspace Pricing Plans</h1>   
+
+    <h3 class="heading-new text-center pb-4">Make payments in Naira for a more convenient experience!</h3>
+    <hr class="">
+
+    <div class="py-2"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3.6 pricing-plan business-starter rounded bg-white hover-lift" >
+                <h2>Business Starter</h2>
+                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 300;font-size: 2.2em;color: #4285F4;letter-spacing: 0.02em;">$6.30<span>per user / month, 1 year commitment</span></div>
+                <a href="#workspace_form" class="button start">Get Started</a>
+                <div class="feature">30 GB pooled storage per user</div>
+                <div class="feature">Secure custom business email, you@your-company.com</div>
+                <div class="feature">100 participant video meetings</div>
+                <div class="feature">Gemini AI assistant in Gmail</div>
+                <div class="feature">Chat with AI in the Gemini app</div>
+                <div class="feature">Security and management controls</div>
+                <div class="feature">Standard Support</div>
+            </div>
+            
+            <div class="col-md-3.6 pricing-plan business-standard">
+                <h3>Business Standard</h3>
+                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 400;font-size: 2.2em;color: #34A853;letter-spacing: 0.02em;">$12.60<span>per user / month, 1 year commitment</span></div>
+                <a href="#workspace_form" class="button start">Get Started</a>
+                <div class="feature">2 TB pooled storage per user</div>
+                <div class="feature">Secure custom email (you@your-company.com)</div>
+                <div class="feature">150 participant video meetings + recording</div>
+                <div class="feature">Full Gemini AI in Gmail, Docs, Meet</div>
+                <div class="feature">eSignature with Docs and PDFs</div>
+                <div class="feature">Appointment booking pages</div>
+                <div class="feature">Collaborative video creator + editor</div>
+                <div class="feature">Email layouts and mail merge</div>
+                <div class="feature">Security and management controls</div>
+            </div>
+            
+            <div class="col-md-3.6 pricing-plan business-plus">
+                <h2>Business<br>Plus</h2>
+                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 400;font-size: 2.2em;color: #FBBC05;letter-spacing: 0.02em;">$22<span>per user / month, 1 year commitment</span></div>
+                <a href="#workspace_form" class="button start">Get Started</a>
+                <div class="feature">5 TB pooled storage per user</div>
+                <div class="feature">Secure custom business email, eDiscovery, retention</div>
+                <div class="feature">500 participant video meetings + recording, attendance tracking, noise cancellation</div>
+                <div class="feature">Chat with AI in the Gemini app + create your team of AI experts</div>
+                <div class="feature">NotebookLM Plus AI research assistant</div>
+                <div class="feature">Collaborative video creator + editor</div>
+                <div class="feature">eSignature with Docs and PDFs</div>
+                <div class="feature">Email layouts and mail merge</div>
+                <div class="feature">Security and management controls</div>
+                <div class="feature">Enhanced security & management</div>
+                <div class="feature">Standard Support</div>
+            </div>
+            
+            <div class="col-md-3.6 pricing-plan enterprise">
+                <h2>Enterprise</h2>
+                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 400;font-size: 2.2em;color: #DB4437;letter-spacing: 0.02em;">Custom pricing<span>per user / month, 1 year commitment</span></div>
+                <a href="#workspace_form" class="button start">Contact Sales</a>
+                <div class="feature">5 TB pooled storage per user</div>
+                <div class="feature">Secure custom business email, eDiscovery, retention</div>
+                <div class="feature">500+ participant video meetings</div>
+                <div class="feature">Gemini AI assistant in Gmail, Docs, Meet, and more</div>
+                <div class="feature">Chat with AI in the Gemini app + create your team of AI experts</div>
+                <div class="feature">AI research assistant (NotebookLM Plus)</div>
+                <div class="feature">1000 participant video meetings + recording, attendance tracking, noise cancellation, in-domain live streaming</div>
+                <div class="feature">eSignature with Docs and PDFs</div>
+                <div class="feature">Email layouts and mail merge</div>
+                <div class="feature">Appointment booking pages</div>
+                <div class="feature">Collaborative video creator + editor</div>
+                <div class="feature">Advanced security, management, and compliance controls, including Vault, DLP, data regions, and enterprise endpoint management</div>
+                <div class="feature">Enhanced Support</div>
+            </div>
         </div>
-    </div>
+
+    </div>   
+    
+  
+    
+
+    <!-- Beginning of form section -->
+     <section>
+        <div class="container-fluid py-3">
+            <div class="container py-2" id="workspace_form">
+                <p class="text-start fs-4 fw-bold">Google Workspace Request Form</p>
+                <hr class="">
+                <p class="text-start fs-5 lato">
+                    We're excited to learn more about your IT requirements. Please take a moment to provide us with some essential details so that we can tailor our managed services to meet your business needs.
+                </p>
+                <form>
+                    <input type="hidden" name="subject" value="Google Workspace Enquiry">
+                    <input type="hidden" name="form_source" value="Google Workspace">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label lato">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="Name" placeholder="Enter full name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="businessName" class="form-label lato">Business Name</label>
+                                <input type="text" class="form-control" id="businessName" name="business_name" placeholder="Enter business name">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="phoneNumber" class="form-label lato">Phone Number</label>
+                                <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder="Enter phone number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="businessEmail" class="form-label lato">Business Email</label>
+                                <input type="email" class="form-control" id="businessEmail" name="business_email" placeholder="Enter business email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="companySize" class="form-label lato">Company Size</label>
+                                <select class="form-select" id="companySize" name="company_size">
+                                    <option selected disabled>Select company size</option>
+                                    <option value="10 - 50">10 - 50</option>
+                                    <option value="50 - 100">50 - 100</option>
+                                    <option value="100 - 500">100 - 500</option>
+                                    <option value="500+">500 and above</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="businessDomain" class="form-label lato">Business Domain Name</label>
+                                <input type="text" class="form-control" id="businessDomain" name="business_domain_name" placeholder="Enter business domain name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="howDidYouHear" class="form-label lato">How did you hear about us?</label>
+                                <select class="form-select" id="howDidYouHear" name="referral_source">
+                                    <option selected disabled>Select option</option>
+                                    <option value="Online">Online</option>
+                                    <option value="SocialMedia">Social media</option>
+                                    <option value="Event">Event</option>
+                                    <option value="CoWorkingSpace">Co-working space</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nter">
+                        <button type="submit" class="btn btn-warn w-auto text-uppercase fw-bold">Submit</button>
+                        <p class="my-2 lato">
+                            Thank you for choosing I-World Networks! We will contact you within the hour.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+     </section>
         
     <!-- Ending of form section -->
 
-    <!-- Beginning of quick links section -->
-    <!-- <section class="quick-links-container container my-5 pb-5">
-        <h4 class="fw-bold">
-            Still Uncertain?
-        </h4>
-        <div class="links-list list-unstyled">
-            <div class="container">
-                <div class="row">
-                    <div class="col mx-2">
-                        <div class="card">
-                            <div class="img-body px-2 ">
-                                <div class="card-img-top">
-                                    <img class="object-fit-cover cursor-pointer" src="./Assets/img/thumbnail1.png" alt="">
-                                </div>
-                                <div class="card-title lato mt-2">Watch videos to learn more</div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col mx-2">
-                        <div class="card">
-                            <div class="img-body px-2">
-                                <div class="card-img-top">
-                                    <img class="object-fit-cover cursor-pointer" src="./Assets/img/thumbnail2.png" alt="">
-                                </div>
-                                <div class="card-title lato mt-2">Watch videos to learn more</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mx-2">
-                        <div class="card">
-                            <div class="img-body px-2">
-                                <div class="card-img-top">
-                                    <img class="object-fit-cover cursor-pointer" src="./Assets/img/thumbnail3.png" alt="">
-                                </div>
-                                <div class="card-title lato mt-2">Watch videos to learn more</div>
-                            </div>
+
+
+
+<!-- FAQ Section -->
+<section>
+    <div class="container-fluid py-4">
+        <div class="container">
+            <h4 class="text-start fw-bold mb-4">Frequently Asked Questions</h4>
+            <hr class="">
+            <div class="accordion" id="workspaceFAQ">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            What is Google Workspace?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Google Workspace is a collection of powerful and secure cloud-based productivity and collaboration applications. Google Workspace acts as a centralised location for business tooling to combine disparate business solutions such as Google Workspace email, office suite, file storage etc. As a full collaborative suite, there are customisable tools integrated into the platform to effectively run and collaborate on IT operations from any location, at any time and on any device.
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Ending of quick links section -->
+    
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            What is included in Google Workspace?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Basic features include access to Google Suite, emails with domains, meetings and security. Depending on the package you choose, extra features include access to BigQuery, and data loss prevention applications.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            How much does Google Workspace cost?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            There are price plans to suit every budget, and our starter plan is the cheapest option available.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            What are the differences between Google Workspace's editions?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            The main differences between Google Workspace editions lie in features such as storage capacity, video conferencing capabilities, security options, and administrative controls. Each edition is designed to cater to varying business needs, from small teams to large enterprises.
+                        </div>
+                    </div>
+                    </div>
 
-    <!-- Footer section Beginning -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                Is Google Workspace Secure?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                            <div class="accordion-body lato">
+                                Yes, Google Workspace is designed with security in mind. It includes robust security features such as two-factor authentication, advanced phishing protection, and data encryption to keep your information safe.
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    How much storage does Google Workspace offer?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                <div class="accordion-body lato">
+                                    Basic plans start at 30GB storage per user, but each package offers more storage. Our enterprise plan provides 5TB of storage for all users.
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                        Why should i choose Google Workspace over Microsoft 365?
+                                    </button>
+                                </h2>
+                                <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                    <div class="accordion-body lato">
+                                        Many people prefer using Workspace because it packs a host of features but has a simpler interface. If you’d like to migrate from Microsoft to Google, our team of specialists can create a seamless transition.
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                                    What is the cost of setting up and migrating to Google Workspace?
+                                </button>
+                            </h2>
+                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                <div class="accordion-body lato">
+                                    We offer migration to Google Workspace at no additional cost. This includes transferring your emails, calendar events, and contacts, ensuring a seamless transition without any hidden fees.
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                                    Can I use Google Workspace on my phone?
+                                </button>
+                            </h2>
+                            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                <div class="accordion-body lato">                               
+                                    Yes, you can use Google Workspace on your phone by downloading the Google Workspace app from the Google Play Store or Apple App Store.  
+                                </div>              
+                            </div>
+                            </div>      
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                                        How do I get started with Google Workspace?
+                                    </button>
+                                </h2>
+                                <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                    <div class="accordion-body lato">
+                                        You can get started with Google Workspace by signing up for a free trial or by purchasing a subscription.
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
+                                            Can I move my old emails, calendar events, and contacts to Google Workspace?
+                                        </button>
+                                    </h2>
+                                    <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                        <div class="accordion-body lato">
+                                            Yes, you can migrate your old emails, calendar events, and contacts to Google Workspace at no extra cost. We provide assistance using migration tools to ensure a smooth transfer of your existing data.
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12">
+                                                Will this transition affect my current website? Can you host my website?
+                                            </button>
+                                        </h2>
+                                        <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                            <div class="accordion-body lato">
+                                                
+                                                The transition to Google Workspace will not affect your current website. Additionally, we can host websites for you at an additional cost. If you're interested, we can provide more details on our hosting services.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13">
+                                                What are the advantages of buying from a reseller?
+                                            </button>
+                                        </h2>
+                                        <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                                            <div class="accordion-body lato">
+                                                
+                                                Buying from a reseller offers benefits such as expert guidance, customized solutions tailored to your needs, local support, competitive pricing, and faster access to products.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                        
+    </div>
+    
+    <style>
+    .accordion-button:not(.collapsed) {
+        background-color: #f8f9fa;
+        color: #1a73e8;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(0,0,0,.125);
+    }
+    
+    .accordion-button::after {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .accordion-item {
+        margin-bottom: 1rem;
+        border-radius: 8px !important;
+        overflow: hidden;
+    }
+    
+    .accordion-button {
+        padding: 1rem 1.25rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .accordion-button:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .accordion-body {
+        padding: 1.25rem;
+        line-height: 1.6;
+    }
+    </style>
+    
+
+</div>
+
+</div>
+    
+ </section>
+
+ <!-- FAQ Section End -->
+
+
+
+
+
+
+
+
+<!-- Footer section Beginning -->
+ <section>
     <footer class=" text-start border pt-5 text-white bg-black">
         <!-- Grid container -->
         <div class="container">
@@ -442,13 +1095,13 @@
                             </li>
                         </ul>
                     </div>
-
+    
                     <!--Grid column-->
                     <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                         <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
                         <ul class="list-unstyled mb-0">
                             <li class="mt-2">
-                                <a class="text-white" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education</a>
+                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
                             </li>
                             <li class="mt-2">
                                 <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
@@ -458,14 +1111,14 @@
                             </li>
                         </ul>
                     </div>
-
+    
                     <!-- Grid Column -->
                     <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                         <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
                         <ul class="list-unstyled mb-0">
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 703 551 7854</a>
+                                <a class="text-white" href="#">+234 903 984 4309</a>
                             </li>
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
@@ -486,7 +1139,7 @@
                             </li>
                         </ul>
                     </div>
-
+    
                     <!--Grid column-->
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <!-- Facebook -->
@@ -524,11 +1177,13 @@
         </div>
         <!-- Copyright -->
         <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        © 2024 Copyright:
+        © 2025 Copyright:
         <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
         </div>
         <!-- Copyright -->
     </footer>
+ </section>
+
     <!-- Ending of footer -->
 
 
@@ -561,5 +1216,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!-- Custom Script -->
     <script src="Assets/js/forms.js"></script>
+    
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+     <!-- Additional Scripts -->
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     
+     <script>
+         // Initialize AOS
+         AOS.init({
+             duration: 1000,
+             once: true
+         });
+ 
+         // Initialize Swiper
+         var swiper = new Swiper(".mySwiper", {
+             slidesPerView: 1,
+             spaceBetween: 10,
+             pagination: {
+                 el: ".swiper-pagination",
+                 clickable: true,
+             },
+             breakpoints: {
+                 640: {
+                     slidesPerView: 2,
+                     spaceBetween: 20,
+                 },
+                 768: {
+                     slidesPerView: 3,
+                     spaceBetween: 30,
+                 },
+                 1024: {
+                     slidesPerView: 4,
+                     spaceBetween: 40,
+                 },
+             },
+             autoplay: {
+                 delay: 2500,
+                 disableOnInteraction: false,
+             },
+         });
+     </script>
+
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-87c0e511-c2f4-4972-96b6-4358f70c6e2c" data-elfsight-app-lazy></div>
+    <script src="./Assets/js/carousel.js"></script>
+    
 </body>
 </html>

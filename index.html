@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="I-World Networks is an internet service provider in Nigeria">
-    <meta name="author" content="Armaaneth Esiri">
-    <title>I-World Networks|| Connecting possibilities</title>
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="./Assets/css/style.css">
-    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <!-- Google Fonts  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
+  gtag('config', 'G-WSHR85KZCD');
+</script>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
+        <meta name="author" content="Armaaneth Esiri">
+        <title>I-World Networks || Google Workspace</title>
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" href="./Assets/css/style.css">
+        <link rel="stylesheet" href="./Assets/css/responsivecss.css">
+        <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+        <!-- AOS Animation -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+        <!-- Google Fonts  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+
+        <!-- Toastr Css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    </head>
 <body class="overflow-x-hidden">
+    
+    <!-- Pop up -->
+    <div class="popup-overlay" id="popupOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000;">
+        <div class="popup-content" style="position: relative; width: 80%; max-width: 800px; background: white; padding: 20px; border-radius: 10px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <button class="close-popup" onclick="closePopup()" style="position: absolute; right: 10px; top: 10px; font-size: 30px; background: #ff6600; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">x</button>
+            <img src="./Assets/img/Updated-Promo.jpg" alt="Promotional Flyer" class="popup-image" style="width: 100%; height: auto;">
+        </div>
+    </div>
+
+
     <!-- Back to top Button -->
     <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 20H9v-8H4.16L12 4.16L19.84 12H15z"/></svg>
@@ -58,7 +86,7 @@
                                 Google Cloud Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
                                 <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
                                 <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
                             </div>
@@ -136,7 +164,7 @@
     <div class="container-fluid header-about ">
         <!--Section: Content-->
         <section class="text-start container pt-2">
-            <h4 class=" fs-3 fw-bold">Who we were</h4>
+            <h4 class=" fs-3 fw-bold">Who we are</h4>
             <hr class="hr">
             <p class="fs-6 about-us-text">
                 I-World Networks is a leading and one of the fastest growing Information and Communication solutions and service provider in Nigeria.
@@ -322,8 +350,95 @@
     </section>
     <!-- How it works container -->
 
+
+    <!-- Beginning of Customer Testimonial section -->
+<section class="testimonials py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">What Our Clients Say</h2>
+                <hr class="hr mx-auto" style="width: 50px;">
+            </div>
+            <div class="row testimonial-carousel owl-carousel">
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./Assets/img/John.jpeg" alt="Client 1" class="rounded-circle" width="60" height="60">
+                            <div class="ms-3">
+                                <h5 class="mb-0 fw-bold">Johnvents Industries Ltd.</h5>
+                                <p class="mb-0 text-muted">Akure, Ondo</p>
+                            </div>
+                        </div>
+                        <p class="lato mb-0">"I-World has been fantastic for John vents Industries Akure! We enjoy fast internet with minimal downtime and excellent 24/7 customer service. The installation was smooth, and their pricing is competitive. Highly recommended"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up" data-aos-delay="200">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./Assets/img/Kolomoni.jpeg" alt="Client 2" class="rounded-circle" width="60" height="60">
+                            <div class="ms-3">
+                                <h5 class="mb-0 fw-bold">	
+                                    Kolomoni Micro-Finance Bank</h5>
+                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
+                            </div>
+                        </div>
+                        <p class="lato mb-0">"Working with I-World has been an absolute pleasure. We are really enjoying top notch service and support at the moment, I also hope they keep it up."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up" data-aos-delay="300">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./Assets/img/RCCG.png" alt="Client 3" class="rounded-circle" width="60" height="60">
+                            <div class="ms-3">
+                                <h5 class="mb-0 fw-bold">RCCG (Jesus Embassy)</h5>
+                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
+                            </div>
+                        </div>
+                        <p class="lato mb-0">"In terms of speed, our connection is very fast; we can stream our services online without any network interruptions. 
+                            It is also reliable; the network is always available whenever we need it."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up" data-aos-delay="400">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./Assets/img/BST.png" alt="Client 4" class="rounded-circle" width="60" height="60">
+                            <div class="ms-3">
+                                <h5 class="mb-0 fw-bold">BST Consulting Nigeria Ltd</h5>
+                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
+                            </div>
+                        </div>
+                        <p class="lato mb-0">"Using the I-World internet service has proven to be an excellent decision for both me and my organization. We rarely experience any downtime, and the upload and download speeds are consistently impressive. Additionally, the technical support team is highly responsive whenever we need assistance, which reinforces our trust in I-World."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up" data-aos-delay="500">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./Assets/img/itc_advisory_services_logo.jpeg" alt="Client 5" class="rounded-circle" width="60" height="60">
+                            <div class="ms-3">
+                                <h5 class="mb-0 fw-bold">ITC Advisory Services</h5>
+                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
+                            </div>
+                        </div>
+                        <p class="lato mb-0">"I-World has been a great help for us, arriving at the perfect time when we needed to change our Internet Service Provider. Their affordability and reliability have made our experience exceptional. We appreciate their proactive alerts for issues, prompt responses, and assistance with all our internet infrastructure needs. Thank you for taking care of our internet requirements!"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up" data-aos-delay="500">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./Assets/img/Finnew.jpeg" alt="Client 5" class="rounded-circle" width="60" height="60">
+                            <div class="ms-3">
+                                <h5 class="mb-0 fw-bold">Finnew Fin-Tech</h5>
+                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
+                            </div>
+                        </div>
+                        <p class="lato mb-0">"We've been using I-World Networks for years, and we have never had a single complaint. This broadband company provides excellent services with top-notch internet speed and a fully operational customer service line."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
     <!-- NGN Google for Education Preview beginning -->
-    <div class="container-fluid ngn-edu-container pt-2 pb-5" id="Nigerian_Google_for_Education_Program">
+    <!-- <div class="container-fluid ngn-edu-container pt-2 pb-5" id="Nigerian_Google_for_Education_Program">
         <div class="text-start container">
             <hr class="hr">
             <h2 class="fw-bold">Nigeria Google For Education Program</h2>
@@ -343,7 +458,7 @@
                     <li>82% of students confirmed that Chromebook devices allow them to spend more time studying</li>
                     <li>40% more enrollment in schools with Google Workspace for Education</li>
                 </ul>
-                <!-- <hr class="hr"> -->
+                 <hr class="hr"> 
             </div>
         </div>
     </div>
@@ -419,11 +534,12 @@
                 <span class="fw-bold">2024/2025 application coming soon!</span> For more information call 0906-000-9738
             </p>
         </div>
-    </div>
+    </div> -->
     
     <!-- NGN Google for Education Preview ending -->
 
-    <!-- Footer section Beginning -->
+<!-- Footer section Beginning -->
+<section>
     <footer class=" text-start border pt-5 text-white bg-black">
         <!-- Grid container -->
         <div class="container">
@@ -467,13 +583,13 @@
                             </li>
                         </ul>
                     </div>
-
+    
                     <!--Grid column-->
                     <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                         <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
                         <ul class="list-unstyled mb-0">
                             <li class="mt-2">
-                                <a class="text-white" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education</a>
+                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
                             </li>
                             <li class="mt-2">
                                 <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
@@ -483,14 +599,14 @@
                             </li>
                         </ul>
                     </div>
-
+    
                     <!-- Grid Column -->
                     <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                         <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
                         <ul class="list-unstyled mb-0">
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 703 551 7854</a>
+                                <a class="text-white" href="#">+234 903 984 4309</a>
                             </li>
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
@@ -511,7 +627,7 @@
                             </li>
                         </ul>
                     </div>
-
+    
                     <!--Grid column-->
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <!-- Facebook -->
@@ -549,25 +665,17 @@
         </div>
         <!-- Copyright -->
         <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        © 2024 Copyright:
+        © 2025 Copyright:
         <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
         </div>
         <!-- Copyright -->
     </footer>
+ </section>
 
-    <!--============================== Scripts==================================== -->
-    <!--  Preloader Functionality -->
-    <script>
-        $(document).ready(function() {
-        //Preloader
-        preloaderFadeOutTime = 500;
-        function hidePreloader() {
-        var preloader = $('.spinner-wrapper');
-        preloader.fadeOut(preloaderFadeOutTime);
-        }
-        hidePreloader();
-        });
-    </script>
+    <!-- Ending of footer -->
+
+
+
     <!--======================== Back to top Button Functionality========================== -->
     <script>
         let BacktoTopBtn = document.getElementById("BacktoTopBtn");
@@ -585,13 +693,76 @@
         }
     </script>
     <!--======================== Back to top Button Functionality========================== -->
-
     <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./Assets/js/app.js"></script>
     <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="untitled.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Toastr Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom Script -->
+    <script src="Assets/js/forms.js"></script>
+    <script src="Assets/js/popup.js"></script>
+    
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+     <!-- Additional Scripts -->
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     
+     <script>
+         // Initialize AOS
+         AOS.init({
+             duration: 1000,
+             once: true
+         });
+ 
+         // Initialize Swiper
+         var swiper = new Swiper(".mySwiper", {
+             slidesPerView: 1,
+             spaceBetween: 10,
+             pagination: {
+                 el: ".swiper-pagination",
+                 clickable: true,
+             },
+             breakpoints: {
+                 640: {
+                     slidesPerView: 2,
+                     spaceBetween: 20,
+                 },
+                 768: {
+                     slidesPerView: 3,
+                     spaceBetween: 30,
+                 },
+                 1024: {
+                     slidesPerView: 4,
+                     spaceBetween: 40,
+                 },
+             },
+             autoplay: {
+                 delay: 2500,
+                 disableOnInteraction: false,
+             },
+         });
+     </script>
+
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-87c0e511-c2f4-4972-96b6-4358f70c6e2c" data-elfsight-app-lazy></div>
+    
 
 </body>
 </html>

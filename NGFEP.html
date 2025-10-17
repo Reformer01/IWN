@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
+    <meta name="author" content="Reformer Ejembi">
+        <title>Nigeria Google for Education Program || I-World Networks</title>
+        <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+        <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+        <style>
+            /* Google Education-inspired revamp */
+            :root {
+                --google-blue: #4285F4;
+                --google-red: #EA4335;
+                --google-yellow: #FBBC05;
+                --google-green: #34A853;
+                --google-gray: #f8f9fa;
+                --google-dark-gray: #5f6368;
+                --google-text: #202124;
+                --iwn-orange: #F58C29;
+            }
+            body {
+                font-family: 'Google Sans', Arial, sans-serif;
+                color: var(--google-text);
+                background: var(--google-gray);
+                line-height: 1.6;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Google Sans', Arial, sans-serif;
+                font-weight: 500;
+            }
+            .navbar {
+                background: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+                padding: 1rem 0;
+            }
+            .navbar-brand img {
+                height: 44px;
+            }
+            .dropdown-menu {
+                margin-top: 0;
+                border-radius: 8px;
+                border: none;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            }
+            @media (min-width: 992px) {
+                .dropdown:hover .dropdown-menu {
+                    display: block;
+                }
+                .dropdown-menu {
+                    animation: fadeIn 0.2s ease-in;
+                }
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .nav-link {
+                color: var(--google-text) !important;
+                font-family: 'Google Sans', Arial, sans-serif;
+                font-weight: 500;
+                padding: 0.5rem 1.2rem !important;
+                border-radius: 4px;
+                transition: all 0.3s;
+            }
+            .nav-link:hover, .nav-link.active {
+                background: var(--google-gray);
+                color: var(--google-blue) !important;
+            }
+            .btn-google {
+                background: var(--google-blue);
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                padding: 0.7rem 2rem;
+                font-family: 'Google Sans', Arial, sans-serif;
+                font-weight: 500;
+                font-size: 1.1rem;
+            }
+            .form-section {
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+                padding: 2.5rem 2rem;
+                margin: 3rem 0 2rem 0;
+            }
+            .form-label {
+                font-weight: 500;
+                color: var(--google-blue);
+            }
+            .form-control, .form-select {
+                border-radius: 6px;
+                border: 1px solid #e0e0e0;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                background: var(--google-gray);
+                transition: border-color 0.2s, box-shadow 0.2s;
+            }
+            .form-control:focus, .form-select:focus {
+                border-color: var(--google-blue);
+                box-shadow: 0 0 0 2px rgba(66,133,244,0.13);
+            }
+            .footer {
+                background: #202124;
+                color: #fff;
+                padding: 3rem 0 1rem;
+                border-top-left-radius: 24px;
+                border-top-right-radius: 24px;
+            }
+            .footer-title {
+                font-family: 'Google Sans', Arial, sans-serif;
+                font-weight: 500;
+                margin-bottom: 1rem;
+                color: #fff;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #5f6368;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+                transition: all 0.3s;
+            }
+            .social-icon:hover {
+                background: var(--google-blue);
+                transform: translateY(-3px);
+            }
+            .copyright {
+                background: #303134 !important;
+                color: #9aa0a6;
+                padding: 1rem 0;
+                margin-top: 2rem;
+                border-bottom-left-radius: 24px;
+                border-bottom-right-radius: 24px;
+            }
+            @media (max-width: 768px) {
+                .hero-section { min-height: 340px; }
+                .hero-section h1 { font-size: 2rem; }
+                .hero-section p { font-size: 1rem; }
+                .features-section, .partners-section, .form-section { padding: 1.2rem 0.5rem; }
+            }
+            :root {
+      --google-blue: #4285F4;
+      --google-red: #EA4335;
+      --google-yellow: #FBBC05;
+      --google-green: #34A853;
+      --google-gray: #f8f9fa;
+      --google-dark-gray: #5f6368;
+      --google-text: #202124;
+      --iwn-orange: #F58C29;
+    }
+    
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      color: var(--google-text);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Google Sans', Arial, sans-serif;
+      font-weight: 500;
+    }
+    
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+    }
+    
+    .navbar-brand img {
+      height: 40px;
+    }
+    
+    .nav-link {
+      color: var(--google-text) !important;
+      font-family: 'Google Sans', Arial, sans-serif;
+      font-weight: 500;
+      padding: 0.5rem 1rem !important;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background-color: var(--google-gray);
+    }
+    
+    .btn-google {
+      background-color: var(--google-blue);
+      border: none;
+      color: white;
+      border-radius: 4px;
+      padding: 0.5rem 1.5rem;
+      font-family: 'Google Sans', Arial, sans-serif;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-google:hover {
+      background-color: #3367d6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./Assets/img/GFEP.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      margin-top: 76px;
+    }
+    
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-section p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--google-blue);
+      border-radius: 2px;
+    }
+    
+    .benefit-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: none;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--google-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .skills-section {
+      background-color: var(--google-gray);
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+    }
+    
+    .partner-card {
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .partner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .partner-card img {
+      height: 150px;
+      object-fit: contain;
+      padding: 1rem;
+      background-color: white;
+    }
+    
+    .form-section {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .form-control {
+      border-radius: 4px;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+    }
+    
+    .form-control:focus {
+      border-color: var(--google-blue);
+      box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+    }
+    
+    .footer {
+      background-color: #202124;
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer a {
+      color: #dadce0;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    .footer-title {
+      font-family: 'Google Sans', Arial, sans-serif;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #5f6368;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--google-blue);
+      transform: translateY(-3px);
+    }
+    
+    .newsletter-input {
+      background-color: #303134;
+      border: 1px solid #5f6368;
+      color: white;
+      border-radius: 4px;
+      padding: 0.75rem;
+    }
+    
+    .newsletter-input:focus {
+      border-color: var(--google-blue);
+      box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+    }
+    
+    .newsletter-input::placeholder {
+      color: #9aa0a6;
+    }
+    
+    .btn-subscribe {
+      background-color: var(--google-blue);
+      border: none;
+      color: white;
+      border-radius: 4px;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Google Sans', Arial, sans-serif;
+      font-weight: 500;
+    }
+    
+    .btn-subscribe:hover {
+      background-color: #3367d6;
+    }
+    
+    .copyright {
+      background-color: #303134 !important;
+      color: #9aa0a6;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+    
+    .copyright a {
+      color: #e8eaed;
+    }
+    
+    .client-zone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--iwn-orange);
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: 'Google Sans', Arial, sans-serif;
+    }
+    
+    .client-zone-btn:hover {
+      background-color: #FF6600;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      #client-zone-widget {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .client-zone-btn {
+        padding: 10px 16px;
+      }
+      
+      .hero-section {
+        height: 400px;
+      }
+      
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-section p {
+        font-size: 1rem;
+      }
+    }
+
+    .animated-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-btn i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.tab-content-item h2 {
+    animation: slideIn 0.5s ease-out;
+}
+
+.tab-content-item p {
+    animation: fadeIn 0.5s ease-out 0.2s both;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+        </style>
+    
+  
+</head>
+<body class="overflow-x-hidden">
+    <!-- Header Beginning -->
+    <header>
+        <!-- Navbar beginning -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+              <img src="./Assets/icons/logos/ngfep 3.jpg" alt="ngfep_logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Internet Services</a>
+                  <ul class="dropdown-menu" aria-labelledby="InternetDropdown">
+                    <li><a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a></li>
+                    <li><a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a></li>
+                    <li><a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Google Cloud Services</a>
+                  <ul class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                    <li><a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a></li>
+                    <li><a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="./msp.html">Managed IT Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
+                <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a></li>
+                <li class="nav-item"><a class="nav-link" href="./Loyalty_&_Discounts.html"> Loyalty & Discounts</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+    
+
+        <!-- Hero Section -->
+        <section class="hero-section d-flex align-items-center justify-content-center" style="background: url('./Assets/img/k-12\ \(2\).jpg') center/cover no-repeat; min-height: 320px; position: relative;">
+      <div class="container hero-content text-center" style="background: rgba(0,0,0,0.45); border-radius: 24px; padding: 3rem 2rem; max-width: 700px; margin: 3rem auto; position: relative;">
+        
+        <h1 class="display-4 fw-bold text-white mb-3">Transform Education with Google For Education</h1>
+        <p class="lead text-white mb-4">Empowering Nigerian schools with world-class digital learning solutions, infrastructure, and support.</p>
+        <a href="#enquiry_form" class="btn btn-google">Join the Program</a>
+      </div>
+    </section>
+
+        <!-- Program Heading and Body (directly under hero) -->
+        <section class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="section-title" style="font-size:2.2rem;  color: var(--google-blue);">Nigeria Google For Education Program</h2>
+                    <p class="fs-5 mb-0" style="max-width: 900px; margin: 0 auto; text-align: center;">The Nigeria Google For Education Program (NGFEP) is powered by I-World Networks along with other technical partners. <br> It is an initial 10 Million USD investment program in the Nigerian education sector to help K-12 and Higher Institutions develop world class digital learning infrastructure, change management process, training and capacity development. This will launch schools into world class Digital Learning Centers using the Google for Education learning platform.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Features/Benefits Section (Google-style horizontal carousel with head message) -->
+        <section class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2  class="section-title" style="font-size:2.2rem; color: var(--google-blue);">Project Cost covered by Nigeria Google for Education Program on your campus.
+</h2>
+                </div>
+            </div>
+            <!-- <div class="d-flex justify-content-center mb-4">
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_2szgkivv.json" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
+            </div> -->
+            <div class="row justify-content-center">
+                <div class="col-lg-11">
+                    <!-- Responsive Carousel Tabs -->
+    <div class="custom-tabs-slider mx-auto" style="background: #fff; border-radius: 24px; box-shadow: 0 2px 16px rgba(66,133,244,0.07); padding: 2.5rem 2rem; max-width: 100%;">
+      <div class="tabs-nav d-flex justify-content-start position-relative mb-4 flex-nowrap overflow-auto" id="featuresTabsNav">
+        <div class="tab-btn active" data-tab="0">Google for Education Plus</div>
+        <div class="tab-btn" data-tab="1">World Class Campus Network</div>
+        <div class="tab-btn" data-tab="2">High Speed Internet Backbone</div>
+        <div class="tab-btn" data-tab="3">Google Digital Learning Centre</div>
+        <div class="tab-btn" data-tab="4">Chromebook for all students</div>
+        <div class="tab-btn" data-tab="5">Ongoing Support</div>
+        <div class="slider-bar"></div>
+      </div>
+      <div class="tab-content-area">
+        <div class="tab-content-item active">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-lg-5 col-md-6 text-center">
+                                        <img src="./Assets/img/Education Plus.png" class="img-fluid rounded-4 shadow" alt="Google for Education Plus" style="max-height:320px;object-fit:cover;">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
+                                        <h2 style="font-family: 'Google Sans', Arial, sans-serif; font-size:2rem; font-weight:600; color:#202124; margin-bottom:1rem;">Google For Education Plus</h2>
+                                        <p style="color:#5f6368; font-size:1.15rem; font-family:'Roboto', Arial, sans-serif; font-weight:400; margin-bottom:0;">The most advanced All-in-One Solution with advanced security and analytics, teaching, and features and more. 
+                                          <br>
+                                        With features tailored to meet the needs of educators and students alike, it supports effective teaching practices and data-driven decision-making.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content-item">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-lg-5 col-md-6 text-center">
+                                        <img src="./Assets/img/campus Network 3.jpg" class="img-fluid rounded-4 shadow" alt="World Class Campus Network" style="max-height:320px;object-fit:cover;">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
+                                        <h2 class="fw-bold mb-2">World Class Campus Network</h2>
+                                        <p class="mb-0 fs-5">To support the Google for Education Digital learning ecosystem to keep students and educators connected.
+                                            <br>
+                                            This robust network supports various educational tools and resources, providing a stable foundation for digital learning initiatives
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content-item">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-lg-5 col-md-6 text-center">
+                                        <img src="./Assets/img/High speed internet 3.jpg" class="img-fluid rounded-4 shadow" alt="High Speed Internet Backbone" style="max-height:320px;object-fit:cover;">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
+                                        <h2 class="fw-bold mb-2">High Speed Internet Backbone</h2>
+                                        <p class="mb-0 fs-5">Via Google Equiano Subsea Cable on bandwidth capacity up to 10Gbps per School to support digital learning ecosystem.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content-item">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-lg-5 col-md-6 text-center">
+                                        <img src="./Assets/img/learning-center.jpg" class="img-fluid rounded-4 shadow" alt="Google Digital Learning Centre" style="max-height:320px;object-fit:cover;">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
+                                        <h2 class="fw-bold mb-2">Google Digital Learning Centre</h2>
+                                        <p class="mb-0 fs-5">A well-equipped learning center that will train your educators on how to use Google for Education tools to deliver, enrich, and personalize teaching and learning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content-item">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-lg-5 col-md-6 text-center">
+                                        <img src="./Assets/img/Chromebook 1.png" class="img-fluid rounded-4 shadow" alt="Chromebook for all students" style="max-height:320px;object-fit:cover;">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
+                                        <h2 class="fw-bold mb-2">Chromebook for all students</h2>
+                                        <p class="mb-0 fs-5">The most used digital learning device in the world. Over 50 Million Chromebooks used in classrooms across the world.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content-item">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-lg-5 col-md-6 text-center">
+                                        <img src="./Assets/img/support 1.jpg" class="img-fluid rounded-4 shadow" alt="Ongoing Support" style="max-height:320px;object-fit:cover;">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
+                                        <h2 class="fw-bold mb-2">Ongoing Support</h2>
+                                        <p class="mb-0 fs-5">Continuous maintenance, updates, and technical support for all implemented systems.
+                                        <br>
+                                         Our support team is available to provide guidance and troubleshoot problems, helping users maximize the functionality of their systems.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills/Impact Section -->
+        <section class="container my-5">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="section-title animated-text" style="color: var(--google-green);">Equipping the Next Generation</h3>
+                    <p class="fs-5 animated-text delay-1">More than 65% of learners will work in jobs that don't exist today but many aren't yet developing the problem-solving skills and basic digital competencies they'll need to be prepared for the future.</p>
+                    <p class="fs-5 animated-text delay-2">That is why your school need to partner with the Nigeria Google for Education Program to enjoy direct investment to upgrade your school to digital learning hub. We help schools prepare students with the digital and problem-solving skills they'll need for the future.</p>
+                    <div class="mt-3 animated-text delay-2">
+                        <img src="./Assets/img/ngfep_google_cloud_partner-no-bg.png" class="img-fluid" height="52" width="234" alt="">
+                        <br>
+                        <span class="fw-bold">2025/2026 application ongoing!</span> For more information call 0906-000-9738
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="./Assets/img/admission.jpg" alt="Google for Education Nigeria" class="img-fluid rounded shadow" style="max-width: 370px;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Schools Section -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabBtns = document.querySelectorAll('.custom-tabs-slider .tab-btn');
+        const tabContents = document.querySelectorAll('.custom-tabs-slider .tab-content-item');
+        const sliderBar = document.querySelector('.custom-tabs-slider .slider-bar');
+        function moveSliderBar(index) {
+            const activeBtn = tabBtns[index];
+            sliderBar.style.width = activeBtn.offsetWidth + 'px';
+            sliderBar.style.left = activeBtn.offsetLeft + 'px';
+        }
+        tabBtns.forEach((btn, idx) => {
+            btn.addEventListener('click', function() {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                tabContents.forEach((c, i) => {
+                    c.classList.toggle('active', i === idx);
+                });
+                moveSliderBar(idx);
+            });
+        });
+        // Initial position
+        moveSliderBar(0);
+        window.addEventListener('resize', () => {
+            const activeIdx = Array.from(tabBtns).findIndex(b => b.classList.contains('active'));
+            moveSliderBar(activeIdx);
+        });
+    });
+    </script>
+    <style>
+    .custom-tabs-slider .tabs-nav {
+        border-bottom: 1.5px solid #e0e0e0;
+        position: relative;
+        background: #fff;
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+        gap: 1.5rem;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+    .custom-tabs-slider .tab-btn {
+    font-family: 'Google Sans', Arial, sans-serif;
+    .custom-tabs-slider .tab-content-item h2 {
+        font-family: 'Google Sans', Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #202124;
+        margin-bottom: 1rem;
+    }
+    .custom-tabs-slider .tab-content-item p {
+        color: #5f6368;
+        font-size: 1.15rem;
+        font-family: 'Roboto', Arial, sans-serif;
+        font-weight: 400;
+    }
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: #444;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+        transition: color 0.2s;
+        position: relative;
+    }
+    .custom-tabs-slider .tab-btn.active {
+        color: #1967d2;
+    }
+    .custom-tabs-slider .slider-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: #1967d2;
+        border-radius: 2px 2px 0 0;
+        transition: left 0.3s cubic-bezier(.4,0,.2,1), width 0.3s cubic-bezier(.4,0,.2,1);
+        z-index: 2;
+    }
+    .custom-tabs-slider .tab-content-area {
+        min-height: 320px;
+    }
+    .custom-tabs-slider .tab-content-item {
+        display: none;
+        animation: fadeIn 0.3s;
+    }
+    .custom-tabs-slider .tab-content-item.active {
+        display: block;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 767px) {
+        .custom-tabs-slider .tabs-nav {
+            gap: 0.5rem;
+        }
+        .custom-tabs-slider .tab-btn {
+            font-size: 1rem;
+            padding: 0.5rem 0.5rem 0.75rem 0.5rem;
+        }
+        .custom-tabs-slider .tab-content-area {
+            min-height: 0;
+        }
+    }
+    </style>
+            <!-- Improved Partner Schools Section -->
+            <section class="partners-section container my-5">
+                <div class="text-center mb-5">
+                    <h3 class="section-title">Our Partner Schools</h3>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="partner-card d-flex flex-column align-items-center p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="d-flex align-items-center justify-content-center mb-3" style="height:110px;width:100%;">
+                                <img src="./Assets/img/achievers-university-logo.png" alt="Achievers University" style="max-height:90px;max-width:90px;object-fit:contain;">
+                            </div>
+                            <h5 class="fw-bold text-center">Achievers University</h5>
+                            <p class="text-muted text-center mb-0">Leading the digital transformation in higher education.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="partner-card d-flex flex-column align-items-center p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="d-flex align-items-center justify-content-center mb-3" style="height:110px;width:100%;">
+                                <img src="./Assets/img/CUAB.png" alt="Crescent University" style="max-height:90px;max-width:90px;object-fit:contain;">
+                            </div>
+                            <h5 class="fw-bold text-center">Crescent University</h5>
+                            <p class="text-muted text-center mb-0">Embracing innovative learning technologies.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="partner-card d-flex flex-column align-items-center p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="d-flex align-items-center justify-content-center mb-3" style="height:110px;width:100%;">
+                                <img src="./Assets/img/CKA.jpeg" alt="City of Knowledge Academy" style="max-height:90px;max-width:90px;object-fit:contain;">
+                            </div>
+                            <h5 class="fw-bold text-center">City of Knowledge Academy</h5>
+                            <p class="text-muted text-center mb-0">Setting new standards in digital education.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="partner-card d-flex flex-column align-items-center p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="d-flex align-items-center justify-content-center mb-3" style="height:110px;width:100%;">
+                                <img src="./Assets/img/JABU.jpg" alt="Joseph Ayo Babalola University" style="max-height:90px;max-width:90px;object-fit:contain;">
+                            </div>
+                            <h5 class="fw-bold text-center">Joseph Ayo Babalola University</h5>
+                            <p class="text-muted text-center mb-0">Inspiring success through dynamic digital platforms.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="partner-card d-flex flex-column align-items-center p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="d-flex align-items-center justify-content-center mb-3" style="height:110px;width:100%;">
+                                <img src="./Assets/img/lifeforte-logo.png" alt="Lifeforte International Schools" style="max-height:90px;max-width:90px;object-fit:contain;">
+                            </div>
+                            <h5 class="fw-bold text-center">Lifeforte International Schools</h5>
+                            <p class="text-muted text-center mb-0">Cultivating leaders through cutting-edge digital tools.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="partner-card d-flex flex-column align-items-center p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="d-flex align-items-center justify-content-center mb-3" style="height:110px;width:100%;">
+                                <img src="./Assets/img/CRC.jpg" alt="Christ the Redeemer's College" style="max-height:90px;max-width:90px;object-fit:contain;">
+                            </div>
+                            <h5 class="fw-bold text-center">Christ the Redeemer's College</h5>
+                            <p class="text-muted text-center mb-0">Fostering creativity through advanced learning solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Enquiry Form -->
+        <section class="container my-5" id="enquiry_form">
+      <div class="text-center mb-5">
+        <h3 class="section-title">Interested in Joining the Program?</h3>
+      </div>
+      <div class="form-section mx-auto" style="max-width: 700px;">
+        <form id="ngfep-enquiry">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="schoolName" class="form-label">School Name</label>
+              <input type="text" class="form-control" id="schoolName" name="school_name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="contactPerson" class="form-label">Contact Person</label>
+              <input type="text" class="form-control" id="contactPerson" name="contact_person" required>
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="col-md-6">
+              <label for="schoolAddress" class="form-label">School Address</label>
+              <input type="text" class="form-control" id="schoolAddress" name="school_address" required>
+            </div>
+            <div class="col-md-6">
+              <label for="schoolWebsite" class="form-label">School Website</label>
+              <input type="text" class="form-control" id="schoolWebsite" name="school_website" required>
+            </div>
+            <div class="col-md-6">
+              <label for="studentCount" class="form-label">Student Count</label>
+              <input type="text" class="form-control" id="studentCount" name="student_count" required>
+            </div>
+            <div class="col-md-6">
+              <label for="staffCount" class="form-label">Staff Count</label>
+              <input type="text" class="form-control" id="staffCount" name="staff_count" required>
+            </div>
+            <div class="col-12">
+              <label for="schoolType" class="form-label">School Type</label>
+              <select class="form-select" id="schoolType" name="school_type" required>
+                <option value="">Select School Type</option>
+                <option value="primary">Primary School</option>
+                <option value="secondary">Secondary School</option>
+                <option value="university">University</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="message" class="form-label">Additional Information</label>
+              <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+            </div>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-google">Submit Enquiry</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+ <!-- Footer section Beginning -->
+    <footer class="footer">
+      <div class="container-fluid py-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h6 class="footer-title">Quick Links</h6>
+            <ul class="list-unstyled">
+              <li class="mt-2">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="mt-2">
+                <a href="./about.html">About Us</a>
+              </li>
+              <li class="mt-2">
+                <a href="./contact.html">Contact Us</a>
+              </li>
+              <li class="mt-2">
+                <a href="./careers.html">Careers</a>
+              </li>
+              <li class="mt-2">
+                <a href="https://app.iwn.ng" target="_blank">Client Zone</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Connectivity Services -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h6 class="footer-title">Connectivity Services</h6>
+            <ul class="list-unstyled">
+              <li class="mt-2">
+                <a href="./internet_for_home.html">Internet for Home</a>
+              </li>
+              <li class="mt-2">
+                <a href="./Internet_for_business.html">Internet for Business</a>
+              </li>
+              <li class="mt-2">
+                <a href="./enterprise_internet.html">Enterprise Internet</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cloud Services -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h6 class="footer-title">Cloud Services</h6>
+            <ul class="list-unstyled">
+              <li class="mt-2">
+                <a href="NGFEP.html">Nigeria Google for Education</a>
+              </li>
+              <li class="mt-2">
+                <a href="./Google_Workspace.html">Google Workspace</a>
+              </li>
+              <li class="mt-2">
+                <a href="./msp.html">Managed Service Provider (MSP)</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h6 class="footer-title">Contact Info</h6>
+            <ul class="list-unstyled">
+              <li class="mt-2">
+                <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                <a href="tel:+2349039844309">+234 903 984 4309</a>
+              </li>
+              <li class="mt-2">
+                <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                <a href="tel:+2348077675560">+234 807 767 5560</a>
+              </li>
+              <li class="mt-2">
+                <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                <a href="tel:+2348077675565">+234 807 767 5565</a>
+              </li>
+              <li class="mt-2">
+                <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                <a href="tel:+2347066053380">+234 706 605 3380</a>
+              </li>
+              <li class="mt-2">
+                <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                <a href="tel:+2348036265524">+234 803 626 5524</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter and Social Media -->
+          <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+            <h6 class="footer-title">Stay Connected</h6>
+            <p>Sign up for our newsletter</p>
+            <div class="input-group mb-3">
+              <input type="email" class="form-control newsletter-input" placeholder="Your Email Address" aria-label="Your Email Address">
+              <button class="btn btn-subscribe" type="button">Subscribe</button>
+            </div>
+            
+            <!-- Social Media Icons -->
+            <div class="mt-4">
+              <a href="#!" class="social-icon me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12z"/></svg>
+              </a>
+              <a href="#!" class="social-icon me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"/></svg>
+              </a>
+              <a href="#!" class="social-icon me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="#!" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright text-center py-3">
+        <div class="container-fluid">
+          © 2025 Copyright: <a href="./index.html">I-World Networks</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="./Assets/js/app.js"></script>
+    <script src="Assets/js/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dropdowns
+            var dropdowns = document.querySelectorAll('.dropdown-toggle');
+            dropdowns.forEach(function(dropdown) {
+                dropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var menu = this.nextElementSibling;
+                    dropdowns.forEach(function(otherDropdown) {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.nextElementSibling.classList.remove('show');
+                        }
+                    });
+                    menu.classList.toggle('show');
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropdown-toggle')) {
+                    document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                        menu.classList.remove('show');
+                    });
+                }
+            });
+
+            // Add hover functionality for desktop
+            if (window.innerWidth >= 992) {
+                document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                    dropdown.addEventListener('mouseenter', function() {
+                        this.querySelector('.dropdown-menu').classList.add('show');
+                    });
+                    dropdown.addEventListener('mouseleave', function() {
+                        this.querySelector('.dropdown-menu').classList.remove('show');
+                    });
+                });
+            }
+        });
+    </script>
+    <!-- ...existing code... -->
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    if (window.AOS) {
+                        AOS.init({
+                            duration: 1000,
+                            once: true
+                        });
+                    }
+                });
+            </script>
+
+                <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+      })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+
+
+
+        <!-- Client Zone Widget -->
+<div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+      <div class="widget-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
+          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        <span>Client Zone</span>
+      </div>
+    </a>
+  </div>
+</html>

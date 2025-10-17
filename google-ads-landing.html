@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I-World Networks - Google Ads Landing Page">
+    <title>I-World Networks | Join Thousands of Happy Customers!</title>
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="./Assets/css/responsivecss.css">
+    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #f7fafd;
+        }
+        .image-header {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-header img.hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5);
+        }
+        .image-header .header-content {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            z-index: 2;
+            text-align: center;
+        }
+        .image-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .image-header p {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            margin: -80px auto 32px auto;
+            max-width: 1100px;
+            min-height: 420px;
+            overflow: hidden;
+        }
+        .split-left {
+            background: #eaf4fb;
+            flex: 1 1 350px;
+            padding: 48px 32px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .split-left h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a355e;
+        }
+        .benefits-list {
+            margin: 2rem 0 1.5rem 0;
+            padding: 0;
+            list-style: none;
+        }
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #1a355e;
+        }
+        .benefits-list li i {
+            color: #59AF17;
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        .testimonials-mini {
+            margin-top: 2rem;
+        }
+        .testimonial-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .testimonial-card img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+        }
+        .testimonial-card .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #333;
+        }
+        .testimonial-card .author {
+            font-size: 0.95rem;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+        .split-right {
+            flex: 1 1 350px;
+            background: #fff;
+            padding: 48px 32px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid #eaf4fb;
+        }
+        .split-right h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #59AF17;
+            margin-bottom: 1rem;
+        }
+        .form-embed {
+            width: 100%;
+            min-height: 420px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        @media (max-width: 900px) {
+            .split-section { flex-direction: column; }
+            .split-left, .split-right { padding: 32px 16px; }
+        }
+        @media (max-width: 600px) {
+            .image-header { height: 180px; }
+            .image-header h1 { font-size: 1.3rem; }
+            .split-section { margin: -40px 0 16px 0; }
+        }
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .whatsapp-widget a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .whatsapp-icon {
+            background-color: #25D366;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .whatsapp-icon i {
+            font-size: 24px;
+        }
+        .whatsapp-text {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Regular Navigation Bar -->
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internet Services</a>
+                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Google Cloud Services</a>
+                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="./msp.html">Managed IT Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Hero Section (Redesigned) -->
+    <div class="hero-section position-relative overflow-hidden" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 80px 0 40px 0; margin-bottom: 50px;">
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold text-gradient" style="background: linear-gradient(90deg, #59AF17, #1a355e); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Experience Next-Level Internet</h1>
+                    <p class="lead">Join thousands enjoying blazing speeds, unbeatable uptime, and exclusive customer rewards. Connect your homes and businesses with I-World Networks today.</p>
+                    <a href="#packages" class="btn btn-warn btn-lg mt-3">See Our Packages <i class="bi bi-arrow-down-circle ms-2"></i></a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <img src="./Assets/img/home_internet.jpg" alt="I-World Networks Hero" class="img-fluid rounded-3 shadow-lg">
+                </div>
+            </div>
+        </div>
+        <div class="custom-shape-divider-bottom" style="position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#59AF17"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#1a355e"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#fff"></path>
+            </svg>
+        </div>
+    </div>
+    <!-- Split Section: Benefits & Form -->
+    <section class="split-section">
+        <!-- Left: Benefits & Mini-Testimonials -->
+        <div class="split-left" data-aos="fade-right">
+            <h2>Why Choose I-World Networks?</h2>
+            <ul class="benefits-list">
+                <li><i class="fas fa-infinity"></i> <strong>Unlimited Data:</strong> Stream, work, and play without limits.</li>
+                <li><i class="fas fa-bolt"></i> <strong>99.9% Uptime:</strong> Always-on connectivity you can trust.</li>
+                <li><i class="fas fa-wallet"></i> <strong>Affordable Plans:</strong> Flexible options for every budget.</li>
+                <li><i class="fas fa-headset"></i> <strong>24/7 Expert Support:</strong> Our team is here for you, day and night.</li>
+                <li><i class="fas fa-shield-alt"></i> <strong>Secure & Reliable:</strong> Your data and privacy are always protected.</li>
+            </ul>
+            <div class="testimonials-mini">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="./Assets/img/John.jpeg" alt="Johnvents Industries Ltd.">
+                    <div>
+                        <div class="quote">"I-World has been fantastic for Johnvents Industries Akure! Fast internet, minimal downtime, and excellent 24/7 customer service."</div>
+                        <div class="author">Johnvents Industries Ltd., Akure</div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./Assets/img/Kolomoni.jpeg" alt="Kolomoni Micro-Finance Bank">
+                    <div>
+                        <div class="quote">"Working with I-World has been an absolute pleasure. Top notch service and support!"</div>
+                        <div class="author">Kolomoni Micro-Finance Bank, Ibadan</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#form-section" class="btn btn-primary btn-lg mt-4">Get Started Now</a>
+        </div>
+        <!-- Right: Form -->
+        <div class="split-right" data-aos="fade-left" id="form-section">
+            <h3>Get Started Today</h3>
+            <iframe class="form-embed" src="https://docs.google.com/forms/d/e/1FAIpQLSdVcdulZqbmVuw61voQj-kaRQCivHoqglnNvMoIpXqlq48tYA/viewform?usp=header" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </section>
+    <!-- Packages & Offers Section (Redesigned) -->
+    <section id="packages" class="container my-5" data-aos="fade-up">
+        <h2 class="text-center mb-4" style="color:#1a355e; font-weight:800;">Our Most Popular Packages</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card discount-card h-100 shadow border-0">
+                    <div class="card-body text-center discount-content p-4 rounded-4">
+                        <div class="discount-icon mb-3 mx-auto" style="background:rgba(89,175,23,0.1);"><i class="fas fa-home fa-2x" style="color:#59AF17;"></i></div>
+                        <h4 class="card-title fw-bold mb-2" style="color:#59AF17;">H-Lite</h4>
+                        <div class="discount-badge mb-2">₦27,500/mo</div>
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="fas fa-wifi me-2"></i>Up to 20 Mbps</li>
+                            <li><i class="fas fa-infinity me-2"></i>Unlimited Data</li>
+                            <li><i class="fas fa-headset me-2"></i>Priority Support</li>
+                            <li><i class="fas fa-user me-2"></i> Ideal for Small & Medium Sized Family</li>
+                        </ul>
+                        <a href="./internet_for_home.html" class="btn btn-success">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card discount-card h-100 shadow border-0">
+                    <div class="card-body text-center discount-content p-4 rounded-4">
+                        <div class="discount-icon mb-3 mx-auto" style="background:rgba(89,175,23,0.1);"><i class="fas fa-briefcase fa-2x" style="color:#59AF17;"></i></div>
+                        <h4 class="card-title fw-bold mb-2" style="color:#59AF17;">U-Lite</h4>
+                        <div class="discount-badge mb-2">₦32,500/mo</div>
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="fas fa-wifi me-2"></i>Up to 25 Mbps</li>
+                            <li><i class="fas fa-infinity me-2"></i>Unlimited Data</li>
+                            <li><i class="fas fa-headset me-2"></i>Priority Support</li>
+                            <li><i class="fas fa-users me-2"></i>Ideal for Medium Sized Businesses</li>
+                        </ul>
+                        <a href="./Internet_for_business.html" class="btn btn-success">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card discount-card h-100 shadow border-0">
+                    <div class="card-body text-center discount-content p-4 rounded-4">
+                        <div class="discount-icon mb-3 mx-auto" style="background:rgba(89,175,23,0.1);"><i class="fas fa-building fa-2x" style="color:#59AF17;"></i></div>
+                        <h4 class="card-title fw-bold mb-2" style="color:#59AF17;">Enterprise</h4>
+                        <div class="discount-badge mb-2">Contact Us</div>
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="fas fa-infinity me-2"></i>Unlimited Data</li>
+                            <li><i class="fas fa-building me-2"></i>For Large Businesses</li>
+                            <li><i class="fas fa-headset me-2"></i>Priority Support</li>
+                            <li><i class="fas fa-headset me-2"></i>Dedicated Account Manager</li>
+                        </ul>
+                        <a href="./enterprise_internet.html" class="btn btn-success">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="./contact.html" class="btn btn-primary btn-lg">Need Help Choosing? Contact Our Experts</a>
+        </div>
+    </section>
+    <!-- Regular Footer -->
+    <section>
+    <footer class=" text-start border pt-5 text-white bg-black">
+        <div class="container">
+            <section class="">
+                <div class="row py-5">
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
+                        <ul class="list-unstyled mb-0">
+                        <li class="mt-2"><a class="text-white" href="./index.html">Home</a></li>
+                        <li class="mt-2"><a class="text-white" href="./about.html">About Us</a></li>
+                        <li class="mt-2"><a class="text-white" href="./contact.html">Contact Us</a></li>
+                        <li class="mt-2"><a class="text-white" href="./careers.html">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mt-2"><a class="text-white" href="./internet_for_home.html">Internet for Home</a></li>
+                            <li class="mt-2"><a class="text-white" href="Internet_for_business.html">Internet for Business</a></li>
+                            <li class="mt-2"><a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mt-2"><a class="text-white" href="NGFEP.html">Nigeria Google for Education</a></li>
+                            <li class="mt-2"><a class="text-white" href="./Google_Workspace.html">Google Workspace</a></li>
+                            <li class="mt-2"><a class="text-white" href="./msp.html">Managed Service Provider (MSP)</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 903 984 4309</a></li>
+                            <li><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 807 767 5560</a></li>
+                            <li><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 807 767 5565</a></li>
+                            <li><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 706 605 3380</a></li>
+                            <li><img src="./Assets/icons/telephone.svg" width="20" height="20" alt=""><a class="text-white" href="#">+234 814 994 5984</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
+                        </a>
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
+                        </a>
+                        <!--Grid column-->
+                        <div class="">
+                            <p class="fw-bold">Sign up for our newsletter</p>
+                            <!-- Email input -->
+                            <div data-mdb-input-init class="form-outline ">
+                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
+                            </div>
+                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- Section: Links -->
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
+        &copy; 2025 Copyright:
+        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+ </section>
+</body>
+<!-- WhatsApp Widget -->
+<div class="whatsapp-widget">
+  <a href="https://wa.me/2348024091974" target="_blank" rel="noopener">
+    <div class="whatsapp-icon">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+    <span class="whatsapp-text">Chat with us</span>
+  </a>
+</div>
+<script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="./Assets/js/app.js"></script>
+<script src="./Assets/js/dropdown.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
+</html>

@@ -1,0 +1,1138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I-World Networks || Loyalty & Discounts Program</title>
+    
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+    
+    <!-- STYLESHEETS -->
+    <!-- <link rel="stylesheet" href="./Assets/css/style.css"> -->
+    <link rel="stylesheet" href="./Assets/css/responsivecss.css">
+    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+    
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        .text-gradient {
+            background: linear-gradient(90deg, #ff6600, #ff9966);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        *{
+            font-family: "Titillium Web", sans-serif !important;
+        }
+
+        .loyalty-hero {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+            margin-bottom: 50px;
+        }
+        
+        .custom-shape-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        
+        .custom-shape-divider-bottom .shape-fill {
+            fill: #ff6600;
+        }
+        
+        /* Discount Cards */
+        .discount-card {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .discount-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .discount-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        .discount-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            z-index: 2;
+        }
+        
+        .discount-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            text-align:center;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .discount-icon {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            padding: 10px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Modern Price Update Section */
+        .price-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .price-card-decoration {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,102,0,0.08) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 100%;
+        }
+        
+        .section-title .title-separator {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6600, #ff9966);
+            margin-top: 15px;
+        }
+        
+        .date-icon {
+            color: #ff6600;
+            background: rgba(255, 102, 0, 0.1);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .effective-date-card {
+            background-color: rgba(13, 110, 253, 0.05);
+        }
+        
+        .bandwidth-boost-announcement {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
+        }
+        
+        .announcement-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        
+        .boost-percentage {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .boost-percentage:before,
+        .boost-percentage:after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            top: 50%;
+        }
+        
+        .boost-percentage:before {
+            left: -40px;
+        }
+        
+        .boost-percentage:after {
+            right: -40px;
+        }
+        .cta-contact:hover{
+            color:white !important;
+            background-color:#59af17 !important;
+        }
+        
+         .client-zone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F58C29; /* IWN Orange from brand colors */
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    
+    .client-zone-btn:hover {
+      background-color: #FF6600; /* IWN darker Orange from brand colors */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      #client-zone-widget {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .client-zone-btn {
+        padding: 10px 16px;
+      }
+    }
+    .terms-link {
+        color: #ff6600;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+    }
+    
+    .terms-link:hover {
+        text-decoration: underline;
+        color: #FF9966;
+    }
+    
+    .terms-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .terms-popup-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .terms-popup {
+        background-color: rgba(255, 255, 255, 0.95);
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow-y: auto;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+    
+    .terms-popup-overlay.active .terms-popup {
+        transform: translateY(0);
+    }
+    
+    .terms-popup-header {
+        border-bottom: 2px solid #ff6600;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .terms-popup-title {
+        color: #ff6600;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+    .terms-popup-content {
+        margin-bottom: 25px;
+    }
+    
+    .terms-popup-close {
+        display: block;
+        width: 180px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .terms-popup-close:hover {
+        background-color: #FF9966;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+    }
+    </style>
+    
+    
+    
+  
+ 
+
+</head>
+<body class="overflow-x-hidden bg-white">
+    <!-- Header Beginning -->
+                <!-- Existing Navbar from other pages -->
+                <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="./index.html">
+                            <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Internet Services
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                                        <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                                        <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                                        <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+                                        <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Google Cloud Services
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                                        <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
+                                        <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+                                        <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./msp.html">Managed IT Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./careers.html">Careers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./contact.html">Contact Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./Loyalty_&_Discounts.html" target="_blank">Loyalty and Discounts</a>   
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a>   
+                                </li>
+                            </ul>
+                            <div class="subscribe-btn ms-auto">
+                                <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Ending of navbar -->
+                <div class="career-header-content py-5"></div>
+            </div>
+            <!-- End of Header -->
+                
+                
+                
+                
+                
+                
+            </div>
+        </nav>
+
+        <div class="loyalty-hero position-relative overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h1 class="display-4 fw-bold text-gradient">Unlock Exclusive Discounts</h1>
+                        <p class="lead">Valued customers get rewarded with I-World Networks' premium discount programs. Find out how to save today.</p>
+                        <a href="#discounts" class="btn btn-warn btn-lg mt-3">Explore Benefits <i class="bi bi-arrow-down-circle ms-2"></i></a>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                        <img src="./Assets/img/Loyalty_banner@.jpg" alt="Loyalty Program" class="img-fluid rounded-3 shadow-lg">
+                    </div>
+                </div>
+            </div>
+            <div class="custom-shape-divider-bottom">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                    <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                    <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <section class="price-update-section" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="price-card position-relative mb-5">
+                        <div class="price-card-decoration"></div>
+                        <div class="price-card-content p-4 p-md-5">
+                            <div class="section-title text-center mb-5">
+                                <!-- <h6 class="text-uppercase text-primary fw-semibold mb-2">Customer Appreciation</h6> -->
+                                <h2 class="fw-bold display-6">Loyalty & Discount Program</h2>
+                                <div class="title-separator mx-auto"></div>
+                            </div>
+                            
+                            <div class="row align-items-center">
+                                <div class="col-lg-7 mb-4 mb-lg-0">
+                                    <h4 class="fw-bold mb-3">Customer Value Enhancement</h4>
+                                    <p class="mb-4">At I-World Networks, we appreciate our loyal customers and strive to provide the best value. As we adjust our prices to enhance service quality, we are also offering exclusive discounts and loyalty rewards to show our gratitude.</p>
+                                    
+                                    <div class="effective-date-card p-3 mb-4 rounded-3 border-start border-4 border-primary">
+                                        <div class="d-flex align-items-center">
+                                            <div class="date-icon me-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                                    <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Effective Date</h5>
+                                                <p class="mb-0">New pricing and discounts take effect on <strong>June 1, 2025</strong>.</p>
+                                                <p class="mb-0 small">New customers will transition to updated pricing from <strong>April 1, 2025</strong>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-5">
+                                    <div class="bandwidth-boost-announcement p-4 rounded-4 text-center">
+                                        <div class="announcement-icon mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+                                                <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
+                                                <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.99 7.99 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"/>
+                                            </svg>
+                                        </div>
+                                        <div class="announcement-content">
+                                            <h3 class="fw-bold mb-2">GOOD NEWS!</h3>
+                                            <p class="mb-3">Along with the price adjustment, all plans will receive a</p>
+                                            <div class="boost-percentage mb-3">
+                                                <span class="display-4 fw-bold">100%</span>
+                                            </div>
+                                            <p class="mb-3">internet speed upgrade at no extra cost!</p>
+                                            
+                                            <div class="boost-meter mt-4">
+                                                <div class="progress rounded-pill" style="height: 10px;">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="d-flex justify-content-between mt-2">
+                                                    <small>Current</small>
+                                                    <small>New Speed</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+<section id="discounts" class="loyalty-benefits py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="section-title text-center mb-5">
+                    <h2 class="fw-bold display-6">Exclusive Discounts & Rewards</h2>
+                    <div class="title-separator mx-auto"></div>
+                </div>
+            </div>   
+
+        <div class="container">
+            <!-- Age Well Discount -->
+            <div class="container mb-4" style="max-width: 600px;">
+                <div class="card shadow-lg rounded">
+                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-12 col-md-6">
+                            <div class="card-body text-center text-md-start">
+                                <div class="discount-content p-4 rounded-4">
+                                    <h3 class="fw-bold mb-3 text-center text-md-start">Age Well Discount</h3>
+                                    <div class="discount-badge mb-3 text-center">15% OFF</div>
+                                    <p class='fs-6 mb-3 text-center text-md-start'>For Our Senior Citizen Subscribers (new or current) 60 years old and above will enjoy up to 15% Discount on their monthly subscription plan <strong>Effective June 1st</strong></p>
+                                    <h4 class="mb-2 text-center text-md-start">Requirements</h4>
+                                    <ul class="small list-unstyled text-center text-md-start">
+                                        <li>Valid government-issued ID required</li>
+                                    </ul>
+                                    <!-- Add this at the end of each discount card content section -->
+                                    <div class="mt-2 text-center text-md-start">
+                                        <a href="#" class="terms-link" data-discount="age-well">Terms and conditions ℹ️</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="./Assets/img/medium-shot-man-having-lunch-restaurant.jpg" 
+                                 class="img-fluid w-100" 
+                                 style="height: 400px; object-fit: cover;" 
+                                 alt="Senior Discount">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Relationship Reward -->
+            <div class="container mb-4" style="max-width: 600px;">
+                <div class="card shadow-lg rounded">
+                    <div class="row g-0 align-items-center flex-column flex-md-row">
+                        <div class="col-12 col-md-6">
+                            <img src="./Assets/img/business-executives-shaking-hands-with-each-other.jpg" 
+                                 class="img-fluid w-100" 
+                                 style="height: 400px; object-fit: cover;" 
+                                 alt="Loyalty Discount">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card-body text-center text-md-start">
+                                <div class="discount-content p-4 rounded-4">
+                                    <h3 class="fw-bold mb-3 text-center text-md-start">Relationship Reward</h3>
+                                    <div class="discount-badge mb-3 text-center">Up to 15% OFF</div>
+                                    <p class="mb-3 text-center text-md-start">Loyal customers will enjoy up to 15% discount on their monthly subscription <strong>Effective June 1st</strong>.</p>
+                                    <ul class="small list-unstyled text-center text-md-start">
+                                        <li>4+ years enjoys up to 15% on their monthly subscription</li>
+                                        <li>3+ years will enjoy up to 10% discount on the monthly subscription</li>
+                                    </ul>
+                                    <!-- Add this at the end of each discount card content section -->
+                                    <div class="mt-2 text-center text-md-start">
+                                        <a href="#" class="terms-link" data-discount="relationship-reward">Terms and conditions ℹ️</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Bundle and Save -->
+            <div class="container mb-4" style="max-width: 600px;">
+                <div class="card shadow-lg rounded">
+                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-12 col-md-6">
+                            <div class="card-body text-center text-md-start">
+                                <div class="discount-content p-4 rounded-4">
+                                    <h3 class="fw-bold mb-3 text-center text-md-start">Bundle and Save</h3>
+                                    <div class="discount-badge mb-3 text-center">10% OFF</div>
+                                    <p class="mb-3 text-center text-md-start">Multiple Account Savings- Connect your Home and Office and enjoy up to 10% on your monthly subscription <strong>Effective June 1st</strong></p>
+                                    <ul class="small list-unstyled text-center text-md-start">
+                                        <li>This discount is also applied for Group, Family or Estate Account under the same name.</li>
+                                    </ul>
+                                    <!-- Add this at the end of each discount card content section -->
+                                    <div class="mt-2 text-center text-md-start">
+                                        <a href="#" class="terms-link" data-discount="bundle-save">Terms and conditions ℹ️</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="./Assets/img/full-shot-woman-working-as-economist.jpg" 
+                                 class="img-fluid w-100" 
+                                 style="height: 400px; object-fit: cover;" 
+                                 alt="Bundle Discount">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Old Rate Lock-down -->
+            <div class="container mb-4" style="max-width: 600px;">
+                <div class="card shadow-lg rounded">
+                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-12 col-md-6">
+                            <div class="card-body text-center text-md-start">
+                                <div class="discount-content p-4 rounded-4">
+                                    <h3 class="fw-bold mb-3 text-center text-md-start">Rate Lock-down</h3>
+                                    <div class="discount-badge mb-3 text-center">LOCKED RATES</div>
+                                    <p class="text-center text-md-start">Renew between 6 to 12 months before June 1, 2025, to lock in your current pricing <strong>Effective June 1st</strong>.</p>
+                                    <ul class="small mt-3 text-center text-md-start">
+                                        <li>Limited time offer</li>
+                                    </ul>
+                                    <!-- Add this at the end of each discount card content section -->
+                                    <div class="mt-2 text-center text-md-start">
+                                        <a href="#" class="terms-link" data-discount="rate-lockdown">Terms and conditions ℹ️</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="https://img.freepik.com/premium-photo/padlock-credit-card-internet-data-privacy-information-security-concept_260672-7005.jpg?uid=R139058082&ga=GA1.1.1391337201.1740989443&semt=ais_hybrid" 
+                                 class="img-fluid rounded-start" 
+                                 style="height: 400px; width: 100%; object-fit: cover;"
+                                 alt="Rate Lock">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Referral Bonus -->
+            <div class="container mb-4" style="max-width: 600px;">
+                <div class="card shadow-lg rounded">
+                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-12 col-md-6">
+                            <div class="card-body text-center text-md-start">
+                                <div class="discount-content p-4 rounded-4">
+                                    <h3 class="fw-bold mb-3 text-center text-md-start">Referral Bonus</h3>
+                                    <div class="discount-badge mb-3 text-center">Refer Friends, Get Rewarded!</div>
+                                    <p class="text-center text-md-start">Everytime you refer a new customer to us, you earn one month of FREE internet service for a successful referral <strong>Effective June 1st</strong>!</p>
+                                    <ul class="small mt-3 text-center text-md-start">
+                                        <li>Refer friends and family to I-World Networks Limited</li>
+                                        <li>Referrals must subscribe to a paid internet plan</li>
+                                        <li>No limit to the number of referrals</li>
+                                        <li>Get one month of free service for each successful referral</li>
+                                    </ul>
+                                    <!-- Add this at the end of each discount card content section -->
+                                    <div class="mt-2 text-center text-md-start">
+                                        <a href="#" class="terms-link" data-discount="referral-bonus">Terms and conditions ℹ️</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="https://img.freepik.com/premium-photo/golden-coins-interconnected-with-figures-people-conection-concept-3d-illustration_339569-2517.jpg?ga=GA1.1.833302235.1720806065&semt=ais_hybrid" 
+                                 class="img-fluid rounded-start" 
+                                 style="height: 400px; width: 100%; object-fit: cover;" 
+                                 alt="Bundle Discount">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prepaid Savings Discount -->
+            <div class="container mb-4" style="max-width: 600px;">
+                <div class="card shadow-lg rounded">
+                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-12 col-md-6">
+                            <div class="card-body text-center text-md-start">
+                                <div class="discount-content p-4 rounded-4">
+                                    <h3 class="fw-bold mb-3 text-center text-md-start">Prepaid Savings Discount</h3>
+                                    <div class="discount-badge mb-3 text-center">LOCKED RATES</div>
+                                    <p class="text-center text-md-start">Take advantage of our prepaid savings discount and enjoy significant savings on your internet subscription. Choose from our range of plans and pay upfront to lock in your rate <strong>Effective June 1st</strong>.</p>
+                                    <h4 class="fs-5 text-center text-md-start">Discount Tiers:</h4>
+                                    <ul class="small text-center text-md-start">
+                                        <li>Get 5% off for 3 months on any plan</li>
+                                        <li>Get 7.5% off for 6 months on any plan</li>
+                                        <li>Get 10% off for 12 months on any plan</li>
+                                    </ul>
+                                     <!-- Add this to the Prepaid Savings discount card content -->
+                                    <div class="mt-2 text-center text-md-start">
+                                        <a href="#" class="terms-link" data-discount="prepaid-savings">Terms and conditions ℹ️</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="https://img.freepik.com/free-photo/black-man-with-piggy-bank_93675-128524.jpg?t=st=1742478272~exp=1742481872~hmac=518394a8242b7aaf5431c30e2a011432f6eb2718f84ddef52666a9e4cad9bee4&w=740" 
+                                 class="img-fluid rounded-start" 
+                                 style="height: 400px; width: 100%; object-fit: cover;" 
+                                 alt="Rate Lock">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</section>
+
+
+        
+                <!-- <section class="service-enhancements mt-5" data-aos="fade-up">
+                    <div class="container">
+                        <div class="card bg-gradient-primary text-center shadow-lg border-0">
+                            <div class="card-body p-5 bg-dark text-white rounded">
+                                <h3 class="card-title fw-bold text-center mb-4 display-6 text-warning">Service Enhancements & Exclusive Benefits</h3>
+                                <p class="card-text text-center mb-5 lead text-light">
+                                    Elevating your connectivity with a <strong class="text-danger">85% bandwidth boost</strong> to revolutionize your digital experience.
+                                </p>
+
+                                <div class="row g-4 justify-content-center">
+                                    <div class="col-md-4 text-center bg-light p-4 rounded">
+                                        <h5 class="fw-bold text-success mb-3">ðŸ“¢ Key Performance Upgrades:</h5>
+                                        <ul class="list-unstyled text-dark">
+                                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Turbocharged Network Speeds</li>
+                                            <li class="mb-2"><i class="bi bi-shield-check text-primary me-2"></i>Advanced Infrastructure Investments</li>
+                                            <li><i class="bi bi-star-fill text-warning me-2"></i>Premium Support for Loyal Customers</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-md-8 text-center">
+                                        <h5 class="fw-bold text-danger mb-3">Unlock Your Discount Journey</h5>
+                                        <p class="text-light">
+                                            Discover exclusive savings through our tailored discount programs. Connect with our dedicated support team to maximize your benefits.
+                                        </p>
+                                        <div class="contact-info bg-secondary rounded p-4">
+                                            <div class="row">
+                                                <div class="col-md-6 text-start">
+                                                    <p class="mb-2">
+                                                        <i class="bi bi-envelope-fill text-warning me-2"></i><a href="mailto:support@iwn.ng" class="text-white">support@iworldnetworks.net</a>
+                                                    </p>
+                                                    <p class="mb-2">
+                                                        <i class="bi bi-telephone-fill text-success me-2"></i>+234 708 021 7885
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <p>
+                                                        <i class="bi bi-chat-dots-fill text-info me-2"></i>Instant Live Support Available
+                                                    </p>
+                                                    <p class="text-warning small">
+                                                        <i class="bi bi-info-circle me-2"></i>Loyalty rewards applied automatically
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> -->
+
+
+        <section class="cta-section mt-5" data-aos="fade-up">
+            
+            <!--<div class="row">-->
+            <!--    <div class="col-md-6">-->
+            <!--        <h3 class="fw-bold mb-3">Ready to Apply?</h3>-->
+            <!--        <a href="#" class="btn btn-warn btn-lg me-3 rounded">Apply for Discount</a>-->
+            <!--        <a href="./contact.html" class="btn btn-outline-primary btn-lg cta-contact" style="border-color: #59AF17; color: #59AF17;">Contact Sales</a>-->
+            <!--    </div>-->
+            <!--    <div class="col-md-6">-->
+            <!--        <h4 class="fw-bold ">Contact Us</h4>-->
+            <!--        <p>-->
+            <!--            <strong>Phone:</strong> +234 708 021 7885<br>-->
+            <!--            <strong>Email:</strong> <a href="mailto:support@iworldnetworks.net">support@iworldnetworks.net</a>-->
+            <!--        </p>-->
+            <!--    </div>-->
+            <!--</div>-->
+        </section>
+    </div>
+
+<p class="text-center mt-2 fs-3" style="color: #ff6600;">
+<strong>Terms and Conditions Apply</strong>
+</p>
+
+
+
+   <!-- Footer section Beginning -->
+   <section>
+    <footer class=" text-start border pt-5 text-white bg-black">
+        <!-- Grid container -->
+        <div class="container">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row py-5">
+                    <!--Grid column-->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
+            
+                        <ul class="list-unstyled mb-0">
+                        <li class="mt-2">
+                            <a class="text-white" href="./index.html">Home</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./about.html">About Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./careers.html">Careers</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="ClientZone.html">Client zone</a>
+                        </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
+                        <ul class="list-unstyled mb-0">
+                            
+                            <li class="mt-2">
+                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!--Grid column-->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mt-2">
+                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!-- Grid Column -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 903 984 4309</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5560</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5565</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 706 605 3380</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 814 994 5984
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
+                        </a>
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
+                        </a>
+                        <!--Grid column-->
+                        <div class="">
+                            <p class="fw-bold">Sign up for our newsletter</p>
+                            <!-- Email input -->
+                            <div data-mdb-input-init class="form-outline ">
+                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
+                            </div>
+                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                <!--Grid row-->
+                </div>
+            </section>
+        <!-- Section: Links -->
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
+        © 2025 Copyright:
+        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+ </section>
+
+    <!-- Ending of footer -->
+
+    <!-- Scripts -->
+    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    
+        <!-- Client Zone Widget -->
+<div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+      <div class="widget-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
+          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        <span>Client Zone</span>
+      </div>
+    </a>
+  </div>
+
+
+  <!-- Terms and Conditions Popups -->
+<!-- Age Well Discount Terms -->
+<div class="terms-popup-overlay" id="age-well-terms">
+    <div class="terms-popup">
+        <div class="terms-popup-header">
+            <h3 class="terms-popup-title">Age Well Discount - Terms & Conditions</h3>
+        </div>
+        <div class="terms-popup-content">
+            <p>The Age Well Discount is subject to the following terms and conditions:</p>
+            <ol>
+                <li>Available to subscribers aged 60 years and above.</li>
+                <li>Valid government-issued ID showing date of birth must be provided for verification.</li>
+                <li>15% discount applies to the monthly subscription fee only.</li>
+                <li>Discount cannot be combined with other promotional offers unless explicitly stated.</li>
+                <li>The discount will be applied automatically to qualifying accounts starting June 1, 2025.</li>
+                <li>Existing customers who qualify will have the discount applied to their next billing cycle after June 1, 2025.</li>
+                <li>I-World Networks reserves the right to modify or discontinue this program at any time with 30 days' notice.</li>
+            </ol>
+        </div>
+        <button class="terms-popup-close">Close</button>
+    </div>
+</div>
+
+<!-- Relationship Reward Terms -->
+<div class="terms-popup-overlay" id="relationship-reward-terms">
+    <div class="terms-popup">
+        <div class="terms-popup-header">
+            <h3 class="terms-popup-title">Relationship Reward - Terms & Conditions</h3>
+        </div>
+        <div class="terms-popup-content">
+            <p>The Relationship Reward program is subject to the following terms and conditions:</p>
+            <ol>
+                <li>Loyalty is calculated based on continuous, uninterrupted service with I-World Networks.</li>
+                <li>Customers with 3+ years of continuous service receive a 10% discount on their monthly subscription.</li>
+                <li>Customers with 4+ years of continuous service receive a 15% discount on their monthly subscription.</li>
+                <li>Any service interruption due to non-payment or voluntary suspension may reset the loyalty period.</li>
+                <li>The discount applies to the base subscription fee only and does not include add-on services or equipment fees.</li>
+                <li>I-World Networks reserves the right to modify or discontinue this program at any time with 30 days' notice.</li>
+            </ol>
+        </div>
+        <button class="terms-popup-close">Close</button>
+    </div>
+</div>
+
+<!-- Bundle and Save Terms -->
+<div class="terms-popup-overlay" id="bundle-save-terms">
+    <div class="terms-popup">
+        <div class="terms-popup-header">
+            <h3 class="terms-popup-title">Bundle and Save - Terms & Conditions</h3>
+        </div>
+        <div class="terms-popup-content">
+            <p>The Bundle and Save program is subject to the following terms and conditions:</p>
+            <ol>
+                <li>10% discount applies when a customer maintains multiple active accounts under the same name or entity.</li>
+                <li>All accounts must be in good standing to qualify for the discount.</li>
+                <li>The discount applies to each qualifying account's monthly subscription fee.</li>                
+                <li>The discount will be applied automatically to qualifying accounts starting June 1, 2025.</li>
+                <li>If one account is terminated or falls into arrears, the discount may be removed from all linked accounts.</li>
+                <li>I-World Networks reserves the right to modify or discontinue this program at any time with 30 days' notice.</li>
+            </ol>
+        </div>
+        <button class="terms-popup-close">Close</button>
+    </div>
+</div>
+
+<!-- Rate Lock-down Terms -->
+<div class="terms-popup-overlay" id="rate-lockdown-terms">
+    <div class="terms-popup">
+        <div class="terms-popup-header">
+            <h3 class="terms-popup-title">Rate Lock-down - Terms & Conditions</h3>
+        </div>
+        <div class="terms-popup-content">
+            <p>The Rate Lock-down offer is subject to the following terms and conditions:</p>
+            <ol>
+                <li>Customers must renew their subscription for a minimum of 6 months between December 1, 2024, and May 31, 2025, to qualify.</li>
+                <li>The locked rate applies only to the subscription plan active at the time of renewal.</li>
+                <li>Any plan changes or upgrades after renewal will be subject to the new pricing structure.</li>
+                <li>The rate lock guarantee is valid for the duration of the renewed contract period only.</li>
+                <li>This offer cannot be combined with other promotional discounts unless explicitly stated.</li>
+                <li>Limited time offer that may be withdrawn at any time before May 31, 2025.</li>
+                <li>I-World Networks reserves the right to modify the terms of this offer with appropriate notice.</li>
+            </ol>
+        </div>
+        <button class="terms-popup-close">Close</button>
+    </div>
+</div>
+
+<!-- Referral Bonus Terms -->
+<div class="terms-popup-overlay" id="referral-bonus-terms">
+    <div class="terms-popup">
+        <div class="terms-popup-header">
+            <h3 class="terms-popup-title">Referral Bonus - Terms & Conditions</h3>
+        </div>
+        <div class="terms-popup-content">
+            <p>The Referral Bonus program is subject to the following terms and conditions:</p>
+            <ol>
+                <li>Existing customers in good standing are eligible to participate in the referral program.</li>
+                <li>The referred customer must be new to I-World Networks and must mention the referrer at the time of sign-up.</li>
+                <li>The free month credit equals one month of the referrer's current subscription plan value.</li>
+                <li>There is no limit to the number of referrals a customer can make.</li>
+                <li>Credits cannot be converted to cash and will be applied to future billing cycles.</li>
+                <li>I-World Networks reserves the right to modify or discontinue this program at any time with 30 days' notice.</li>
+            </ol>
+        </div>
+        <button class="terms-popup-close">Close</button>
+    </div>
+</div>
+
+<!-- Prepaid Savings Discount Terms -->
+<div class="terms-popup-overlay" id="prepaid-savings-terms">
+    <div class="terms-popup">
+        <div class="terms-popup-header">
+            <h3 class="terms-popup-title">Prepaid Savings Discount - Terms & Conditions</h3>
+        </div>
+        <div class="terms-popup-content">
+            <p>The Prepaid Savings Discount is subject to the following terms and conditions:</p>
+            <ol>
+                <li>Discounts are applied when customers pay for their subscription in advance for the specified period.</li>
+                <li>5% discount applies to 3-month advance payments.</li>
+                <li>7.5% discount applies to 6-month advance payments.</li>
+                <li>10% discount applies to 12-month advance payments.</li>
+                <li>The discount is calculated based on the current subscription rate at the time of payment.</li>
+                <li>I-World Networks reserves the right to modify or discontinue this program at any time with 30 days' notice.</li>
+            </ol>
+        </div>
+        <button class="terms-popup-close">Close</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all terms links
+        const termsLinks = document.querySelectorAll('.terms-link');
+        
+        // Get all close buttons
+        const closeButtons = document.querySelectorAll('.terms-popup-close');
+        
+        // Get all popup overlays
+        const popupOverlays = document.querySelectorAll('.terms-popup-overlay');
+        
+        // Add click event to each terms link
+        termsLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const discountType = this.getAttribute('data-discount');
+                const popupId = `${discountType}-terms`;
+                const popup = document.getElementById(popupId);
+                
+                if (popup) {
+                    popup.classList.add('active');
+                    // Prevent body scrolling when popup is open
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Add click event to each close button
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const popup = this.closest('.terms-popup-overlay');
+                popup.classList.remove('active');
+                // Re-enable body scrolling
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close popup when clicking outside the popup content
+        popupOverlays.forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    // Re-enable body scrolling
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClientZone - Next-Gen Client Management</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="./Assets/css/responsivecss.css">
+    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Toastr Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <script src="https://kit.fontawesome.com/3a247e6d5e.js" crossorigin="anonymous"></script>
+
+    
+    <style>
+        :root {
+            --primary: #F58C29;
+            --primary-dark: #Ff6600;
+            --secondary:  #F58C29;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            overflow-x: hidden;
+            color: var(--dark);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .btn {
+            padding: 12px 28px;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 20px -3px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 20px -3px rgba(249, 115, 22, 0.4);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+    
+        
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #59AF17, #5CC640);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            background: url('Assets/img/ClientZoneHero.jpg');
+            background-size: cover;
+            opacity: 0.1;
+            animation: rotate 60s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(0, 0, 0, 0.9);
+            margin-bottom: 30px;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+
+
+
+        .feature-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-img {
+            transform: scale(1.1);
+        }
+
+        
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, rgba(245, 140, 41, 0.1), rgba(160, 201, 12, 0.1)
+        );
+            z-index: -1;
+            transition: height 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
+            height: 100%;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(360deg);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+       /* Add this to your style section */
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin: 20px 10px;
+    position: relative;
+    border-left: 4px solid var(--primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 80px;
+    color: rgba(245, 140, 41, 0.1); /* Using your primary color */
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    padding-left: 10px;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 15px;
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.testimonial-rating {
+    margin: 0 0 15px 0;
+    color: #f59e0b;
+}
+
+        
+        
+        
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #59AF17, #5CC640);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            color: white;
+        }
+        
+        .contact-info-item {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-item i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stats-text {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg,  #59AF17, #5CC640);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('Assets/img/ClientZoneHero.jpg');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        
+        
+        .copyright {
+
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            color: #94a3b8;
+        }
+        
+        /* Animations */
+        .animated-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            animation: blob-animation 15s infinite alternate;
+            opacity: 0.5;
+        }
+        
+        @keyframes blob-animation {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.2); }
+            66% { transform: translate(-20px, 20px) scale(0.8); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        
+        .cursor-glow {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(92, 198, 64, 0.3) 0%, rgba(160, 201, 12, 0) 70%);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Make carousel navigation buttons larger */
+.owl-nav button {
+    font-size: 24px !important; /* Larger font size */
+    width: 40px !important;     /* Wider buttons */
+    height: 40px !important;    /* Taller buttons */
+    background: rgba(245, 140, 41, 0.8) !important; /* Using your primary color with transparency */
+    color: white !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.owl-nav button.owl-prev {
+    left: -20px;
+}
+
+.owl-nav button.owl-next {
+    right: -20px;
+}
+
+.owl-nav button:hover {
+    background: var(--primary) !important; /* Solid color on hover */
+}
+
+/* Make sure the buttons are visible */
+.owl-nav {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.client-zone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F58C29; /* IWN Orange from brand colors */
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    
+    .client-zone-btn:hover {
+      background-color: #FF6600; /* IWN darker Orange from brand colors */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      #client-zone-widget {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .client-zone-btn {
+        padding: 10px 16px;
+      }
+    }
+
+
+
+      /* FAQ Styling */
+      .faq-tabs {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .faq-tabs .nav-link {
+        background-color: #f8f9fa;
+        color: var(--dark);
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-bottom: 10px;
+        border: none;
+    }
+    
+    .faq-tabs .nav-link:hover {
+        background-color: rgba(245, 140, 41, 0.1);
+        color: var(--primary);
+    }
+    
+    .faq-tabs .nav-link.active {
+        background-color: var(--primary);
+        color: white;
+    }
+    
+    .faq-tab-content {
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .faq-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+        height: 100%;
+        transition: all 0.3s ease;
+        border-left: 3px solid #5CC640;
+    }
+    
+    .faq-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    .faq-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+        font-weight: 600;
+    }
+    
+    .faq-card p, .faq-card ul, .faq-card ol {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+    
+    .need-more-help {
+        background: linear-gradient(135deg, rgba(245, 140, 41, 0.1), rgba(160, 201, 12, 0.1));
+        border-radius: 15px;
+    }
+    
+    .contact-method {
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: 10px;
+        height: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-method:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-method i {
+        color: var(--primary);
+    }
+    
+    /* Make tabs more mobile-friendly */
+    @media (max-width: 768px) {
+        .faq-tabs .nav-link {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .faq-tab-content {
+            padding: 20px 15px;
+        }
+        
+        .faq-card {
+            padding: 15px;
+        }
+        
+        .faq-card h4 {
+            font-size: 1rem;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <!-- Animated background blobs
+    <div class="animated-blob" style="width: 500px; height: 500px; background: rgba(99, 102, 241, 0.3); top: 20%; left: 10%;"></div>
+    <div class="animated-blob" style="width: 400px; height: 400px; background: rgba(249, 115, 22, 0.3); bottom: 10%; right: 5%;"></div> -->
+    
+        <!-- Navbar beginning -->
+        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Internet Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Google Cloud Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                            </div>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.html">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a>   
+                        </li>
+                    </ul>
+                    <div class="subscribe-btn ms-auto">
+                        <a href="#workspace_form" class="button start">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Ending of navbar -->
+
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="hero-title text-white">Your Account, Your Control. Instantly.</h1>
+                    <p class="hero-subtitle">Pay bills, manage services, and get support—fast, easy, and hassle-free, all in one app!</p>
+                    <div class="d-flex gap-3">
+                        <a target="_blank" href="https://app.iwn.ng/login" class="btn btn-secondary">Get Started</a>
+                        <a target="_blank" href="https://youtube.com/playlist?list=PLGtZgU0A40UZoWdkLoPT9eCBcO6nO_wzq&si=B8LsF5Qr1cvNyPWs" class="btn btn-outline-light">Watch Demo <i class="fas fa-play-circle ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <img src="Assets/img/ClientZone.png" alt="ClientZone Dashboard" class="img-fluid hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-counter" data-count="2000">0</div>
+                    <div class="stats-text">Active Users</div>
+                </div>
+
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-counter" data-count="100">0</div>
+                    <div class="stats-text">% Secure Transactions</div>
+                </div>
+                
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-counter" data-count="99.9">0</div>
+                    <div class="stats-text">Uptime Percentage</div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="stats-counter" data-count="24">0</div>
+                <div class="stats-text">24/7 Instant Support</div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Features Section -->
+<section id="features" class="py-5">
+    <div class="container py-5">
+        <h2 class="section-title text-center" data-aos="fade-up">Powerful Features</h2>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/analytics.png" alt="Analytics" class="feature-img">
+                    </div>
+                    <h4>Smart Analytics</h4>
+                    <p>Track payments, monitor account activity, and gain real-time insights into your services.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/help-desk.png" alt="Support" class="feature-img">
+                    </div>
+                    <h4>Instant Support & Live Chat</h4>
+                    <p>Get real-time assistance from our support team and view all your support tickets in one place.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/cashless-payment.png" alt="Payments" class="feature-img">
+                    </div>
+                    <h4>Effortless Payments & Invoicing</h4>
+                    <p>View, download, and pay invoices securely using multiple payment options.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/notification.png" alt="Notifications" class="feature-img">
+                    </div>
+                    <h4>Smart Notifications & Reminders</h4>
+                    <p>Create professional invoices and accept payments directly through our secure platform.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/wifi.png" alt="Mobile Access" class="feature-img">
+                    </div>
+                    <h4>Instant Reconnection</h4>
+                    <p>Get back online immediately after a successful payment—no delays, no manual processing.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/clean-computer-virus.png" class="feature-img">
+                    </div>
+                    <h4>Top-Notch Security</h4>
+                    <p>Rest assured with encrypted transactions and secure login authentication.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-white">
+        <div class="container py-5">
+            <h2 class="section-title text-center" data-aos="fade-up">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="owl-carousel testimonial-carousel" data-aos="fade-up" data-aos-delay="200">
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"Client Zone makes it incredibly easy to manage our store’s account. Payments are processed instantly, and I get notified right away. No delays, no stress—just efficiency and convenience."</p>
+    <div class="testimonial-author">
+        <span class="author-name">Dorcas Olayoole</span>
+        <span class="author-title">Store Manager</span>
+    </div>
+</div>
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"This app is a game-changer! I can easily access invoices, process payments securely, and track transactions without needing to call support. Everything is at my fingertips!"</p>
+    <div class="testimonial-author">
+        <span class="author-name">Reformer Ejembi</span>
+        <span class="author-title">Accountant</span>
+    </div>
+</div>
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"Client Zone makes managing my account effortless! I can view invoices, track my payment history, and get real-time notifications. The instant reconnection feature ensures my services are restored immediately after payment. No more delays!"</p>
+    <div class="testimonial-author">
+        <span class="author-name">Leticia Unwana</span>
+        <span class="author-title">Business Owner</span>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"Client Zone is a must-have for anyone managing payments. The real-time payment updates and automatic service reconnection ensure that I never experience unnecessary downtime. Everything I need is just a tap away!"</p>
+    <div class="testimonial-author">
+        <span class="author-name">Juliet Ehigiamusoe</span>
+        <span class="author-title">Operations Manager</span>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center text-black">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <h2 class="mb-4 hero-title text-white">Take Control of Your Account with Client Zone!</h2>
+                    <p class="mb-5 hero-subtitle">Join thousands of satisfied users who rely on Client Zone for seamless service management, instant payments, and real-time support.</p>
+                    <a target="_blank" href="https://app.iwn.ng/login" class="btn btn-secondary">Sign Up Now</a>
+                    <a target="_blank" href="https://youtube.com/playlist?list=PLGtZgU0A40UZoWdkLoPT9eCBcO6nO_wzq&si=B8LsF5Qr1cvNyPWs" class="btn btn-outline-light">Watch a Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title text-center" data-aos="fade-up">Get in Touch</h2>
+            <!-- <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">Have questions? We're here to help!</p> -->
+            
+            <div class="row g-4">
+                <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Subject">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info h-100">
+                        <h3 class="mb-4">Contact Support</h3>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>97, 3rd floor Omida Mall, Ibara, Abeokuta, 110252</span>
+                        </div>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 807 767 5597</span>
+                        </div>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@iworldnetworks.net</span>
+                        </div>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday:  Open 24 hours</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5 bg-white">
+    <div class="container py-5">
+        <h2 class="section-title text-center" data-aos="fade-up">Client Zone  – Frequently Asked Questions</h2>
+        <!-- <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">
+            Welcome to the Client Zone App! Below are answers to common questions about managing your account, making payments, and accessing support.
+        </p>
+         -->
+        <!-- FAQ Tabs Navigation -->
+        <ul class="nav nav-pills mb-4 justify-content-center faq-tabs" id="faqTabs" role="tablist" data-aos="fade-up" data-aos-delay="150">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="getting-started-tab" data-bs-toggle="pill" data-bs-target="#getting-started" type="button" role="tab" aria-controls="getting-started" aria-selected="true">
+                    <i class="fas fa-rocket me-2"></i>Getting Started
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="payments-tab" data-bs-toggle="pill" data-bs-target="#payments" type="button" role="tab" aria-controls="payments" aria-selected="false">
+                    <i class="fas fa-credit-card me-2"></i>Payments
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="account-tab" data-bs-toggle="pill" data-bs-target="#account" type="button" role="tab" aria-controls="account" aria-selected="false">
+                    <i class="fas fa-user-cog me-2"></i>Account
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="support-tab" data-bs-toggle="pill" data-bs-target="#support" type="button" role="tab" aria-controls="support" aria-selected="false">
+                    <i class="fas fa-headset me-2"></i>Support
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="security-tab" data-bs-toggle="pill" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">
+                    <i class="fas fa-shield-alt me-2"></i>Security
+                </button>
+            </li>
+        </ul>
+        
+        <!-- FAQ Tab Content -->
+        <div class="tab-content faq-tab-content" id="faqTabContent" data-aos="fade-up" data-aos-delay="200">
+            <!-- Getting Started Tab -->
+            <div class="tab-pane fade show active" id="getting-started" role="tabpanel" aria-labelledby="getting-started-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>What is the Client Zone App?</h4>
+                            <p>The Client Zone App is a self-service platform that allows you to manage your account, view invoices, make payments, and track support requests—all in one place.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I access the Client Zone App?</h4>
+                            <p>You can access Client Zone via:</p>
+                            <ul>
+                                <li><strong>Web Browser:</strong> Visit www.clientzone.com and log in.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I register or activate my profile?</h4>
+                            <p>If you're a new user:</p>
+                            <ol>
+                                <li>Visit Client Zone and click "Activate Profile."</li>
+                                <li>Enter your registered email.</li>
+                                <li>Check your email for an OTP (One-Time Password) and enter it.</li>
+                                <li>Create a strong password and log in.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>I forgot my password. How do I reset it?</h4>
+                            <p>Click "Forgot Password" on the login page, enter your registered email, and follow the reset instructions sent to your inbox.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Is the Client Zone App free to use?</h4>
+                            <p>Yes! Client Zone is completely free to access for all registered users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payments Tab -->
+            <div class="tab-pane fade" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>What payment methods are supported?</h4>
+                            <p>We accept:</p>
+                            <ul>
+                                <li>Credit/Debit Cards (Visa, Mastercard)</li>
+                                <li>Mobile Money (e.g., M-Pesa)</li>
+                                <li>Bank Transfers (via Virtual Accounts)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I pay my invoice?</h4>
+                            <ol>
+                                <li>Log in to Client Zone.</li>
+                                <li>Go to Invoices and select the one you want to pay.</li>
+                                <li>Click "Pay Now" and choose your preferred payment method.</li>
+                                <li>Complete the transaction and receive an instant confirmation.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Will my service be reconnected immediately after payment?</h4>
+                            <p>Yes! Successful payments trigger automatic reconnection of services.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Can I download my invoices and receipts?</h4>
+                            <p>Yes! You can download invoices and payment receipts anytime from the Invoices & Payments section.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>My payment isn't reflecting. What should I do?</h4>
+                            <p>If your payment doesn't appear within 5–10 minutes:</p>
+                            <ul>
+                                <li>Refresh the page and check your Payment History.</li>
+                                <li>Verify your email for a payment confirmation.</li>
+                                <li>If the issue persists, contact support with your transaction details.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Account Tab -->
+            <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I update my profile information?</h4>
+                            <p>Log in to Client Zone, go to Profile, and update your details.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Can I upgrade or change my service plan?</h4>
+                            <p>Yes! Visit Services, select your current plan, and follow the prompts to request an upgrade.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How can I track my service usage?</h4>
+                            <p>The Dashboard provides a real-time overview of your account balance, service status, and recent transactions.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Can I manage multiple accounts from one login?</h4>
+                            <p>No, each account requires a separate login for security purposes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Tab -->
+            <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I get customer support?</h4>
+                            <p>You can:</p>
+                            <ul>
+                                <li>Use Live Chat for instant help.</li>
+                                <li>View Support Tickets to track ongoing issues.</li>
+                                <li>Contact customer support via email or phone.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I check the status of my support request?</h4>
+                            <p>Go to Support > My Tickets to track ticket progress and responses from our team.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>The app is crashing. What should I do?</h4>
+                            <p>Try these steps:</p>
+                            <ul>
+                                <li>Ensure you're connected to the internet.</li>
+                                <li>Refresh your browser tab and try again.</li>
+                                <li>If the issue persists, clear your broswer cache or contact support.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>I'm not receiving notifications. How can I fix this?</h4>
+                            <ul>
+                                <li>Check your device's notification settings and ensure they are enabled for Client Zone.</li>
+                                <li>Make sure your internet connection is stable.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security Tab -->
+            <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Is my payment information secure?</h4>
+                            <p>Yes! Client Zone uses industry-standard encryption and is PCI DSS compliant to ensure secure transactions.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I change my password?</h4>
+                            <p>Go to Profile > Change Password, enter your current password, set a new one, and confirm the changes.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I log out of my account?</h4>
+                            <p>Click Logout in the menu to securely exit your account.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I report a bug or app issue?</h4>
+                            <p>If you encounter a bug, report it via Live Chat or by submitting a ticket through the support page.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Need More Help Section -->
+        <!-- <div class="need-more-help mt-5 p-4 text-center" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="mb-4">Need More Help?</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="contact-method">
+                        <i class="fas fa-phone-alt fs-2 mb-3 text-primary"></i>
+                        <h5>Phone Support</h5>
+                        <p>+234 807 767 5597</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope fs-2 mb-3 text-primary"></i>
+                        <h5>Email Support</h5>
+                        <p>support@iworldnetworks.net</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="contact-method">
+                        <i class="fas fa-comments fs-2 mb-3 text-primary"></i>
+                        <h5>Live Chat</h5>
+                        <p>Available in the app & website</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+
+
+
+
+ <!-- Footer section Beginning -->
+ <section>
+    <footer class=" text-start border pt-5 text-white bg-black">
+        <!-- Grid container -->
+        <div class="container">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row py-5">
+                    <!--Grid column-->
+                   <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
+            
+                        <ul class="list-unstyled mb-0">
+                        <li class="mt-2">
+                            <a class="text-white" href="./index.html">Home</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./about.html">About Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="./careers.html">Careers</a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="text-white" href="ClientZone.html">Client zone</a>
+                        </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
+                        <ul class="list-unstyled mb-0">
+                            
+                            <li class="mt-2">
+                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!--Grid column-->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mt-2">
+                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
+                            </li>
+                            <li class="mt-2">
+                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!-- Grid Column -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 903 984 4309</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5560</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 807 767 5565</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 706 605 3380</a>
+                            </li>
+                            <li class="">
+                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
+                                <a class="text-white" href="#">+234 814 994 5984
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
+                        </a>
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
+                        </a>
+                        <!--Grid column-->
+                        <div class="">
+                            <p class="fw-bold">Sign up for our newsletter</p>
+                            <!-- Email input -->
+                            <div data-mdb-input-init class="form-outline ">
+                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
+                            </div>
+                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                <!--Grid row-->
+                </div>
+            </section>
+        <!-- Section: Links -->
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
+        © 2025 Copyright:
+        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+ </section>
+
+    <!-- Ending of footer -->
+
+
+
+    <!--======================== Back to top Button Functionality========================== -->
+    <script>
+        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            BacktoTopBtn.style.display = "block";
+        } else {
+            BacktoTopBtn.style.display = "none";
+        }
+        }
+        function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <!--======================== Back to top Button Functionality========================== -->
+    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./Assets/js/app.js"></script>
+    <script src="./Assets/js/dropdown.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Toastr Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom Script -->
+    <script src="Assets/js/forms.js"></script>
+    
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/3a247e6d5e.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Initialize testimonial carousel
+        $(document).ready(function(){
+            $(".testimonial-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 20,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: true,
+                dots: true,
+                responsive: {
+                    768: {
+                        items: 2
+                    }
+                }
+            });
+        });
+        
+        // Stats counter animation
+        const counters = document.querySelectorAll('.stats-counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const animate = () => {
+                const value = +counter.getAttribute('data-count');
+                const data = +counter.innerText;
+                
+                const time = value / speed;
+                if (data < value) {
+                    counter.innerText = Math.ceil(data + time);
+                    setTimeout(animate, 1);
+                } else {
+                    counter.innerText = value;
+                }
+            }
+            
+            animate();
+        });
+        
+        // Cursor glow effect
+        document.addEventListener('mousemove', function(e) {
+            const cursorGlow = document.querySelector('.cursor-glow');
+            cursorGlow.style.opacity = '1';
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+
+                <!-- Client Zone Widget -->
+<div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+      <div class="widget-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
+          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        <span>Client Zone</span>
+      </div>
+    </a>
+  </div>
+</body>
+</html>
