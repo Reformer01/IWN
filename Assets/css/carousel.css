@@ -1,21 +1,19 @@
 /* Carousel for Premium Features */
 .carousel-wrap {
   position: relative;
-  padding: 2.5re.carousel-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: #1a73e8;
-    transition: height 0.3s ease;
-    z-index: 0;
-    opacity: 0.1;
+  padding: 2.5rem;
+.carousel-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #4285F4;
 }
 
 .carousel-card:hover::before {
-    height: 70%;
+  height: 70%;
 }
 
 .carousel-inner {
@@ -50,7 +48,7 @@
   left: 0;
   width: 100%;
   height: 0;
-  background-color: #1a73e8;
+  background-color: #4285F4;
   opacity: 0.1;
   transition: height 0.3s ease;
   z-index: 0;
@@ -118,7 +116,7 @@
   right: 0;
   bottom: 0;
   height: 48%;
-  background: #1a73e8;
+  background: #4285F4;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   z-index: 0;
@@ -150,7 +148,7 @@
 .carousel-arrow.left { left: -26px; }
 .carousel-arrow.right { right: -26px; }
 
-.carousel-arrow svg { width: 20px; height: 20px; color: #1a73e8; }
+.carousel-arrow svg { width: 20px; height: 20px; color: #4285F4; }
 
 /* Responsive */
 @media (max-width: 991px) {
@@ -160,4 +158,5 @@
 
 @media (max-width: 576px) {
   .carousel-card { min-width: 260px; max-width: 260px; }
+}
 }
