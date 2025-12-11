@@ -17,6 +17,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- AOS Animation -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <!-- Toastr Css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
@@ -35,10 +39,10 @@
     <!-- Header Beginning -->
     <div class="enterprise-internet-header">
         <!-- Navbar beginning -->
-        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+        <nav class="navbar navbar-expand-lg navbar-light fw-bold position-fixed w-100 top-0" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./index.html">
-                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50" class="hover-lift">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -65,7 +69,7 @@
                                 Google Cloud Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="#Nigerian_Google_for_Education_Program">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
                                 <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
                                 <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
                             </div>
@@ -87,161 +91,42 @@
             </div>
         </nav>
         <!-- Ending of navbar -->
-        <!-- Header content beginning -->
-        <div class="enterprise-internet-header-content"></div>
-        <!-- Ending of enterprise-internet header -->
-    </div>
+        <!-- Modern Hero Section -->
+        <div class="enterprise-hero-section position-relative overflow-hidden" style="padding-top: 80px; min-height: 60vh;">
+            <div class="container position-relative">
+                <div class="row align-items-center min-vh-50">
+                    <div class="col-lg-7">
+                        <h1 class="display-4 mb-4">
+                            <span class="d-block">Enterprise Internet</span>
+                            <span class="text-success">Affordablity</span>, 
+                            <span class="text-success">Availablity</span>,
+                            <span class="text-success">Reliability</span> 
+                            <span class="d-inline-block">& World Class Support</span>
+                        </h1>
 
-    <!-- section beginning -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <h4 class=" fs-3 fw-bold">Enterprise Internet</h4>
-            <hr class="hr">
-            <p class="text-start lato fs-5">
-                Our Enterprise Internet Service is a dedicated solution designed and optimized for critical business missions. <br>  We have built the most resilient infrastructure to withstand the peculiarities and challenges of our environment that provide our enterprise customers with most reliable and SLA backed service anywhere in Nigeria.  
-            </p>
-            <p class="text-start lato fs-5">
-                We combine world class customers service support, alternative technology and innovation to provide dedicated fixed broadband internet service at 99.0% SLA backed uptime for;
-                <div class="list-unstyled">
-                    <li class="lato text-start fs-5">Business Enterprises.</li>
-                    <li class="lato text-start fs-5">Hotels and Resorts.</li>
-                    <li class="lato text-start fs-5">Education, Education Institutions.</li>
-                    <li class="lato text-start fs-5">Financial Institutions.</li>
-                    <li class="lato text-start fs-5">Government Institutions, NGOs.</li>
-                    <li class="lato text-start fs-5">Manufacturing Industries.</li>
-                </div>
-            </p>
-            <p class="text-start list list-unstyled" >
-                <span class=" fs-5">
-                    Do you need Internet Service for a Critical Business Mission? 
-                </span> <br>
-                <span class=" fs-5">
-                    Is your company, organization or Institution overpaying for Internet Service? 
-                </span> <br>
-                <span class=" fs-5">
-                    Do you wait for days before you get urgent needed technical support? 
-                </span> <br>
-                <span class=" fs-5">
-                    Do you need End-to-End Support for your Internet and Internal distribution network? 
-                </span> <br>
-            </p>
-            <hr class="hr">
-            <div class="cta  my-2">
-                <a href="#enterprise-form" class="btn btn-warn w-auto px-3 text-uppercase fw-bold">Request for Free Survey</a>
-            </div>
-        </div>
-    </div>
-    <!-- section beginning -->
-
-
-<!-- Enhanced Free Trial Section -->
-<section class="free-trial-section position-relative overflow-hidden">
-    <!-- Animated Background Elements -->
-    <div class="position-absolute top-0 start-0 w-100 h-100">
-        <div class="floating-orb orb-1"></div>
-        <div class="floating-orb orb-2"></div>
-        <div class="floating-orb orb-3"></div>
-    </div>
-
-    <div class="container position-relative py-5">
-        <div class="row g-4 align-items-center">
-            <!-- Left Column - Offer Card -->
-            <div class="col-lg-6">
-                <div class="offer-card card border-0 shadow-lg h-100 overflow-hidden">
-                    <div class="card-body p-4 p-lg-5 position-relative">
-                        <div class="offer-badge mb-4">
-                            <span class="badge bg-success bg-opacity-20 text-success px-4 py-2 rounded-pill fw-normal pulse">
-                                <i class="bi bi-stars me-2"></i>LIMITED TIME OFFER
-                            </span>
-                        </div>
-                        
-                        <h2 class="display-5 fw-bold mb-4">Experience <span class="text-gradient">Enterprise-Grade</span> Internet</h2>
-                        
-                        <div class="features-list mb-4">
-                            <div class="feature-item">
-                                <i class="bi bi-wifi feature-icon"></i>
-                                <div>
-                                    <h4 class="h5 mb-1">Dedicated Fiber Optic</h4>
-                                    <p class="text-muted mb-0"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> High-speed, reliable connectivity with 99.9% uptime</p>
-                                </div>
+                        <!-- Stats Bar -->
+                        <div class="stats-bar d-flex align-items-center gap-4 mb-4">
+                            <div class="stat-item d-flex align-items-center">
+                                <img src="./Assets/icons/Enterprise-icons/shield_icon.svg" alt="SLA" class="me-2" style="width: 20px; height: 20px;">
+                                <span class="text-muted">99.9% SLA Uptime</span>
                             </div>
-                            
-                            <div class="feature-item">
-                                <i class="bi bi-shield-check feature-icon"></i>
-                                <div>
-                                    <h4 class="h5 mb-1">99.8% SLA Guarantee</h4>
-                                    <p class="text-muted mb-0"><i class="bi bi-file-earmark-medical text-info me-1"></i> Enterprise-grade reliability with service level agreement</p>
-                                </div>
+                            <div class="stat-item d-flex align-items-center">
+                                <img src="./Assets/icons/Enterprise-icons/enterprise-internet/24-hours-support.svg" alt="Support" class="me-2" style="width: 20px; height: 20px;">
+                                <span class="text-muted">24/7 Support Coverage</span>
                             </div>
-                            
-                            <div class="feature-item">
-                                <i class="bi bi-arrow-repeat feature-icon"></i>
-                                <div>
-                                    <h4 class="h5 mb-1">Self-Healing Network</h4>
-                                    <p class="text-muted mb-0"><i class="bi bi-arrow-repeat text-success me-1"></i> Automatic failover for continuous uptime</p>
-                                </div>
-                            </div>
-                        
-                            <div class="feature-item">
-                                <i class="bi bi-headset feature-icon"></i>
-                                <div>
-                                    <h4 class="h5 mb-1">24/7 Proactive Support</h4>
-                                    <p class="text-muted mb-0"><i class="bi bi-person-badge text-primary me-1"></i> Dedicated account manager & technical team</p>
-                                </div>
+                            <div class="stat-item d-flex align-items-center">
+                                <img src="./Assets/icons/network-enterprise-icon.svg" alt="Network" class="me-2" style="width: 20px; height: 20px;">
+                                <span class="text-muted">Tier-1 Network</span>
                             </div>
                         </div>
-                        
-                        <div class="cta-wrapper mt-5 pt-3">
-                            <a href="#enterprise-form" class="btn btn-success btn-lg px-5 py-3 fw-bold d-inline-flex align-items-center hover-lift">
-                                Start Your Free Trial
-                                <i class="bi bi-arrow-right ms-2 transition-transform"></i>
-                            </a>
-                            <p class="small text-muted mt-3 mb-0">
-                                <i class="bi bi-shield-lock me-2"></i>No hidden charges • No billing surprises
-                            </p>
-                        </div>
+
+                        <a href="#enterprise-form" class="btn btn-warning px-4 py-2 text-white fw-bold">
+                            REQUEST FOR FREE SURVEY
+                        </a>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Right Column - Pricing Card -->
-            <div class="col-lg-6">
-                <div class="pricing-card card border-0 h-100 overflow-hidden">
-                    <div class="card-body p-4 p-lg-5 position-relative">
-                        <div class="pricing-header text-center mb-4">
-                            <div class="price-badge mb-3">
-                                <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">
-                                    <i class="bi bi-tag me-1"></i>UP TO 30 DAYS FREE
-                                </span>
-                            </div>
-                            <h3 class="display-4 fw-bold mb-0 text-success">₦0</h3>
-                            <p class="text-muted">for the first 30 days</p>
-                        </div>
-                        
-                        <div class="pricing-features mb-4">
-                            <div class="feature-item">
-                                <i class="bi bi-tools text-success me-2"></i>
-                                <span>Zero setup & installation costs</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="bi bi-lightbulb text-warning me-2"></i>
-                                <span>70% renewable energy usage</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="bi bi-geo-alt text-info me-2"></i>
-                                <span>Nationwide coverage</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="bi bi-gift text-danger me-2"></i>
-                                <span>First month service FREE</span>
-                            </div>
-                        </div>
-                        
-                        <div class="text-center mt-5 pt-3">
-                            <a href="#enterprise-form" class="btn btn-outline-success btn-lg px-4 hover-lift">
-                                Get Started Now
-                                <i class="bi bi-arrow-right ms-2 transition-transform"></i>
-                            </a>
+                    <div class="col-lg-5 d-flex align-items-center">
+                        <div class="hero-image-container">
+                            <img src="./Assets/img/aerial-view-city.jpg" alt="Enterprise Network" class="img-fluid rounded-3">
                         </div>
                     </div>
                 </div>
@@ -250,14 +135,487 @@
     </div>
 
     <style>
+    .hero-image-container {
+        width: 100%;
+        min-height: 450px;
+        margin-top: -20px;
+    }
+    
+    .hero-image-container img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        transform: scale(1.02);
+    }
+
+    @media (max-width: 991.98px) {
+        .hero-image-container {
+            min-height: 400px;
+            margin-top: 20px;
+        }
+        .hero-image-container img {
+            height: 400px;
+            transform: none;
+        }
+    }
+    </style>
+
+    <!-- Features Section -->
+    <div class="mission-critical-section position-relative py-5" id="learn-more">
+        <div class="container">
+            <div class="mission-critical-container bg-white rounded-4 shadow-lg overflow-hidden">
+                <div class="row g-0">
+                    <!-- Left Column - Main Content -->
+                    <div class="col-lg-8 p-5">
+                        <h2 class="display-4 fw-bold mb-4">
+                            YOUR MISSION-CRITICAL CONNECTION
+                        </h2>
+                        <p class="lead text-dark-emphasis mb-4">
+                            Our Enterprise Internet Service is a dedicated solution designed for <span class="fw-medium">critical business missions</span>. We have built the most <span class="fw-medium">resilient infrastructure</span> to withstand the peculiarities and challenges of our environment that provide our enterprise customers with most reliable and SLA backed service anywhere in Nigeria.
+                        </p>
+                        <p class="lead text-dark-emphasis mb-4">
+                            We combine <span class="fw-medium">world class customers service support</span>, <span class="fw-medium">alternative technology</span> and <span class="fw-medium">innovation</span> to provide dedicated fixed broadband internet service that exceeds expectations.
+                        </p>
+
+                        <div class="industries-served">
+                            <p class="lead text-dark-emphasis mb-4">
+                                We provide dedicated fixed broadband internet service at <span class="fw-medium">99.0% SLA backed uptime</span> for:
+                            </p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2 d-flex align-items-center">
+                                            <i class="bi bi-building text-success me-2"></i>
+                                            <span>Business Enterprises</span>
+                                        </li>
+                                        <li class="mb-2 d-flex align-items-center">
+                                            <i class="bi bi-house-check text-success me-2"></i>
+                                            <span>Hotels and Resorts</span>
+                                        </li>
+                                        <li class="mb-2 d-flex align-items-center">
+                                            <i class="bi bi-mortarboard text-success me-2"></i>
+                                            <span>Educational Institutions</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2 d-flex align-items-center">
+                                            <i class="bi bi-bank text-success me-2"></i>
+                                            <span>Financial Institutions</span>
+                                        </li>
+                                        <li class="mb-2 d-flex align-items-center">
+                                            <i class="bi bi-buildings text-success me-2"></i>
+                                            <span>Government & NGOs</span>
+                                        </li>
+                                        <li class="mb-2 d-flex align-items-center">
+                                            <i class="bi bi-building text-success me-2"></i>
+                                            <span>Manufacturing Industries</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Feature Cards -->
+                    <div class="col-lg-4 d-flex flex-column justify-content-center p-5 bg-light">
+                        <!-- Guarantee Card -->
+                        <div class="guarantee-card bg-success text-white rounded-4 p-5 mb-4">
+                            <div class="guarantee-badge mb-3">
+                                <span class="badge bg-white bg-opacity-25 rounded-pill px-3 py-2">
+                                    GUARANTEED
+                                </span>
+                            </div>
+                            <div class="guarantee-icon text-center mb-4">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M16 8L18 6M8 8L6 6M12 4V2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-center display-5 fw-bold mb-2">99.9% SLA</h3>
+                            <p class="text-center mb-0 text-white-50 fs-5">Backed Uptime</p>
+
+                        </div>
+
+                        <!-- Support Badge -->
+                        <div class="support-badge text-center">
+                            <span class="badge border border-success text-success px-4 py-3 fs-6 rounded-pill">
+                                <i class="bi bi-headset me-2"></i>24/7 World-Class Support
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .mission-critical-section {
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            }
+
+            .mission-critical-container {
+                position: relative;
+                z-index: 1;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .guarantee-card {
+                background: var(--success);
+                transition: transform 0.3s ease;
+            }
+
+            .guarantee-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .text-dark-emphasis {
+                color: #495057;
+            }
+
+            .fw-medium {
+                font-weight: 500;
+            }
+
+            .support-badge .badge {
+                font-weight: 500;
+                box-shadow: 0 4px 6px rgba(89, 175, 23, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .support-badge .badge:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(89, 175, 23, 0.15);
+            }
+        </style>
+    </div>
+       
+            <!-- Pain Points Section -->
+            <div class="pain-points-section py-5 position-relative overflow-hidden">
+                <div class="container">
+                    <div class="row g-4">
+                    <!-- Left Column - Pain Points -->
+                    <div class="col-lg-7">
+                        <h2 class="display-6 fw-bold mb-4">Are You Experiencing These Issues?</h2>
+                        <div class="pain-points-grid">
+                            <!-- Pain Point 1 -->
+                            <div class="pain-point-card" data-aos="fade-up">
+                                <div class="icon-badge">
+                                    <i class="bi bi-clock-history text-success"></i>
+                                </div>
+                                <h3 class="h4 mb-2">Waiting Days for Support?</h3>
+                                <p class="lead text-dark-emphasis mb-4">Tired of endless waiting for technical assistance? Our response time is measured in minutes, not days.</p>
+                            </div>
+
+                            <!-- Pain Point 2 -->
+                            <div class="pain-point-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon-badge">
+                                    <i class="bi bi-currency-dollar text-success"></i>
+                                </div>
+                                <h3 class="h4 mb-2">Overpaying for Service?</h3>
+                                <p class="lead text-dark-emphasis mb-4">Stop paying premium prices for subpar service. Our enterprise solutions deliver more value for your investment.</p>
+                            </div>
+
+                            <!-- Pain Point 3 -->
+                            <div class="pain-point-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="icon-badge">
+                                    <i class="bi bi-exclamation-triangle text-success"></i>
+                                </div>
+                                <h3 class="h4 mb-2">Lacking Technical Support?</h3>
+                                <p class="lead text-dark-emphasis mb-4">Experience 24/7 proactive support with dedicated technical experts who understand your business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Solution -->
+                    <div class="col-lg-5">
+                        <div class="solution-card bg-white rounded-4 p-4 h-100">
+                            <h2 class="h3 fw-bold mb-4">Our 360° End-to-End Support is the Answer.</h2>
+                            <p class="lead text-dark-emphasis mb-4">Experience enterprise-grade support that anticipates your needs. Our comprehensive solution includes proactive monitoring, rapid response times, and dedicated technical expertise.</p>
+                            <div class="solution-features">
+                                <div class="feature-item d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>24/7 Proactive Monitoring</span>
+                                </div>
+                                <div class="feature-item d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Dedicated Support Team</span>
+                                </div>
+                                <div class="feature-item d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Rapid Response Times</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="text-center mt-5">
+                        <a href="#enterprise-form" class="btn btn-warning btn-lg px-5 py-3 text-white fw-bold d-inline-flex align-items-center hover-lift">
+                            REQUEST FOR FREE SURVEY
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <style>
+                    .pain-points-section {
+                        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                    }
+
+                    .pain-points-grid {
+                        display: grid;
+                        gap: 1.5rem;
+                    }
+
+                    .pain-point-card {
+                        background: white;
+                        padding: 2rem;
+                        border-radius: 1rem;
+                        position: relative;
+                        transform: rotate(-1deg);
+                        border: 1px solid rgba(0, 0, 0, 0.05);
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                        transition: all 0.3s ease;
+                    }
+
+                    .pain-point-card:nth-child(2) {
+                        transform: rotate(1deg);
+                    }
+
+                    .pain-point-card:hover {
+                        transform: translateY(-5px) rotate(0);
+                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .icon-badge {
+                        position: absolute;
+                        top: -15px;
+                        right: -15px;
+                        width: 48px;
+                        height: 48px;
+                        background: white;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.5rem;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .solution-card {
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                        border: 1px solid rgba(0, 0, 0, 0.05);
+                    }
+
+                    @media (max-width: 991.98px) {
+                        .pain-point-card {
+                            transform: none !important;
+                        }
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+    <!-- section beginning -->
+
+
+<!-- Modern Free Trial Section -->
+<section class="modern-trial-section py-5">
+    <div class="container">
+        <div class="trial-container bg-white rounded-4 shadow-sm overflow-hidden">
+            <div class="row g-0">
+                <!-- Left Column - Premium Features -->
+                <div class="col-lg-7 p-5">
+                    <h2 class="h3 fw-bold text-dark mb-4">Premium Features</h2>
+                    
+                    <div class="premium-features">
+                        <div class="feature-item mb-4 pb-4 border-bottom border-light">
+                            <h3 class="h5 fw-bold mb-2">Dedicated Fiber Optic</h3>
+                            <p class="lead text-dark-emphasis mb-4">High-speed, reliable connectivity with 99.9% uptime</p>
+                        </div>
+
+                        <div class="feature-item mb-4 pb-4 border-bottom border-light">
+                            <h3 class="h5 fw-bold mb-2">99.8% SLA Guarantee</h3>
+                            <p class="lead text-dark-emphasis mb-4">Enterprise-grade reliability with service level agreement</p>
+                        </div>
+
+                        <div class="feature-item mb-4 pb-4 border-bottom border-light">
+                            <h3 class="h5 fw-bold mb-2">Self-Healing Network</h3>
+                            <p class="lead text-dark-emphasis mb-4">Automatic failover for continuous uptime</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3 class="h5 fw-bold mb-2">24/7 Proactive Support</h3>
+                            <p class="lead text-dark-emphasis mb-4">Round-the-clock monitoring and instant technical assistance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Free Trial Offer -->
+                <div class="col-lg-5 bg-success p-5 text-white d-flex flex-column justify-content-between">
+                    <div class="trial-content">
+                        <div class="text-center mb-4">
+                            <h2 class="display-1 fw-bold mb-2">₦0</h2>
+                            <p class="fs-5 text-white-50 mb-5">First 30 days free, then</p>
+
+                        </div>
+
+                        <div class="trial-benefits mb-5">
+                            <div class="benefit-item mb-3 ps-3">Zero setup & installation costs</div>
+                            <div class="benefit-item mb-3 ps-3">70% renewable energy usage</div>
+                            <div class="benefit-item mb-3 ps-3">Nationwide coverage</div>
+                            <div class="benefit-item mb-3 ps-3">No long-term contracts</div>
+                            <div class="benefit-item ps-3">No hidden fees</div>
+                        </div>
+                    </div>
+
+                    <div class="trial-cta text-center">
+                        <a href="#enterprise-form" class="btn btn-lg w-100 py-3 trial-btn">
+                            Start Free Trial →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modern-trial-section {
+            background: #f8f9fa;
+        }
+
+        .trial-container {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Make premium features stack vertically (override generic .feature-item) */
+        .premium-features .feature-item {
+            display: block;
+            padding: 1rem 0;
+        }
+
+        .premium-features .feature-item h3 {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .premium-features .feature-item p {
+            margin-top: 0;
+        }
+
+        .premium-features .feature-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .border-light {
+            border-color: rgba(0, 0, 0, 0.05) !important;
+        }
+
+        .trial-benefits .benefit-item {
+            font-size: 1.1rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .trial-btn {
+            background: white;
+            color: var(--success);
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .trial-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 991.98px) {
+            .col-lg-5 {
+                border-radius: 0 0 0.75rem 0.75rem;
+            }
+        }
+    </style>
+</section>
+
+    <style>
         /* Color Variables */
         :root {
             --primary: #F58C29;
             --primary-light: rgba(245, 140, 41, 0.1);
-            --success: #5CC640;
-            --success-light: rgba(92, 198, 64, 0.1);
+            --success: #59AF17;
+            --success-light: rgba(89, 175, 23, 0.1);
             --accent: #A0C90C;
             --accent-light: rgba(160, 201, 12, 0.1);
+            --warning: #ff6600;
+            --warning-light: rgba(255, 102, 0, 0.1);
+        }
+
+        /* General Styles */
+        body {
+            padding-top: 80px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--success), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            display: inline;
+        }
+
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .enterprise-hero-section {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+        }
+
+        .enterprise-hero-section h1 {
+            font-weight: 600;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .enterprise-hero-section .text-success {
+            color: var(--success) !important;
+        }
+
+        .stats-bar {
+            background: #fff;
+            padding: 1rem 0;
+        }
+
+        .stat-item {
+            font-size: 0.9rem;
+        }
+
+        .btn-warning {
+            background-color: var(--warning);
+            border-color: var(--warning);
+            transition: all 0.3s ease;
+        }
+
+        .btn-warning:hover {
+            background-color: #ff7f2a;
+            border-color: #ff7f2a;
+            transform: translateY(-2px);
         }
         
         .free-trial-section {
@@ -341,6 +699,54 @@
             transform: translateX(5px);
         }
         
+        /* Stats Bar */
+        .stat-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(89, 175, 23, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(89, 175, 23, 0.1);
+        }
+
+        /* Pain Points */
+        .pain-point-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pain-point-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Form Styling */
+        .form-floating > .form-control:focus,
+        .form-floating > .form-control:not(:placeholder-shown) {
+            padding-top: 1.625rem;
+            padding-bottom: 0.625rem;
+        }
+
+        .form-floating > label {
+            padding: 1rem 0.75rem;
+        }
+
+        .btn-check:checked + .btn-outline-success {
+            background-color: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        /* Feature Icons */
         .feature-icon {
             display: inline-flex;
             margin-right: 1rem;
@@ -520,14 +926,16 @@
 
 
     <!-- Service combinations -->
-    <div class="container-fluid bg-green pt-3 pb-5">
+    <div class="container-fluid pt-5 pb-5" style="background: linear-gradient(135deg, var(--success) 0%, var(--accent) 100%);">
         <div class="container">
-            <h5 class="dataplan-title fw-bold fs-3 text-start">I-World Enterprise Service Combinations</h5>
-            <hr class="hr">
-            <p class="fs-5">
-                Businesses can choose any of our service bundles to reduce their Internet, Network, Google Workspace overall initial investment and monthly recurring operational costs. <br>
-                This fastest cost saving mechanism for Enterprise, Small business, and startups 
-            </p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center text-white">
+                    <h2 class="display-5 fw-bold mb-4">I-World Enterprise Service Combinations</h2>
+                    <p class="lead text-dark-emphasis mb-4">
+                        Choose from our service bundles to reduce your Internet, Network, and Google Workspace initial investment and monthly operational costs. The fastest cost-saving mechanism for Enterprise, Small business, and startups.
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 <div class="border p-3 col-md-4 bg-white">
                     <div class="service-container d-flex flex-column justify-content-between h-100">
@@ -535,14 +943,32 @@
                             <h5 class="service-heading fs-4 fw-bold">
                                 Internet Service + Google Workspace
                             </h5> <br>
-                            <p class="service-description mb-4">Bundle your Internet Subscription with Google Workspace.</p>
+                            <p class="lead text-dark-emphasis mb-4">Bundle your Internet Subscription with Google Workspace.</p>
                             <ul class="benefit-list list-unstyled">
-                                <li class="border-bottom border-top mt-3 pt-3">Save up to 50% on monthly bill</li>
-                                <li class="border-bottom mt-3"> Zero Sign-up cost</li>
-                                <li class="border-bottom mt-3"> Staff training on Google Workspace</li>
-                                <li class="border-bottom mt-3">99.8% Service availability</li>
-                                <li class="border-bottom mt-3">24/7 Technical Support</li>
-                                <li class="border-bottom mt-3">Dedicated Account Manager</li>
+                                <li class="border-bottom border-top py-3 d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Save up to 50% on monthly bill</span>
+                                </li>
+                                <li class="border-bottom py-3 d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Zero Sign-up cost</span>
+                                </li>
+                                <li class="border-bottom py-3 d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Staff training on Google Workspace</span>
+                                </li>
+                                <li class="border-bottom py-3 d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>99.8% Service availability</span>
+                                </li>
+                                <li class="border-bottom py-3 d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>24/7 Technical Support</span>
+                                </li>
+                                <li class="py-3 d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Dedicated Account Manager</span>
+                                </li>
                             </ul>
                         </div>
                         <div class="">
@@ -556,14 +982,32 @@
                         <h5 class="service-heading fs-4 fw-bold ">
                             Internet Service + Network Infrastructure
                         </h5> <br>
-                        <p class="service-description mb-4">Get Internet Connectivity and Network Infrastructure as a service.</p>
+                         <p class="lead text-dark-emphasis mb-4">Get Internet Connectivity and Network Infrastructure as a service.</p>
                         <ul class="benefit-list list-unstyled">
-                            <li class="border-bottom border-top pt-3 mt-3">Save up to 45% on maintenance costs</li>
-                            <li class="border-bottom mt-3"> Zero Sign-up and build cost</li>
-                            <li class="border-bottom mt-3">Proactive monitoring and maintenance</li>
-                            <li class="border-bottom mt-3">99.8% Service availability</li>
-                            <li class="border-bottom mt-3">24/7 Onsite Technical Support</li>
-                            <li class="border-bottom mt-3">Dedicated Account Manager</li>
+                            <li class="border-bottom py-3 border-top pt-3 mt-3 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span>Save up to 45% on maintenance costs</span>
+                            </li>
+                            <li class="border-bottom py-3 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span>Zero Sign-up and build cost</span>
+                            </li>
+                            <li class="border-bottom py-3 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span>Proactive monitoring and maintenance</span>
+                            </li>
+                            <li class="border-bottom py-3 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span>99.8% Service availability</span>
+                            </li>
+                            <li class="border-bottom py-3 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span>24/7 Onsite Technical Support</span>
+                            </li>
+                            <li class="py-3 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span>Dedicated Account Manager</span>
+                            </li>
                         </ul>
                     </div>
                     <div class="">
@@ -579,19 +1023,18 @@
                         <h5 class="service-heading fs-4 fw-bold">
                             Internet Service + Google Workspace + Network Infrastructure
                             <br> <span class="fs-5">(Most popular)</span>
-                            
                         </h5>
                         <br>
-                        <p class="service-description mb-4">Our most popular service combination for businesses.</p>
+                        <p class="lead text-dark-emphasis mb-4">Our most popular service combination for businesses.</p>
                         <ul class="benefit-list list-unstyled">
-                        <li class="border-bottom border-top pt-3">Save up to 55% on monthly costs</li>
-                        <li class="border-bottom mt-2">Lowest Total Cost of Ownership</li>
-                        <li class="border-bottom mt-2">Zero Sign-up and build cost</li>
-                        <li class="border-bottom mt-2">Proactive monitoring and maintenance</li>
-                        <li class="border-bottom mt-2">99.8% Service availability</li>
-                        <li class="border-bottom mt-2">24/7 Onsite Technical Support</li>
-                        <li class="border-bottom mt-2">Dedicated Account Manager</li>
-                        <li class="border-bottom mt-2">Data Backup and Recovery</li>
+                            <li class="border-bottom py-3 border-top pt-3 mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Save up to 55% on monthly costs</li>
+                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Lowest Total Cost of Ownership</li>
+                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Zero Sign-up and build cost</li>
+                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Proactive monitoring and maintenance</li>
+                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>99.8% Service availability</li>
+                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 Onsite Technical Support</li>
+                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Dedicated Account Manager</li>
+                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Data Backup and Recovery</li>
                         </ul>
                     </div>
                     <div class="">
@@ -606,98 +1049,124 @@
     </div>
 
     <!-- Enterprise Form  -->
-    <div class="container-fluid py-5 gray-bg" id="enterprise-form">
-        <h4 class=" text-start fs-2 fw-bold">Request Form for Enterprise Internet service</h4>
-        <hr class="hr">
-        <!-- <div data-paperform-id="sr1c7j8p"></div>
-            <script>
-                (function() {var script = document.createElement('script'); script.src = "https://paperform.co/__embed.min.js"; document.body.appendChild(script); })()
-            </script> -->
-        <form class="container">
-            <input type="hidden" name="subject" value="IP Order Service Request">
-            <input type="hidden" name="form_source" value="Enterprise Internet">
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="name" class="form-label lato">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name">
+    <div class="container-fluid py-5 position-relative overflow-hidden" id="enterprise-form" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <!-- Animated Background Elements -->
+        <div class="position-absolute top-0 start-0 w-100 h-100">
+            <div class="form-orb orb-1"></div>
+            <div class="form-orb orb-2"></div>
+        </div>
+
+        <div class="container position-relative">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-4">Get Started Today</h2>
+                    <p class="lead mb-0">Fill out the form below and our team will get back to you within the hour.</p>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label for="companyName" class="form-label lato">Company Name:</label>
-                    <input type="text" class="form-control" id="companyName" name="company_name">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="email" class="form-label lato">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="phoneNumber" class="form-label lato">Phone number:</label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phone_number">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="state" class="form-label lato">State:</label>
-                    <input type="text" class="form-control" id="state" name="state">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="city" class="form-label lato">City:</label>
-                    <input type="text" class="form-control" id="city" name="city">
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="">
-                            <label class="form-label">How best to contact you:</label><br>
-                            <div class="">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="contact[]" id="whatsappCheck" value="WhatsApp">
-                                    <label class="form-check-label" for="whatsappCheck">WhatsApp</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="contact[]" id="emailCheck" value="Email">
-                                    <label class="form-check-label" for="emailCheck">Email</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="contact[]" id="phoneCheck" value="Phone Call">
-                                    <label class="form-check-label" for="phoneCheck">Phone Call</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="contact[]" id="smsCheck" value="SMS">
-                                    <label class="form-check-label" for="smsCheck">SMS</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="">
-                            <label class="form-label">Best time to contact you:</label><br>
-                            <div class="d-flex flex-row">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input me-4" type="checkbox" name="contact_time[]" id="daytimeCheck" value="Daytime">
-                                <label class="form-check-label" for="daytimeCheck">Day</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Evening" id="evening">
-                                <label class="form-check-label" for="evening">Evening</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Anytime" id="anytime">
-                                <label class="form-check-label" for="anytime">Anytime</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Weekend" id="weekend">
-                                <label class="form-check-label" for="weekend">Weekend</label>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cta">
-                <button type="submit" class="btn btn-warn w-auto text-uppercase fw-bold px-5">Submit</button>
-                <p class="my-2 lato">
-                    Thank you for choosing I-World Networks! We will contact you within the hour.
-                </p>
             </div>
 
-        </form>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="card-body p-4 p-lg-5">
+                            <form class="needs-validation" novalidate>
+                                <input type="hidden" name="subject" value="IP Order Service Request">
+                                <input type="hidden" name="form_source" value="Enterprise Internet">
+                                
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                                            <label for="name">Full Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="companyName" name="company_name" placeholder="Company Name" required>
+                                            <label for="companyName">Company Name</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                                            <label for="email">Email Address</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder="Phone Number" required>
+                                            <label for="phoneNumber">Phone Number</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="state" name="state" placeholder="State" required>
+                                            <label for="state">State</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                                            <label for="city">City</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label d-block mb-3">Preferred Contact Method</label>
+                                        <div class="btn-group w-100" role="group" aria-label="Contact method">
+                                            <input type="checkbox" class="btn-check" name="contact[]" id="whatsappCheck" value="WhatsApp" autocomplete="off">
+                                            <label class="btn btn-outline-success" for="whatsappCheck">
+                                                <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                                            </label>
+                                            
+                                            <input type="checkbox" class="btn-check" name="contact[]" id="emailCheck" value="Email" autocomplete="off">
+                                            <label class="btn btn-outline-success" for="emailCheck">
+                                                <i class="bi bi-envelope me-2"></i>Email
+                                            </label>
+                                            
+                                            <input type="checkbox" class="btn-check" name="contact[]" id="phoneCheck" value="Phone" autocomplete="off">
+                                            <label class="btn btn-outline-success" for="phoneCheck">
+                                                <i class="bi bi-telephone me-2"></i>Call
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label d-block mb-3">Best Time to Contact</label>
+                                        <div class="btn-group w-100" role="group" aria-label="Contact time">
+                                            <input type="radio" class="btn-check" name="contact_time" id="daytime" value="Daytime" autocomplete="off">
+                                            <label class="btn btn-outline-success" for="daytime">
+                                                <i class="bi bi-sun me-2"></i>Day
+                                            </label>
+                                            
+                                            <input type="radio" class="btn-check" name="contact_time" id="evening" value="Evening" autocomplete="off">
+                                            <label class="btn btn-outline-success" for="evening">
+                                                <i class="bi bi-moon me-2"></i>Evening
+                                            </label>
+                                            
+                                            <input type="radio" class="btn-check" name="contact_time" id="anytime" value="Anytime" autocomplete="off">
+                                            <label class="btn btn-outline-success" for="anytime">
+                                                <i class="bi bi-clock me-2"></i>Anytime
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-5">
+                                    <button type="submit" class="btn btn-warning btn-lg px-5 py-3 d-inline-flex align-items-center hover-lift">
+                                        Submit Request
+                                        <i class="bi bi-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer section Beginning -->
@@ -873,10 +1342,37 @@
     <script src="./Assets/js/dropdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Toastr Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!-- Custom Script -->
     <script src="Assets/js/forms.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Form validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 
 </body>
 </html>

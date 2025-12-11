@@ -1,12 +1,40 @@
 <?php 
-// Comment out the next 3 lines in production
+// Enable error reporting and logging
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/form_submissions.log');
+
+// Set headers
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
+header('Content-Type: application/json');
 
 require_once "mailer.php";
 
-$data = array();
+// Initialize response array
+$data = [
+    'status' => false,
+    'message' => '',
+    'debug' => []
+];
+
+// Log function for better debugging
+function logDebug($message, $data = null) {
+    $log = '[' . date('Y-m-d H:i:s') . '] ' . $message . "\n";
+    if ($data !== null) {
+        $log .= 'Data: ' . print_r($data, true) . "\n";
+    }
+    error_log($log, 3, __DIR__ . '/form_submissions.log');
+}
+
+// Log the incoming request
+logDebug('=== NEW FORM SUBMISSION ===', [
+    'method' => $_SERVER['REQUEST_METHOD'],
+    'post_data' => $_POST,
+    'files' => !empty($_FILES) ? array_keys($_FILES) : []
+]);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fields = $_POST;
@@ -46,48 +74,101 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
-      // Determine recipient based on subject
-      $to = "";
-      $subject = htmlspecialchars($_POST['subject']);
-      $cc = array();
+      // Define form configurations
+      $formConfigs = [
+          'Career Application' => [
+              'to' => 'hr.iworldnetworks@gmail.com',
+          ],
+          'NGFEP Enquiry' => [
+              'to' => 'hr.iworldnetworks@gmail.com',
 
-      if ($subject == "Career Application") {
-          $to = "reformer.ejembi@iworldnetworks.net";
-      }
-      else if ($subject == "Nigeria Google For Education Program Enquiry") {
-          $to = "hr.iworldnetworks@gmail.com";
-      }
-      else if ($subject == "Google Workspace Enquiry") {
-          $to = "jude.alawode@iworldnetworks.net";
-          $cc = array(
-              "kikachukwu.omordia@iworldnetworks.net",
-              "kolade.adegelu@iworldnetworks.net"
-          );
-      }
-      else {
-          $to = "adegelukolade@gmail.com";
-          $cc = array(
-              "titilade.bakare@iworldnetworks.net",
-              "kikachukwu.omordia@iworldnetworks.net", 
-              "jeffery.udoji@iworldnetworks.net",
-              "fisayo.adeboye@iworldnetworks.net",
-              "reformer.ejembi@iworldnetworks.net",
-              "emmanuel.oladimeji@iworldnetworks.net",
-              "kolade.adegelu@iworldnetworks.net",
-              "janet.oke@iworldnetworks.net",
-              "sales@iworldnetworks.net"
-          );
+          ],
+          'Google Workspace Enquiry' => [
+              'to' => 'jude.alawode@iworldnetworks.net',
+              'cc' => [
+                  'kikachukwu.omordia@iworldnetworks.net',
+                  'kolade.adegelu@iworldnetworks.net'
+              ]
+          ]
+      ];
 
-      };
-    $body = mailbody($subject, $content);
-    $response = sendMail($to, $cc, $subject, $body, $files);
+      // Get and validate subject
+      $subject = isset($_POST['subject']) ? trim(htmlspecialchars($_POST['subject'])) : '';
+      
+      // Log the subject for debugging
+      logDebug('Processing form with subject: ' . $subject);
+      
+      // Initialize email variables with safe defaults
+      $to = '';
+      $cc = [];
+      
+      // Find matching configuration
+      if (isset($formConfigs[$subject])) {
+          $to = $formConfigs[$subject]['to'];
+          $cc = $formConfigs[$subject]['cc'];
+          logDebug('Found matching configuration', [
+              'subject' => $subject,
+              'to' => $to,
+              'cc' => $cc
+          ]);
+      } else {
+          $to = 'adegelukolade@gmail.com';
+          $cc = [
+              'titilade.bakare@iworldnetworks.net',
+              'kikachukwu.omordia@iworldnetworks.net',
+              'jeffery.udoji@iworldnetworks.net',
+              'fisayo.adeboye@iworldnetworks.net',
+              'reformer.ejembi@iworldnetworks.net',
+              'emmanuel.oladimeji@iworldnetworks.net',
+              'kolade.adegelu@iworldnetworks.net',
+              'janet.oke@iworldnetworks.net',
+              'sales@iworldnetworks.net'
+          ];
+
+          logDebug('Falling back to default routing', [
+              'subject' => $subject,
+              'to' => $to,
+              'cc' => $cc
+          ]);
+      }
+    // Log routing decision
+    logDebug('Email routing decision', [
+        'subject' => $subject,
+        'to' => $to,
+        'cc' => $cc
+    ]);
     
-    if ($response == 'success') {
-        $data['status'] = true; // Change to true for success
-        $data['message'] = "Your request has been received. An agent will reach out to you.";
-    } else {
+    try {
+        // Generate email body
+        $body = mailbody($subject, $content);
+        
+        // Log email details before sending
+        logDebug('Preparing to send email', [
+            'to' => $to,
+            'cc' => $cc,
+            'subject' => $subject,
+            'has_files' => !empty($files)
+        ]);
+        
+        // Send email
+        $response = sendMail($to, $cc, $subject, $body, $files);
+        
+        // Log the response
+        logDebug('Email send response', ['response' => $response]);
+        
+        if ($response === 'success') {
+            $data['status'] = true;
+            $data['message'] = 'Your request has been received. An agent will reach out to you.';
+            logDebug('Email sent successfully');
+        } else {
+            throw new Exception('Failed to send email. Server response: ' . $response);
+        }
+        
+    } catch (Exception $e) {
+        $errorMsg = 'Error sending email: ' . $e->getMessage();
+        logDebug($errorMsg, ['trace' => $e->getTraceAsString()]);
         $data['status'] = false;
-        $data['message'] = "Error sending email: " . $response; // Provide error details
+        $data['message'] = 'There was an error processing your request. Please try again later.';
     }
 } else {
     $data['status'] = false;

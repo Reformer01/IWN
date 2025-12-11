@@ -37,6 +37,80 @@
 
         <!-- Toastr Css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <style>
+        /* Migration Banner Styles */
+        .migration-banner {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .migration-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="rgba(255,255,255,0.1)"><path d="M30,50 Q50,30 70,50 Q90,70 70,90 L30,90 Q10,70 30,50"/></svg>') no-repeat right center;
+            background-size: contain;
+            opacity: 0.5;
+        }
+        .migration-banner .btn-light {
+            color: #1a73e8 !important;
+            background-color: #ffffff !important;
+            font-weight: 700;
+            padding: 0.6rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 2px solid #ffffff;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .migration-banner .btn-light::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        .migration-banner .btn-light:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            color: #0d47a1 !important;
+            border-color: #f8f9fa;
+        }
+        .migration-banner .btn-light:hover::after {
+            transform: translateX(100%);
+        }
+        .migration-banner .btn-light i {
+            transition: transform 0.3s ease;
+            margin-left: 8px;
+        }
+        .migration-banner .btn-light:hover i {
+            transform: translateX(4px);
+        }
+        @media (max-width: 991px) {
+            .migration-banner .text-lg-end {
+                text-align: left !important;
+                margin-top: 10px;
+            }
+            .migration-banner .btn {
+                width: 100%;
+            }
+        }
+    </style>
 
     </head>
 
@@ -121,6 +195,183 @@
                 transform: scale(1.05);
                 box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             }
+
+            /* Refined Pricing Section Styles - Improved Aesthetic Balance */
+
+            /* A. Global Layout (The Grid) */
+            .pricing-table {
+                display: grid;
+                /* Create 4 columns of equal size */
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+                padding: 40px 20px;
+                max-width: 1400px;
+                margin: 0 auto;
+                align-items: start; /* Align cards to top for equal heights */
+            }
+
+            /* B. Card Styling (The Boxes) */
+            .pricing-card {
+                /* Create clear visual separation with refined styling */
+                border: 1px solid #e0e0e0;
+                border-radius: 12px; /* Slightly more rounded for modern look */
+                padding: 32px 24px;
+                text-align: left;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer shadow */
+                background: white;
+                position: relative;
+                height: 100%; /* Ensure equal heights */
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+            }
+
+            .pricing-card:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                transform: translateY(-2px);
+            }
+
+            /* C. Highlighting the Standard Plan (Refined Blue Border) */
+            .pricing-card[data-plan-name="Business Standard"] {
+                /* More subtle highlighting */
+                border: 2px solid #4285F4;
+                box-shadow: 0 4px 16px rgba(66, 133, 244, 0.15);
+                /* Subtle lift instead of dramatic transform */
+                transform: translateY(-3px);
+            }
+
+            /* D. Visual Hierarchy (Refined Text & Pricing) */
+            .card-header {
+                flex-shrink: 0; /* Prevent header from shrinking */
+            }
+
+            .card-features {
+                flex-grow: 1; /* Allow features section to grow */
+                display: flex;
+                flex-direction: column;
+            }
+
+            .price-box {
+                margin: 20px 0;
+            }
+
+            .price-usd {
+                /* Refined font size for better balance */
+                font-size: 2.8em;
+                font-weight: 600;
+                display: block;
+                line-height: 1.1;
+                color: #202124; /* Slightly darker for better contrast */
+            }
+
+            .price-terms {
+                /* Improved typography for terms */
+                font-size: 0.875em;
+                color: #5f6368;
+                line-height: 1.3;
+            }
+
+            .plan-title {
+                font-size: 1.4em;
+                font-weight: 600;
+                margin-bottom: 16px;
+                color: #202124;
+            }
+
+            .features-title {
+                font-size: 1.05em;
+                font-weight: 500;
+                margin-bottom: 16px;
+                color: #202124;
+            }
+
+            /* Refined feature list styling */
+            .feature-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                flex-grow: 1; /* Allow list to fill available space */
+            }
+
+            .feature-item {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .feature-item:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+
+            .icon-checkmark {
+                color: #34a853; /* Google green for checkmarks */
+                font-size: 1.1em;
+                margin-right: 10px;
+                margin-top: 2px;
+                flex-shrink: 0;
+            }
+
+            .feature-text {
+                text-align: left;
+                font-size: 0.95em;
+                line-height: 1.4;
+                color: #3c4043;
+            }
+
+            .cta-button {
+                display: inline-block;
+                padding: 14px 28px;
+                background-color: #4285F4;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+                font-weight: 500;
+                text-align: center;
+                margin-top: auto; /* Push button to bottom */
+                transition: all 0.3s ease;
+                border: none;
+                cursor: pointer;
+                font-size: 0.95em;
+            }
+
+            .cta-button:hover {
+                background-color: #3367d6;
+                color: white;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+            }
+
+            /* Responsive Design */
+            @media (max-width: 1200px) {
+                .pricing-table {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .pricing-table {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                    padding: 20px;
+                }
+
+                .pricing-card {
+                    padding: 24px 20px;
+                }
+
+                .pricing-card[data-plan-name="Business Standard"] {
+                    transform: none; /* Remove transform on mobile */
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                }
+
+                .price-usd {
+                    font-size: 2.4em;
+                }
+            }
 </style>
 
 
@@ -183,13 +434,36 @@
         </nav>
         <!-- Ending of navbar -->
 
+        <!-- Migration Banner -->
+        <div class="migration-banner bg-primary text-white py-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-10">
+                        <div class="d-flex align-items-center">
+                            <i class="ri-shield-check-line fs-4 me-3"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Seamless Migration Services</h6>
+                                <p class="mb-0 small">Let our experts handle your transition to Google Workspace. We ensure zero data loss and minimal downtime.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 text-lg-end mt-3 mt-lg-0 d-flex align-items-center">
+                        <a href="#migration-section" class="btn btn-light btn-lg" style="white-space: nowrap;">
+                            <span>Learn More</span>
+                            <i class="ri-arrow-right-line ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Hero Section -->
         <div class="hero-section">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="hero-content" data-aos="fade-right">
-                            <h1 class="hero-title">Transform your<br>workspace today</h1>
+                            <h1 class="hero-title">Enhance Your Business Productivity with<br>Google Workspace Today</h1>
                             <p class="hero-description">Empower your team with advanced collaboration tools, integrated email, calendar, cloud storage, and video conferencing.</p>
                             <p class="hero-subtitle">Enhance productivity with AI-powered solutions designed for the modern workplace.</p>
                             <div class="hero-cta">
@@ -327,6 +601,117 @@
                     <div class="product-info">
                         <h4>AppSheet</h4>
                         <p>No-code app development platform for creating custom business applications quickly and integrating with Google Workspace.</p>
+                    </div>
+                </div>
+                
+                <!-- Additional Google Workspace Tools -->
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/forms.png" alt="Forms">
+                        <h3>Forms</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Forms</h4>
+                        <p>Create surveys, quizzes, and forms with automatic data collection, analysis, and seamless integration with Sheets.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/sites.png" alt="Sites">
+                        <h3>Sites</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Sites</h4>
+                        <p>Create professional websites and intranets quickly with drag-and-drop tools and secure team collaboration features.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/keep.png" alt="Keep">
+                        <h3>Keep</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Keep</h4>
+                        <p>Note-taking app with voice memos, checklists, and image capture that syncs across all devices.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/currents.png" alt="Currents">
+                        <h3>Currents</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Currents</h4>
+                        <p>Enterprise communication platform for meaningful discussions and knowledge sharing across organizations.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/Google_Cloud_Search-removebg-preview.png" alt="Cloud Search">
+                        <h3>Cloud Search</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Cloud Search</h4>
+                        <p>Enterprise search that helps employees quickly find information across G Suite and other business applications.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/admin.png" alt="Admin Console">
+                        <h3>Admin Console</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Admin Console</h4>
+                        <p>Centralized management platform for IT administrators to manage Google Workspace and other Google services.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/Google Cloud Identity.png" alt="Cloud Identity">
+                        <h3>Cloud Identity</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Cloud Identity</h4>
+                        <p>Identity and access management for cloud applications with single sign-on and security controls.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/Google_Cloud_Print.png" alt="Cloud Print">
+                        <h3>Cloud Print</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Cloud Print</h4>
+                        <p>Print from any device to any printer with secure cloud printing capabilities.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/Google_Voice.png" alt="Voice">
+                        <h3>Voice</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Google Voice</h4>
+                        <p>Business phone system with voicemail transcription, call forwarding, and SMS capabilities.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-icon">
+                        <img src="./Assets/icons/google_workspace/Workspace_Marketplace.png" alt="Marketplace">
+                        <h3>Marketplace</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4>Workspace Marketplace</h4>
+                        <p>Discover and install third-party applications that integrate with Google Workspace.</p>
                     </div>
                 </div>
             </div>
@@ -567,56 +952,7 @@
             </div>
         </div>
 
-        <!-- Gemini AI Features Section
-                <div class="section-gemini py-5">
-                    <div class="container">
-                        <div class="row align-items-center mb-5">
-                            <div class="col-lg-6">
-                                <h2 class="display-6 fw-bold mb-3">Powered by Gemini AI</h2>
-                                <p class="lead text-muted">Experience next-generation AI capabilities integrated across Google Workspace. With Gemini AI, your team can leverage cutting-edge technology to enhance productivity, streamline workflows, and drive innovation in your organization.</p>
-                            </div>
-                            <div class="col-lg-6">
-                                <img src="./Assets/img/GEMINI.jpg" alt="Gemini AI Features" class="img-fluid rounded">
-                            </div>
-                        </div>
         
-                        <div class="row g-4">
-                            <div class="col-lg-3">
-                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
-                                    <img src="./Assets/icons/ngn-edu-icons/text-analytics.png" width="48" height="48" alt="" class="mb-3">
-                                    <h4 class="h5 fw-bold">Smart Compose</h4>
-                                    <p class="text-muted mb-0">AI-powered writing suggestions that help you draft emails and documents faster</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
-                                    <img src="./Assets/icons/ngn-edu-icons/report.png" width="48" height="48" alt="" class="mb-3">
-                                    <h4 class="h5 fw-bold">Meeting Summaries</h4>
-                                    <p class="text-muted mb-0">Automated meeting notes and action items generated from Google Meet recordings</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
-                                    <img src="./Assets/icons/ngn-edu-icons/analytics.png" width="48" height="48" alt="" class="mb-3">
-                                    <h4 class="h5 fw-bold">Data Analysis</h4>
-                                    <p class="text-muted mb-0">Intelligent insights and visualizations in Sheets with natural language queries</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="feature-card h-100 p-4 bg-white rounded shadow hover-lift">
-                                    <img src="./Assets/icons/ngn-edu-icons/design-thinking.png" width="48" height="48" alt="" class="mb-3">
-                                    <h4 class="h5 fw-bold">Content Generation</h4>
-                                    <p class="text-muted mb-0">Create presentations, images, and content with AI assistance across apps</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mt-5">
-                            <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Get Started</a>
-                        </div>
-                    </div>
-                </div> -->
-        
-
     </div>
 
     <!-- Ending of google workspace info -->
@@ -624,82 +960,242 @@
     
 
     <!-- Pricing Plans -->
-
-    <h1 class="heading text-center pb-5">Google Workspace Pricing Plans</h1>   
-
-    <h3 class="heading-new text-center pb-4">Make payments in Naira for a more convenient experience!</h3>
-    <hr class="">
-
-    <div class="py-2"></div>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-3.6 pricing-plan business-starter rounded bg-white hover-lift" >
-                <h2>Business Starter</h2>
-                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 300;font-size: 2.2em;color: #4285F4;letter-spacing: 0.02em;">$6.30<span>per user / month, 1 year commitment</span></div>
-                <a href="#workspace_form" class="button start">Get Started</a>
-                <div class="feature">30 GB pooled storage per user</div>
-                <div class="feature">Secure custom business email, you@your-company.com</div>
-                <div class="feature">100 participant video meetings</div>
-                <div class="feature">Gemini AI assistant in Gmail</div>
-                <div class="feature">Chat with AI in the Gemini app</div>
-                <div class="feature">Security and management controls</div>
-                <div class="feature">Standard Support</div>
+    <div class="pricing-table">
+        <div class="pricing-card" data-plan-name="Business Starter">
+            <div class="card-header">
+                <h2 class="plan-title">Business Starter</h2>
+                <div class="price-box">
+                    <span class="price-usd">$8.40</span>
+                    <span class="price-terms">USD / user / month,<br>1 year commitment</span>
+                </div>
+                <a href="#workspace_form" class="cta-button">Get started</a>
             </div>
-            
-            <div class="col-md-3.6 pricing-plan business-standard">
-                <h3>Business Standard</h3>
-                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 400;font-size: 2.2em;color: #34A853;letter-spacing: 0.02em;">$12.60<span>per user / month, 1 year commitment</span></div>
-                <a href="#workspace_form" class="button start">Get Started</a>
-                <div class="feature">2 TB pooled storage per user</div>
-                <div class="feature">Secure custom email (you@your-company.com)</div>
-                <div class="feature">150 participant video meetings + recording</div>
-                <div class="feature">Full Gemini AI in Gmail, Docs, Meet</div>
-                <div class="feature">eSignature with Docs and PDFs</div>
-                <div class="feature">Appointment booking pages</div>
-                <div class="feature">Collaborative video creator + editor</div>
-                <div class="feature">Email layouts and mail merge</div>
-                <div class="feature">Security and management controls</div>
-            </div>
-            
-            <div class="col-md-3.6 pricing-plan business-plus">
-                <h2>Business<br>Plus</h2>
-                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 400;font-size: 2.2em;color: #FBBC05;letter-spacing: 0.02em;">$22<span>per user / month, 1 year commitment</span></div>
-                <a href="#workspace_form" class="button start">Get Started</a>
-                <div class="feature">5 TB pooled storage per user</div>
-                <div class="feature">Secure custom business email, eDiscovery, retention</div>
-                <div class="feature">500 participant video meetings + recording, attendance tracking, noise cancellation</div>
-                <div class="feature">Chat with AI in the Gemini app + create your team of AI experts</div>
-                <div class="feature">NotebookLM Plus AI research assistant</div>
-                <div class="feature">Collaborative video creator + editor</div>
-                <div class="feature">eSignature with Docs and PDFs</div>
-                <div class="feature">Email layouts and mail merge</div>
-                <div class="feature">Security and management controls</div>
-                <div class="feature">Enhanced security & management</div>
-                <div class="feature">Standard Support</div>
-            </div>
-            
-            <div class="col-md-3.6 pricing-plan enterprise">
-                <h2>Enterprise</h2>
-                <div class="price" style="font-family: 'Roboto', 'Arial', sans-serif; font-weight: 400;font-size: 2.2em;color: #DB4437;letter-spacing: 0.02em;">Custom pricing<span>per user / month, 1 year commitment</span></div>
-                <a href="#workspace_form" class="button start">Contact Sales</a>
-                <div class="feature">5 TB pooled storage per user</div>
-                <div class="feature">Secure custom business email, eDiscovery, retention</div>
-                <div class="feature">500+ participant video meetings</div>
-                <div class="feature">Gemini AI assistant in Gmail, Docs, Meet, and more</div>
-                <div class="feature">Chat with AI in the Gemini app + create your team of AI experts</div>
-                <div class="feature">AI research assistant (NotebookLM Plus)</div>
-                <div class="feature">1000 participant video meetings + recording, attendance tracking, noise cancellation, in-domain live streaming</div>
-                <div class="feature">eSignature with Docs and PDFs</div>
-                <div class="feature">Email layouts and mail merge</div>
-                <div class="feature">Appointment booking pages</div>
-                <div class="feature">Collaborative video creator + editor</div>
-                <div class="feature">Advanced security, management, and compliance controls, including Vault, DLP, data regions, and enterprise endpoint management</div>
-                <div class="feature">Enhanced Support</div>
+            <div class="card-features">
+                <h3 class="features-title">Starter includes:</h3>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>30 GB</strong> pooled storage per user</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>Custom business email</strong>, you@your-company.com</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Gemini AI assistant in Gmail</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Chat with AI in the Gemini app</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Video meetings, 100 participants</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Security and management controls</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
-    </div>   
+        <div class="pricing-card" data-plan-name="Business Standard">
+            <div class="card-header">
+                <h2 class="plan-title">Business Standard</h2>
+                <div class="price-box">
+                    <span class="price-usd">$16.80</span>
+                    <span class="price-terms">USD / user / month,<br>1 year commitment</span>
+                </div>
+                <a href="#workspace_form" class="cta-button">Get started</a>
+            </div>
+            <div class="card-features">
+                <h3 class="features-title">All of Starter, and:</h3>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>2 TB</strong><br>65x more than Starter*</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>Custom business email</strong>,<br>you@your-company.com + custom layouts, and mail merge</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Gemini AI assistant in Gmail, Docs, Meet, and more</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">AI research assistant (NotebookLM)</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Chat with AI in the Gemini app + create your team of AI experts</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Video meetings with recording, noise cancellation, 150 participants</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Appointment booking pages</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">eSignature with Docs and PDFs</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Google Workspace Migrate tool for data migration</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pricing-card" data-plan-name="Business Plus">
+            <div class="card-header">
+                <h2 class="plan-title">Business Plus</h2>
+                <div class="price-box">
+                    <span class="price-usd">$26.40</span>
+                    <span class="price-terms">USD / user / month,<br>1 year commitment</span>
+                </div>
+                <a href="#workspace_form" class="cta-button">Get started</a>
+            </div>
+            <div class="card-features">
+                <h3 class="features-title">All of Standard, and:</h3>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>5 TB</strong><br>2.5x more than Standard*</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>Custom business email<br>+ eDiscovery</strong></span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Video meetings with attendance tracking, 500 participants</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Vault to retain, archive, and search data</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Secure LDAP</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Advanced endpoint management</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Enhanced security and management controls</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pricing-card" data-plan-name="Enterprise">
+            <div class="card-header">
+                <h2 class="plan-title">Enterprise</h2>
+                <div class="price-box">
+                    <span class="price-usd">Custom Pricing</span>
+                    <span class="price-terms"><br>per user / month, 1 year commitment</span>
+                </div>
+                <a href="#workspace_form" class="cta-button">Contact Sales</a>
+            </div>
+            <div class="card-features">
+                <h3 class="features-title">All features mentioned, and:</h3>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>5 TB</strong><br>or upgrade for more*</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text"><strong>Custom business email<br>+ S/MIME encryption</strong></span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Video meetings with in-domain live streaming, 1000 participants</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Data Loss Prevention (DLP)</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Context-Aware Access (CAA)</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Enterprise data regions</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Cloud Identity Premium</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Enterprise endpoint management</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">AI Classification for Google Drive</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Assured controls available as an add-on</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="icon-checkmark">✓</span>
+                        <span class="feature-text">Enhanced Support with faster response times for critical issues</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+ <!-- Expert Migration Services Section -->
+<section class="py-5 bg-light">
+    <div id="migration-section" class="pt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-6 fw-bold mb-4">Business migration to Google Workspace</h2>
+                <p class="lead text-muted mb-4">
+                    Our dedicated migration team ensures a seamless transfer of all your emails, contacts, and calendar events, preserving your complete communication history. Everything will be right where you need it, organized and ready to use in your new Google Workspace environment.
+                </p>
+                <div class="mb-4">
+                    <h5 class="fw-bold mb-3">Experience the Difference with Our Team</h5>
+                    <div class="mb-3">
+                        <h6 class="fw-bold mb-1">Certified Expertise</h6>
+                        <p class="text-muted small mb-0">Our Google-certified professionals bring extensive experience to every migration project.</p>
+                    </div>
+                    <div class="mb-3">
+                        <h6 class="fw-bold mb-1">Data Security First</h6>
+                        <p class="text-muted small mb-0">Your information remains protected throughout the entire migration process.</p>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold mb-1">Business as Usual</h6>
+                        <p class="text-muted small mb-0">Minimal disruption to your daily operations with our carefully planned migrations.</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#workspace_form" class="btn btn-primary btn-lg px-4">
+                        Start Your Migration Today
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="./Assets/img/migration.png" alt="Expert Migration Team" class="img-fluid rounded-3 shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
     
   
     
@@ -751,10 +1247,9 @@
                                 <label for="companySize" class="form-label lato">Company Size</label>
                                 <select class="form-select" id="companySize" name="company_size">
                                     <option selected disabled>Select company size</option>
-                                    <option value="10 - 50">10 - 50</option>
-                                    <option value="50 - 100">50 - 100</option>
-                                    <option value="100 - 500">100 - 500</option>
-                                    <option value="500+">500 and above</option>
+                                    <option value="Small Business (10-50)">Small Business (10-50)</option>
+                                    <option value="Enterprise (100-1000)">Enterprise (100-1000)</option>
+                                    <option value="Enterprise (1000+)">Enterprise (1000 and above)</option>
                                 </select>
                             </div>
                         </div>
@@ -771,11 +1266,15 @@
                                 <label for="howDidYouHear" class="form-label lato">How did you hear about us?</label>
                                 <select class="form-select" id="howDidYouHear" name="referral_source">
                                     <option selected disabled>Select option</option>
-                                    <option value="Online">Online</option>
-                                    <option value="SocialMedia">Social media</option>
-                                    <option value="Event">Event</option>
-                                    <option value="CoWorkingSpace">Co-working space</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Google Search">Google Search</option>
+                                    <option value="Social Media (Facebook, Instagram, Twitter, etc.)">Social Media</option>
+                                    <option value="Referral">Referral from a friend/colleague</option>
+                                    <option value="Email Marketing">Email Newsletter</option>
+                                    <option value="Webinar">Webinar or Online Event</option>
+                                    <option value="Trade Show">Trade Show or Conference</option>
+                                    <option value="Online Ad">Online Advertisement</option>
+                                    <option value="Existing Client">Existing Client</option>
+                                    <option value="Other">Other (please specify)</option>
                                 </select>
                             </div>
                         </div>
@@ -803,6 +1302,7 @@
             <h4 class="text-start fw-bold mb-4">Frequently Asked Questions</h4>
             <hr class="">
             <div class="accordion" id="workspaceFAQ">
+                <!-- FAQ 1: What is Google Workspace? -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
@@ -811,11 +1311,82 @@
                     </h2>
                     <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#workspaceFAQ">
                         <div class="accordion-body lato">
-                            Google Workspace is a collection of powerful and secure cloud-based productivity and collaboration applications. Google Workspace acts as a centralised location for business tooling to combine disparate business solutions such as Google Workspace email, office suite, file storage etc. As a full collaborative suite, there are customisable tools integrated into the platform to effectively run and collaborate on IT operations from any location, at any time and on any device.
+                            Google Workspace is an integrated suite of secure, cloud-native collaboration and productivity applications powered by Google. It provides businesses with professional email, document creation, video conferencing, and cloud storage, all seamlessly integrated. The platform enables real-time collaboration, allowing teams to work together from anywhere in the world, on any device, with enterprise-grade security and 99.9% uptime. Beyond just tools, it's a complete digital workspace that transforms how teams communicate, create, and collaborate.
                         </div>
                     </div>
                 </div>
-    
+
+                <!-- FAQ 10: How do I get started with Google Workspace? -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                            How do I get started with Google Workspace?
+                        </button>
+                    </h2>
+                    <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Getting started with Google Workspace is simple and straightforward. You can begin with a 14-day free trial that includes all the premium features. To get started, visit our website and click on the 'Get Started' button. Our dedicated onboarding team will guide you through the setup process, help you migrate your existing data, and provide training for your team. We offer different subscription plans to suit businesses of all sizes, and our support team is available 24/7 to assist with any questions during your transition.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7: Why choose Google Workspace over Microsoft 365? -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                            Why should I choose Google Workspace over Microsoft 365?
+                        </button>
+                    </h2>
+                    <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Google Workspace offers several advantages over Microsoft 365, including a more intuitive interface, superior real-time collaboration features, and seamless integration with other Google services. Unlike Microsoft 365, Google Workspace was built for the cloud from the ground up, offering better performance and fewer compatibility issues. The per-user pricing is often more cost-effective, and you'll benefit from Google's industry-leading security and 99.9% uptime guarantee. Our migration specialists can help you move from Microsoft 365 to Google Workspace with minimal downtime, and we provide comprehensive training to ensure your team can take full advantage of all the features available.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 11: Can I move my old emails, calendar events, and contacts? -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
+                            Can I move my old emails, calendar events, and contacts to Google Workspace?
+                        </button>
+                    </h2>
+                    <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Absolutely! Our team can help you migrate all your existing emails, calendar events, and contacts to Google Workspace with zero data loss. We use Google's enterprise-grade migration tools that support moving data from various platforms including Microsoft Exchange, Office 365, IMAP servers, and PST files. The migration process is carefully planned to ensure minimal disruption to your business operations. We'll handle the entire process, including pre-migration assessment, data transfer, and post-migration verification to ensure everything is working perfectly. Best of all, this service is included at no additional cost with your Google Workspace subscription.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3: How much does Google Workspace cost? -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            How much does Google Workspace cost?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Google Workspace offers flexible pricing plans designed to meet the needs of businesses of all sizes. Our Business Starter plan begins at just $6 per user/month, providing professional email, video meetings, and 30GB of cloud storage per user. For growing businesses, our Business Standard plan at $12 per user/month includes additional features like enhanced security controls and 2TB of storage. Larger organizations can benefit from our Business Plus plan at $18 per user/month, which includes advanced security and management controls. We also offer custom Enterprise solutions with additional features and support for organizations with more complex needs. All plans come with a 14-day free trial, and we offer special discounts for annual commitments and educational/non-profit organizations.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 13: Advantages of buying from a reseller -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13">
+                            What are the advantages of buying from a reseller?
+                        </button>
+                    </h2>
+                    <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Buying from a reseller offers benefits such as expert guidance, customized solutions tailored to your needs, local support, competitive pricing, and faster access to products.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Remaining FAQ items in their original order -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
@@ -828,20 +1399,7 @@
                         </div>
                     </div>
                 </div>
-    
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                            How much does Google Workspace cost?
-                        </button>
-                    </h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            There are price plans to suit every budget, and our starter plan is the cheapest option available.
-                        </div>
-                    </div>
-                </div>
-    
+
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
@@ -853,123 +1411,73 @@
                             The main differences between Google Workspace editions lie in features such as storage capacity, video conferencing capabilities, security options, and administrative controls. Each edition is designed to cater to varying business needs, from small teams to large enterprises.
                         </div>
                     </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            Is Google Workspace Secure?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Yes, Google Workspace is designed with security in mind. It includes robust security features such as two-factor authentication, advanced phishing protection, and data encryption to keep your information safe.
+                        </div>
                     </div>
+                </div>
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                                Is Google Workspace Secure?
-                            </button>
-                        </h2>
-                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                            <div class="accordion-body lato">
-                                Yes, Google Workspace is designed with security in mind. It includes robust security features such as two-factor authentication, advanced phishing protection, and data encryption to keep your information safe.
-                            </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            How much storage does Google Workspace offer?
+                        </button>
+                    </h2>
+                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            Basic plans start at 30GB storage per user, but each package offers more storage. Our enterprise plan provides 5TB of storage for all users.
                         </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                            What is the cost of setting up and migrating to Google Workspace?
+                        </button>
+                    </h2>
+                    <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            We offer migration to Google Workspace at no additional cost. This includes transferring your emails, calendar events, and contacts, ensuring a seamless transition without any hidden fees.
                         </div>
+                    </div>
+                </div>
 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                                    How much storage does Google Workspace offer?
-                                </button>
-                            </h2>
-                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                <div class="accordion-body lato">
-                                    Basic plans start at 30GB storage per user, but each package offers more storage. Our enterprise plan provides 5TB of storage for all users.
-                                </div>
-                            </div>
-                            </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                            Can I use Google Workspace on my phone?
+                        </button>
+                    </h2>
+                    <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">                               
+                            Yes, you can use Google Workspace on your phone by downloading the Google Workspace app from the Google Play Store or Apple App Store.  
+                        </div>              
+                    </div>
+                </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
-                                        Why should i choose Google Workspace over Microsoft 365?
-                                    </button>
-                                </h2>
-                                <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                    <div class="accordion-body lato">
-                                        Many people prefer using Workspace because it packs a host of features but has a simpler interface. If you’d like to migrate from Microsoft to Google, our team of specialists can create a seamless transition.
-                                    </div>
-                                </div>
-                                </div>
-
-                                <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
-                                    What is the cost of setting up and migrating to Google Workspace?
-                                </button>
-                            </h2>
-                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                <div class="accordion-body lato">
-                                    We offer migration to Google Workspace at no additional cost. This includes transferring your emails, calendar events, and contacts, ensuring a seamless transition without any hidden fees.
-                                </div>
-                            </div>
-                            </div>
-
-                            <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
-                                    Can I use Google Workspace on my phone?
-                                </button>
-                            </h2>
-                            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                <div class="accordion-body lato">                               
-                                    Yes, you can use Google Workspace on your phone by downloading the Google Workspace app from the Google Play Store or Apple App Store.  
-                                </div>              
-                            </div>
-                            </div>      
-                            
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
-                                        How do I get started with Google Workspace?
-                                    </button>
-                                </h2>
-                                <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                    <div class="accordion-body lato">
-                                        You can get started with Google Workspace by signing up for a free trial or by purchasing a subscription.
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
-                                            Can I move my old emails, calendar events, and contacts to Google Workspace?
-                                        </button>
-                                    </h2>
-                                    <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                        <div class="accordion-body lato">
-                                            Yes, you can migrate your old emails, calendar events, and contacts to Google Workspace at no extra cost. We provide assistance using migration tools to ensure a smooth transfer of your existing data.
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12">
-                                                Will this transition affect my current website? Can you host my website?
-                                            </button>
-                                        </h2>
-                                        <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                            <div class="accordion-body lato">
-                                                
-                                                The transition to Google Workspace will not affect your current website. Additionally, we can host websites for you at an additional cost. If you're interested, we can provide more details on our hosting services.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13">
-                                                What are the advantages of buying from a reseller?
-                                            </button>
-                                        </h2>
-                                        <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                                            <div class="accordion-body lato">
-                                                
-                                                Buying from a reseller offers benefits such as expert guidance, customized solutions tailored to your needs, local support, competitive pricing, and faster access to products.
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12">
+                            Will this transition affect my current website? Can you host my website?
+                        </button>
+                    </h2>
+                    <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
+                        <div class="accordion-body lato">
+                            The transition to Google Workspace will not affect your current website. Additionally, we can host websites for you at an additional cost. If you're interested, we can provide more details on our hosting services.
+                        </div>
+                    </div>
+                </div>
+                                           
 
 
                                         
@@ -1183,8 +1691,41 @@
         }
     </script>
     <!--======================== Back to top Button Functionality========================== -->
-    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./Assets/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        .price-converter {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .price-converter .price-naira {
+            display: none;
+            position: absolute;
+            background-color: #1a73e8;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .price-converter:hover .price-naira {
+            display: block;
+        }
+        .price-converter .price-usd {
+            border-bottom: 1px dashed #5f6368;
+            transition: all 0.2s ease;
+        }
+        .price-converter:hover .price-usd {
+            color: #1a73e8;
+        }
+    </style>
     <script src="./Assets/js/dropdown.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
@@ -1195,6 +1736,77 @@
     <!-- Custom Script -->
     <script src="Assets/js/forms.js"></script>
     
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to convert USD to NGN
+        async function convertUsdToNgn(usdAmount) {
+            try {
+                // First try to get the latest rate from an API (free tier)
+                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                if (!response.ok) throw new Error('Failed to fetch exchange rate');
+                
+                const data = await response.json();
+                const ngnRate = data.rates.NGN || 1500; // Fallback to 1500 if NGN not in response
+                return Math.round(usdAmount * ngnRate);
+            } catch (error) {
+                console.warn('Using fallback exchange rate (1 USD = 1500 NGN)');
+                // Fallback rate if API fails
+                return Math.round(usdAmount * 1500);
+            }
+        }
+
+        // Format number with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        // Process all price elements
+        async function initializePriceConverters() {
+            const priceElements = document.querySelectorAll('.price-usd');
+            
+            for (const priceElement of priceElements) {
+                // Skip if already processed or if it's not a price (like 'Custom Pricing')
+                if (priceElement.closest('.price-converter') || !priceElement.textContent.includes('$')) {
+                    continue;
+                }
+
+                // Get the USD amount
+                const usdMatch = priceElement.textContent.match(/\$([\d.]+)/);
+                if (!usdMatch) continue;
+                
+                const usdAmount = parseFloat(usdMatch[1]);
+                if (isNaN(usdAmount)) continue;
+
+                // Create container for price converter
+                const container = document.createElement('span');
+                container.className = 'price-converter';
+                
+                // Add the original price
+                container.innerHTML = `
+                    <span class="price-usd">${priceElement.innerHTML}</span>
+                    <span class="price-naira">Converting...</span>
+                `;
+                
+                // Replace the original element with our container
+                priceElement.replaceWith(container);
+                
+                // Convert and update the NGN price
+                try {
+                    const ngnAmount = await convertUsdToNgn(usdAmount);
+                    const nairaElement = container.querySelector('.price-naira');
+                    nairaElement.textContent = `₦${formatNumber(ngnAmount)} NGN`;
+                    nairaElement.title = `Approximate Naira equivalent (1 USD = ${Math.round(ngnAmount/usdAmount)} NGN)`;
+                } catch (error) {
+                    console.error('Error converting price:', error);
+                    container.querySelector('.price-naira').textContent = 'Price conversion unavailable';
+                }
+            }
+        }
+
+        // Initialize the price converters
+        initializePriceConverters();
+    });
+    </script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

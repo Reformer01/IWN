@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-function sendMail($to, $subject, $body, $attachments = array()){
+function sendMail($to, $cc, $subject, $body, $attachments = array()){
 
     $mail = new PHPMailer(true);
 
@@ -24,8 +24,20 @@ function sendMail($to, $subject, $body, $attachments = array()){
 
         //Recipients
         $mail->setFrom(MAIL_USERNAME, TITLE);
-        $mail->addAddress($to);                                 //Add a recipient
-        // $mail->addReplyTo($to);
+        $mail->addAddress($to);                                 // Add primary recipient
+
+        // Add CC recipients if provided
+        if (!empty($cc)) {
+            if (is_array($cc)) {
+                foreach ($cc as $ccEmail) {
+                    if (!empty($ccEmail)) {
+                        $mail->addCC($ccEmail);
+                    }
+                }
+            } elseif (is_string($cc)) {
+                $mail->addCC($cc);
+            }
+        }
 
         //Content
         $mail->isHTML(true);
