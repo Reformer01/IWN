@@ -36,6 +36,18 @@ logDebug('=== NEW FORM SUBMISSION ===', [
     'files' => !empty($_FILES) ? array_keys($_FILES) : []
 ]);
 
+// Simple duplicate submission prevention using session
+session_start();
+$submissionKey = md5(serialize($_POST) . serialize($_FILES));
+if (isset($_SESSION['last_submission']) && $_SESSION['last_submission'] === $submissionKey) {
+    logDebug('Duplicate submission detected and blocked', ['submission_key' => $submissionKey]);
+    $data['status'] = false;
+    $data['message'] = 'Duplicate submission detected. Your application was already received.';
+    echo json_encode($data);
+    exit;
+}
+$_SESSION['last_submission'] = $submissionKey;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fields = $_POST;
     $uploads = $_FILES;
@@ -91,6 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               ]
           ]
       ];
+
+      // TEST CONFIGURATION - Override for testing
+      $formConfigs['Career Application']['to'] = 'hr.iworldnetworks@gmail.com'; // Replace with your test email
 
       // Get and validate subject
       $subject = isset($_POST['subject']) ? trim(htmlspecialchars($_POST['subject'])) : '';
@@ -158,7 +173,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if ($response === 'success') {
             $data['status'] = true;
-            $data['message'] = 'Your request has been received. An agent will reach out to you.';
+            
+            // Custom success messages based on form type
+            if ($subject === 'Career Application') {
+                $data['message'] = 'Your job application has been received successfully! We will review your application and get back to you shortly.';
+            } else {
+                $data['message'] = 'Your request has been received. An agent will reach out to you.';
+            }
+            
             logDebug('Email sent successfully');
         } else {
             throw new Exception('Failed to send email. Server response: ' . $response);
