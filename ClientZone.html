@@ -1,213 +1,485 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I-World Networks || Loyalty & Discounts Program</title>
-    
+    <title>ClientZone - Next-Gen Client Management</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
     <!-- FAVICON -->
     <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-    
     <!-- STYLESHEETS -->
-    <!-- <link rel="stylesheet" href="./Assets/css/style.css"> -->
+    <link rel="stylesheet" href="./Assets/css/style.css">
     <link rel="stylesheet" href="./Assets/css/responsivecss.css">
     <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-    
-    <!--FONTS-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Toastr Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <script src="https://kit.fontawesome.com/3a247e6d5e.js" crossorigin="anonymous"></script>
+
+    
     <style>
-        .text-gradient {
-            background: linear-gradient(90deg, #ff6600, #ff9966);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        *{
-            font-family: "Titillium Web", sans-serif !important;
-        }
-
-        .loyalty-hero {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 80px 0;
-            margin-bottom: 50px;
+        :root {
+            --primary: #F58C29;
+            --primary-dark: #Ff6600;
+            --secondary:  #F58C29;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
         }
         
-        .custom-shape-divider-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            overflow-x: hidden;
+            color: var(--dark);
         }
         
-        .custom-shape-divider-bottom svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 80px;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
         
-        .custom-shape-divider-bottom .shape-fill {
-            fill: #ff6600;
-        }
-        
-        /* Discount Cards */
-        .discount-card {
+        .btn {
+            padding: 12px 28px;
+            font-weight: 500;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            height: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
         }
         
-        .discount-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
         }
         
-        .discount-bg {
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 20px -3px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 20px -3px rgba(249, 115, 22, 0.4);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+    
+        
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #59AF17, #5CC640);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+        
+        .hero-section::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            background: url('Assets/img/ClientZone.Png');
+            background-size: cover;
+            opacity: 0.1;
+            animation: rotate 60s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
             z-index: 1;
         }
         
-        .discount-overlay {
+
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(0, 0, 0, 0.9);
+            margin-bottom: 30px;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+
+
+
+        .feature-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-img {
+            transform: scale(1.1);
+        }
+
+        
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, rgba(245, 140, 41, 0.1), rgba(160, 201, 12, 0.1)
+        );
+            z-index: -1;
+            transition: height 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            z-index: 2;
         }
         
-        .discount-content {
-            position: relative;
-            z-index: 3;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .discount-badge {
-            display: inline-block;
-            background: #ff6600;
-            color: white;
-            text-align:center;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .discount-icon {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            padding: 10px;
-            width: 80px;
-            height: 80px;
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
         
-        /* Modern Price Update Section */
-        .price-card {
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(360deg);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+       /* Add this to your style section */
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin: 20px 10px;
+    position: relative;
+    border-left: 4px solid var(--primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 80px;
+    color: rgba(245, 140, 41, 0.1); /* Using your primary color */
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    padding-left: 10px;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 15px;
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.testimonial-rating {
+    margin: 0 0 15px 0;
+    color: #f59e0b;
+}
+
+        
+        
+        
+        .contact-form {
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #59AF17, #5CC640);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            color: white;
+        }
+        
+        .contact-info-item {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-item i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stats-text {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg,  #59AF17, #5CC640);
+            padding: 100px 0;
+            position: relative;
             overflow: hidden;
         }
         
-        .price-card-decoration {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,102,0,0.08) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 100%;
-        }
-        
-        .section-title .title-separator {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6600, #ff9966);
-            margin-top: 15px;
-        }
-        
-        .date-icon {
-            color: #ff6600;
-            background: rgba(255, 102, 0, 0.1);
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
-        .effective-date-card {
-            background-color: rgba(13, 110, 253, 0.05);
-        }
-        
-        .bandwidth-boost-announcement {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
-        }
-        
-        .announcement-icon {
-            background: rgba(255, 255, 255, 0.2);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto;
-        }
-        
-        .boost-percentage {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .boost-percentage:before,
-        .boost-percentage:after {
+        .cta-section::before {
             content: '';
             position: absolute;
-            height: 3px;
-            width: 30px;
-            background: rgba(255, 255, 255, 0.7);
-            top: 50%;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('Assets/img/ClientZoneHero.jpg');
+            background-size: cover;
+            opacity: 0.1;
         }
         
-        .boost-percentage:before {
-            left: -40px;
+        
+        
+        .copyright {
+
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            color: #94a3b8;
         }
         
-        .boost-percentage:after {
-            right: -40px;
-        }
-        .cta-contact:hover{
-            color:white !important;
-            background-color:#59af17 !important;
+        /* Animations */
+        .animated-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            animation: blob-animation 15s infinite alternate;
+            opacity: 0.5;
         }
         
-         .client-zone-btn {
+        @keyframes blob-animation {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.2); }
+            66% { transform: translate(-20px, 20px) scale(0.8); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        
+        .cursor-glow {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(92, 198, 64, 0.3) 0%, rgba(160, 201, 12, 0) 70%);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Make carousel navigation buttons larger */
+.owl-nav button {
+    font-size: 24px !important; /* Larger font size */
+    width: 40px !important;     /* Wider buttons */
+    height: 40px !important;    /* Taller buttons */
+    background: rgba(245, 140, 41, 0.8) !important; /* Using your primary color with transparency */
+    color: white !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.owl-nav button.owl-prev {
+    left: -20px;
+}
+
+.owl-nav button.owl-next {
+    right: -20px;
+}
+
+.owl-nav button:hover {
+    background: var(--primary) !important; /* Solid color on hover */
+}
+
+/* Make sure the buttons are visible */
+.owl-nav {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.client-zone-btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -244,392 +516,717 @@
         padding: 10px 16px;
       }
     }
-    </style>
-    
-    
-    
-  
- 
 
+
+
+      /* FAQ Styling */
+      .faq-tabs {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .faq-tabs .nav-link {
+        background-color: #f8f9fa;
+        color: var(--dark);
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-bottom: 10px;
+        border: none;
+    }
+    
+    .faq-tabs .nav-link:hover {
+        background-color: rgba(245, 140, 41, 0.1);
+        color: var(--primary);
+    }
+    
+    .faq-tabs .nav-link.active {
+        background-color: var(--primary);
+        color: white;
+    }
+    
+    .faq-tab-content {
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .faq-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+        height: 100%;
+        transition: all 0.3s ease;
+        border-left: 3px solid #5CC640;
+    }
+    
+    .faq-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    .faq-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+        font-weight: 600;
+    }
+    
+    .faq-card p, .faq-card ul, .faq-card ol {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+    
+    .need-more-help {
+        background: linear-gradient(135deg, rgba(245, 140, 41, 0.1), rgba(160, 201, 12, 0.1));
+        border-radius: 15px;
+    }
+    
+    .contact-method {
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: 10px;
+        height: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-method:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-method i {
+        color: var(--primary);
+    }
+    
+    /* Make tabs more mobile-friendly */
+    @media (max-width: 768px) {
+        .faq-tabs .nav-link {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .faq-tab-content {
+            padding: 20px 15px;
+        }
+        
+        .faq-card {
+            padding: 15px;
+        }
+        
+        .faq-card h4 {
+            font-size: 1rem;
+        }
+    }
+
+    </style>
 </head>
-<body class="overflow-x-hidden bg-white">
-    <!-- Header Beginning -->
-    <div class="loyalty-header">
+<body>
+    <div class="cursor-glow"></div>
+    
+    <!-- Animated background blobs
+    <div class="animated-blob" style="width: 500px; height: 500px; background: rgba(99, 102, 241, 0.3); top: 20%; left: 10%;"></div>
+    <div class="animated-blob" style="width: 400px; height: 400px; background: rgba(249, 115, 22, 0.3); bottom: 10%; right: 5%;"></div> -->
+    
+        <!-- Navbar beginning -->
         <nav class="navbar navbar-expand-lg navbar-light fw-bold">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./index.html">
                     <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
                 </a>
-                <!-- Existing Navbar from other pages -->
-                
-                
-                
-                
-                
-                
-                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Internet Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Google Cloud Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                            </div>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.html">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a>   
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./Loyalty_&_Discounts.html"> Loyalty & Discounts</a>   
+                        </li>
+                    </ul>
+                    <!-- <div class="subscribe-btn ms-auto">
+                        <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
+                        <a class="nav-link lato" href="#">
+                            <img src="./Assets/icons/phone.svg" width="20" height="20" alt="">
+                            +234 807 767 5560</a>
+                    </div> -->
+                </div>
             </div>
         </nav>
 
-        <div class="loyalty-hero position-relative overflow-hidden">
-            <div class="container">
-                <div class="row align-items-center min-vh-75">
-                    <div class="col-lg-6" data-aos="fade-right">
-                        <h1 class="display-4 fw-bold text-gradient">Unlock Exclusive Discounts</h1>
-                        <p class="lead">Valued customers get rewarded with I-World Networks' premium discount programs. Find out how to save today.</p>
-                        <a href="#discounts" class="btn btn-warn btn-lg mt-3">Explore Benefits <i class="bi bi-arrow-down-circle ms-2"></i></a>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                        <img src="./Assets/img/Loyalty_banner@.jpg" alt="Loyalty Program" class="img-fluid rounded-3 shadow-lg">
-                    </div>
-                </div>
-            </div>
-            <div class="custom-shape-divider-bottom">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-                    <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-                    <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-                </svg>
-            </div>
-        </div>
-        
-    </div>
 
 
 
-
-    <!-- Main Content -->
-    <div class="container py-5">
-        <section class="price-update-section" data-aos="fade-up">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="price-card position-relative mb-5">
-                        <div class="price-card-decoration"></div>
-                        <div class="price-card-content p-4 p-md-5">
-                            <div class="section-title text-center mb-5">
-                                <!-- <h6 class="text-uppercase text-primary fw-semibold mb-2">Customer Appreciation</h6> -->
-                                <h2 class="fw-bold display-6">Loyalty & Discount Program</h2>
-                                <div class="title-separator mx-auto"></div>
-                            </div>
-                            
-                            <div class="row align-items-center">
-                                <div class="col-lg-7 mb-4 mb-lg-0">
-                                    <h4 class="fw-bold mb-3">Customer Value Enhancement</h4>
-                                    <p class="mb-4">At I-World Networks, we appreciate our loyal customers and strive to provide the best value. As we adjust our prices to enhance service quality, we are also offering exclusive discounts and loyalty rewards to show our gratitude.</p>
-                                    
-                                    <div class="effective-date-card p-3 mb-4 rounded-3 border-start border-4 border-primary">
-                                        <div class="d-flex align-items-center">
-                                            <div class="date-icon me-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
-                                                    <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h5 class="fw-bold mb-1">Effective Date</h5>
-                                                <p class="mb-0">New pricing and discounts take effect on <strong>June 1, 2025</strong>.</p>
-                                                <p class="mb-0 small">New customers will transition to updated pricing from <strong>April 1, 2025</strong>.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-5">
-                                    <div class="bandwidth-boost-announcement p-4 rounded-4 text-center">
-                                        <div class="announcement-icon mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
-                                                <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
-                                                <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.99 7.99 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"/>
-                                            </svg>
-                                        </div>
-                                        <div class="announcement-content">
-                                            <h3 class="fw-bold mb-2">GOOD NEWS!</h3>
-                                            <p class="mb-3">Along with the price adjustment, all plans will receive a</p>
-                                            <div class="boost-percentage mb-3">
-                                                <span class="display-4 fw-bold">100%</span>
-                                            </div>
-                                            <p class="mb-3">internet speed upgrade at no extra cost!</p>
-                                            
-                                            <div class="boost-meter mt-4">
-                                                <div class="progress rounded-pill" style="height: 10px;">
-                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="d-flex justify-content-between mt-2">
-                                                    <small>Current</small>
-                                                    <small>New Speed</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-
-<section id="discounts" class="loyalty-benefits py-5 bg-light" data-aos="fade-up">
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+<section id="home" class="hero-section">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="section-title text-center mb-5">
-                    <h2 class="fw-bold display-6">Exclusive Discounts & Rewards</h2>
-                    <div class="title-separator mx-auto"></div>
-                </div>
-            </div>   
-
-        <div class="container">
-            <!-- Age Well Discount -->
-            <div class="container mb-4" style="max-width: 600px;">
-                <div class="card shadow-lg rounded">
-                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                        <div class="col-12 col-md-6">
-                            <div class="card-body text-center text-md-start">
-                                <div class="discount-content p-4 rounded-4">
-                                    <h3 class="fw-bold mb-3 text-center text-md-start">Age Well Discount</h3>
-                                    <div class="discount-badge mb-3 text-center">15% OFF</div>
-                                    <p class='fs-6 mb-3 text-center text-md-start'>For Our Senior Citizen Subscribers (new or current) 60 years old and above will enjoy up to 15% Discount on their monthly subscription plan <strong>Effective June 1st</strong></p>
-                                    <h4 class="mb-2 text-center text-md-start">Requirements</h4>
-                                    <ul class="small list-unstyled text-center text-md-start">
-                                        <li>Valid government-issued ID required</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="./Assets/img/medium-shot-man-having-lunch-restaurant.jpg" 
-                                 class="img-fluid w-100" 
-                                 style="height: 400px; object-fit: cover;" 
-                                 alt="Senior Discount">
-                        </div>
-                    </div>
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <h1 class="hero-title text-white">Instant Service Reconnection. Automated Payment Processing. Invoice Management. Enhanced Customer Experience. 
+                </h1>
+                <div class="d-flex flex-wrap gap-3">
+                    <a target="_blank" href="https://app.iwn.ng/login" class="btn btn-secondary">Get Started</a>
+                    <a target="_blank" href="https://youtube.com/playlist?list=PLGtZgU0A40UZoWdkLoPT9eCBcO6nO_wzq&si=B8LsF5Qr1cvNyPWs" class="btn btn-outline-light">Watch Demo <i class="fas fa-play-circle ms-2"></i></a>
+                    <a href="./contact.html" class="btn btn-outline-light">Contact Support <i class="fas fa-headset ms-2"></i></a>
+                    <a href="Assets/documents/Client Zone.pdf" class="btn btn-outline-light">Download User Guide <i class="fas fa-file-download ms-2"></i></a>
                 </div>
             </div>
-        
-            <!-- Relationship Reward -->
-            <div class="container mb-4" style="max-width: 600px;">
-                <div class="card shadow-lg rounded">
-                    <div class="row g-0 align-items-center flex-column flex-md-row">
-                        <div class="col-12 col-md-6">
-                            <img src="./Assets/img/business-executives-shaking-hands-with-each-other.jpg" 
-                                 class="img-fluid w-100" 
-                                 style="height: 400px; object-fit: cover;" 
-                                 alt="Loyalty Discount">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="card-body text-center text-md-start">
-                                <div class="discount-content p-4 rounded-4">
-                                    <h3 class="fw-bold mb-3 text-center text-md-start">Relationship Reward</h3>
-                                    <div class="discount-badge mb-3 text-center">Up to 15% OFF</div>
-                                    <p class="mb-3 text-center text-md-start">Loyal customers will enjoy up to 15% discount on their monthly subscription <strong>Effective June 1st</strong>.</p>
-                                    <ul class="small list-unstyled text-center text-md-start">
-                                        <li>4+ years enjoys up to 15% on their monthly subscription</li>
-                                        <li>3+ years will enjoy up to 10% discount on the monthly subscription</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <img src="Assets/img/ClientZone.png" alt="ClientZone Dashboard" class="img-fluid hero-image">
             </div>
-        
-            <!-- Bundle and Save -->
-            <div class="container mb-4" style="max-width: 600px;">
-                <div class="card shadow-lg rounded">
-                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                        <div class="col-12 col-md-6">
-                            <div class="card-body text-center text-md-start">
-                                <div class="discount-content p-4 rounded-4">
-                                    <h3 class="fw-bold mb-3 text-center text-md-start">Bundle and Save</h3>
-                                    <div class="discount-badge mb-3 text-center">10% OFF</div>
-                                    <p class="mb-3 text-center text-md-start">Multiple Account Savings- Connect your Home and Office and enjoy up to 10% on your monthly subscription <strong>Effective June 1st</strong></p>
-                                    <ul class="small list-unstyled text-center text-md-start">
-                                        <li>This discount is also applied for Group, Family or Estate Account under the same name.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="./Assets/img/full-shot-woman-working-as-economist.jpg" 
-                                 class="img-fluid w-100" 
-                                 style="height: 400px; object-fit: cover;" 
-                                 alt="Bundle Discount">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Old Rate Lock-down -->
-            <div class="container mb-4" style="max-width: 600px;">
-                <div class="card shadow-lg rounded">
-                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                        <div class="col-12 col-md-6">
-                            <div class="card-body text-center text-md-start">
-                                <div class="discount-content p-4 rounded-4">
-                                    <h3 class="fw-bold mb-3 text-center text-md-start">Rate Lock-down</h3>
-                                    <div class="discount-badge mb-3 text-center">LOCKED RATES</div>
-                                    <p class="text-center text-md-start">Renew between 6 to 12 months before June 1, 2025, to lock in your current pricing <strong>Effective June 1st</strong>.</p>
-                                    <ul class="small mt-3 text-center text-md-start">
-                                        <li>Limited time offer</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="https://img.freepik.com/premium-photo/padlock-credit-card-internet-data-privacy-information-security-concept_260672-7005.jpg?uid=R139058082&ga=GA1.1.1391337201.1740989443&semt=ais_hybrid" 
-                                 class="img-fluid rounded-start" 
-                                 style="height: 400px; width: 100%; object-fit: cover;"
-                                 alt="Rate Lock">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Referral Bonus -->
-            <div class="container mb-4" style="max-width: 600px;">
-                <div class="card shadow-lg rounded">
-                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                        <div class="col-12 col-md-6">
-                            <div class="card-body text-center text-md-start">
-                                <div class="discount-content p-4 rounded-4">
-                                    <h3 class="fw-bold mb-3 text-center text-md-start">Referral Bonus</h3>
-                                    <div class="discount-badge mb-3 text-center">Refer Friends, Get Rewarded!</div>
-                                    <p class="text-center text-md-start">Everytime you refer a new customer to us, you earn one month of FREE internet service for a successful referral <strong>Effective June 1st</strong>!</p>
-                                    <ul class="small mt-3 text-center text-md-start">
-                                        <li>Refer friends and family to I-World Networks Limited</li>
-                                        <li>Referrals must subscribe to a paid internet plan</li>
-                                        <li>No limit to the number of referrals</li>
-                                        <li>Get one month of free service for each successful referral</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="https://img.freepik.com/premium-photo/golden-coins-interconnected-with-figures-people-conection-concept-3d-illustration_339569-2517.jpg?ga=GA1.1.833302235.1720806065&semt=ais_hybrid" 
-                                 class="img-fluid rounded-start" 
-                                 style="height: 400px; width: 100%; object-fit: cover;" 
-                                 alt="Bundle Discount">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Prepaid Savings Discount -->
-            <div class="container mb-4" style="max-width: 600px;">
-                <div class="card shadow-lg rounded">
-                    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                        <div class="col-12 col-md-6">
-                            <div class="card-body text-center text-md-start">
-                                <div class="discount-content p-4 rounded-4">
-                                    <h3 class="fw-bold mb-3 text-center text-md-start">Prepaid Savings Discount</h3>
-                                    <div class="discount-badge mb-3 text-center">LOCKED RATES</div>
-                                    <p class="text-center text-md-start">Take advantage of our prepaid savings discount and enjoy significant savings on your internet subscription. Choose from our range of plans and pay upfront to lock in your rate <strong>Effective June 1st</strong>.</p>
-                                    <h4 class="fs-5 text-center text-md-start">Discount Tiers:</h4>
-                                    <ul class="small text-center text-md-start">
-                                        <li>Get 5% off for 3 months on any plan</li>
-                                        <li>Get 10% off for 6 months on any plan</li>
-                                        <li>Get 15% off for 12 months on any plan</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="https://img.freepik.com/free-photo/black-man-with-piggy-bank_93675-128524.jpg?t=st=1742478272~exp=1742481872~hmac=518394a8242b7aaf5431c30e2a011432f6eb2718f84ddef52666a9e4cad9bee4&w=740" 
-                                 class="img-fluid rounded-start" 
-                                 style="height: 400px; width: 100%; object-fit: cover;" 
-                                 alt="Rate Lock">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p class="hero-subtitle">No matter where you are, you can now seamlessly control your I-World Networks’ broadband!</p>
         </div>
-
-        
     </div>
 </section>
 
 
-        
-                <!-- <section class="service-enhancements mt-5" data-aos="fade-up">
-                    <div class="container">
-                        <div class="card bg-gradient-primary text-center shadow-lg border-0">
-                            <div class="card-body p-5 bg-dark text-white rounded">
-                                <h3 class="card-title fw-bold text-center mb-4 display-6 text-warning">Service Enhancements & Exclusive Benefits</h3>
-                                <p class="card-text text-center mb-5 lead text-light">
-                                    Elevating your connectivity with a <strong class="text-danger">85% bandwidth boost</strong> to revolutionize your digital experience.
-                                </p>
 
-                                <div class="row g-4 justify-content-center">
-                                    <div class="col-md-4 text-center bg-light p-4 rounded">
-                                        <h5 class="fw-bold text-success mb-3">ðŸ“¢ Key Performance Upgrades:</h5>
-                                        <ul class="list-unstyled text-dark">
-                                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Turbocharged Network Speeds</li>
-                                            <li class="mb-2"><i class="bi bi-shield-check text-primary me-2"></i>Advanced Infrastructure Investments</li>
-                                            <li><i class="bi bi-star-fill text-warning me-2"></i>Premium Support for Loyal Customers</li>
-                                        </ul>
-                                    </div>
 
-                                    <div class="col-md-8 text-center">
-                                        <h5 class="fw-bold text-danger mb-3">Unlock Your Discount Journey</h5>
-                                        <p class="text-light">
-                                            Discover exclusive savings through our tailored discount programs. Connect with our dedicated support team to maximize your benefits.
-                                        </p>
-                                        <div class="contact-info bg-secondary rounded p-4">
-                                            <div class="row">
-                                                <div class="col-md-6 text-start">
-                                                    <p class="mb-2">
-                                                        <i class="bi bi-envelope-fill text-warning me-2"></i><a href="mailto:support@iwn.ng" class="text-white">support@iworldnetworks.net</a>
-                                                    </p>
-                                                    <p class="mb-2">
-                                                        <i class="bi bi-telephone-fill text-success me-2"></i>+234 708 021 7885
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <p>
-                                                        <i class="bi bi-chat-dots-fill text-info me-2"></i>Instant Live Support Available
-                                                    </p>
-                                                    <p class="text-warning small">
-                                                        <i class="bi bi-info-circle me-2"></i>Loyalty rewards applied automatically
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+    <!-- Stats Section -->
+    <!-- <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-counter" data-count="2000">0</div>
+                    <div class="stats-text">Active Users</div>
+                </div>
+
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-counter" data-count="100">0</div>
+                    <div class="stats-text">% Secure Transactions</div>
+                </div>
+                
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-counter" data-count="99.9">0</div>
+                    <div class="stats-text">Uptime Percentage</div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="stats-counter" data-count="24">0</div>
+                <div class="stats-text">24/7 Instant Support</div>
+            </div>
+            </div>
+        </div>
+    </section> -->
+
+  <!-- Features Section -->
+<!-- <section id="features" class="py-5">
+    <div class="container py-5">
+        <h2 class="section-title text-center" data-aos="fade-up">Powerful Features</h2>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/analytics.png" alt="Analytics" class="feature-img">
+                    </div>
+                    <h4>Smart Analytics</h4>
+                    <p>Track payments, monitor account activity, and gain real-time insights into your services.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/help-desk.png" alt="Support" class="feature-img">
+                    </div>
+                    <h4>Instant Support & Live Chat</h4>
+                    <p>Get real-time assistance from our support team and view all your support tickets in one place.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/cashless-payment.png" alt="Payments" class="feature-img">
+                    </div>
+                    <h4>Effortless Payments & Invoicing</h4>
+                    <p>View, download, and pay invoices securely using multiple payment options.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/notification.png" alt="Notifications" class="feature-img">
+                    </div>
+                    <h4>Smart Notifications & Reminders</h4>
+                    <p>Create professional invoices and accept payments directly through our secure platform.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/wifi.png" alt="Mobile Access" class="feature-img">
+                    </div>
+                    <h4>Instant Reconnection</h4>
+                    <p>Get back online immediately after a successful payment—no delays, no manual processing.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./Assets/icons/Client Zone/clean-computer-virus.png" class="feature-img">
+                    </div>
+                    <h4>Top-Notch Security</h4>
+                    <p>Rest assured with encrypted transactions and secure login authentication.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+        <!-- Testimonials Section
+    <section id="testimonials" class="py-5 bg-white">
+        <div class="container py-5">
+            <h2 class="section-title text-center" data-aos="fade-up">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="owl-carousel testimonial-carousel" data-aos="fade-up" data-aos-delay="200">
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"Client Zone makes it incredibly easy to manage our store’s account. Payments are processed instantly, and I get notified right away. No delays, no stress—just efficiency and convenience."</p>
+    <div class="testimonial-author">
+        <span class="author-name">Dorcas Olayoole</span>
+        <span class="author-title">Store Manager</span>
+    </div>
+</div>
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"This app is a game-changer! I can easily access invoices, process payments securely, and track transactions without needing to call support. Everything is at my fingertips!"</p>
+    <div class="testimonial-author">
+        <span class="author-name">Reformer Ejembi</span>
+        <span class="author-title">Accountant</span>
+    </div>
+</div>
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"Client Zone makes managing my account effortless! I can view invoices, track my payment history, and get real-time notifications. The instant reconnection feature ensures my services are restored immediately after payment. No more delays!"</p>
+    <div class="testimonial-author">
+        <span class="author-name">Leticia Unwana</span>
+        <span class="author-title">Business Owner</span>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <p class="testimonial-text">"Client Zone is a must-have for anyone managing payments. The real-time payment updates and automatic service reconnection ensure that I never experience unnecessary downtime. Everything I need is just a tap away!"</p>
+    <div class="testimonial-author">
+        <span class="author-name">Samuel Adeosun</span>
+        <span class="author-title">Operations Manager</span>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- CTA Section -->
+    <!-- <section class="cta-section">
+        <div class="container text-center text-black">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <h2 class="mb-4 hero-title text-white">Take Control of Your Account with Client Zone!</h2>
+                    <p class="mb-5 hero-subtitle">Join thousands of satisfied users who rely on Client Zone for seamless service management, instant payments, and real-time support.</p>
+                    <a target="_blank" href="https://app.iwn.ng/login" class="btn btn-secondary">Sign Up Now</a>
+                    <a target="_blank" href="https://youtube.com/playlist?list=PLGtZgU0A40UZoWdkLoPT9eCBcO6nO_wzq&si=B8LsF5Qr1cvNyPWs" class="btn btn-outline-light">Watch a Demo</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+     <!-- Contact Section 
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title text-center" data-aos="fade-up">Get in Touch</h2>
+             <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">Have questions? We're here to help!</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
                                 </div>
                             </div>
+                            <input type="text" class="form-control" placeholder="Subject">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info h-100">
+                        <h3 class="mb-4">Contact Support</h3>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>97, 3rd floor Omida Mall, Ibara, Abeokuta, 110252</span>
+                        </div>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 807 767 5597</span>
+                        </div>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@iworldnetworks.net</span>
+                        </div>
+                        <div class="contact-info-item d-flex align-items-center">
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday:  Open 24 hours</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  -->
+
+
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5 bg-white">
+    <div class="container py-5">
+        <h2 class="section-title text-center" data-aos="fade-up">Client Zone  – Frequently Asked Questions</h2>
+        <!-- <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">
+            Welcome to the Client Zone App! Below are answers to common questions about managing your account, making payments, and accessing support.
+        </p>
+         -->
+        <!-- FAQ Tabs Navigation -->
+        <ul class="nav nav-pills mb-4 justify-content-center faq-tabs" id="faqTabs" role="tablist" data-aos="fade-up" data-aos-delay="150">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="getting-started-tab" data-bs-toggle="pill" data-bs-target="#getting-started" type="button" role="tab" aria-controls="getting-started" aria-selected="true">
+                    <i class="fas fa-rocket me-2"></i>Getting Started
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="payments-tab" data-bs-toggle="pill" data-bs-target="#payments" type="button" role="tab" aria-controls="payments" aria-selected="false">
+                    <i class="fas fa-credit-card me-2"></i>Payments
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="account-tab" data-bs-toggle="pill" data-bs-target="#account" type="button" role="tab" aria-controls="account" aria-selected="false">
+                    <i class="fas fa-user-cog me-2"></i>Account
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="support-tab" data-bs-toggle="pill" data-bs-target="#support" type="button" role="tab" aria-controls="support" aria-selected="false">
+                    <i class="fas fa-headset me-2"></i>Support
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="security-tab" data-bs-toggle="pill" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">
+                    <i class="fas fa-shield-alt me-2"></i>Security
+                </button>
+            </li>
+        </ul>
+        
+        <!-- FAQ Tab Content -->
+        <div class="tab-content faq-tab-content" id="faqTabContent" data-aos="fade-up" data-aos-delay="200">
+            <!-- Getting Started Tab -->
+            <div class="tab-pane fade show active" id="getting-started" role="tabpanel" aria-labelledby="getting-started-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>What is the Client Zone App?</h4>
+                            <p>The Client Zone App is a self-service platform that allows you to manage your account, view invoices, make payments, and track support requests—all in one place.</p>
                         </div>
                     </div>
-                </section> -->
-
-
-        <section class="cta-section mt-5" data-aos="fade-up">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I access the Client Zone App?</h4>
+                            <p>You can access Client Zone via:</p>
+                            <ul>
+                                <li><strong>Web Browser:</strong> Visit www.app.iwn.ng and log in.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I register or activate my profile?</h4>
+                            <p>If you're a new user:</p>
+                            <ol>
+                                <li>Visit Client Zone and click "Activate Profile."</li>
+                                <li>Enter your registered email.</li>
+                                <li>Check your email for an OTP (One-Time Password) and enter it.</li>
+                                <li>Create a strong password and log in.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>I forgot my password. How do I reset it?</h4>
+                            <p>Click "Forgot Password" on the login page, enter your registered email, and follow the reset instructions sent to your inbox.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Is the Client Zone App free to use?</h4>
+                            <p>Yes! Client Zone is completely free to access for all registered users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <!--<div class="row">-->
-            <!--    <div class="col-md-6">-->
-            <!--        <h3 class="fw-bold mb-3">Ready to Apply?</h3>-->
-            <!--        <a href="#" class="btn btn-warn btn-lg me-3 rounded">Apply for Discount</a>-->
-            <!--        <a href="./contact.html" class="btn btn-outline-primary btn-lg cta-contact" style="border-color: #59AF17; color: #59AF17;">Contact Sales</a>-->
-            <!--    </div>-->
-            <!--    <div class="col-md-6">-->
-            <!--        <h4 class="fw-bold ">Contact Us</h4>-->
-            <!--        <p>-->
-            <!--            <strong>Phone:</strong> +234 708 021 7885<br>-->
-            <!--            <strong>Email:</strong> <a href="mailto:support@iworldnetworks.net">support@iworldnetworks.net</a>-->
-            <!--        </p>-->
-            <!--    </div>-->
-            <!--</div>-->
-        </section>
+            <!-- Payments Tab -->
+            <div class="tab-pane fade" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>What payment methods are supported?</h4>
+                            <p>We accept:</p>
+                            <ul>
+                                <li>Credit/Debit Cards (Visa, Mastercard)</li>
+                                <li>Mobile Money (e.g., M-Pesa)</li>
+                                <li>Bank Transfers (via Virtual Accounts)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I pay my invoice?</h4>
+                            <ol>
+                                <li>Log in to Client Zone.</li>
+                                <li>Go to Invoices and select the one you want to pay.</li>
+                                <li>Click "Pay Now" and choose your preferred payment method.</li>
+                                <li>Complete the transaction and receive an instant confirmation.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Will my service be reconnected immediately after payment?</h4>
+                            <p>Yes! Successful payments trigger automatic reconnection of services.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Can I download my invoices and receipts?</h4>
+                            <p>Yes! You can download invoices and payment receipts anytime from the Invoices & Payments section.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>My payment isn't reflecting. What should I do?</h4>
+                            <p>If your payment doesn't appear within 5–10 minutes:</p>
+                            <ul>
+                                <li>Refresh the page and check your Payment History.</li>
+                                <li>Verify your email for a payment confirmation.</li>
+                                <li>If the issue persists, contact support with your transaction details.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Account Tab -->
+            <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I update my profile information?</h4>
+                            <p>Log in to Client Zone, go to Profile, and update your details.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Can I upgrade or change my service plan?</h4>
+                            <p>Yes! Visit Services, select your current plan, and follow the prompts to request an upgrade.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How can I track my service usage?</h4>
+                            <p>The Dashboard provides a real-time overview of your account balance, service status, and recent transactions.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Can I manage multiple accounts from one login?</h4>
+                            <p>No, each account requires a separate login for security purposes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Tab -->
+            <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I get customer support?</h4>
+                            <p>You can:</p>
+                            <ul>
+                                <li>Use Live Chat for instant help.</li>
+                                <li>View Support Tickets to track ongoing issues.</li>
+                                <li>Contact customer support via email or call: +234 807 767 5597.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I check the status of my support request?</h4>
+                            <p>Go to Support > My Tickets to track ticket progress and responses from our team.</p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>The app is crashing. What should I do?</h4>
+                            <p>Try these steps:</p>
+                            <ul>
+                                <li>Ensure you're connected to the internet.</li>
+                                <li>Refresh your browser tab and try again.</li>
+                                <li>If the issue persists, clear your broswer cache or contact support.</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>I'm not receiving notifications. How can I fix this?</h4>
+                            <ul>
+                                <li>Check your device's notification settings and ensure they are enabled for Client Zone.</li>
+                                <li>Make sure your internet connection is stable.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security Tab -->
+            <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>Is my payment information secure?</h4>
+                            <p>Yes! Client Zone uses industry-standard encryption and is PCI DSS compliant to ensure secure transactions.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I change my password?</h4>
+                            <p>Go to Profile > Change Password, enter your current password, set a new one, and confirm the changes.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I log out of my account?</h4>
+                            <p>Click Logout in the menu to securely exit your account.</p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-6">
+                        <div class="faq-card">
+                            <h4><i class="fas fa-question-circle text-primary me-2"></i>How do I report a bug or app issue?</h4>
+                            <p>If you encounter a bug, report it via Live Chat or by submitting a ticket through the support page.</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Need More Help Section -->
+        <!-- <div class="need-more-help mt-5 p-4 text-center" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="mb-4">Need More Help?</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="contact-method">
+                        <i class="fas fa-phone-alt fs-2 mb-3 text-primary"></i>
+                        <h5>Phone Support</h5>
+                        <p>+234 807 767 5597</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope fs-2 mb-3 text-primary"></i>
+                        <h5>Email Support</h5>
+                        <p>support@iworldnetworks.net</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="contact-method">
+                        <i class="fas fa-comments fs-2 mb-3 text-primary"></i>
+                        <h5>Live Chat</h5>
+                        <p>Available in the app & website</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
-
-<p class="text-center mt-2 fs-3" style="color: #ff6600;">
-<strong>Terms and Conditions Apply</strong>
-</p>
+</section>
 
 
 
-   <!-- Footer section Beginning -->
-   <section>
+
+
+ <!-- Footer section Beginning -->
+ <section>
     <footer class=" text-start border pt-5 text-white bg-black">
         <!-- Grid container -->
         <div class="container">
@@ -638,7 +1235,7 @@
                 <!--Grid row-->
                 <div class="row py-5">
                     <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                   <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                         <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
             
                         <ul class="list-unstyled mb-0">
@@ -714,8 +1311,7 @@
                             </li>
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 814 994 5984
-                                </a>
+                                <a class="text-white" href="#">+234 803 626 5524</a>
                             </li>
                         </ul>
                     </div>
@@ -757,7 +1353,7 @@
         </div>
         <!-- Copyright -->
         <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        Â© 2025 Copyright:
+        © 2025 Copyright:
         <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
         </div>
         <!-- Copyright -->
@@ -766,17 +1362,134 @@
 
     <!-- Ending of footer -->
 
-    <!-- Scripts -->
-    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <!--======================== Back to top Button Functionality========================== -->
     <script>
+        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            BacktoTopBtn.style.display = "block";
+        } else {
+            BacktoTopBtn.style.display = "none";
+        }
+        }
+        function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <!--======================== Back to top Button Functionality========================== -->
+    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./Assets/js/app.js"></script>
+    <script src="./Assets/js/dropdown.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Toastr Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom Script -->
+    <script src="Assets/js/forms.js"></script>
+    
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/3a247e6d5e.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script>
+        // Initialize AOS animations
         AOS.init({
-            duration: 1000,
+            duration: 800,
+            easing: 'ease-in-out',
             once: true
         });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Initialize testimonial carousel
+        $(document).ready(function(){
+            $(".testimonial-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 20,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: true,
+                dots: true,
+                responsive: {
+                    768: {
+                        items: 2
+                    }
+                }
+            });
+        });
+        
+        // Stats counter animation
+        const counters = document.querySelectorAll('.stats-counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const animate = () => {
+                const value = +counter.getAttribute('data-count');
+                const data = +counter.innerText;
+                
+                const time = value / speed;
+                if (data < value) {
+                    counter.innerText = Math.ceil(data + time);
+                    setTimeout(animate, 1);
+                } else {
+                    counter.innerText = value;
+                }
+            }
+            
+            animate();
+        });
+        
+        // Cursor glow effect
+        document.addEventListener('mousemove', function(e) {
+            const cursorGlow = document.querySelector('.cursor-glow');
+            cursorGlow.style.opacity = '1';
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
     </script>
-    
-        <!-- Client Zone Widget -->
+
+                <!-- Client Zone Widget -->
 <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
     <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
       <div class="widget-container">

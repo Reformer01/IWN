@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Transform your estate into a managed smart community with I-World SmartLife - Integrated FTTH, Smart Security, Access Control & Community App">
+    <meta name="author" content="I-World Networks">
+    <title>I-World SmartLife - Transform Your Estate into a Smart Community</title>
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'iwn-orange': '#F58C29',
+                        'iwn-green': '#34A853',
+                        'iwn-orange-dark': '#E07B1A',
+                        'iwn-green-dark': '#2D9249',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Google Education-inspired design system */
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --google-gray: #f8f9fa;
+            --google-dark-gray: #5f6368;
+            --google-text: #202124;
+            --iwn-orange: #F58C29;
+            --iwn-green: #34A853;
+            --iwn-orange-dark: #E07B1A;
+            --iwn-green-dark: #2D9249;
+            --smartlife-primary: #F58C29;
+            --smartlife-secondary: #34A853;
+            --smartlife-accent: #F58C29;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            color: var(--google-text);
+            line-height: 1.6;
+            background: var(--google-gray);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Google Sans', Arial, sans-serif;
+            font-weight: 500;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand img {
+            height: 44px;
+        }
+
+        .dropdown-menu {
+            margin-top: 0;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu {
+                animation: fadeIn 0.2s ease-in;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-link {
+            color: var(--google-text) !important;
+            font-family: 'Google Sans', Arial, sans-serif;
+            font-weight: 500;
+            padding: 0.5rem 1.2rem !important;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--google-gray);
+            color: var(--google-blue) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 76px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 3rem 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-section .lead {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-smartlife {
+            background: var(--google-blue);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 3rem;
+            font-family: 'Google Sans', Arial, sans-serif;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
+        }
+
+        .btn-smartlife:hover {
+            background: #3367d6;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.6);
+            color: white;
+        }
+
+        /* Section Styles */
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: var(--smartlife-primary);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--google-blue), var(--smartlife-accent));
+            border-radius: 2px;
+        }
+
+        .section-title.centered:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--google-blue), var(--smartlife-accent));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        /* Benefits Table */
+        .benefits-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .benefits-table table {
+            margin-bottom: 0;
+        }
+
+        .benefits-table thead {
+            background: linear-gradient(135deg, var(--smartlife-primary), var(--smartlife-secondary));
+            color: white;
+        }
+
+        .benefits-table thead th {
+            font-family: 'Google Sans', Arial, sans-serif;
+            font-weight: 500;
+            padding: 1.2rem;
+            border: none;
+        }
+
+        .benefits-table tbody td {
+            padding: 1rem 1.2rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .benefits-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .benefits-table tbody tr:hover {
+            background: var(--google-gray);
+        }
+
+        /* Guarantee Box */
+        .guarantee-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            margin: 3rem 0;
+        }
+
+        .guarantee-box h2 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guarantee-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guarantee-box li {
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .guarantee-box li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #4ade80;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: center;
+            color: white;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-cta {
+            background: white;
+            color: #f5576c;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 3rem;
+            font-family: 'Google Sans', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            color: #f5576c;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #202124;
+            color: white;
+            padding: 3rem 0 1rem;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+        }
+
+        .footer-title {
+            font-family: 'Google Sans', Arial, sans-serif;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer a {
+            color: #dadce0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #5f6368;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--google-blue);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-input {
+            background: #303134;
+            border: 1px solid #5f6368;
+            color: white;
+            border-radius: 4px;
+            padding: 0.75rem;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--google-blue);
+            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+            background: #303134;
+            color: white;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9aa0a6;
+        }
+
+        .btn-subscribe {
+            background: var(--google-blue);
+            border: none;
+            color: white;
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Google Sans', Arial, sans-serif;
+            font-weight: 500;
+        }
+
+        .btn-subscribe:hover {
+            background: #3367d6;
+        }
+
+        .copyright {
+            background: #303134 !important;
+            color: #9aa0a6;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .copyright a {
+            color: #e8eaed;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 500px;
+                padding: 2rem 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section .lead {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .guarantee-box,
+            .cta-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge-premium {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Client Zone Widget Styles */
+        .client-zone-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--iwn-orange);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Google Sans', Arial, sans-serif;
+        }
+
+        .client-zone-btn:hover {
+            background-color: #FF6600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .widget-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Hero Section with Integrated Header -->
+    <div class="">
+        <header class="py-4 bg-black sm:py-6" x-data="{expanded: false}">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between">
+                    <div class="shrink-0">
+                        <a href="./index.html" title="I-World Networks" class="flex">
+                            <img class="w-auto h-9" src="./Assets/icons/logos/IWN no bg.png"
+                                alt="I-World Networks Logo" />
+                        </a>
+                    </div>
+
+                    <div class="flex md:hidden">
+                        <button type="button" class="text-white" @click="expanded = !expanded"
+                            :aria-expanded="expanded">
+                            <span x-show="!expanded" aria-hidden="true">
+                                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </span>
+
+                            <span x-show="expanded" aria-hidden="true">
+                                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
+                    <nav class="hidden md:flex md:items-center md:justify-end md:space-x-12">
+                        <a href="./index.html" title="Home"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Home </a>
+                        <a href="#technology" title="Technology"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Technology </a>
+                        <a href="#benefits" title="Benefits"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Benefits </a>
+                        <a href="#contact" title="Contact"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Contact </a>
+                    </nav>
+                </div>
+
+                <nav x-show="expanded" x-collapse>
+                    <div class="flex flex-col pt-8 pb-4 space-y-6">
+                        <a href="./index.html" title="Home"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Home </a>
+                        <a href="#technology" title="Technology"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Technology </a>
+                        <a href="#benefits" title="Benefits"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Benefits </a>
+                        <a href="#contact" title="Contact"
+                            class="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                            Contact </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section class="py-12 bg-black sm:pb-16 lg:pb-20 xl:pb-24">
+            <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                <div class="relative">
+                    <div class="lg:w-2/3">
+                        <p class="text-sm font-normal tracking-widest text-gray-300 uppercase">The Future of Asset
+                            Management</p>
+                        <h1 class="mt-6 text-4xl font-normal text-white sm:mt-10 sm:text-5xl lg:text-6xl xl:text-8xl">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-iwn-orange to-iwn-green">
+                                Managed Smart Community </span> into a Smart Community
+                        </h1>
+                        <p class="max-w-lg mt-4 text-xl font-normal text-gray-400 sm:mt-8">
+                            I-World SmartLife eliminates fragmentation, unpredictable costs, and constant resident
+                            complaints. We are your single, trusted technology partner delivering managed FTTH, smart
+                            security, access control, and a unified community app.
+                        </p>
+                        <div class="relative inline-flex items-center justify-center mt-8 sm:mt-12 group">
+
+                            <div
+                                class="flex flex-col items-center justify-center px-16 mt-8 space-y-4 sm:space-y-0 sm:space-x-4 sm:flex-row lg:mt-12 sm:px-0">
+                                <a href="#contact-form" title="Get Free Infrastructure Audit"
+                                    class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-iwn-orange border border-transparent rounded-md sm:w-auto hover:bg-iwn-orange-dark focus:bg-iwn-orange"
+                                    role="button"> Get Free Infrastructure Audit </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex items-center pt-6 mt-8 border-t border-gray-800 sm:pt-10 sm:mt-14">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 7.00003H21M21 7.00003V15M21 7.00003L13 15L9 11L3 17" stroke="url(#a)"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <defs>
+                                        <linearGradient id="a" x1="3" y1="7.00003" x2="22.2956" y2="12.0274"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="0%" style="stop-color: var(--iwn-orange)" />
+                                            <stop offset="100%" style="stop-color: var(--iwn-green)" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                                <span class="ml-2 text-base font-normal text-white"> Zero CAPEX • 10-15% Revenue Share •
+                                    100% Liability Transfer </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 md:absolute md:mt-0 md:top-32 lg:top-0 md:right-0">
+                        <img class="w-full max-w-xs mx-auto lg:max-w-lg xl:max-w-xl"
+                            src="https://landingfoliocom.imgix.net/store/collection/dusk/images/hero/1/3d-illustration.png"
+                            alt="Smart Community Illustration" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Introduction Section -->
+    <!-- Introduction Section -->
+    <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">Introducing
+                    I-World SmartLife</h2>
+                <p class="mt-8 text-xl text-gray-600 font-pj">
+                    I-World SmartLife is the next evolution of integrated infrastructure management from I-World
+                    Networks. We specialize in transforming existing (brownfield) and new residential estates into <span
+                        class="font-bold text-gray-900">secure, modern, and efficiently managed smart
+                        communities.</span>
+                </p>
+                <p class="mt-6 text-xl text-gray-600 font-pj">
+                    We are not just an ISP; we are your <span class="font-bold text-gray-900">single, trusted technology
+                        partner.</span> We eliminate the three major headaches of estate management: system
+                    fragmentation, unpredictable costs, and constant resident complaints.
+                </p>
+                <p class="mt-6 text-xl text-gray-600 font-pj">
+                    I-World SmartLife offers a comprehensive, vertically integrated solution built on reliable national
+                    infrastructure, guaranteeing an unparalleled quality of life for residents and <span
+                        class="font-bold text-gray-900">predictable profitability</span> for developers and HOAs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Guarantee Section -->
+    <!-- Core Guarantee Section -->
+    <section class="py-12 bg-white sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">The Core
+                    SmartLife Guarantee</h2>
+                <p class="mt-4 text-xl font-medium text-iwn-orange">Zero Risk, Guaranteed Value</p>
+                <p class="mt-4 text-base text-gray-600">Our foundational business model, built on a minimum 10-year
+                    contract, is our unique selling proposition (USP):</p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Zero CAPEX -->
+                <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-orange-100 text-iwn-orange mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Zero CAPEX for Your Estate</h3>
+                    <p class="text-gray-600">We fund 100% of infrastructure deployment—fiber networks, access control
+                        systems, CCTV, and the Community App.</p>
+                </div>
+
+                <!-- Revenue Share -->
+                <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-iwn-green mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Guaranteed Revenue Share</h3>
+                    <p class="text-gray-600">HOAs receive 10-15% of annual service fees as passive income.</p>
+                </div>
+
+                <!-- Unified Fees -->
+                <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-orange-100 text-iwn-orange mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Predictable Monthly Fees</h3>
+                    <p class="text-gray-600">Residents pay one unified service charge covering all technology needs.</p>
+                </div>
+
+                <!-- Liability Transfer -->
+                <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-iwn-green mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">100% Liability Transfer</h3>
+                    <p class="text-gray-600">We own and maintain all systems, eliminating your technical risk.</p>
+                </div>
+
+                <!-- Property Value -->
+                <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-orange-100 text-iwn-orange mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Immediate Property Value Uplift</h3>
+                    <p class="text-gray-600">Tech-enabled estates command premium pricing in the luxury market.</p>
+                </div>
+
+                <!-- NOC Management -->
+                <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-iwn-green mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Professional NOC Management</h3>
+                    <p class="text-gray-600">24/7 monitoring by NCC-licensed professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="py-12 bg-white sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">Integrated
+                    Technology: The I-World SmartLife Stack</h2>
+                <p class="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Every service is managed from our
+                    central Network Operations Center (NOC) by NCC-licensed professionals</p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-4 md:gap-0 xl:mt-24">
+                <!-- Managed FTTH -->
+                <div class="md:p-8 lg:p-14">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="20" stroke="#161616" stroke-width="2" fill="none" />
+                        <path d="M23 5v18M23 23l-8 8M23 23l8 8" stroke="#161616" stroke-width="2"
+                            stroke-linecap="round" />
+                        <circle cx="23" cy="23" r="3" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
+                        <path d="M15 31h16M11 35h24M7 39h32" stroke="#161616" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Managed FTTH</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">A single, high-speed, estate-wide fiber optic
+                        network that replaces fragmented third-party ISPs, guaranteeing reliable connectivity for work
+                        and entertainment.</p>
+                </div>
+
+                <!-- Smart Gating & Access Control -->
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="15" y="10" width="16" height="26" rx="2" stroke="#161616" stroke-width="2"
+                            fill="none" />
+                        <circle cx="23" cy="23" r="4" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
+                        <path d="M23 27v4" stroke="#161616" stroke-width="2" stroke-linecap="round" />
+                        <rect x="19" y="4" width="8" height="6" rx="4" stroke="#161616" stroke-width="2" fill="none" />
+                        <path d="M10 36h26M8 40h30" stroke="#161616" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Smart Gating & Access Control</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Comprehensive security upgrade featuring keyless
+                        entry, Biometric/ANPR integration, and Digital Visitor Management with secure QR codes.</p>
+                </div>
+
+                <!-- Unified Smart Security -->
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="12" width="30" height="22" rx="2" stroke="#161616" stroke-width="2"
+                            fill="none" />
+                        <circle cx="23" cy="23" r="5" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
+                        <path d="M18 34h10M21 38h4" stroke="#161616" stroke-width="2" stroke-linecap="round" />
+                        <path d="M4 12l4-4M42 12l-4-4" stroke="#161616" stroke-width="2" stroke-linecap="round" />
+                        <circle cx="11" cy="16" r="2" fill="#D4D4D8" />
+                        <circle cx="35" cy="16" r="2" fill="#D4D4D8" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Unified Smart Security</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Professional installation and 24/7 remote monitoring
+                        of all public-area CCTV systems, providing real-time incident response and digital audit trail.
+                    </p>
+                </div>
+
+                <!-- The Community App -->
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="12" y="4" width="22" height="38" rx="3" stroke="#161616" stroke-width="2"
+                            fill="none" />
+                        <rect x="16" y="10" width="14" height="22" rx="1" fill="#D4D4D8" stroke="#161616"
+                            stroke-width="2" />
+                        <circle cx="23" cy="37" r="2" fill="#161616" />
+                        <path d="M19 13h8M19 17h6M19 21h8M19 25h5" stroke="#fff" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">The Community App</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">A seamless mobile application centralizing all
+                        essential functions: service charge billing, visitor authorization, maintenance requests, and
+                        HOA announcements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits for Developers & HOAs -->
+    <section id="benefits" class="py-12 bg-white sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">Benefits for
+                    Developers & HOAs</h2>
+                <p class="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Transform your estate from a chaotic,
+                    costly operation into a valuable, revenue-generating asset</p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
+                <!-- Guaranteed Revenue Share -->
+                <div class="md:p-8 lg:p-14">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="20" stroke="#161616" stroke-width="2" fill="none" />
+                        <path d="M23 13v10l7 7" stroke="#161616" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M14 23h-4M36 23h-4M23 36v-4M23 14v-4" stroke="#161616" stroke-width="2"
+                            stroke-linecap="round" />
+                        <circle cx="23" cy="23" r="3" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Guaranteed Revenue Share</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Receive a passive 10-15% share of the mandatory
+                        annual service fee, creating a reliable income stream for the HOA to fund maintenance and future
+                        community projects.</p>
+                </div>
+
+                <!-- Increased Property Value -->
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 40L15 30L23 38L41 20" stroke="#161616" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M30 20h11v11" stroke="#161616" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <rect x="5" y="36" width="8" height="8" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
+                        <rect x="19" y="30" width="8" height="14" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
+                        <rect x="33" y="22" width="8" height="22" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Increased Property Value</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Tech-enabled, secure, and reliably managed estates
+                        command higher sales prices and rents, positioning the community at the top of the luxury
+                        market.</p>
+                </div>
+
+                <!-- Operational Streamlining -->
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="5" width="36" height="36" rx="4" stroke="#161616" stroke-width="2" fill="none" />
+                        <path d="M14 18h18M14 23h18M14 28h12" stroke="#161616" stroke-width="2"
+                            stroke-linecap="round" />
+                        <rect x="28" y="25" width="10" height="10" rx="2" fill="#D4D4D8" stroke="#161616"
+                            stroke-width="2" />
+                        <path d="M31 30l2 2 4-4" stroke="#161616" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Operational Streamlining</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">The Community App automates billing, fee collection,
+                        and governance, drastically reducing administrative chaos and stress on the management team.</p>
+                </div>
+
+                <!-- Liability Reduction -->
+                <div class="md:p-8 lg:p-14 md:border-t md:border-gray-200">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23 5L5 13v10c0 11 7.5 21 18 24 10.5-3 18-13 18-24V13L23 5z" stroke="#161616"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M23 5L5 13v10c0 11 7.5 21 18 24V5z" fill="#D4D4D8" />
+                        <path d="M16 23l5 5 9-9" stroke="#161616" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Liability Reduction</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Transfer the risk of system failure, maintenance,
+                        and complex tech management entirely to I-World Networks, eliminating budget surprises.</p>
+                </div>
+
+                <!-- Zero CAPEX Investment -->
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="18" stroke="#161616" stroke-width="2" fill="none" />
+                        <path d="M23 13v20M17 17h8c2 0 4 1.5 4 4s-2 4-4 4h-6" stroke="#161616" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 25h8c2 0 4 1.5 4 4s-2 4-4 4h-8" stroke="#161616" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" fill="#D4D4D8" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Zero CAPEX Investment</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">I-World Networks funds, builds, owns, and maintains
+                        all infrastructure. No capital expenditure required from developers or HOAs.</p>
+                </div>
+
+                <!-- Single Point of Contact -->
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="15" r="8" stroke="#161616" stroke-width="2" fill="#D4D4D8" />
+                        <path d="M8 40c0-8.284 6.716-15 15-15s15 6.716 15 15" stroke="#161616" stroke-width="2"
+                            stroke-linecap="round" />
+                        <circle cx="35" cy="35" r="8" fill="white" stroke="#161616" stroke-width="2" />
+                        <path d="M35 32v6M32 35h6" stroke="#161616" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Single Point of Contact</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">One trusted technology partner replaces multiple
+                        fragmented vendors. Simplified communication, faster issue resolution, and cohesive service
+                        delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits for Residents & Diaspora -->
+    <section class="py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-14 text-center">
+                <h2
+                    class="text-4xl text-center font-bold text-gray-900 leading-[3.25rem] mb-6 max-w-max lg:max-w-3xl lg:mx-auto">
+                    Benefits for Residents & Diaspora Investors</h2>
+                <p class="text-base font-normal text-gray-500 lg:max-w-2xl lg:mx-auto mb-8">The reliable, integrated
+                    modern lifestyle that premium residents expect</p>
+                <div class="flex flex-col justify-center md:flex-row gap-5 max-w-lg mx-auto md:max-w-2xl lg:max-w-full">
+                    <a href="#contact-form"
+                        class="cursor-pointer bg-iwn-orange py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-white transition-all duration-500 focus:outline-none hover:bg-iwn-orange-dark">
+                        Get Started Today
+                    </a>
+                    <a href="#technology"
+                        class="cursor-pointer bg-orange-50 py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-iwn-orange transition-all duration-500 focus:outline-none hover:bg-orange-100">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-lg mx-auto md:max-w-2xl lg:max-w-full">
+                <!-- Large Card: Effortless Security -->
+                <div class="relative w-full h-auto md:col-span-2">
+                    <div class="bg-gray-800 rounded-2xl flex justify-between flex-row flex-wrap">
+                        <div class="p-5 xl:p-8 w-full md:w-1/2">
+                            <div class="block">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15 3.75L3.75 8.75V13.75C3.75 20.625 8.4375 26.875 15 28.75C21.5625 26.875 26.25 20.625 26.25 13.75V8.75L15 3.75ZM15 15H23.75C23.125 20.125 19.6875 24.5 15 25.875V15H6.25V10.375L15 6.5V15Z"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold xl:text-xl text-white py-5 w-full xl:w-64">
+                                Effortless Security & Total Convenience
+                            </h3>
+                            <p class="text-xs font-normal text-gray-300 w-full mb-8 xl:w-64">The integration of Smart
+                                Gating, Digital Vetting, and the Community App means residents eliminate security risks
+                                with digital access controls and manage every aspect of estate living from one intuitive
+                                application.</p>
+                            <a href="#technology"
+                                class="py-2 px-5 border border-solid border-gray-300 rounded-full gap-2 text-xs text-white font-semibold flex items-center justify-between transition-all duration-500 hover:bg-white/5 w-fit">
+                                View More
+                                <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="ml-2">
+                                    <path
+                                        d="M1 9L3.58579 6.41421C4.25245 5.74755 4.58579 5.41421 4.58579 5C4.58579 4.58579 4.25245 4.25245 3.58579 3.58579L1 1"
+                                        stroke="white" stroke-width="1.6" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="relative hidden h-auto md:w-1/2 md:block">
+                            <img src="https://pagedone.io/asset/uploads/1695028873.png" alt="Smart Security"
+                                class="h-full ml-auto object-cover rounded-r-2xl">
+                        </div>
+                    </div>
+                </div>
+                <!-- Small Card: Unbreakable Connectivity -->
+                <div class="relative w-full h-auto">
+                    <div class="bg-indigo-500 rounded-2xl p-5 xl:p-8 h-full">
+                        <div class="block">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15 23.75C15.6904 23.75 16.25 23.1904 16.25 22.5C16.25 21.8096 15.6904 21.25 15 21.25C14.3096 21.25 13.75 21.8096 13.75 22.5C13.75 23.1904 14.3096 23.75 15 23.75Z"
+                                    fill="white" />
+                                <path
+                                    d="M15 17.5C17.7614 17.5 20 19.7386 20 22.5M15 11.25C21.2132 11.25 26.25 16.2868 26.25 22.5M15 5C24.665 5 32.5 12.835 32.5 22.5M3.75 22.5C3.75 16.2868 8.7868 11.25 15 11.25M8.75 22.5C8.75 19.0482 11.5482 16.25 15 16.25"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3 class="py-5 text-white text-lg font-bold xl:text-xl">Unbreakable Connectivity</h3>
+                        <p class="text-xs font-normal text-white mb-8">Access guaranteed, high-speed FTTH without the
+                            frustration of unstable mobile data or fragmented providers. Business continuity and
+                            superior entertainment.</p>
+                        <a href="#technology"
+                            class="py-2 px-5 border border-solid border-gray-300 rounded-full gap-2 text-xs text-white font-semibold flex items-center justify-between transition-all duration-500 hover:bg-white/5 w-fit">
+                            View More
+                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="ml-2">
+                                <path
+                                    d="M1 9L3.58579 6.41421C4.25245 5.74755 4.58579 5.41421 4.58579 5C4.58579 4.58579 4.25245 4.25245 3.58579 3.58579L1 1"
+                                    stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Small Card: Diaspora Peace of Mind -->
+                <div class="relative w-full h-auto">
+                    <div class="bg-violet-500 rounded-2xl p-5 xl:p-8 h-full">
+                        <div class="block">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15 2.5C8.1 2.5 2.5 8.1 2.5 15C2.5 21.9 8.1 27.5 15 27.5C21.9 27.5 27.5 21.9 27.5 15C27.5 8.1 21.9 2.5 15 2.5ZM15 5C16.25 5 17.45 5.2 18.55 5.55L17.15 6.95C16.45 6.8 15.75 6.7 15 6.7V5ZM5 15C5 14.25 5.1 13.55 5.25 12.85L9.15 16.75C9.4 18.15 10.35 19.3 11.6 19.85L15 23.25V25C9.5 25 5 20.5 5 15ZM23.75 18.55C23.1 19.8 22.2 20.9 21.1 21.8L18.75 19.45V17.5C18.75 16.55 17.95 15.75 17 15.75H12.5V12.5C13.45 12.5 14.25 11.7 14.25 10.75V9.5H17.5C18.45 9.5 19.25 8.7 19.25 7.75V7.1C22.4 8.55 24.65 11.5 25 15H22.5C21.55 15 20.75 15.8 20.75 16.75V17.5L23.75 18.55Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3 class="py-5 text-white text-lg font-bold xl:text-xl">Diaspora Peace of Mind</h3>
+                        <p class="text-xs font-normal text-white mb-8">Non-resident owners can remotely authorize,
+                            audit, and manage access to their property with total transparency from anywhere in the
+                            world.</p>
+                        <a href="#contact-form"
+                            class="py-2 px-5 border border-solid border-gray-300 rounded-full gap-2 text-xs text-white font-semibold flex items-center justify-between transition-all duration-500 hover:bg-white/5 w-fit">
+                            View More
+                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="ml-2">
+                                <path
+                                    d="M1 9L3.58579 6.41421C4.25245 5.74755 4.58579 5.41421 4.58579 5C4.58579 4.58579 4.25245 4.25245 3.58579 3.58579L1 1"
+                                    stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-10 bg-gray-100 sm:py-16 lg:py-24">
+        <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Start Your SmartLife
+                    Transformation</h2>
+                <p class="mt-4 text-2xl font-medium">Zero CAPEX • 10-15% Revenue Share • 100% Liability Transfer</p>
+
+                </svg>
+                Call: 0906-000-9738
+                </a>
+            </div>
+
+            <p class="mt-6 text-base text-black">Ready to upgrade your estate? <a href="#contact-form"
+                    title="Schedule Audit"
+                    class="text-iwn-orange transition-all duration-200 hover:text-iwn-orange-dark focus:text-iwn-orange hover:underline">Schedule
+                    your free audit</a></p>
+        </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
+                <div class="flex items-center lg:mb-0 mb-10">
+                    <div class="w-full">
+                        <h4 class="text-iwn-orange text-base font-medium leading-6 mb-4 lg:text-left text-center">
+                            Contact Us</h4>
+                        <h2
+                            class="text-gray-900 font-manrope text-4xl font-semibold leading-10 mb-9 lg:text-left text-center">
+                            Schedule Your Free Infrastructure Audit</h2>
+                        <form action="">
+                            <input type="text"
+                                class="w-full h-14 shadow-sm text-gray-600 placeholder-text-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:border-iwn-orange py-2 px-4 mb-8"
+                                placeholder="Name" required>
+                            <input type="email"
+                                class="w-full h-14 shadow-sm text-gray-600 placeholder-text-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:border-iwn-orange py-2 px-4 mb-8"
+                                placeholder="Email" required>
+                            <input type="tel"
+                                class="w-full h-14 shadow-sm text-gray-600 placeholder-text-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none focus:border-iwn-orange py-2 px-4 mb-8"
+                                placeholder="Phone" required>
+                            <textarea name="message" id="message"
+                                class="w-full h-48 shadow-sm resize-none text-gray-600 placeholder-text-400 text-lg font-normal leading-7 rounded-2xl border border-gray-200 focus:outline-none focus:border-iwn-orange px-4 py-4 mb-8"
+                                placeholder="Tell us about your estate (number of units, location, etc.)"
+                                required></textarea>
+                            <button type="submit"
+                                class="w-full h-12 text-center text-white text-base font-semibold leading-6 rounded-full bg-iwn-orange shadow transition-all duration-700 hover:bg-iwn-orange-dark">Request
+                                Free Audit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="lg:max-w-xl w-full h-[600px] flex items-center justify-center bg-cover bg-no-repeat bg-center"
+                    style="background-image: url('https://pagedone.io/asset/uploads/1696245837.png')">
+                    <div class="">
+                        <div class="lg:w-96 w-auto h-auto bg-white shadow-xl lg:p-6 p-4 rounded-lg">
+                            <img class="w-auto h-9" src="./Assets/icons/logos/IWN no bg.png"
+                                alt="I-World Networks Logo" />
+                            <a href="tel:+2349060009738"
+                                class="flex items-center mb-6 hover:text-iwn-orange transition-colors">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M22.3092 18.3098C22.0157 18.198 21.8689 18.1421 21.7145 18.1287C21.56 18.1154 21.4058 18.1453 21.0975 18.205L17.8126 18.8416C17.4392 18.9139 17.2525 18.9501 17.0616 18.9206C16.8707 18.891 16.7141 18.8058 16.4008 18.6353C13.8644 17.2551 12.1853 15.6617 11.1192 13.3695C10.9964 13.1055 10.935 12.9735 10.9133 12.8017C10.8917 12.6298 10.9218 12.4684 10.982 12.1456L11.6196 8.72559C11.6759 8.42342 11.7041 8.27233 11.6908 8.12115C11.6775 7.96998 11.6234 7.82612 11.5153 7.5384L10.6314 5.18758C10.37 4.49217 10.2392 4.14447 9.95437 3.94723C9.6695 3.75 9.29804 3.75 8.5551 3.75H5.85778C4.58478 3.75 3.58264 4.8018 3.77336 6.06012C4.24735 9.20085 5.64674 14.8966 9.73544 18.9853C14.0295 23.2794 20.2151 25.1426 23.6187 25.884C24.9335 26.1696 26.0993 25.1448 26.0993 23.7985V21.2824C26.0993 20.5428 26.0993 20.173 25.9034 19.8888C25.7076 19.6046 25.362 19.4729 24.6708 19.2096L22.3092 18.3098Z"
+                                        stroke="#F58C29" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                <h5 class="text-black text-base font-normal leading-6 ml-5">0906-000-9738</h5>
+                            </a>
+                            <a href="mailto:smartlife@iwn.ng"
+                                class="flex items-center mb-6 hover:text-iwn-orange transition-colors">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2.81501 8.75L10.1985 13.6191C12.8358 15.2015 14.1544 15.9927 15.6032 15.9582C17.0519 15.9237 18.3315 15.0707 20.8905 13.3647L27.185 8.75M12.5 25H17.5C22.214 25 24.5711 25 26.0355 23.5355C27.5 22.0711 27.5 19.714 27.5 15C27.5 10.286 27.5 7.92893 26.0355 6.46447C24.5711 5 22.214 5 17.5 5H12.5C7.78595 5 5.42893 5 3.96447 6.46447C2.5 7.92893 2.5 10.286 2.5 15C2.5 19.714 2.5 22.0711 3.96447 23.5355C5.42893 25 7.78595 25 12.5 25Z"
+                                        stroke="#F58C29" stroke-width="2" stroke-linecap="round"></path>
+                                </svg>
+                                <h5 class="text-black text-base font-normal leading-6 ml-5">smartlife@iwn.ng</h5>
+                            </a>
+                            <a href="#" class="flex items-center mb-6 hover:text-iwn-orange transition-colors">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M25 12.9169C25 17.716 21.1939 21.5832 18.2779 24.9828C16.8385 26.6609 16.1188 27.5 15 27.5C13.8812 27.5 13.1615 26.6609 11.7221 24.9828C8.80612 21.5832 5 17.716 5 12.9169C5 10.1542 6.05357 7.5046 7.92893 5.55105C9.8043 3.59749 12.3478 2.5 15 2.5C17.6522 2.5 20.1957 3.59749 22.0711 5.55105C23.9464 7.5046 25 10.1542 25 12.9169Z"
+                                        stroke="#F58C29" stroke-width="2"></path>
+                                    <path
+                                        d="M17.5 11.6148C17.5 13.0531 16.3807 14.219 15 14.219C13.6193 14.219 12.5 13.0531 12.5 11.6148C12.5 10.1765 13.6193 9.01058 15 9.01058C16.3807 9.01058 17.5 10.1765 17.5 11.6148Z"
+                                        stroke="#F58C29" stroke-width="2"></path>
+                                </svg>
+                                <h5 class="text-black text-base font-normal leading-6 ml-5">Lagos, Nigeria</h5>
+                            </a>
+                            <div class="flex items-center justify-center border-t border-gray-100 pt-6">
+                                <a href="#!" class="mr-6 hover:opacity-80 transition-opacity">
+                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.0683594" width="30" height="30" rx="15" fill="#337FFF"></rect>
+                                        <path
+                                            d="M18.5094 15.937L18.9369 13.2236H16.3038V11.4599C16.3038 10.7179 16.6714 9.99293 17.8469 9.99293H19.0608V7.68231C18.3539 7.56968 17.6396 7.50874 16.9236 7.5C14.7565 7.5 13.3417 8.80158 13.3417 11.1546V13.2236H10.9395V15.937H13.3417V22.5H16.3038V15.937H18.5094Z"
+                                            fill="white"></path>
+                                    </svg>
+                                </a>
+                                <a href="#!" class="mr-6 hover:opacity-80 transition-opacity">
+                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.884766" width="30" height="30" rx="15" fill="#33CCFF"></rect>
+                                        <path
+                                            d="M23.5888 10.2039C23.0935 10.4171 22.5727 10.5655 22.0394 10.6456C22.2888 10.6028 22.6556 10.154 22.8017 9.97236C23.0235 9.69835 23.1926 9.38555 23.3003 9.04985C23.3003 9.02491 23.3253 8.9893 23.3003 8.97149C23.2878 8.96463 23.2737 8.96103 23.2594 8.96103C23.2451 8.96103 23.231 8.96463 23.2184 8.97149C22.6393 9.28508 22.023 9.52442 21.3841 9.68385C21.3618 9.69066 21.3381 9.69127 21.3155 9.68562C21.2929 9.67997 21.2723 9.66828 21.2558 9.6518C21.2061 9.59257 21.1526 9.53665 21.0956 9.48439C20.8349 9.25089 20.5393 9.05979 20.2193 8.91806C19.7875 8.74088 19.321 8.66415 18.8552 8.69366C18.4031 8.72221 17.9618 8.84345 17.5586 9.04985C17.1616 9.26745 16.8127 9.56306 16.5328 9.91894C16.2384 10.2852 16.0259 10.7103 15.9095 11.1656C15.8135 11.5986 15.8027 12.0462 15.8775 12.4835C15.8775 12.5583 15.8775 12.5689 15.8133 12.5583C13.2738 12.1843 11.1901 11.2831 9.48752 9.34904C9.41272 9.26356 9.37354 9.26356 9.31299 9.34904C8.57213 10.4746 8.93187 12.2555 9.85795 13.1353C9.98261 13.2528 10.1108 13.3668 10.2462 13.4737C9.82159 13.4435 9.40736 13.3284 9.02804 13.1353C8.9568 13.089 8.91762 13.1139 8.91406 13.1994C8.90397 13.3179 8.90397 13.4371 8.91406 13.5556C8.98838 14.1235 9.21222 14.6616 9.56267 15.1147C9.91313 15.5678 10.3776 15.9197 10.9087 16.1343C11.0381 16.1898 11.173 16.2316 11.3112 16.259C10.9181 16.3364 10.515 16.3484 10.118 16.2946C10.0325 16.2768 10.0004 16.3231 10.0325 16.405C10.5561 17.8298 11.6923 18.2643 12.5258 18.5065C12.6397 18.5243 12.7537 18.5243 12.882 18.5528C12.882 18.5528 12.882 18.5528 12.8606 18.5742C12.6148 19.023 11.6211 19.3258 11.1651 19.4825C10.333 19.7814 9.44574 19.8956 8.565 19.8173C8.42609 19.7959 8.39403 19.7995 8.35842 19.8173C8.3228 19.8351 8.35842 19.8743 8.3976 19.9099C8.57569 20.0274 8.75378 20.1307 8.939 20.2305C9.49038 20.5312 10.0733 20.7701 10.6772 20.9428C13.8045 21.8048 17.3236 21.1708 19.6708 18.8378C21.5158 17.007 22.1641 14.4817 22.1641 11.9527C22.1641 11.8566 22.2816 11.7996 22.3493 11.7497C22.8161 11.386 23.2276 10.9565 23.571 10.4746C23.6305 10.4027 23.661 10.3113 23.6565 10.2181C23.6565 10.1647 23.6565 10.1754 23.5888 10.2039Z"
+                                            fill="white"></path>
+                                    </svg>
+                                </a>
+                                <a href="#!" class="hover:opacity-80 transition-opacity">
+                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.0683594" width="30" height="30" rx="15"
+                                            fill="url(#paint0_linear_contact)"></rect>
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                            fill="white" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_contact" x1="0" y1="0" x2="30" y2="30"
+                                                gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#0077B5" />
+                                                <stop offset="1" stop-color="#00A0DC" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section Beginning -->
+    <footer class="footer">
+        <div class="container-fluid py-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h6 class="footer-title">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mt-2">
+                            <a href="./index.html">Home</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="./about.html">About Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="./careers.html">Careers</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="https://app.iwn.ng" target="_blank">Client Zone</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Connectivity Services -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h6 class="footer-title">Connectivity Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mt-2">
+                            <a href="./internet_for_home.html">Internet for Home</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="./Internet_for_business.html">Internet for Business</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="./enterprise_internet.html">Enterprise Internet</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Services -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h6 class="footer-title">Cloud Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mt-2">
+                            <a href="NGFEP.html">Nigeria Google for Education</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="./Google_Workspace.html">Google Workspace</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="./msp.html">Managed Service Provider (MSP)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h6 class="footer-title">Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li class="mt-2">
+                            <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                            <a href="tel:+2349039844309">+234 903 984 4309</a>
+                        </li>
+                        <li class="mt-2">
+                            <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                            <a href="tel:+2348077675560">+234 807 767 5560</a>
+                        </li>
+                        <li class="mt-2">
+                            <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                            <a href="tel:+2348077675565">+234 807 767 5565</a>
+                        </li>
+                        <li class="mt-2">
+                            <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                            <a href="tel:+2347066053380">+234 706 605 3380</a>
+                        </li>
+                        <li class="mt-2">
+                            <img src="./Assets/icons/telephone.svg" width="16" height="16" alt="Phone" class="me-2">
+                            <a href="tel:+2348036265524">+234 803 626 5524</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter and Social Media -->
+                <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+                    <h6 class="footer-title">Stay Connected</h6>
+                    <p>Sign up for our newsletter</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control newsletter-input" placeholder="Your Email Address"
+                            aria-label="Your Email Address">
+                        <button class="btn btn-subscribe" type="button">Subscribe</button>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div class="mt-4">
+                        <a href="#!" class="social-icon me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12z" />
+                            </svg>
+                        </a>
+                        <a href="#!" class="social-icon me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z" />
+                            </svg>
+                        </a>
+                        <a href="#!" class="social-icon me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="#!" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright text-center py-3">
+            <div class="container-fluid">
+                © 2025 Copyright: <a href="./index.html">I-World Networks</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize dropdowns
+            var dropdowns = document.querySelectorAll('.dropdown-toggle');
+            dropdowns.forEach(function (dropdown) {
+                dropdown.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var menu = this.nextElementSibling;
+                    dropdowns.forEach(function (otherDropdown) {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.nextElementSibling.classList.remove('show');
+                        }
+                    });
+                    menu.classList.toggle('show');
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.matches('.dropdown-toggle')) {
+                    document.querySelectorAll('.dropdown-menu.show').forEach(function (menu) {
+                        menu.classList.remove('show');
+                    });
+                }
+            });
+
+            // Add hover functionality for desktop
+            if (window.innerWidth >= 992) {
+                document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+                    dropdown.addEventListener('mouseenter', function () {
+                        this.querySelector('.dropdown-menu').classList.add('show');
+                    });
+                    dropdown.addEventListener('mouseleave', function () {
+                        this.querySelector('.dropdown-menu').classList.remove('show');
+                    });
+                });
+            }
+
+            // Initialize AOS animations
+            if (window.AOS) {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 120,
+                });
+            }
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <!-- Client Zone Widget -->
+    <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+        <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+            <div class="widget-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="margin-right: 8px;">
+                    <path fill="#FFFFFF"
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                <span>Client Zone</span>
+            </div>
+        </a>
+    </div>
+
+</body>
+
+</html>

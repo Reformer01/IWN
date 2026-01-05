@@ -25,6 +25,49 @@
         
         <!-- Toastr Css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+        
+        
+        
+         <style>
+    .client-zone-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F58C29; /* IWN Orange from brand colors */
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    
+    .client-zone-btn:hover {
+      background-color: #FF6600; /* IWN darker Orange from brand colors */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      #client-zone-widget {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .client-zone-btn {
+        padding: 10px 16px;
+      }
+    }
+  </style>
+  
 
     </head> 
 <body class="overflow-x-hidden">
@@ -37,57 +80,70 @@
     <!--======================= Back to top button ending======================== -->
     <!-- Header Beginning -->
     <div class="contact-header text-white">
-    <!-- Navbar beginning -->
-    <nav class="navbar navbar-expand-lg navbar-light fw-bold">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">
-                <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Internet Services
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="InternetDropdown">
-                            <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
-                            <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
-                            <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
-                            <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Google Cloud Services
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                            <a class="dropdown-item" href="NGFEP.html
-">Nigeria Google for Education Program</a>
-                            <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
-                            <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./msp.html">Managed IT Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./careers.html">Careers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contact.html">Contact Us</a>
-                    </li>
-                </ul>
+        <!-- Navbar beginning -->
+        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Internet Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
+                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
+                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
+                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
+                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Google Cloud Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
+                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
+                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
+                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                            </div>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.html">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a>   
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./Loyalty_&_Discounts.html"> Loyalty & Discounts</a>   
+                        </li>
+                    </ul>
+                    <!-- <div class="subscribe-btn ms-auto">
+                        <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
+                        <a class="nav-link lato" href="#">
+                            <img src="./Assets/icons/phone.svg" width="20" height="20" alt="">
+                            +234 807 767 5560</a>
+                    </div> -->
+                </div>
             </div>
-        </div>
-    </nav>
-    <!-- Ending of navbar -->
+        </nav>
+    
+        
+        
         <div class="contact-header-content"></div>
         <!-- Ending of contact header -->
     </div>
@@ -237,11 +293,7 @@
                     <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                         <h6 class="text-dark"><span class="text-uppercase">Akure Office:</span><br> Bank of Industry building, Alagbaka, Akure, Ondo State.</h6>
                     </div>
-                    <!-- Grid Column -->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="text-dark"><span class="text-uppercase">Sango Ota Office:</span><br> K/M 8, Idiroko road, Rosco Bus stop, Ota, Ogun State.</h6>
-                    </div>
-                </div>
+                                    </div>
             </div>
     </div>
 
@@ -270,7 +322,9 @@
                         <li class="mt-2">
                             <a class="text-white" href="./careers.html">Careers</a>
                         </li>
-                        
+                        <li class="mt-2">
+                            <a class="text-white" href="ClientZone.html">Client zone</a>
+                        </li>
                         </ul>
                     </div>
                     <!--Grid column-->
@@ -295,7 +349,7 @@
                         <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
                         <ul class="list-unstyled mb-0">
                             <li class="mt-2">
-                                <a class="text-white" href="./NGFEP.html">Nigeria Google for Education</a>
+                                <a class="text-white" href="./index.html#Nigerian_Google_for_Education_Program">Nigeria Google for Education</a>
                             </li>
                             <li class="mt-2">
                                 <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
@@ -328,8 +382,7 @@
                             </li>
                             <li class="">
                                 <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 814 994 5984
-                                </a>
+                                <a class="text-white" href="#">+234 803 626 5524</a>
                             </li>
                         </ul>
                     </div>
@@ -422,5 +475,18 @@
     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
     <div class="elfsight-app-87c0e511-c2f4-4972-96b6-4358f70c6e2c" data-elfsight-app-lazy></div>
     
+    
+    
+            <!-- Client Zone Widget -->
+<div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+      <div class="widget-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
+          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        <span>Client Zone</span>
+      </div>
+    </a>
+  </div>
 </body>
 </html>
