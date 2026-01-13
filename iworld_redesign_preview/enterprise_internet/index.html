@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>iWorld Networks | Enterprise Internet</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "surface-dark": "#1E293B",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-body antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../homepage/index.html"><img src="../Assets/icons/logos/logo_1.png" alt="iWorld Logo"
+                    class="h-10 object-contain"></a>
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+                <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
+                <a class="hover:text-primary transition-colors" href="../home_internet/index.html">Home Internet</a>
+                <a class="hover:text-primary transition-colors" href="../business_internet/index.html">Small
+                    Business</a>
+                <a class="text-primary font-bold" href="../enterprise_internet/index.html">Enterprise</a>
+                <a class="hover:text-primary transition-colors" href="../SmartLife.html">Smart Life</a>
+                <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
+                    Zone</a>
+            </div>
+            <a href="../contact/index.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all">Contact
+                Sales</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full min-h-[650px] flex items-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0"><img alt="Enterprise" class="w-full h-full object-cover"
+                src="../Assets/img/aerial-view-city.jpg" />
+            <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 py-16">
+            <div class="flex items-center gap-2 mb-6"><span
+                    class="text-white font-bold text-lg tracking-wider bg-white/10 px-4 py-1 rounded-full backdrop-blur-md border border-white/20">ENTERPRISE
+                    INTERNET</span></div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 max-w-4xl">
+                Affordability, Availability, <br class="hidden md:block" />
+                <span class="text-secondary">Reliability</span> & <span class="text-primary">World Class Support</span>
+            </h1>
+            <div class="flex flex-wrap items-center gap-6 mb-8 text-sm text-slate-300">
+                <div class="flex items-center gap-2"><span
+                        class="material-symbols-outlined text-secondary">verified</span><span>99.9% SLA Uptime</span>
+                </div>
+                <div class="flex items-center gap-2"><span
+                        class="material-symbols-outlined text-secondary">support_agent</span><span>24/7 Support
+                        Coverage</span></div>
+                <div class="flex items-center gap-2"><span
+                        class="material-symbols-outlined text-secondary">hub</span><span>Tier-1 Network</span></div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-center"
+                    href="#contact">REQUEST FREE SURVEY</a>
+                <a class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full transition-all text-center"
+                    href="#learn-more">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mission Critical Section -->
+    <section class="py-20 bg-white" id="learn-more">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">YOUR MISSION-CRITICAL CONNECTION
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">Our Enterprise Internet Service is a
+                        dedicated solution designed for <strong>critical business missions</strong>. We have built the
+                        most <strong>resilient infrastructure</strong> to withstand the peculiarities and challenges of
+                        our environment that provide our enterprise customers with most reliable and SLA backed service
+                        anywhere in Nigeria.</p>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">We combine <strong>world class customers
+                            service support</strong>, <strong>alternative technology</strong> and
+                        <strong>innovation</strong> to provide dedicated fixed broadband internet service that exceeds
+                        expectations.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">We provide dedicated fixed broadband at 99.9% SLA
+                        backed uptime for:</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Business
+                                    Enterprises</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Hotels and
+                                    Resorts</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Educational
+                                    Institutions</span></li>
+                        </ul>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Financial
+                                    Institutions</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Government
+                                    & NGOs</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Manufacturing
+                                    Industries</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 flex flex-col gap-6">
+                    <div class="bg-secondary text-white rounded-3xl p-8 text-center">
+                        <div
+                            class="text-xs uppercase tracking-widest font-bold mb-4 bg-white/20 inline-block px-3 py-1 rounded-full">
+                            Guaranteed</div>
+                        <div class="text-6xl font-extrabold mb-2">99.9%</div>
+                        <div class="text-lg text-white/80">SLA Backed Uptime</div>
+                    </div>
+                    <div class="bg-slate-100 rounded-2xl p-6 text-center border border-slate-200">
+                        <div class="inline-flex items-center gap-2 text-secondary font-bold"><span
+                                class="material-symbols-outlined">headset_mic</span>24/7 World-Class Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-8">Are You Experiencing These Issues?</h2>
+                    <div class="space-y-6">
+                        <div
+                            class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-red-500">schedule</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Waiting Days for Support?</h3>
+                                    <p class="text-slate-600">Tired of endless waiting for technical assistance? Our
+                                        response time is measured in minutes, not days.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-orange-500">payments</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Overpaying for Service?</h3>
+                                    <p class="text-slate-600">Stop paying premium prices for subpar service. Our
+                                        enterprise solutions deliver more value for your investment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-yellow-600">warning</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Lacking Technical Support?</h3>
+                                    <p class="text-slate-600">Experience 24/7 proactive support with dedicated technical
+                                        experts who understand your business needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Our 360° End-to-End Support is the Answer.
+                        </h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Experience enterprise-grade support that
+                            anticipates your needs. Our comprehensive solution includes proactive monitoring, rapid
+                            response times, and dedicated technical expertise.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span
+                                    class="font-semibold">24/7 Proactive Monitoring</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span
+                                    class="font-semibold">Dedicated Support Team</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span
+                                    class="font-semibold">Rapid Response Times</span></li>
+                        </ul>
+                        <a href="#contact"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg">REQUEST
+                            FREE SURVEY <span class="material-symbols-outlined">arrow_forward</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-white" id="contact">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-slate-50 rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100">
+                <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-2">Enterprise Service Request</h2>
+                <p class="text-center text-slate-500 mb-10">Fill out the form and our enterprise team will contact you
+                    for a free survey.</p>
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Organization
+                                Name</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Enter organization name" type="text" /></div>
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Organization
+                                Address</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Enter address" type="text" /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Contact
+                                Name</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Your name" type="text" /></div>
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Contact
+                                Position</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Your role" type="text" /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Phone
+                                Number</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="080..." type="tel" /></div>
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Email
+                                Address</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="contact@organization.com" type="email" /></div>
+                    </div>
+                    <div class="pt-4">
+                        <label class="block text-sm font-bold text-slate-900 mb-4">Industry Type:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" /><span class="ml-2 text-sm text-slate-700">Education</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" /><span class="ml-2 text-sm text-slate-700">Finance</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" /><span
+                                    class="ml-2 text-sm text-slate-700">Healthcare</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" /><span
+                                    class="ml-2 text-sm text-slate-700">Government</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" /><span class="ml-2 text-sm text-slate-700">Other</span></label>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
+                        type="submit">REQUEST FREE SURVEY</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div><img src="../Assets/icons/logos/logo_1.png" alt="iWorld" class="h-8 mb-6">
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        enterprises. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../home_internet/index.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../business_internet/index.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../enterprise_internet/index.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Google Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Managed IT Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Newsletter</h4>
+                    <div class="flex gap-2"><input
+                            class="bg-white/10 border-none rounded-xl px-4 py-2 text-sm w-full outline-none focus:ring-1 focus:ring-primary"
+                            placeholder="Email address" type="email" /><button
+                            class="bg-primary px-4 py-2 rounded-xl text-sm font-bold">Join</button></div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© 2025 I-World Networks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-8 right-8 z-50"><a href="../contact/index.html"
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
+                class="material-symbols-outlined">support_agent</span><span
+                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
+                With Us</span></a></div>
+
+</body>
+
+</html>

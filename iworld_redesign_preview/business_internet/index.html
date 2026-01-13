@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>iWorld Networks | Small Business Internet</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "surface-dark": "#1E293B",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-body antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../homepage/index.html"><img src="../Assets/icons/logos/logo_1.png" alt="iWorld Logo"
+                    class="h-10 object-contain"></a>
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+                <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
+                <a class="hover:text-primary transition-colors" href="../home_internet/index.html">Home Internet</a>
+                <a class="text-primary font-bold" href="../business_internet/index.html">Small Business</a>
+                <a class="hover:text-primary transition-colors" href="../enterprise_internet/index.html">Enterprise</a>
+                <a class="hover:text-primary transition-colors" href="../SmartLife.html">Smart Life</a>
+                <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
+                    Zone</a>
+            </div>
+            <a href="../contact/index.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all">Contact
+                Sales</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-[600px] flex items-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0"><img alt="Business" class="w-full h-full object-cover"
+                src="../Assets/img/aerial-view-city.jpg" />
+            <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 pt-10">
+            <div class="flex items-center gap-2 mb-6"><span
+                    class="text-white font-bold text-lg tracking-wider bg-white/10 px-4 py-1 rounded-full backdrop-blur-md border border-white/20">SMALL
+                    BUSINESS INTERNET</span></div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 max-w-3xl">High-Speed +
+                Reliability + <br class="hidden md:block" /><span class="text-primary">Low Cost for SMBs</span></h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">I-World Internet for SMB
+                combined High-Speed + Reliability + Availability + Low cost to help small business grow beyond their
+                expectations. More than 3,000 Small businesses rely on I-World SMB Wi-Fi for their daily operation.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-center flex items-center justify-center gap-2"
+                    href="#plans">View Plans <span class="material-symbols-outlined text-sm">arrow_downward</span></a>
+                <a class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full transition-all text-center"
+                    href="#contact">Get Connected</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Why Choose iWorld Business?</h2>
+                <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div
+                        class="shrink-0 w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center text-green-600">
+                        <span class="material-symbols-outlined text-3xl">calendar_today</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">First Month Subscription is FREE</h3>
+                        <p class="text-slate-500 leading-relaxed">Switch to iWorld SMB Internet and get your first month
+                            subscription absolutely free.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div
+                        class="shrink-0 w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600">
+                        <span class="material-symbols-outlined text-3xl">swap_horiz</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Switching Internet is FREE</h3>
+                        <p class="text-slate-500 leading-relaxed">Switching from another provider? The cost of
+                            connection is 100% on us. Seamless transition.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div
+                        class="shrink-0 w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">payments</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Referral Pay Discount</h3>
+                        <p class="text-slate-500 leading-relaxed">Refer a friend or business and get your next
+                            subscription FREE.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div
+                        class="shrink-0 w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
+                        <span class="material-symbols-outlined text-3xl">support_agent</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">24/7 Customer Service Support</h3>
+                        <p class="text-slate-500 leading-relaxed">We act as your internal IT team. Professional guidance
+                            and support whenever you need it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="py-20 bg-slate-50 relative overflow-hidden" id="plans">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Choose your Shared Access Plan for Business</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Scalable solutions tailored for growing businesses. Upgrade
+                    or downgrade anytime.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- U-Lite -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200 flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-slate-100 p-6 text-center border-b border-slate-200">
+                        <h3 class="text-slate-800 font-bold text-2xl">U-Lite</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-4xl font-extrabold text-slate-900">₦32,500</span><span
+                                class="text-sm text-slate-500 block mt-1">per month</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Up to
+                                <strong class="text-slate-900">25Mbps</strong>
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                                Unlimited Data</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> No
+                                Throttling</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Static
+                                IP Address</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-3 bg-slate-900 hover:bg-primary text-white font-bold rounded-xl shadow-md transition-colors mt-auto text-center">Subscribe
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- U-Max (Popular) -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-primary relative flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 scale-105 z-10">
+                    <div
+                        class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl z-20">
+                        POPULAR</div>
+                    <div class="bg-primary/10 p-6 text-center border-b border-primary/20">
+                        <h3 class="text-primary font-bold text-2xl">U-Max</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-4xl font-extrabold text-slate-900">₦43,500</span><span
+                                class="text-sm text-slate-500 block mt-1">per month</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Up to
+                                <strong class="text-slate-900">30Mbps</strong>
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                                Unlimited Data</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> No
+                                Throttling</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Static
+                                IP Address</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/30 transition-colors mt-auto text-center">Subscribe
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- U-Pro -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200 flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-slate-100 p-6 text-center border-b border-slate-200">
+                        <h3 class="text-slate-800 font-bold text-2xl">U-Pro</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-4xl font-extrabold text-slate-900">₦58,000</span><span
+                                class="text-sm text-slate-500 block mt-1">per month</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Up to
+                                <strong class="text-slate-900">40Mbps</strong>
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                                Unlimited Data</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Best
+                                for Teams</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Static
+                                IP Address</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-3 bg-slate-900 hover:bg-primary text-white font-bold rounded-xl shadow-md transition-colors mt-auto text-center">Subscribe
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- U-Custom -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200 flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-slate-900 p-6 text-center">
+                        <h3 class="text-white font-bold text-2xl">U-Custom</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-xl font-bold text-slate-900 leading-tight">Specific Needs?</span><span
+                                class="text-sm text-slate-500 block mt-2">We build what you need.</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> Need Public IPs?
+                            </li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> Bundled Services?
+                            </li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> High Bandwidth?
+                            </li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> Special Business
+                                Request?</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-3 bg-slate-200 text-slate-900 hover:bg-primary hover:text-white font-bold rounded-xl shadow-md transition-colors mt-auto text-center">Get
+                            Custom Quote</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Managed Services Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Managed Service Combinations</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Choose the combination that best suits your business needs.
+                    Reduce costs and boost efficiency with our bundled solutions.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bundle 1 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white transition-all">
+                    <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6"><span
+                            class="material-symbols-outlined text-3xl text-primary">wifi_tethering</span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">1. Internet + LAN/WLAN</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 list-disc pl-5">
+                        <li>Free for the first 30 days</li>
+                        <li><strong class="text-secondary">35% Savings</strong> on Monthly Bill</li>
+                        <li>High-speed Internet Service</li>
+                        <li>Full LAN/WLAN Setup</li>
+                        <li>Business Domain Registration</li>
+                        <li>Optional: Google My Business</li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-bold hover:underline">Choose Bundle →</a>
+                </div>
+                <!-- Bundle 2 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white transition-all">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6"><span
+                            class="material-symbols-outlined text-3xl text-green-600">cloud</span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">2. Internet + Google Workspace</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 list-disc pl-5">
+                        <li>Free for the first 30 days</li>
+                        <li><strong class="text-secondary">40% Savings</strong> on Monthly Bill</li>
+                        <li>High-speed Internet Service</li>
+                        <li>Google Workspace + Gemini AI</li>
+                        <li>Security & Content Filtering</li>
+                        <li>Staff Training on Collaboration</li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-bold hover:underline">Choose Bundle →</a>
+                </div>
+                <!-- Bundle 3 -->
+                <div
+                    class="p-8 rounded-3xl border-2 border-primary bg-primary/5 hover:bg-white transition-all relative">
+                    <div
+                        class="absolute -top-3 right-6 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Best Value</div>
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6"><span
+                            class="material-symbols-outlined text-3xl text-blue-600">verified_user</span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">3. Internet + LAN/WLAN + Google Workspace</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 list-disc pl-5">
+                        <li>Free for the first 30 days</li>
+                        <li><strong class="text-secondary">50% Savings</strong> on Monthly Bill</li>
+                        <li>All-in-One Solution</li>
+                        <li>Internet + LAN/WLAN</li>
+                        <li>Google Workspace + Gemini AI</li>
+                        <li>Security & Bandwidth Management</li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-bold hover:underline">Choose Bundle →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-extrabold text-slate-900 mb-2">I-World Business Internet Coverage</h2>
+                <p class="text-slate-500">We cover major cities across Nigeria's South-West region</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Abeokuta</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Agbara
+                    & Industrial Estate</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Akure</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Ibadan</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Lagos-Ibadan
+                    Expressway</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Ijebu
+                    Ode</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Mowe/Ibafo/Magboro</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Osogbo</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Sango
+                    Otta</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Shagamu</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-slate-100" id="contact">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100">
+                <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-2">Service Request Form</h2>
+                <p class="text-center text-slate-500 mb-10">Fill out the form and our team will get back to you shortly.
+                </p>
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Business
+                                Name</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="Enter business name" type="text" /></div>
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Business
+                                Address</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="Enter address" type="text" /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Phone
+                                Number</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="080..." type="tel" /></div>
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Email
+                                Address</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="contact@company.com" type="email" /></div>
+                    </div>
+                    <div class="pt-4">
+                        <label class="block text-sm font-bold text-slate-900 mb-4">Select Plan:</label>
+                        <div class="flex flex-wrap gap-4">
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Lite</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Max</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Pro</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Custom</span></label>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <label class="block text-sm font-bold text-slate-900 mb-4">Services Required (Optional):</label>
+                        <div class="flex flex-wrap gap-4">
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded"
+                                    type="checkbox" /><span class="ml-2 text-sm text-slate-700">Internet
+                                    Service</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded"
+                                    type="checkbox" /><span class="ml-2 text-sm text-slate-700">LAN/WLAN</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded"
+                                    type="checkbox" /><span class="ml-2 text-sm text-slate-700">Google
+                                    Workspace</span></label>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
+                        type="submit">Submit Request Form</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div><img src="../Assets/icons/logos/logo_1.png" alt="iWorld" class="h-8 mb-6">
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        businesses. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../home_internet/index.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../business_internet/index.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../enterprise_internet/index.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Google Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Managed IT Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Newsletter</h4>
+                    <div class="flex gap-2"><input
+                            class="bg-white/10 border-none rounded-xl px-4 py-2 text-sm w-full outline-none focus:ring-1 focus:ring-primary"
+                            placeholder="Email address" type="email" /><button
+                            class="bg-primary px-4 py-2 rounded-xl text-sm font-bold">Join</button></div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© 2025 I-World Networks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-8 right-8 z-50"><a href="../contact/index.html"
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
+                class="material-symbols-outlined">support_agent</span><span
+                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
+                With Us</span></a></div>
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+/* Media Queries for Medium-sized screens (992px - 767px) */
+@media (max-width: 991px) {
+    .carousel-item img{
+        object-fit: contain;
+    }
+}
+/* Media Queries for Smaller screens (max-width: 767px) */
+@media (max-width: 767px) {
+    .carousel-item img{
+        object-fit: contain;
+    }
+    .hiring-section {
+        background-size: contain;
+    }
+    #BacktoTopBtn {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 14px;
+    }
+    .contact-header-content{
+        background-size: contain;
+    }
+    .gfe-text{
+        height: auto !important;
+    }
+    .gfe-inner-text{
+        width: 100% !important;
+    }
+    .gfe-img{
+        width: 100% !important;
+    }
+    .desktop-view{
+        display: none !important;
+    }
+    .mobile-view{
+        display: block !important;
+    }
+
+    .msp-header-content{
+        background: url(../img/MITSMOBILE.jpg) left !important;
+        background-size: cover !important;
+    }
+    .internet-header-content{
+        background: url(../img/MPLS-MOBILE.jpg) left;
+        background-size: cover;
+    }
+    .home-internet-header-content{
+        background: url(../img/Home-MOBILE.jpg) left !important;
+        background-size: cover !important;
+    }
+    .enterprise-internet-header-content{
+        /* background: black !important; */
+        background: #233d49 url(../img/Enterprise-MOBILE.jpg) right no-repeat  !important;
+        background-size: contain !important;
+    }
+    .iob-header-content{
+        background: url(../img/SMB-MOBILE.jpg) no-repeat !important;
+        background-size: contain !important;
+    }
+    .workspace-header-content{
+        background: #fff url(../img/workspace_mobiles.jpg) center no-repeat !important;
+        background-size: contain !important;
+    }
+    .certification-container{
+        height: auto;
+    }
+    .certification-image{
+        display: none !important;
+    }
+    .certificates{
+        height: auto !important;
+    }
+    .certificate, .certificate-title{
+        text-align: start !important;
+    }
+
+}
+@media (max-width: 576px) {
+    /* Two columns on small devices */
+    .contact-header-content{
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/contact-bg.jpg) top fixed;
+        background-size: cover;
+    }
+    .gfe-header-content{
+       background-size: cover;    
+    }
+    .educator-content{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .about-us-text{
+        font-size: 17px !important;
+    }
+    .about-list2{
+        display: block;
+        font-size: 17px !important ;
+    }
+    .about-list1{
+        display: none;
+    }
+    .customer-support-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .support-block {
+        margin-bottom: 20px;
+    }
+}
+
+/* CSS for small devices (tablets) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* Your CSS styles here */
+}
+
+/* CSS for medium devices (desktops) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Your CSS styles here */
+    .gfe-text{
+        height: auto !important;
+    }
+}
+
+/* CSS for large devices (desktops) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    /* Your CSS styles here */
+    .gfe-text{
+        height: auto !important;
+    }
+}
+
+/* CSS for extra large devices (large desktops) */
+@media (min-width: 1200px) {
+    /* Your CSS styles here */
+}
