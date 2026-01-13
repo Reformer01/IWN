@@ -68,13 +68,14 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="../homepage/index.html"><img src="../Assets/icons/logos/logo_1.png" alt="iWorld Logo"
                     class="h-10 object-contain"></a>
-            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
                 <a class="hover:text-primary transition-colors" href="../home_internet/index.html">Home Internet</a>
                 <a class="hover:text-primary transition-colors" href="../business_internet/index.html">Small
                     Business</a>
                 <a class="hover:text-primary transition-colors" href="../enterprise_internet/index.html">Enterprise</a>
                 <a class="hover:text-primary transition-colors" href="../SmartLife.html">Smart Life</a>
+                <a class="hover:text-primary transition-colors" href="../careers.html">Careers</a>
                 <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
                     Zone</a>
             </div>
@@ -192,27 +193,50 @@
 
             <div class="lg:col-span-4 flex flex-col gap-6">
                 <div
-                    class="bento-card bg-navy text-white rounded-bento p-8 flex flex-col justify-between h-full border border-slate-800">
-                    <div>
-                        <div class="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6"><span
-                                class="material-symbols-outlined text-primary text-3xl">support_agent</span></div>
-                        <h3 class="text-xl font-bold mb-2">Technical Support</h3>
-                        <p class="text-slate-400 text-sm mb-6">Need help with your connection? Our tech team is
-                            available 24/7.</p>
+                    class="bento-card bg-gradient-to-br from-navy to-slate-900 text-white rounded-bento p-8 flex flex-col justify-between h-full border border-slate-800 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none">
                     </div>
-                    <div class="space-y-3 text-sm">
-                        <a class="flex items-center gap-3 text-primary font-semibold hover:underline"
-                            href="tel:+2349039844309"><span class="material-symbols-outlined text-lg">call</span>+234
-                            903 984 4309</a>
-                        <a class="flex items-center gap-3 text-slate-300 hover:text-white"
-                            href="tel:+2348077675560"><span class="material-symbols-outlined text-lg">call</span>+234
-                            807 767 5560</a>
-                        <a class="flex items-center gap-3 text-slate-300 hover:text-white"
-                            href="tel:+2348077675565"><span class="material-symbols-outlined text-lg">call</span>+234
-                            807 767 5565</a>
-                        <a class="flex items-center gap-3 text-slate-300 hover:text-white"
-                            href="tel:+2347066053380"><span class="material-symbols-outlined text-lg">call</span>+234
-                            706 605 3380</a>
+                    <div>
+                        <div
+                            class="w-14 h-14 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Technical Support</h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Need instant help with your connection?
+                            Our expert tech team is available 24/7 to assist you.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <a class="flex items-center gap-4 text-white hover:text-primary transition-colors p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5"
+                            href="mailto:support@iworldnetworks.net">
+                            <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-primary text-sm">mail</span>
+                            </div>
+                            <span class="font-semibold text-sm">support@iworldnetworks.net</span>
+                        </a>
+                        <div class="space-y-2 pl-2">
+                            <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-2">Hotlines</p>
+                            <a class="flex items-center gap-3 text-slate-300 hover:text-white text-sm transition-colors"
+                                href="tel:+2349039844309">
+                                <span class="material-symbols-outlined text-primary text-sm">call</span>+234 903 984
+                                4309
+                            </a>
+                            <a class="flex items-center gap-3 text-slate-300 hover:text-white text-sm transition-colors"
+                                href="tel:+2348077675560">
+                                <span class="material-symbols-outlined text-primary text-sm">call</span>+234 807 767
+                                5560
+                            </a>
+                            <a class="flex items-center gap-3 text-slate-300 hover:text-white text-sm transition-colors"
+                                href="tel:+2348077675565">
+                                <span class="material-symbols-outlined text-primary text-sm">call</span>+234 807 767
+                                5565
+                            </a>
+                            <a class="flex items-center gap-3 text-slate-300 hover:text-white text-sm transition-colors"
+                                href="tel:+2347066053380">
+                                <span class="material-symbols-outlined text-primary text-sm">call</span>+234 706 605
+                                3380
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="bento-card bg-white rounded-bento p-6 border border-slate-100">
@@ -353,12 +377,23 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-navy text-white pt-20 pb-10 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div><img src="../Assets/icons/logos/logo_1.png" alt="iWorld" class="h-8 mb-6">
                     <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
                         homes and businesses. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../homepage/index.html">Home</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../contact/index.html">Contact Us</a>
+                        </li>
+                        <li><a class="hover:text-white transition-colors" href="../careers.html">Careers</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
@@ -374,17 +409,14 @@
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../NGFEP.html">Nigeria Google for
+                                Education</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../Google_Workspace.html">Google
+                                Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../msp.html">Managed Service
+                                Provider</a></li>
                         <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#">Google Workspace</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#">Managed IT Services</a></li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Newsletter</h4>
-                    <div class="flex gap-2"><input
-                            class="bg-white/10 border-none rounded-xl px-4 py-2 text-sm w-full outline-none focus:ring-1 focus:ring-primary"
-                            placeholder="Email address" type="email" /><button
-                            class="bg-primary px-4 py-2 rounded-xl text-sm font-bold">Join</button></div>
                 </div>
             </div>
             <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
