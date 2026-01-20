@@ -507,7 +507,9 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-500 text-xs">© 2025 I-World Networks. All rights reserved.</p>
+                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> I-World Networks. All rights
+                    reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
             </div>
         </div>
     </footer>

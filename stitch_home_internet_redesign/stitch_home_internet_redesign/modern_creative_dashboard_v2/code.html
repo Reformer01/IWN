@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>I-World | High-Speed Business Internet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#E88D3E", // Orange from buttons
+              secondary: "#2E9E4C", // Green from headers
+              "background-light": "#F8FAFC",
+              "background-dark": "#0F172A",
+              "surface-light": "#FFFFFF",
+              "surface-dark": "#1E293B",
+              "text-light": "#1E293B",
+              "text-dark": "#F1F5F9",
+              "border-light": "#E2E8F0",
+              "border-dark": "#334155"
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              "xl": "1rem",
+              "2xl": "1.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300">
+<nav class="fixed w-full z-50 bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-4xl">language</span>
+<span class="font-bold text-2xl tracking-tight text-text-light dark:text-white">I-World</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-text-light dark:text-text-dark hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-text-light dark:text-text-dark hover:text-primary transition-colors" href="#">Enterprise</a>
+<a class="text-text-light dark:text-text-dark hover:text-primary transition-colors" href="#">SME</a>
+<a class="text-text-light dark:text-text-dark hover:text-primary transition-colors" href="#">Contact</a>
+<button class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-opacity-90 transition-all shadow-lg hover:shadow-primary/30">Get Started</button>
+</div>
+<div class="md:hidden">
+<button class="text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="relative hero-gradient h-[600px] flex items-center justify-center text-center px-4">
+<div class="max-w-4xl mx-auto text-white space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Live: High-Speed Coverage Active
+            </div>
+<h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                Run on I-World <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-green-300">High-Speed</span><br/> Unlimited Internet
+            </h1>
+<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+                Empowering Nigerian businesses with reliable, scalable connectivity and cloud solutions designed for uninterrupted growth.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+<button class="bg-primary text-white px-8 py-3 rounded-full font-semibold text-lg hover:transform hover:-translate-y-1 transition-all shadow-xl hover:shadow-primary/40">Check Availability</button>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white/20 transition-all">View Plans</button>
+</div>
+</div>
+</header>
+<section class="py-20 px-4 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4 text-text-light dark:text-white">Benefits of I-World SMB Internet</h2>
+<div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="flex items-start gap-6 p-6 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-border-light dark:border-border-dark hover:shadow-md transition-shadow">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2 text-text-light dark:text-white">First Month Subscription is FREE</h3>
+<p class="text-gray-600 dark:text-gray-400">When you switch to I-World SMB Internet, your first month is on us.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 p-6 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-border-light dark:border-border-dark hover:shadow-md transition-shadow">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">swap_horiz</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2 text-text-light dark:text-white">Switching from another provider is FREE</h3>
+<p class="text-gray-600 dark:text-gray-400">We ensure a seamless transition without downtime. No extra cost for moving your service.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 p-6 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-border-light dark:border-border-dark hover:shadow-md transition-shadow">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined text-3xl">loyalty</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2 text-text-light dark:text-white">Referral Pay Discount</h3>
+<p class="text-gray-600 dark:text-gray-400">Earn discounts on your bill for every business you refer to our network.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 p-6 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-border-light dark:border-border-dark hover:shadow-md transition-shadow">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2 text-text-light dark:text-white">24/7 Complimentary Network Support</h3>
+<p class="text-gray-600 dark:text-gray-400">Dedicated support team available round-the-clock to keep your business running smoothly.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-4 bg-gray-50 dark:bg-gray-900/50">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4 text-text-light dark:text-white">Choose your Shared Access Plan</h2>
+<p class="text-gray-600 dark:text-gray-400">Flexible options tailored for businesses of all sizes</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="relative bg-surface-light dark:bg-surface-dark rounded-2xl shadow-lg border-t-4 border-secondary overflow-hidden flex flex-col h-full hover:transform hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-secondary p-4 text-center">
+<h3 class="text-white font-bold text-xl">U-Lite</h3>
+</div>
+<div class="p-6 flex-grow flex flex-col items-center">
+<div class="text-3xl font-bold text-text-light dark:text-white mb-1">₦32,500</div>
+<div class="text-sm text-gray-500 dark:text-gray-400 mb-6">per month</div>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 w-full mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> Up to 25Mbps</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> 100% Unlimited data</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> 99.8% up-time</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> One-off Installation fee</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> No speed throttling</li>
+</ul>
+<div class="mt-auto w-full">
+<button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors shadow-md">SUBSCRIBE NOW</button>
+</div>
+</div>
+</div>
+<div class="relative bg-surface-light dark:bg-surface-dark rounded-2xl shadow-xl border-t-4 border-secondary overflow-hidden flex flex-col h-full transform md:-translate-y-4">
+<div class="absolute top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-bl-lg font-bold">POPULAR</div>
+<div class="bg-secondary p-4 text-center">
+<h3 class="text-white font-bold text-xl">U-Max</h3>
+</div>
+<div class="p-6 flex-grow flex flex-col items-center">
+<div class="text-3xl font-bold text-text-light dark:text-white mb-1">₦43,500</div>
+<div class="text-sm text-gray-500 dark:text-gray-400 mb-6">per month</div>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 w-full mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> Up to 30Mbps</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> 100% Unlimited data</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> 99.8% up-time</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> One-off Installation fee</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> Multiple device connectivity</li>
+<li class="flex items-center gap-2 font-bold text-secondary"><span class="material-symbols-outlined text-secondary text-base">star</span> Get your 1st Month Free</li>
+</ul>
+<div class="mt-auto w-full">
+<button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors shadow-md">SUBSCRIBE NOW</button>
+</div>
+</div>
+</div>
+<div class="relative bg-surface-light dark:bg-surface-dark rounded-2xl shadow-lg border-t-4 border-secondary overflow-hidden flex flex-col h-full hover:transform hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-secondary p-4 text-center">
+<h3 class="text-white font-bold text-xl">U-Pro</h3>
+</div>
+<div class="p-6 flex-grow flex flex-col items-center">
+<div class="text-3xl font-bold text-text-light dark:text-white mb-1">₦58,000</div>
+<div class="text-sm text-gray-500 dark:text-gray-400 mb-6">per month</div>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 w-full mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> Up to 40Mbps</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> 100% Unlimited data</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> 99.8% up-time</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> One-off Installation fee</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span> Multiple device connectivity</li>
+</ul>
+<div class="mt-auto w-full">
+<button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors shadow-md">SUBSCRIBE NOW</button>
+</div>
+</div>
+</div>
+<div class="relative bg-surface-light dark:bg-surface-dark rounded-2xl shadow-lg border-t-4 border-secondary overflow-hidden flex flex-col h-full hover:transform hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-secondary p-4 text-center">
+<h3 class="text-white font-bold text-xl">U-Custom</h3>
+</div>
+<div class="p-6 flex-grow flex flex-col items-center">
+<div class="text-xl font-bold text-text-light dark:text-white mb-4 text-center">Need a Custom Home Plan?</div>
+<ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 w-full mb-8 text-center">
+<li>Tailored to your need only?</li>
+<li>Are you running a special business?</li>
+<li>Do you require more blocks of IPs?</li>
+<li>Got a device with high internet demands?</li>
+</ul>
+<div class="mt-auto w-full text-center">
+<p class="text-sm font-bold text-secondary mb-4">Get a free survey and quote Here</p>
+<button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors shadow-md">REQUEST QUOTE</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-4 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4 text-text-light dark:text-white">Managed Service Combinations</h2>
+<div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-surface-light dark:bg-surface-dark p-8 rounded-2xl border border-border-light dark:border-border-dark shadow-sm hover:shadow-lg transition-all group">
+<div class="flex items-center justify-center w-16 h-16 rounded-full bg-orange-50 dark:bg-orange-900/20 text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">wifi_tethering</span>
+</div>
+<h3 class="text-xl font-bold mb-4 text-text-light dark:text-white">1. Internet Service + LAN/WLAN</h3>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 list-disc pl-5">
+<li>Free for the first 30 days</li>
+<li>33% savings on your monthly bill</li>
+<li>High-speed internet service</li>
+<li>Local Area Network (LAN) and Wireless Area Network setup</li>
+<li>Business domain name registration</li>
+</ul>
+<button class="w-full bg-primary/10 text-primary border border-primary hover:bg-primary hover:text-white py-2 rounded-lg font-medium transition-colors">Choose Plan</button>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-8 rounded-2xl border border-border-light dark:border-border-dark shadow-sm hover:shadow-lg transition-all group">
+<div class="flex items-center justify-center w-16 h-16 rounded-full bg-green-50 dark:bg-green-900/20 text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">cloud_sync</span>
+</div>
+<h3 class="text-xl font-bold mb-4 text-text-light dark:text-white">2. Internet Service + Google Workspace</h3>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 list-disc pl-5">
+<li>Free for the first 30 days</li>
+<li>40% savings on your monthly bill</li>
+<li>High speed internet service</li>
+<li>Google Workspace Business Starter + Gemini (Generative AI)</li>
+<li>Security, content filtering, and bandwidth management</li>
+</ul>
+<button class="w-full bg-primary/10 text-primary border border-primary hover:bg-primary hover:text-white py-2 rounded-lg font-medium transition-colors">Choose Plan</button>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-8 rounded-2xl border border-border-light dark:border-border-dark shadow-sm hover:shadow-lg transition-all group">
+<div class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">admin_panel_settings</span>
+</div>
+<h3 class="text-xl font-bold mb-4 text-text-light dark:text-white">3. Internet Service + LAN/WLAN + Workspace</h3>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 list-disc pl-5">
+<li>Free for the first 30 days</li>
+<li>50% savings on your monthly bill</li>
+<li>High speed internet service</li>
+<li>Comprehensive setup: LAN, WLAN &amp; Workspace</li>
+<li>Google Workspace Business Starter + Gemini</li>
+<li>Security, content filtering, and bandwidth management</li>
+</ul>
+<button class="w-full bg-primary/10 text-primary border border-primary hover:bg-primary hover:text-white py-2 rounded-lg font-medium transition-colors">Choose Plan</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-4 bg-gray-50 dark:bg-gray-900/50">
+<div class="max-w-4xl mx-auto bg-surface-light dark:bg-surface-dark rounded-3xl shadow-xl p-8 md:p-12 border border-border-light dark:border-border-dark">
+<h2 class="text-3xl font-bold mb-8 text-center text-text-light dark:text-white">Service Request Form</h2>
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Business Name</label>
+<input class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-text-light dark:text-white focus:ring-primary focus:border-primary transition-shadow" placeholder="Enter business name" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Business Address</label>
+<input class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-text-light dark:text-white focus:ring-primary focus:border-primary transition-shadow" placeholder="Enter business address" type="text"/>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Business Phone Number</label>
+<input class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-text-light dark:text-white focus:ring-primary focus:border-primary transition-shadow" placeholder="+234..." type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Business WhatsApp Number</label>
+<input class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-text-light dark:text-white focus:ring-primary focus:border-primary transition-shadow" placeholder="+234..." type="tel"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Business Email Address</label>
+<input class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-text-light dark:text-white focus:ring-primary focus:border-primary transition-shadow" placeholder="contact@business.com" type="email"/>
+</div>
+<div class="pt-4">
+<p class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Select which of our service you require (Optional):</p>
+<div class="flex flex-wrap gap-4">
+<label class="inline-flex items-center">
+<input class="form-checkbox text-primary rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" type="checkbox"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Internet Service</span>
+</label>
+<label class="inline-flex items-center">
+<input class="form-checkbox text-primary rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" type="checkbox"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">LAN/WLAN</span>
+</label>
+<label class="inline-flex items-center">
+<input class="form-checkbox text-primary rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" type="checkbox"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Google Workspace</span>
+</label>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-6 pt-4">
+<div>
+<p class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">How best to contact you:</p>
+<div class="flex flex-wrap gap-4">
+<label class="inline-flex items-center">
+<input class="form-radio text-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" name="contact" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">WhatsApp</span>
+</label>
+<label class="inline-flex items-center">
+<input class="form-radio text-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" name="contact" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Email</span>
+</label>
+<label class="inline-flex items-center">
+<input class="form-radio text-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" name="contact" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Phone Call</span>
+</label>
+</div>
+</div>
+<div>
+<p class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Best time to contact you:</p>
+<div class="flex flex-wrap gap-4">
+<label class="inline-flex items-center">
+<input class="form-radio text-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" name="time" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Day</span>
+</label>
+<label class="inline-flex items-center">
+<input class="form-radio text-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" name="time" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Evening</span>
+</label>
+<label class="inline-flex items-center">
+<input class="form-radio text-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800 focus:ring-primary" name="time" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Anytime</span>
+</label>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-opacity-90 transition-all mt-8 transform hover:-translate-y-1" type="submit">
+                    SUBMIT REQUEST
+                </button>
+</form>
+</div>
+</section>
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+<div class="lg:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl">language</span>
+<span class="font-bold text-xl">I-World</span>
+</div>
+<p class="text-gray-400 text-sm">Empowering Nigerian businesses with reliable connectivity and digital solutions.</p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-white">Quick Links</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-white">Connectivity Services</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Internet Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Managed Wifi</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">VSAT Solutions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-white">Hotlines</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">call</span> +1 5632 351 339</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">call</span> +1 5632 684 574</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-white">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-gray-800 border-none text-white text-sm rounded px-3 py-2 w-full focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white px-3 py-2 rounded hover:bg-opacity-90 transition-colors">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+<p>© 2024 I-World Networks. All rights reserved.</p>
+<div class="flex space-x-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Managed IT Services | iWorld Networks - MSP Solutions</title>
+    <meta name="description"
+        content="I-World Networks provides comprehensive Managed IT Services (MSP) for businesses across Nigeria. Get expert IT support, cloud solutions, and infrastructure management.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols_Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('../Assets/img/aerial-view-city.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-body antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../homepage/index.html"><img src="../Assets/icons/logos/logo_1.png" alt="iWorld Logo"
+                    class="h-10 object-contain"></a>
+            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
+                <a class="hover:text-primary transition-colors" href="../home_internet/index.html">Home Internet</a>
+                <a class="hover:text-primary transition-colors" href="../business_internet/index.html">Small
+                    Business</a>
+                <a class="hover:text-primary transition-colors" href="../enterprise_internet/index.html">Enterprise</a>
+                <a class="hover:text-primary transition-colors" href="../SmartLife.html">Smart Life</a>
+                <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
+                    Zone</a>
+            </div>
+            <a href="../contact/index.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all">Contact
+                Sales</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full min-h-[600px] flex items-center hero-gradient pt-20">
+        <div class="container mx-auto px-6 py-20 text-center text-white">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-8">
+                <span class="w-2 h-2 rounded-full bg-secondary"></span> Managed IT Services
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 max-w-5xl mx-auto">
+                Focus on Your Business,<br />We'll Handle Your <span class="text-primary">IT Infrastructure</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10">
+                Comprehensive managed IT services tailored for businesses across Nigeria. From cloud solutions to 24/7
+                support, we've got you covered.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30"
+                    href="#contact-form">Request a Consultation</a>
+                <a class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full transition-all"
+                    href="#services">View Services</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Why Choose Our MSP Services?</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+                <p class="text-lg text-slate-600 leading-relaxed">We provide enterprise-grade IT management for
+                    businesses of all sizes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">24/7 Support</h3>
+                    <p class="text-slate-600">Round-the-clock monitoring and support for your IT infrastructure</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-secondary text-3xl">security</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Proactive Security</h3>
+                    <p class="text-slate-600">Advanced threat protection and regular security updates</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">savings</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Cost-Effective</h3>
+                    <p class="text-slate-600">Reduce IT costs with predictable monthly pricing</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-secondary text-3xl">trending_up</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Scalable Solutions</h3>
+                    <p class="text-slate-600">Grow your IT infrastructure as your business expands</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-background-light">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Our Managed Services</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-white text-2xl">computer</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Computer & Network Services</h3>
+                    <p class="text-slate-600 mb-4">Hardware as a Service (HaaS) - Complete management of your computer
+                        systems and network infrastructure.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Hardware procurement & management</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Network setup & optimization</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Regular maintenance & upgrades</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-secondary to-green-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-white text-2xl">cloud</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Google Workspace</h3>
+                    <p class="text-slate-600 mb-4">Complete Google Workspace setup, migration, and management for your
+                        organization.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Email & collaboration tools</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Cloud storage & file sharing</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Training & user support</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-white text-2xl">call</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Business Phone System</h3>
+                    <p class="text-slate-600 mb-4">Modern VoIP and business phone solutions for seamless communication.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>VoIP setup & configuration</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Multi-line support</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Call analytics & reporting</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-secondary to-green-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-white text-2xl">dns</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Server Infrastructure</h3>
+                    <p class="text-slate-600 mb-4">Windows Server workhouse setup and management for enterprise
+                        operations.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Server deployment & configuration</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Active Directory management</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Performance monitoring</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-white text-2xl">headset_mic</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Help Desk Support</h3>
+                    <p class="text-slate-600 mb-4">Dedicated IT support team to assist your staff with technical issues.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Multi-channel support (phone, email, chat)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Ticket management system</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Fast response times</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-secondary to-green-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-white text-2xl">backup</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Data Backup & Recovery</h3>
+                    <p class="text-slate-600 mb-4">Comprehensive backup solutions to protect your critical business
+                        data.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Automated daily backups</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Disaster recovery planning</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <span>Quick data restoration</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Get Started with MSP Services
+                    </h2>
+                    <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+                    <p class="text-lg text-slate-600">We're excited to learn about your IT requirements. Fill out the
+                        form below and we'll get back to you shortly.</p>
+                </div>
+
+                <form class="space-y-6 bg-background-light p-8 rounded-2xl border border-slate-200" id="mspForm">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
+                            <input required type="text"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Business Name *</label>
+                            <input required type="text"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                placeholder="Your Company Ltd">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address *</label>
+                            <input required type="email"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                placeholder="john@company.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                            <input required type="tel"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                placeholder="+234 xxx xxx xxxx">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Company Size *</label>
+                        <select required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                            <option value="">Select company size</option>
+                            <option value="Small (1-50 employees)">Small (1-50 employees)</option>
+                            <option value="Medium (51-200 employees)">Medium (51-200 employees)</option>
+                            <option value="Large (200+ employees)">Large (200+ employees)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Additional Comments or
+                            Questions</label>
+                        <textarea rows="4"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                            placeholder="Tell us about your IT needs..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-primary hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../homepage/index.html"
+                                class="text-slate-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="../about.html" class="text-slate-300 hover:text-white transition-colors">About
+                                Us</a></li>
+                        <li><a href="../contact/index.html"
+                                class="text-slate-300 hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Connectivity Services -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Connectivity Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../home_internet/index.html"
+                                class="text-slate-300 hover:text-white transition-colors">Internet for Home</a></li>
+                        <li><a href="../business_internet/index.html"
+                                class="text-slate-300 hover:text-white transition-colors">Internet for Business</a></li>
+                        <li><a href="../enterprise_internet/index.html"
+                                class="text-slate-300 hover:text-white transition-colors">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Services -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Cloud Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../NGFEP.html" class="text-slate-300 hover:text-white transition-colors">Nigeria
+                                Google for Education</a></li>
+                        <li><a href="../Google_Workspace.html"
+                                class="text-slate-300 hover:text-white transition-colors">Google Workspace</a></li>
+                        <li><a href="../msp/index.html"
+                                class="text-slate-300 hover:text-white transition-colors">Managed Service Provider</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Contact</h3>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">call</span>
+                            <span>+234 903 984 4309</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">mail</span>
+                            <span>support@iworldnetworks.net</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-slate-700 pt-8 text-center text-slate-400">
+                <p>&copy; <span id="currentYear"></span> I-World Networks. All rights reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+</body>
+
+</html>
