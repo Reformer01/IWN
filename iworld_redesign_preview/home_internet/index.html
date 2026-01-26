@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>iWorld Networks | Home Internet</title>
+    <title>I-World Networks | Home Internet</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         rel="stylesheet" />
     <script>
         tailwind.config = {
@@ -22,7 +22,7 @@
                         "surface-dark": "#1E293B",
                     },
                     fontFamily: {
-                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        display: ["Lexend", "sans-serif"],
                         body: ["Plus Jakarta Sans", "sans-serif"],
                     },
                 },
@@ -48,21 +48,48 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="../homepage/index.html"><img src="../Assets/icons/logos/logo_1.png" alt="iWorld Logo"
-                    class="h-10 object-contain"></a>
+            <a href="../homepage/index.html">
+                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-10 object-contain">
+            </a>
             <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
-                <a class="hover:text-primary transition-colors" href="../home_internet/index.html">Home Internet</a>
-                <a class="hover:text-primary transition-colors" href="../business_internet/index.html">Small
-                    Business</a>
-                <a class="hover:text-primary transition-colors" href="../enterprise_internet/index.html">Enterprise</a>
-                <a class="hover:text-primary transition-colors" href="../SmartLife.html">Smart Life</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-primary">
+                        Connectivity Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./index.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Internet for
+                            Home</a>
+                        <a href="../business_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Small Business</a>
+                        <a href="../enterprise_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
+                        Cloud Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="../ngfep/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Nigeria
+                            Google for Education</a>
+                        <a href="../../Google_Workspace.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors" href="../msp/index.html">Managed IT Services</a>
+                <a class="hover:text-primary transition-colors" href="../loyalty_discounts/index.html">Loyalty &
+                    Discounts</a>
+                <a class="hover:text-primary transition-colors" href="../careers/index.html">Careers</a>
                 <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
                     Zone</a>
             </div>
             <a href="../contact/index.html"
-                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all">Contact
-                Sales</a>
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
+                Us</a>
         </div>
     </nav>
 
@@ -94,48 +121,44 @@
     <section class="py-20 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-extrabold mb-4 text-slate-900">Why Choose iWorld Home Internet?</h2>
+                <h2 class="text-3xl font-extrabold mb-4 text-slate-900">Why Choose I-World Home Internet?</h2>
                 <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div
                     class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all text-center">
-                    <div
-                        class="w-14 h-14 mx-auto bg-green-100 rounded-full flex items-center justify-center text-secondary mb-4">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-secondary mb-4">
                         <span class="material-symbols-outlined text-3xl">all_inclusive</span>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Unlimited Data</h3>
-                    <p class="text-sm text-slate-500">No data caps, no throttling. Stream and download as much as you
+                    <p class="text-sm text-slate-900">No data caps, no throttling. Stream and download as much as you
                         like.</p>
                 </div>
                 <div
                     class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all text-center">
-                    <div
-                        class="w-14 h-14 mx-auto bg-orange-100 rounded-full flex items-center justify-center text-primary mb-4">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-primary mb-4">
                         <span class="material-symbols-outlined text-3xl">calendar_month</span>
                     </div>
                     <h3 class="text-xl font-bold mb-2">First Month FREE</h3>
-                    <p class="text-sm text-slate-500">Switch to our home internet and get your first month subscription
+                    <p class="text-sm text-slate-900">Switch to our home internet and get your first month subscription
                         absolutely free.</p>
                 </div>
                 <div
                     class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all text-center">
-                    <div
-                        class="w-14 h-14 mx-auto bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-4">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-purple-600 mb-4">
                         <span class="material-symbols-outlined text-3xl">elderly</span>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Senior Citizen Discount</h3>
-                    <p class="text-sm text-slate-500">15% discount if you are above 60 years of age. We value our
+                    <p class="text-sm text-slate-900">15% discount if you are above 60 years of age. We value our
                         elders.</p>
                 </div>
                 <div
                     class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all text-center">
-                    <div
-                        class="w-14 h-14 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-blue-600 mb-4">
                         <span class="material-symbols-outlined text-3xl">payments</span>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Referral Pay Discount</h3>
-                    <p class="text-sm text-slate-500">Refer a friend and get your next one month subscription FREE.</p>
+                    <p class="text-sm text-slate-900">Refer a friend and get your next one month subscription FREE.</p>
                 </div>
             </div>
         </div>
@@ -345,7 +368,7 @@
     <footer class="bg-navy text-white pt-20 pb-10 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div><img src="../Assets/icons/logos/logo_1.png" alt="iWorld" class="h-8 mb-6">
+                <div><img src="../Assets/icons/logos/iworld_logo2.jpg" alt="I-World" class="h-8 mb-6">
                     <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
                         homes and businesses. Secure, fast, and always reliable.</p>
                 </div>
@@ -373,11 +396,11 @@
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a class="hover:text-white transition-colors" href="../NGFEP.html">Nigeria Google for
+                        <li><a class="hover:text-white transition-colors" href="../../NGFEP.html">Nigeria Google for
                                 Education</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../Google_Workspace.html">Google
+                        <li><a class="hover:text-white transition-colors" href="../../Google_Workspace.html">Google
                                 Workspace</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../msp.html">Managed Service
+                        <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
                                 Provider</a></li>
                         <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
                     </ul>
@@ -400,3 +423,4 @@
 </body>
 
 </html>
+

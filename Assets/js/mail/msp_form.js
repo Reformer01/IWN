@@ -1,4 +1,4 @@
-const dbURI = 'https://i-world-mail-server.onrender.com/mail';
+const dbURI = 'https://I-World-mail-server.onrender.com/mail';
 
 // toast function
 const toaster = (color, message, notificationsContainer) => {
@@ -70,6 +70,7 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
   })
 
 })
+
 
 
 

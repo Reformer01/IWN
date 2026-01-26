@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Job Application | iWorld Networks</title>
+    <title>Job Application | I-World Networks</title>
     <meta name="description"
         content="Apply for jobs at I-World Networks, a leading connectivity service provider in Nigeria.">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material_Symbols_Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         rel="stylesheet" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
@@ -31,7 +31,7 @@
                         "background-light": "#F8FAFC",
                     },
                     fontFamily: {
-                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        display: ["Lexend", "sans-serif"],
                         body: ["Plus Jakarta Sans", "sans-serif"],
                     },
                 },
@@ -87,21 +87,48 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="../homepage/index.html"><img src="../Assets/icons/logos/logo_1.png" alt="iWorld Logo"
-                    class="h-10 object-contain"></a>
+            <a href="../homepage/index.html">
+                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-10 object-contain">
+            </a>
             <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
-                <a class="hover:text-primary transition-colors" href="../home_internet/index.html">Home Internet</a>
-                <a class="hover:text-primary transition-colors" href="../business_internet/index.html">Small
-                    Business</a>
-                <a class="hover:text-primary transition-colors" href="../enterprise_internet/index.html">Enterprise</a>
-                <a class="hover:text-primary transition-colors" href="../SmartLife.html">Smart Life</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
+                        Connectivity Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="../home_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Internet for Home</a>
+                        <a href="../business_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Small Business</a>
+                        <a href="../enterprise_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
+                        Cloud Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="../ngfep/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Nigeria
+                            Google for Education</a>
+                        <a href="../../Google_Workspace.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors" href="../msp/index.html">Managed IT Services</a>
+                <a class="hover:text-primary transition-colors" href="../loyalty_discounts/index.html">Loyalty &
+                    Discounts</a>
+                <a class="hover:text-primary transition-colors" href="../careers/index.html">Careers</a>
                 <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
                     Zone</a>
             </div>
             <a href="../contact/index.html"
-                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all">Contact
-                Sales</a>
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
+                Us</a>
         </div>
     </nav>
 
@@ -111,7 +138,7 @@
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 max-w-4xl mx-auto">Apply for Your Next
                 <span class="text-primary">Career Opportunity</span>
             </h1>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Join I-World Networks and help us connect Nigeria to the
+            <p class="text-lg text-slate-900 max-w-2xl mx-auto">Join I-World Networks and help us connect Nigeria to the
                 world. We value innovation, teamwork, and growth.</p>
         </div>
     </header>
@@ -125,23 +152,23 @@
                 <ul class="space-y-3">
                     <li class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-700">Be part of a fast-growing, innovative tech company</span>
+                        <span class="text-slate-900">Be part of a fast-growing, innovative tech company</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-700">Collaborative and supportive work environment</span>
+                        <span class="text-slate-900">Collaborative and supportive work environment</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-700">Opportunities for professional growth and training</span>
+                        <span class="text-slate-900">Opportunities for professional growth and training</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-700">Competitive salary and benefits</span>
+                        <span class="text-slate-900">Competitive salary and benefits</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-700">Make a real impact in the connectivity industry</span>
+                        <span class="text-slate-900">Make a real impact in the connectivity industry</span>
                     </li>
                 </ul>
             </div>
@@ -298,6 +325,12 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
+                    <img src="../Assets/icons/logos/iworld_logo2.jpg" alt="I-World" class="h-8 mb-6">
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Nigeria's leading connectivity and IT management provider.
+                    </p>
+                </div>
+                <div>
                     <h3 class="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="../homepage/index.html"
@@ -322,9 +355,9 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-secondary">Cloud Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="../NGFEP.html" class="text-slate-300 hover:text-white transition-colors">Nigeria
+                        <li><a href="../../NGFEP.html" class="text-slate-300 hover:text-white transition-colors">Nigeria
                                 Google for Education</a></li>
-                        <li><a href="../Google_Workspace.html"
+                        <li><a href="../../Google_Workspace.html"
                                 class="text-slate-300 hover:text-white transition-colors">Google Workspace</a></li>
                         <li><a href="../msp/index.html"
                                 class="text-slate-300 hover:text-white transition-colors">Managed Service Provider</a>
@@ -551,9 +584,9 @@
         <div><input type="url" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][website]" placeholder="Company Website (optional)"></div>
         <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][address]" placeholder="Company Address (optional)"></div>
         <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][contact]" placeholder="Verifiable Contact (required)" required></div>
-        <div><label class="block text-xs text-slate-600 mb-1">Job Start Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][start_date]" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Job Start Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][start_date]" required></div>
         <div class="flex items-end"><div class="flex items-center gap-2"><input class="still-here-toggle" type="checkbox" id="still-here-${idx}" name="experience[${idx}][still_here]"><label class="text-sm" for="still-here-${idx}">I currently work here</label></div></div>
-        <div class="end-date-field"><label class="block text-xs text-slate-600 mb-1">Job End Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][end_date]"></div>
+        <div class="end-date-field"><label class="block text-xs text-slate-900 mb-1">Job End Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][end_date]"></div>
         <div class="md:col-span-2"><textarea class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][description]" placeholder="Briefly describe your job role / roles" rows="2"></textarea></div>
       </div>
     `;
@@ -589,8 +622,8 @@
       <div class="grid md:grid-cols-2 gap-3">
         <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][school]" placeholder="School" required></div>
         <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][degree]" placeholder="Degree" required></div>
-        <div><label class="block text-xs text-slate-600 mb-1">Admission Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][start_date]" required></div>
-        <div><label class="block text-xs text-slate-600 mb-1">Graduation Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][end_date]" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Admission Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][start_date]" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Graduation Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][end_date]" required></div>
       </div>
     `;
                 educationList.appendChild(div);
@@ -608,7 +641,7 @@
       <div class="grid md:grid-cols-2 gap-3">
         <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][name]" placeholder="Certificate Name" required></div>
         <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][issuer]" placeholder="Issuer" required></div>
-        <div><label class="block text-xs text-slate-600 mb-1">Date Obtained</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][date_obtained]" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Date Obtained</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][date_obtained]" required></div>
         <div class="flex items-end">
           <div class="flex items-center gap-2">
             <input class="cert-expiry-toggle" type="checkbox" id="cert-expiry-${idx}" name="certificate[${idx}][can_expire]">
@@ -616,7 +649,7 @@
           </div>
         </div>
         <div class="expiry-date-field md:col-span-2" style="display:none">
-          <label class="block text-xs text-slate-600 mb-1">Expiry Date</label>
+          <label class="block text-xs text-slate-900 mb-1">Expiry Date</label>
           <input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][expiry_date]">
         </div>
       </div>
@@ -637,3 +670,4 @@
 </body>
 
 </html>
+

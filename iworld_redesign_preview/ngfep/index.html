@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Google for Education Nigeria | I-World Networks</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "google-blue": "#4285F4",
+                        "google-red": "#EA4335",
+                        "google-yellow": "#FBBC05",
+                        "google-green": "#34A853",
+                    },
+                    fontFamily: {
+                        display: ["Lexend", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8)), url('../Assets/img/k-12 (2).jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tab-btn.active {
+            color: #4285F4;
+            border-bottom: 3px solid #4285F4;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .school-card:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-body antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../homepage/index.html">
+                <img src="../Assets/icons/logos/ngfep 3.jpg" alt="I-World Logo" class="h-8 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
+                        Connectivity Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="../home_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Internet for Home</a>
+                        <a href="../business_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Small Business</a>
+                        <a href="../enterprise_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-primary">
+                        Cloud Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./index.html" class="block px-4 py-2 bg-slate-50 text-primary font-bold">Nigeria Google
+                            for Education</a>
+                        <a href="../../Google_Workspace.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors" href="../msp/index.html">Managed IT Services</a>
+                <a class="hover:text-primary transition-colors" href="../loyalty_discounts/index.html">Loyalty &
+                    Discounts</a>
+                <a class="hover:text-primary transition-colors" href="../careers/index.html">Careers</a>
+            </div>
+            <a href="../contact/index.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
+                Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full min-h-[500px] flex items-center hero-gradient pt-20">
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
+                <nav
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/80 text-[11px] font-bold uppercase tracking-wider mb-8 hover:bg-white/10 transition-all cursor-default group">
+                    <span class="text-primary flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[14px]">school</span>
+                        Google for Education
+                    </span>
+                </nav>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 font-display leading-tight">
+                    Transform Education with <span class="text-google-blue">Google</span>
+                </h1>
+                <p class="text-xl text-white/90 leading-relaxed mb-10 font-medium">
+                    Empowering Nigerian schools with world-class digital learning solutions, infrastructure, and
+                    standardized support.
+                </p>
+                <a href="#enquiry"
+                    class="bg-google-blue hover:bg-blue-600 text-white px-10 py-4 rounded-full font-bold shadow-2xl transition-all inline-flex items-center gap-2">
+                    Join the Program <span class="material-symbols-outlined">school</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Program Overview -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div
+                        class="inline-block px-4 py-1.5 rounded-full bg-google-blue/10 text-google-blue font-bold text-sm uppercase tracking-widest">
+                        Investment Program
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-navy font-display">Nigeria Google For Education
+                        Program</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed italic border-l-4 border-google-blue pl-6">
+                        The Nigeria Google For Education Program (NGFEP) is powered by I-World Networks along with other
+                        technical partners. It is an initial <span class="text-google-blue font-black">$10 Million
+                            USD</span> investment program in the Nigerian education sector.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Helping K-12 and Higher Institutions develop world-class digital learning infrastructure, change
+                        management processes, training, and capacity development. We launch schools into world-class
+                        Digital Learning Centers using the Google for Education learning platform.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-google-blue/5 rounded-4xl -z-10 blur-2xl"></div>
+                    <img src="../Assets/img/GFEP.jpg" alt="Digital Learning"
+                        class="rounded-3xl shadow-2xl border border-slate-100">
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-50 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-google-green flex items-center justify-center text-white">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black text-slate-400 uppercase tracking-widest leading-none">Scale
+                            </p>
+                            <p class="text-xl font-black text-navy">$10M Investment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Cost Covered Tabs (IMAGE REQUEST) -->
+    <section class="py-12 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy font-display mb-4">Project Cost covered by
+                    NGFEP</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">We provide the foundational technology required to
+                    revolutionize your campus infrastructure.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+                <!-- Tabs Nav -->
+                <div class="flex overflow-x-auto border-b border-slate-100 no-scrollbar">
+                    <button onclick="showTab(0)"
+                        class="tab-btn active px-3 py-2 whitespace-nowrap font-bold text-[10px] uppercase tracking-wider text-slate-500 hover:text-google-blue transition-all">Google
+                        for Education Plus</button>
+                    <button onclick="showTab(1)"
+                        class="tab-btn px-3 py-2 whitespace-nowrap font-bold text-[10px] uppercase tracking-wider text-slate-500 hover:text-google-blue transition-all">World
+                        Class Campus Network</button>
+                    <button onclick="showTab(2)"
+                        class="tab-btn px-3 py-2 whitespace-nowrap font-bold text-[10px] uppercase tracking-wider text-slate-500 hover:text-google-blue transition-all">High
+                        Speed Internet Backbone</button>
+                    <button onclick="showTab(3)"
+                        class="tab-btn px-3 py-2 whitespace-nowrap font-bold text-[10px] uppercase tracking-wider text-slate-500 hover:text-google-blue transition-all">Google
+                        Digital Learning Centre</button>
+                    <button onclick="showTab(4)"
+                        class="tab-btn px-3 py-2 whitespace-nowrap font-bold text-[10px] uppercase tracking-wider text-slate-500 hover:text-google-blue transition-all">Chromebook
+                        for all students</button>
+                    <button onclick="showTab(5)"
+                        class="tab-btn px-3 py-2 whitespace-nowrap font-bold text-[10px] uppercase tracking-wider text-slate-500 hover:text-google-blue transition-all">Ongoing
+                        Support</button>
+                </div>
+
+                <!-- Tabs Content Area -->
+                <div class="p-4 md:p-6 lg:p-8">
+                    <!-- Tab 0 -->
+                    <div id="tab-0" class="tab-content active transition-all duration-500">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl relative group">
+                                <img src="../Assets/img/Education Plus.png" alt="Google for Education Plus"
+                                    class="w-full h-[350px] object-cover">
+                                <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors">
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <h3 class="text-3xl font-black text-navy leading-tight">Google For Education Plus</h3>
+                                <p class="text-slate-600 text-lg leading-relaxed">
+                                    The most advanced All-in-One Solution with advanced security and analytics,
+                                    teaching, and features and more.
+                                </p>
+                                <p class="text-slate-600 leading-relaxed">
+                                    With features tailored to meet the needs of educators and students alike, it
+                                    supports effective teaching practices and data-driven decision-making.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 1 -->
+                    <div id="tab-1" class="tab-content transition-all duration-500">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl relative">
+                                <img src="../Assets/img/campus Network 3.jpg" alt="Campus Network"
+                                    class="w-full h-[350px] object-cover">
+                            </div>
+                            <div class="space-y-6">
+                                <h3 class="text-3xl font-black text-navy leading-tight">World Class Campus Network</h3>
+                                <p class="text-slate-600 text-lg leading-relaxed">
+                                    To support the Google for Education Digital learning ecosystem to keep students and
+                                    educators connected.
+                                </p>
+                                <p class="text-slate-600 leading-relaxed">
+                                    This robust network supports various educational tools and resources, providing a
+                                    stable foundation for digital learning initiatives.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2 -->
+                    <div id="tab-2" class="tab-content transition-all duration-500">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl relative">
+                                <img src="../Assets/img/High speed internet 3.jpg" alt="Internet Backbone"
+                                    class="w-full h-[350px] object-cover">
+                            </div>
+                            <div class="space-y-6">
+                                <h3 class="text-3xl font-black text-navy leading-tight">High Speed Internet Backbone
+                                </h3>
+                                <p class="text-slate-600 text-lg leading-relaxed">
+                                    Via Google Equiano Subsea Cable on bandwidth capacity up to 10Gbps per School to
+                                    support digital learning ecosystem.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-center gap-3 text-slate-700 font-bold">
+                                        <span class="material-symbols-outlined text-google-blue">bolt</span> Up to
+                                        10Gbps Capacity
+                                    </li>
+                                    <li class="flex items-center gap-3 text-slate-700 font-bold">
+                                        <span class="material-symbols-outlined text-google-blue">public</span> Equiano
+                                        Subsea Infrastructure
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3 -->
+                    <div id="tab-3" class="tab-content transition-all duration-500">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl relative">
+                                <img src="../Assets/img/learning-center.jpg" alt="Learning Centre"
+                                    class="w-full h-[350px] object-cover">
+                            </div>
+                            <div class="space-y-6">
+                                <h3 class="text-3xl font-black text-navy leading-tight">Google Digital Learning Centre
+                                </h3>
+                                <p class="text-slate-600 text-lg leading-relaxed">
+                                    A well-equipped learning center that will train your educators on how to use Google
+                                    for Education tools to deliver, enrich, and personalize teaching and learning.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4 -->
+                    <div id="tab-4" class="tab-content transition-all duration-500">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl relative">
+                                <img src="../Assets/img/Chromebook 1.png" alt="Chromebooks"
+                                    class="w-full h-[350px] object-cover">
+                            </div>
+                            <div class="space-y-6">
+                                <h3 class="text-3xl font-black text-navy leading-tight">Chromebook for all students</h3>
+                                <p class="text-slate-600 text-lg leading-relaxed">
+                                    The most used digital learning device in the world. Over 50 Million Chromebooks used
+                                    in classrooms across the world.
+                                </p>
+                                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                                    <p class="text-google-blue font-black text-xl mb-1">50M+</p>
+                                    <p class="text-slate-500 text-sm font-bold uppercase tracking-widest">Global
+                                        Educational Users</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5 -->
+                    <div id="tab-5" class="tab-content transition-all duration-500">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl relative">
+                                <img src="../Assets/img/support 1.jpg" alt="Support"
+                                    class="w-full h-[280px] object-cover">
+                            </div>
+                            <div class="space-y-6">
+                                <h3 class="text-3xl font-black text-navy leading-tight">Ongoing Support</h3>
+                                <p class="text-slate-600 text-lg leading-relaxed">
+                                    Continuous maintenance, updates, and technical support for all implemented systems.
+                                </p>
+                                <p class="text-slate-600 leading-relaxed">
+                                    Our support team is available to provide guidance and troubleshoot problems, helping
+                                    users maximize the functionality of their systems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Generation -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="../Assets/img/teaching.png" alt="Education Impact"
+                        class="rounded-3xl shadow-2xl mx-auto max-w-[420px] w-full">
+                </div>
+                <div class="space-y-8 order-1 lg:order-2">
+                    <div class="w-16 h-1 bg-google-green"></div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-navy font-display">Equipping the Next Generation
+                    </h2>
+                    <p class="text-slate-600 text-xl leading-relaxed font-medium">
+                        More than 65% of learners will work in jobs that don't exist today, but many aren't yet
+                        developing the basic digital competencies they need.
+                    </p>
+                    <p class="text-slate-500 leading-relaxed">
+                        That is why your school needs to partner with the Nigeria Google for Education Program to enjoy
+                        direct investment. We help schools prepare students with the digital and problem-solving skills
+                        they'll need for the future.
+                    </p>
+
+                    <div class="pt-6 flex flex-wrap items-center gap-8">
+                        <img src="../Assets/img/ngfep_google_cloud_partner-no-bg.png" alt="Google Cloud Partner"
+                            class="h-12 w-auto">
+                        <div>
+                            <p class="text-navy font-black text-lg">2025/2026 Application Ongoing!</p>
+                            <p class="text-google-green font-bold">Call: 0906-000-9738</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Schools -->
+    <section class="py-24 bg-navy text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100" stroke="white" fill="none" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-extrabold font-display mb-6">Our Partner Schools</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- School 1 -->
+                <div
+                    class="school-card group bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white transition-all duration-500">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div
+                            class="w-20 h-20 bg-white rounded-full p-2 overflow-hidden flex items-center justify-center shrink-0 border-4 border-white/20 group-hover:border-primary/20 transition-all">
+                            <img src="../Assets/img/achievers-university-logo.png" alt="Achievers University"
+                                class="w-full h-auto transition-transform duration-500">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold group-hover:text-navy transition-colors">Achievers University
+                            </h4>
+                            <p class="text-white/60 group-hover:text-slate-500 text-sm font-medium">Ibadan, Oyo State
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 group-hover:text-slate-600 leading-relaxed font-display">Leading the digital
+                        transformation in higher education.</p>
+                </div>
+
+                <!-- School 2 -->
+                <div
+                    class="school-card group bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white transition-all duration-500">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div
+                            class="w-20 h-20 bg-white rounded-full p-2 overflow-hidden flex items-center justify-center shrink-0 border-4 border-white/20 group-hover:border-primary/20 transition-all">
+                            <img src="../Assets/img/CUAB.png" alt="Crescent University"
+                                class="w-full h-auto transition-transform duration-500">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold group-hover:text-navy transition-colors">Crescent University
+                            </h4>
+                            <p class="text-white/60 group-hover:text-slate-500 text-sm font-medium">Abeokuta, Ogun State
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 group-hover:text-slate-600 leading-relaxed font-display">Embracing
+                        innovative learning technologies.</p>
+                </div>
+
+                <!-- School 3 -->
+                <div
+                    class="school-card group bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white transition-all duration-500">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div
+                            class="w-20 h-20 bg-white rounded-full p-2 overflow-hidden flex items-center justify-center shrink-0 border-4 border-white/20 group-hover:border-primary/20 transition-all">
+                            <img src="../Assets/img/CKA.jpeg" alt="CKA"
+                                class="w-full h-auto transition-transform duration-500">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold group-hover:text-navy transition-colors">City of Knowledge
+                                Academy</h4>
+                            <p class="text-white/60 group-hover:text-slate-500 text-sm font-medium">Ijebu Ode, Ogun
+                                State</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 group-hover:text-slate-600 leading-relaxed font-display">Setting new
+                        standards in digital education.</p>
+                </div>
+
+                <!-- School 4 -->
+                <div
+                    class="school-card group bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white transition-all duration-500">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div
+                            class="w-20 h-20 bg-white rounded-full p-2 overflow-hidden flex items-center justify-center shrink-0 border-4 border-white/20 group-hover:border-primary/20 transition-all">
+                            <img src="../Assets/img/JABU.jpg" alt="JABU"
+                                class="w-full h-auto transition-transform duration-500">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold group-hover:text-navy transition-colors">Joseph Ayo Babalola
+                                University</h4>
+                            <p class="text-white/60 group-hover:text-slate-500 text-sm font-medium">Ikeji-Arakeji, Osun
+                                State</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 group-hover:text-slate-600 leading-relaxed font-display">Inspiring success
+                        through dynamic digital platforms.</p>
+                </div>
+
+                <!-- School 5 -->
+                <div
+                    class="school-card group bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white transition-all duration-500">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div
+                            class="w-20 h-20 bg-white rounded-full p-2 overflow-hidden flex items-center justify-center shrink-0 border-4 border-white/20 group-hover:border-primary/20 transition-all">
+                            <img src="../Assets/img/lifeforte-logo.png" alt="Lifeforte"
+                                class="w-full h-auto transition-transform duration-500">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold group-hover:text-navy transition-colors">Lifeforte
+                                International Schools</h4>
+                            <p class="text-white/60 group-hover:text-slate-500 text-sm font-medium">Ibadan, Oyo State
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 group-hover:text-slate-600 leading-relaxed font-display">Cultivating leaders
+                        through cutting-edge digital tools.</p>
+                </div>
+
+                <!-- School 6 -->
+                <div
+                    class="school-card group bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white transition-all duration-500">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full p-2 overflow-hidden flex items-center justify-center shrink-0 border-4 border-white/20 group-hover:border-primary/20 transition-all">
+                            <img src="../Assets/img/CRC.jpg" alt="CRC"
+                                class="w-full h-auto transition-transform duration-500">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold group-hover:text-navy transition-colors">Christ the Redeemer's
+                                College</h4>
+                            <p class="text-white/60 group-hover:text-slate-500 text-sm font-medium">Sagamu, Ogun State
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 group-hover:text-slate-600 leading-relaxed font-display">Fostering
+                        creativity through advanced learning solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form -->
+    <section id="enquiry" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-navy font-display mb-6 italic">Interested in
+                    Joining?</h2>
+                <div class="w-20 h-1.5 bg-google-blue mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-4xl shadow-2xl p-8 md:p-16 border border-slate-100 italic">
+                <form id="ngfepForm" class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="block text-sm font-black text-slate-400 uppercase tracking-widest mb-3">School
+                                Name</label>
+                            <input type="text" name="school_name" required
+                                class="w-full px-6 py-4 rounded-2xl bg-background-light border-slate-200 focus:border-google-blue focus:ring-0 transition-all font-bold text-navy"
+                                placeholder="Official Institution Name">
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Contact
+                                Person</label>
+                            <input type="text" name="contact_person" required
+                                class="w-full px-6 py-4 rounded-2xl bg-background-light border-slate-200 focus:border-google-blue focus:ring-0 transition-all font-bold text-navy"
+                                placeholder="Name & Designation">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Email
+                                Address</label>
+                            <input type="email" name="email" required
+                                class="w-full px-6 py-4 rounded-2xl bg-background-light border-slate-200 focus:border-google-blue focus:ring-0 transition-all font-bold text-navy"
+                                placeholder="institution@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Phone
+                                Number</label>
+                            <input type="tel" name="phone" required
+                                class="w-full px-6 py-4 rounded-2xl bg-background-light border-slate-200 focus:border-google-blue focus:ring-0 transition-all font-bold text-navy"
+                                placeholder="+234 ...">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-black text-slate-400 uppercase tracking-widest mb-3">School
+                                Type</label>
+                            <select name="school_type" required
+                                class="w-full px-6 py-4 rounded-2xl bg-background-light border-slate-200 focus:border-google-blue focus:ring-0 transition-all font-bold text-navy">
+                                <option value="">Select Category</option>
+                                <option value="primary">Primary School</option>
+                                <option value="secondary">Secondary School</option>
+                                <option value="university">University</option>
+                                <option value="other">Other Institution</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label
+                                class="block text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Additional
+                                Information</label>
+                            <textarea name="message" rows="4"
+                                class="w-full px-6 py-4 rounded-2xl bg-background-light border-slate-200 focus:border-google-blue focus:ring-0 transition-all font-bold text-navy"
+                                placeholder="Tell us about your digital learning goals..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-google-blue hover:bg-blue-600 text-white font-black py-5 rounded-2xl shadow-xl shadow-google-blue/20 transition-all tracking-widest uppercase">Submit
+                        Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-10 px-6 border-t border-white/10 italic">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <img src="../Assets/icons/logos/iworld_logo2.jpg" alt="I-World" class="h-8 mb-6">
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        homes and businesses. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm italic font-medium">
+                        <li><a class="hover:text-white transition-colors" href="../homepage/index.html">Home</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../contact/index.html">Contact Us</a>
+                        </li>
+                        <li><a class="hover:text-white transition-colors" href="../careers/index.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../home_internet/index.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../business_internet/index.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../enterprise_internet/index.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors text-white font-bold"
+                                href="./index.html">Nigeria Google for Education</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../../Google_Workspace.html">Google
+                                Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
+                                Provider</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> &nbsp;&nbsp; I-World Networks. All
+                    rights
+                    reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(index) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById('tab-' + index).classList.add('active');
+            document.querySelectorAll('.tab-btn')[index].classList.add('active');
+
+            // Log for visual confirmation in interaction recordings
+            console.log('NGFEP: Switched to tab ' + index);
+        }
+    </script>
+</body>
+
+</html>

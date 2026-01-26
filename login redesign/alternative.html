@@ -27,7 +27,11 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#137fec",
+                        "primary": "#4285F4",
+                        "google-blue": "#4285F4",
+                        "google-red": "#EA4335",
+                        "google-yellow": "#FBBC05",
+                        "google-green": "#34A853",
                         "background-light": "#f6f7f8",
                         "background-dark": "#101922",
                     },
@@ -68,7 +72,7 @@
         }
 
         .bg-pattern {
-            background-image: radial-gradient(#137fec 0.5px, transparent 0.5px), radial-gradient(#137fec 0.5px, transparent 0.5px);
+            background-image: radial-gradient(#4285F4 0.5px, transparent 0.5px), radial-gradient(#4285F4 0.5px, transparent 0.5px);
             background-size: 40px 40px;
             background-position: 0 0, 20px 20px;
             opacity: 0.05;
@@ -78,6 +82,25 @@
 
 <body
     class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-white min-h-screen flex flex-col relative overflow-x-hidden transition-colors duration-200">
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script type="text/javascript" src="./assets/js/md5.js"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+    </script>
+    $(endif)
+
     <!-- Subtle Map/Tech Pattern Background -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
         <!-- Dot Grid Pattern -->
@@ -101,33 +124,20 @@
         </svg>
     </div>
     <!-- Header / Logo Area -->
-    <header class="relative z-10 w-full px-6 py-6 md:px-12 flex justify-between items-center">
+    <header
+        class="relative z-10 w-full px-6 py-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
         <div class="flex items-center gap-4">
-            <!-- NGFEP Logo Placeholder -->
             <div class="flex items-center gap-2">
-                <!-- Logos Side by Side -->
                 <div class="flex items-center gap-3">
-                    <img src="./assets/icons/logos/ngfep 3.jpg" alt="NGFEP Logo" class="h-12 object-contain">
-                    <img src="./assets/img/achievers-university-logo.png" alt="Achievers University"
-                        class="h-12 object-contain">
-                </div>
-                <div class="hidden lg:flex flex-col ml-1">
-                    <span
-                        class="font-bold text-lg leading-none tracking-tight text-slate-900 dark:text-white">NGFEP</span>
-                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Nigeria Google For
-                        Education Program</span>
+                    <img src="./assets/img/ngfep no bg.png" alt="NGFEP Logo" class="h-10 md:h-14 object-contain">
+                    <img src="./assets/img/JABU-Logo-n-Header.png" alt="School Logo"
+                        class="h-10 md:h-14 object-contain">
                 </div>
             </div>
-            <div class="h-8 w-px bg-slate-300 dark:bg-slate-700 mx-2 hidden sm:block"></div>
-            <!-- Removed Google Cloud Partner Image -->
         </div>
-        <!-- Language / Help -->
         <div class="flex items-center gap-3">
-            <a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors flex items-center gap-1 cursor-pointer"
-                onclick="alert('Contact IT Support at ict-support@achiever.edu.ng')">
-                <span class="material-symbols-outlined text-[18px]">help</span>
-                <span class="hidden md:inline">Help</span>
-            </a>
+            <img src="./assets/img/Google_for_education no bg.png" alt="Google for Education"
+                class="h-8 md:h-10 object-contain">
         </div>
     </header>
     <!-- Main Content Area -->
@@ -140,8 +150,8 @@
                 class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px] bg-slate-100 dark:bg-slate-900 overflow-hidden group order-last lg:order-none">
                 <!-- Background Image with Overlay -->
                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    data-alt="African students collaborating on laptops in a modern classroom setting"
-                    style='background-image: url("./assets/img/k-12%20(2).jpg");'>
+                    data-alt="Digital learning illustration"
+                    style='background-image: url("./assets/img/Digital learning.png");'>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
                 <!-- Content Overlay -->
@@ -149,25 +159,15 @@
                     <!-- Status Badge -->
                     <div class="mb-auto self-start">
                         <div
-                            class="bg-primary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-white/20 flex items-center gap-2 animate-pulse">
-                            <span class="size-2 rounded-full bg-green-400 block"></span>
-                            2025/2026 Application Ongoing!
+                            class="bg-gradient-to-r from-google-blue via-google-red to-google-yellow backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-white/20 flex items-center gap-2 animate-pulse">
+                            <span class="size-2 rounded-full bg-google-green block"></span>
+                            Advertise Here! Call 0906-000-9738!
                         </div>
                     </div>
-                    <div class="space-y-2 md:space-y-4 max-w-md">
-                        <h2 class="text-xl md:text-4xl font-bold leading-tight tracking-tight">Equipping the Next
-                            Generation of Nigerian Leaders</h2>
-                        <p class="text-slate-200 text-xs md:text-lg font-light leading-relaxed">
-                            Join the digital revolution in education. Access world-class tools and resources through
-                            Google for Education.
-                        </p>
-                        <div class="pt-4 flex gap-3">
-                            <a class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-primary hover:underline underline-offset-4 transition-all"
-                                href="https://iwn.ng/NGFEP.html">
-                                Learn about the program
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </a>
-                        </div>
+                    <div class="space-y-4 md:space-y-6 max-w-2xl">
+                        <h1 class="text-3xl md:text-7xl font-bold leading-tight tracking-tight">Building the Future of
+                            Higher Education with Google
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -175,23 +175,46 @@
             <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white dark:bg-slate-800">
                 <div class="max-w-sm mx-auto w-full">
                     <!-- Form Header -->
-                    <div class="mb-10 text-center lg:text-left">
-
-                        <h1 class="text-slate-900 dark:text-white text-2xl md:text-3xl font-bold mb-2">Welcome Back</h1>
-                        <p class="text-slate-500 dark:text-slate-400">Sign in to Google for Education Plus</p>
+                    <!-- New Form Header / Registration CTA -->
+                    <div class="mb-10">
+                        <div class="relative mb-6">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="bg-white dark:bg-slate-800 px-4 text-slate-500">Don't have an account?
+                                    Register here</span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a class="text-slate-700 dark:text-slate-300 font-bold text-lg hover:text-google-blue transition-colors"
+                                href="#">Create an Account</a>
+                        </div>
                     </div>
                     <!-- Form -->
-                    <form action="#" class="space-y-6" method="POST">
+                    <form name="login" action="$(link-login-only)" class="space-y-6" method="POST" $(if chap-id)
+                        onSubmit="return doLogin()" $(endif)>
+                        <input type="hidden" name="dst" value="$(link-orig)" />
+                        <input type="hidden" name="popup" value="true" />
+
+                        <!-- Error Message -->
+                        $(if error)
+                        <div
+                            class="p-3 rounded-lg bg-google-red/10 border border-google-red/20 text-google-red text-sm text-center">
+                            $(error)
+                        </div>
+                        $(endif)
                         <!-- Email Field -->
                         <div class="space-y-2">
                             <label class="block text-sm font-medium text-slate-700 dark:text-slate-300"
-                                for="email">Email Address</label>
+                                for="username">Username</label>
                             <div class="relative">
                                 <span
-                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">mail</span>
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-google-blue material-symbols-outlined text-[20px]">person</span>
                                 <input
-                                    class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
-                                    id="email" name="email" placeholder="student@university.edu.ng" type="email" />
+                                    class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-google-blue focus:ring-2 focus:ring-google-blue/20 transition-all outline-none"
+                                    id="username" name="username" placeholder="Username" type="text" value="$(username)"
+                                    autofocus />
                             </div>
                         </div>
                         <!-- Password Field -->
@@ -199,14 +222,14 @@
                             <div class="flex justify-between items-center">
                                 <label class="block text-sm font-medium text-slate-700 dark:text-slate-300"
                                     for="password">Password</label>
-                                <a class="text-sm text-primary font-medium hover:underline" href="#">Forgot
+                                <a class="text-sm text-google-blue font-medium hover:underline" href="#">Forgot
                                     Password?</a>
                             </div>
                             <div class="relative">
                                 <span
-                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-primary material-symbols-outlined text-[20px]">lock</span>
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-google-blue material-symbols-outlined text-[20px]">lock</span>
                                 <input
-                                    class="w-full h-12 pl-11 pr-12 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                                    class="w-full h-12 pl-11 pr-12 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-google-blue focus:ring-2 focus:ring-google-blue/20 transition-all outline-none"
                                     id="password" name="password" placeholder="••••••••" type="password" />
                                 <button
                                     class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
@@ -217,121 +240,51 @@
                         </div>
                         <!-- Submit Button -->
                         <button
-                            class="w-full h-12 bg-primary hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/30 flex items-center justify-center gap-2 group/btn"
-                            type="button">
+                            class="w-full h-12 bg-gradient-to-r from-google-blue via-google-red to-google-yellow hover:scale-[1.02] text-white font-semibold rounded-lg shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-2 group/btn"
+                            type="submit">
                             Sign In
                             <span
                                 class="material-symbols-outlined text-[20px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                         </button>
+
+                        $(if trial == 'yes')
+                        <div class="text-center pt-2">
+                            <p class="text-sm text-slate-500">
+                                Free trial available,
+                                <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+                                    class="text-google-blue font-medium hover:underline">click here</a>.
+                            </p>
+                        </div>
+                        $(endif)
                     </form>
-                    <!-- Divider -->
-                    <div class="relative my-8">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
-                        </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="bg-white dark:bg-slate-800 px-4 text-slate-500">New here?</span>
-                        </div>
-                    </div>
-                    <!-- Secondary Action -->
-                    <div class="text-center">
-                        <a class="text-slate-700 dark:text-slate-300 font-medium hover:text-primary transition-colors"
-                            href="#">Create an Account</a>
-                    </div>
+
                 </div>
             </div>
         </div>
-        <!-- Partners Ticker (Outside main split, but contained in width) -->
+        <!-- Powered By Section -->
         <div class="w-full max-w-5xl mt-6 px-4 md:px-0">
             <div
                 class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-xl border border-slate-200/60 dark:border-slate-700/60 p-4">
-                <div class="flex flex-col md:flex-row items-center gap-6">
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap">Our Partner
-                        Schools</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap">Powered by
+                    </p>
                     <div class="h-8 w-px bg-slate-200 dark:bg-slate-700 hidden md:block"></div>
-                    <!-- Logos Row -->
-                    <div class="flex-1 overflow-hidden w-full relative group">
-                        <!-- Gradient fade edges for scrolling effect -->
-                        <div
-                            class="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white/60 dark:from-slate-800/60 to-transparent z-10 hidden md:block">
-                        </div>
-                        <div
-                            class="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white/60 dark:from-slate-800/60 to-transparent z-10 hidden md:block">
-                        </div>
-                        <div
-                            class="flex items-center justify-between md:justify-start gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 overflow-x-auto md:overflow-hidden no-scrollbar py-2">
-
-                            <!-- Partner 1: JABU -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="size-8 bg-contain bg-center bg-no-repeat rounded-full bg-white"
-                                    style='background-image: url("./assets/img/JABU.jpg");'></div>
-                                <span class="font-bold text-slate-700 dark:text-slate-300 text-sm">JABU</span>
-                            </div>
-
-                            <!-- Partner 2: Achievers -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="size-8 bg-contain bg-center bg-no-repeat rounded-full bg-white"
-                                    style='background-image: url("./assets/img/achievers-university-logo.png");'></div>
-                                <span class="font-bold text-slate-700 dark:text-slate-300 text-sm">Achievers
-                                    Univ.</span>
-                            </div>
-
-                            <!-- Partner 3: Crescent -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="size-8 bg-contain bg-center bg-no-repeat rounded-full bg-white"
-                                    style='background-image: url("./assets/img/CUAB.png");'></div>
-                                <span class="font-bold text-slate-700 dark:text-slate-300 text-sm">Crescent Univ.</span>
-                            </div>
-
-                            <!-- Partner 4: CKA -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="size-8 bg-contain bg-center bg-no-repeat rounded-full bg-white"
-                                    style='background-image: url("./assets/img/CKA.jpeg");'></div>
-                                <span class="font-bold text-slate-700 dark:text-slate-300 text-sm">City of
-                                    Knowledge</span>
-                            </div>
-
-                            <!-- Partner 5: Lifeforte -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="size-8 bg-contain bg-center bg-no-repeat rounded-full bg-white"
-                                    style='background-image: url("./assets/img/lifeforte-logo.png");'></div>
-                                <span class="font-bold text-slate-700 dark:text-slate-300 text-sm">Lifeforte
-                                    Int'l</span>
-                            </div>
-
-                            <!-- Partner 6: CRC -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="size-8 bg-contain bg-center bg-no-repeat rounded-full bg-white"
-                                    style='background-image: url("./assets/img/CRC.jpg");'></div>
-                                <span class="font-bold text-slate-700 dark:text-slate-300 text-sm">Redeemer's
-                                    College</span>
-                            </div>
-                        </div>
+                    <div class="flex items-center gap-6">
+                        <img src="./assets/img/IWN no bg.png" alt="IWN Logo"
+                            class="h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="./assets/img/cloud_partner_logo.png" alt="Cloud Partner"
+                            class="h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <!-- Template Navigation -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-2">
-        <a href="code.html" 
-           class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-all hover:scale-105">
-            <span class="material-symbols-outlined text-[18px]">code</span>
-            <span class="text-sm font-medium">View Other Version</span>
-            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-        </a>
-    </div>
     <!-- Footer -->
     <footer class="relative z-10 py-6 px-6 text-center text-slate-500 text-sm">
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
-            <span class="opacity-75">© 2026 NGFEP. All rights reserved.</span>
-            <div class="flex gap-6">
-                <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-                <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-                <a class="hover:text-primary transition-colors" href="#">Contact Support</a>
-            </div>
         </div>
     </footer>
 </body>
 
 </html>
+
