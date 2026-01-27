@@ -1,76 +1,81 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>Achievers University - Hotspot Login</title>
-<meta http-equiv="pragma" content="no-cache" />
-<meta http-equiv="expires" content="-1" />	
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-<link rel="stylesheet" href="login.css" media="screen">
- 
+	<meta charset="utf-8">
+	<title>Achievers University - Hotspot Login</title>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	<link rel="stylesheet" href="login.css" media="screen">
+
 
 </head>
+
 <body class='login'>
-$(if chap-id)
+	$(if chap-id)
 	<form name="sendin" action="$(link-login-only)" method="post">
 		<input type="hidden" name="username" />
 		<input type="hidden" name="password" />
 		<input type="hidden" name="dst" value="$(link-orig)" />
 		<input type="hidden" name="popup" value="true" />
 	</form>
-	
-	<link rel="stylesheet" href="../">
-	<script type="text/javascript" src="/md5.js"></script>
+
+
+	<script type="text/javascript" src="./assets/js/md5.js"></script>
 	<script type="text/javascript">
-	
-	    function doLogin() {
-		document.sendin.username.value = document.login.username.value;
-		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
-		document.sendin.submit();
-		return false;
-	    }
-	
+
+		function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+		}
+
 	</script>
-$(endif)
+	$(endif)
 
 
-<form class="vertical-form" name="login" action="$(link-login-only)" method="post"
-	$(if chap-id) onSubmit="return doLogin()" $(endif)>
-	<input type="hidden" name="dst" value="$(link-orig)" />
-	<input type="hidden" name="popup" value="true" />
-	<div style="margin:0;padding:0;display:inline"></div>
-	<legend class="legend">
+	<form class="vertical-form" name="login" action="$(link-login-only)" method="post" $(if chap-id)
+		onSubmit="return doLogin()" $(endif)>
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+		<div style="margin:0;padding:0;display:inline"></div>
+		<legend class="legend">
 
-		<img class="logo" src="logo2.png" style=" padding: 10px; "/>
-		<font color="black">
-			<h2>Portal Login</h2>
-		</font>
-	</legend>
-
-	<input autofocus name="username" type="text" value="$(username)" placeholder="Username" size="35" style="color:black; border: 2px solid black;"/>
-	<input autocomplete="off" name="password" type="password" label="false" placeholder="Password" size="35" style="color:black;opacity:0.5px;  border: 2px solid black;"/>
-	<!-- <input type="submit" value=" " /> -->
-	<button type="submit">Submit</button>
-	<div class='footer'>
-		<p>
-			<font>
-				<p style="color: red;">$(if trial == 'yes')Free trial available,</p>
+			<img class="logo" src="logo2.png" style=" padding: 10px; " />
+			<font color="black">
+				<h2>Portal Login</h2>
 			</font>
-			
-			<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)</p>
+		</legend>
+
+		<input autofocus name="username" type="text" value="$(username)" placeholder="Username" size="35"
+			style="color:black; border: 2px solid black;" />
+		<input autocomplete="off" name="password" type="password" label="false" placeholder="Password" size="35"
+			style="color:black;opacity:0.5px;  border: 2px solid black;" />
+		<!-- <input type="submit" value=" " /> -->
+		<button type="submit">Submit</button>
+		<div class='footer'>
+			<p>
+				<font>
+					<p style="color: red;">$(if trial == 'yes')Free trial available,</p>
+				</font>
+
+				<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)
+			</p>
 
 			<p>$(if error)<span style="color: red; font-size: 16px">$(error)</span>$(endif)</p>
 
-		</p>
-		<br>
-			
+			</p>
+			<br>
+
 			<p style="font-weight: bold; font-size: 18px; color: #2E8B57;">
 				🎓 New Student? Register here:
 			</p>
 			<p>
-				<a href="https://docs.google.com/forms/d/e/1FAIpQLSeL4inE6qwXSCMAa76LSsc_Uvi5PmYcXbmHSDPAMKsl6oyIBw/viewform?usp=header" 
-				   target="_blank" 
-				   style="background-color: #4285F4; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin: 10px 0;">
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSeL4inE6qwXSCMAa76LSsc_Uvi5PmYcXbmHSDPAMKsl6oyIBw/viewform?usp=header"
+					target="_blank"
+					style="background-color: #4285F4; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin: 10px 0;">
 					📝 Student Registration Form
 				</a>
 			</p>
@@ -79,25 +84,30 @@ $(endif)
 			</p>
 			<br>
 			<p>
-				Login Issues? Contact IT Support on <span style="font-size: 17px; color: blue; cursor: pointer;">[YOUR_PHONE_NUMBER]</span> or Email <a style="color: blue; text-decoration: none; font-size: 17px;" href="mailto:itsupport@achievers.edu.ng">itsupport@achievers.edu.ng</a>
+				Login Issues? Contact IT Support on <span
+					style="font-size: 17px; color: blue; cursor: pointer;">[YOUR_PHONE_NUMBER]</span> or Email <a
+					style="color: blue; text-decoration: none; font-size: 17px;"
+					href="mailto:itsupport@achievers.edu.ng">itsupport@achievers.edu.ng</a>
 			</p>
-				<p style="font-size: 17px;">
-					Internet Services <span>powered by</span>
+			<p style="font-size: 17px;">
+				Internet Services <span>powered by</span>
 				<a href="https://iwn.ng/" style="margin-top: 20px;">
-					<img src="./logo_1.png" alt="I-World logo" style="object-fit: contain; width: 100px; height: 30px; " class="images">
-					<img src="./cloud_partner_logo.png" alt="cloud partner logo" style=" object-fit: contain; width: 100px; height: 30px; " class="images">
+					<img src="./assets/img/IWN no bg.png" alt="I-World logo"
+						style="object-fit: contain; width: 100px; height: 30px; " class="images">
+					<img src="./assets/img/cloud_partner_logo.png" alt="cloud partner logo"
+						style=" object-fit: contain; width: 100px; height: 30px; " class="images">
 				</a>
 			</p>
 
-		
-	</div>
-</form>
 
-  <!--The Modal -->
- <!-- <div id="myModal" class="modal">
+		</div>
+	</form>
+
+	<!--The Modal -->
+	<!-- <div id="myModal" class="modal">
 
 	<!-- Modal content -->
-	 <!-- <div class="modal-content">
+	<!-- <div class="modal-content">
 	  <span class="close" id="close-btn">&times;</span>
 	  <h3 class="text-center">NOTICE!!!</h3>
 	  <p class="text-center"> Your Internet login and registration for '24/25 session expires on 31st of August, 2025.<br>Kindly visit Achievers University IT office with your '25/26 payment receipt to receive a new login.
@@ -105,28 +115,28 @@ $(endif)
 	</div> 
   
 </div> -->
- 
 
-<script type="text/javascript">
-   document.login.username.focus();
-</script>
-<script type="text/javascript">
-document.oncontextmenu = function(){return false;}
 
- document.addEventListener("DOMContentLoaded", function() {
- 	var modal = document.getElementById("myModal");
- 	var span = document.getElementsByClassName("close")[0];
- 	span.onclick = function() {
- 		modal.style.display = "none";
- 	}
- 	window.onclick = function(event) {
- 		if (event.target == modal) {
- 			modal.style.display = "none";
- 		}
- 	}
-});
-</script>
+	<script type="text/javascript">
+		document.login.username.focus();
+	</script>
+	<script type="text/javascript">
+		document.oncontextmenu = function () { return false; }
+
+		document.addEventListener("DOMContentLoaded", function () {
+			var modal = document.getElementById("myModal");
+			var span = document.getElementsByClassName("close")[0];
+			span.onclick = function () {
+				modal.style.display = "none";
+			}
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+		});
+	</script>
 
 </body>
-</html>
 
+</html>

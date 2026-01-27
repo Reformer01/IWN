@@ -90,7 +90,7 @@
                         <a href="../ngfep/index.html"
                             class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Nigeria
                             Google for Education</a>
-                        <a href="../../Google_Workspace.html"
+                        <a href="../google_workspace/index.html"
                             class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
                     </div>
                 </div>
@@ -215,175 +215,214 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Age Well Discount -->
                 <div
-                    class="discount-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col h-full">
-                    <div class="h-64 bg-slate-50 flex items-center justify-center p-6 relative group overflow-hidden">
-                        <img src="../Assets/img/medium-shot-man-having-lunch-restaurant.jpg" alt="Age Well Discount"
-                            class="discount-image max-h-full w-auto object-contain z-10">
-                        <div class="absolute inset-0 bg-slate-100 opacity-20 transition-opacity group-hover:opacity-40">
-                        </div>
-                        <div
-                            class="absolute top-4 right-4 bg-primary text-white font-black px-4 py-2 rounded-full shadow-lg z-20">
-                            15% OFF</div>
+                    class="group relative h-[480px] rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <img src="../Assets/img/medium-shot-man-having-lunch-restaurant.jpg" alt="Age Well Discount"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent opacity-90">
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-extrabold text-navy mb-4">Age Well Discount</h3>
-                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">
-                            For Our Senior Citizen Subscribers (new or current). Customers 60 years and above will enjoy
-                            a recurring discount on their monthly subscription.
-                        </p>
-                        <div class="bg-slate-50 p-4 rounded-xl mb-6">
-                            <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Requirements</p>
-                            <p class="text-sm font-bold text-slate-700 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[16px]">verified</span> Valid
-                                government-issued ID required
+
+                    <div class="absolute top-6 right-6">
+                        <span
+                            class="bg-primary/90 text-white font-black px-4 py-2 rounded-full backdrop-blur-md shadow-lg border border-white/10">15%
+                            OFF</span>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4">
+                            <h3 class="text-3xl font-extrabold font-display mb-2">Age Well</h3>
+                            <p
+                                class="text-white/80 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                                For our senior citizen subscribers (60+). Enjoy recurring discounts on your monthly
+                                subscription.
                             </p>
                         </div>
-                        <button onclick="toggleTerms('age-well')"
-                            class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                            Terms and conditions <span class="material-symbols-outlined text-[18px]">info</span>
-                        </button>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 mb-4 border border-white/10">
+                                <p class="text-xs font-bold uppercase tracking-wider text-primary mb-1">Requirements</p>
+                                <p class="text-sm flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[16px]">verified</span> Valid Gov ID
+                                </p>
+                            </div>
+                            <button onclick="toggleTerms('age-well')"
+                                class="flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">
+                                View Terms <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Relationship Reward -->
                 <div
-                    class="discount-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col h-full">
-                    <div class="h-64 bg-blue-50/30 flex items-center justify-center p-6 relative group overflow-hidden">
-                        <img src="../Assets/img/business-executives-shaking-hands-with-each-other.jpg"
-                            alt="Relationship Reward" class="discount-image max-h-full w-auto object-contain z-10">
-                        <div
-                            class="absolute inset-0 bg-blue-50/50 opacity-20 transition-opacity group-hover:opacity-40">
-                        </div>
-                        <div
-                            class="absolute top-4 right-4 bg-google-blue text-white font-black px-4 py-2 rounded-full shadow-lg z-20">
-                            Up to 15% OFF</div>
+                    class="group relative h-[480px] rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <img src="../Assets/img/business-executives-shaking-hands-with-each-other.jpg"
+                        alt="Relationship Reward"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent opacity-90">
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-extrabold text-navy mb-4">Relationship Reward</h3>
-                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">
-                            Loyalty pays off. Long-term customers enjoy tiered discounts based on their tenure with
-                            I-World Networks.
-                        </p>
-                        <div class="space-y-3 mb-6">
-                            <div
-                                class="flex justify-between items-center p-3 rounded-xl bg-google-blue/5 border border-google-blue/10">
-                                <span class="font-bold text-slate-700">4+ Years</span>
-                                <span class="font-black text-google-blue">15% OFF</span>
-                            </div>
-                            <div
-                                class="flex justify-between items-center p-3 rounded-xl bg-slate-50 border border-slate-200">
-                                <span class="font-bold text-slate-700">3+ Years</span>
-                                <span class="font-bold text-slate-600">10% OFF</span>
-                            </div>
+
+                    <div class="absolute top-6 right-6">
+                        <span
+                            class="bg-google-blue/90 text-white font-black px-4 py-2 rounded-full backdrop-blur-md shadow-lg border border-white/10">Up
+                            to 15% OFF</span>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4">
+                            <h3 class="text-3xl font-extrabold font-display mb-2">Relationship Reward</h3>
+                            <p
+                                class="text-white/80 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                                Loyalty pays off. Long-term customers enjoy tiered discounts based on tenure with
+                                I-World.
+                            </p>
                         </div>
-                        <button onclick="toggleTerms('relationship')"
-                            class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                            Terms and conditions <span class="material-symbols-outlined text-[18px]">info</span>
-                        </button>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center text-sm border-b border-white/10 pb-2">
+                                    <span>4+ Years</span>
+                                    <span class="font-bold text-google-blue">15% OFF</span>
+                                </div>
+                                <div class="flex justify-between items-center text-sm">
+                                    <span>3+ Years</span>
+                                    <span class="font-bold text-white">10% OFF</span>
+                                </div>
+                            </div>
+                            <button onclick="toggleTerms('relationship')"
+                                class="flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">
+                                View Terms <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Bundle and Save -->
                 <div
-                    class="discount-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col h-full">
-                    <div
-                        class="h-64 bg-green-50/30 flex items-center justify-center p-6 relative group overflow-hidden">
-                        <img src="../Assets/img/full-shot-woman-working-as-economist.jpg" alt="Bundle and Save"
-                            class="discount-image max-h-full w-auto object-contain z-10">
-                        <div
-                            class="absolute inset-0 bg-green-50/50 opacity-20 transition-opacity group-hover:opacity-40">
-                        </div>
-                        <div
-                            class="absolute top-4 right-4 bg-google-green text-white font-black px-4 py-2 rounded-full shadow-lg z-20">
-                            10% OFF</div>
+                    class="group relative h-[480px] rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <img src="../Assets/img/full-shot-woman-working-as-economist.jpg" alt="Bundle and Save"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent opacity-90">
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-extrabold text-navy mb-4">Bundle and Save</h3>
-                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">
-                            Multiple Account Savings. Connect your Home and Office, or register your entire
-                            family/estate to maximize savings.
-                        </p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-start gap-2 text-sm text-slate-600">
-                                <span
-                                    class="material-symbols-outlined text-google-green text-[18px]">check_circle</span>
-                                Home + Office bundles
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-slate-600">
-                                <span
-                                    class="material-symbols-outlined text-google-green text-[18px]">check_circle</span>
-                                Family & Estate groups
-                            </li>
-                        </ul>
-                        <button onclick="toggleTerms('bundle')"
-                            class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                            Terms and conditions <span class="material-symbols-outlined text-[18px]">info</span>
-                        </button>
+
+                    <div class="absolute top-6 right-6">
+                        <span
+                            class="bg-google-green/90 text-white font-black px-4 py-2 rounded-full backdrop-blur-md shadow-lg border border-white/10">10%
+                            OFF</span>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4">
+                            <h3 class="text-3xl font-extrabold font-display mb-2">Bundle & Save</h3>
+                            <p
+                                class="text-white/80 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                                Connect your Home and Office, or register your entire family/estate to maximize savings.
+                            </p>
+                        </div>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <ul class="space-y-2 mb-4 text-sm">
+                                <li class="flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-google-green text-[16px]">check_circle</span>
+                                    Home + Office Bundles</li>
+                                <li class="flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-google-green text-[16px]">check_circle</span>
+                                    Family & Estate Groups</li>
+                            </ul>
+                            <button onclick="toggleTerms('bundle')"
+                                class="flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">
+                                View Terms <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Referral Bonus -->
                 <div
-                    class="discount-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col h-full">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://img.freepik.com/premium-photo/golden-coins-interconnected-with-figures-people-conection-concept-3d-illustration_339569-2517.jpg?ga=GA1.1.833302235.1720806065&semt=ais_hybrid"
-                            alt="Referral Bonus" class="discount-image w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 right-4 bg-google-yellow text-navy font-black px-4 py-2 rounded-full shadow-lg">
-                            FREE MONTH</div>
+                    class="group relative h-[480px] rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <img src="../Assets/img/side-view-smiley-woman-holding-phone.jpg" alt="Referral Bonus"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent opacity-90">
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-extrabold text-navy mb-4">Referral Bonus</h3>
-                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">
-                            Every time you refer a new customer to us, you earn one month of FREE internet service for a
-                            successful referral.
-                        </p>
-                        <div class="bg-google-yellow/10 p-4 rounded-xl mb-6 border border-google-yellow/20">
-                            <p class="text-sm font-bold text-navy flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[18px]">group_add</span> No limit to the
-                                number of referrals
+
+                    <div class="absolute top-6 right-6">
+                        <span
+                            class="bg-google-yellow/90 text-navy font-black px-4 py-2 rounded-full backdrop-blur-md shadow-lg border border-white/10">FREE
+                            MONTH</span>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4">
+                            <h3 class="text-3xl font-extrabold font-display mb-2">Referral Bonus</h3>
+                            <p
+                                class="text-white/80 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                                Earn one month of FREE internet service for every successful referral you make.
                             </p>
                         </div>
-                        <button onclick="toggleTerms('referral')"
-                            class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                            Terms and conditions <span class="material-symbols-outlined text-[18px]">info</span>
-                        </button>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 mb-4 border border-white/10">
+                                <p class="text-sm font-bold flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-google-yellow">group_add</span>
+                                    No limit on referrals
+                                </p>
+                            </div>
+                            <button onclick="toggleTerms('referral')"
+                                class="flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">
+                                View Terms <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Prepaid Savings -->
                 <div
-                    class="discount-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col h-full">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://img.freepik.com/free-photo/black-man-with-piggy-bank_93675-128524.jpg?t=st=1742478272~exp=1742481872~hmac=518394a8242b7aaf5431c30e2a011432f6eb2718f84ddef52666a9e4cad9bee4&w=740"
-                            alt="Prepaid Savings" class="discount-image w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 right-4 bg-google-red text-white font-black px-4 py-2 rounded-full shadow-lg">
-                            LOCKED RATES</div>
+                    class="group relative h-[480px] rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <img src="../Assets/img/high-angle-woman-working-laptop.jpg" alt="Prepaid Savings"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent opacity-90">
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-extrabold text-navy mb-4">Prepaid Savings</h3>
-                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">
-                            Pay upfront to lock in your rates and enjoy significant savings on your long-term plan.
-                        </p>
-                        <div class="grid grid-cols-3 gap-2 mb-6">
-                            <div class="p-2 bg-slate-50 rounded-lg text-center">
-                                <p class="text-[10px] font-black text-slate-400 uppercase">3 Mo</p>
-                                <p class="font-bold text-google-red">5% OFF</p>
-                            </div>
-                            <div class="p-2 bg-slate-50 rounded-lg text-center">
-                                <p class="text-[10px] font-black text-slate-400 uppercase">6 Mo</p>
-                                <p class="font-bold text-google-red">7.5% OFF</p>
-                            </div>
-                            <div class="p-2 bg-slate-50 rounded-lg text-center">
-                                <p class="text-[10px] font-black text-slate-400 uppercase">12 Mo</p>
-                                <p class="font-bold text-google-red">10% OFF</p>
-                            </div>
+
+                    <div class="absolute top-6 right-6">
+                        <span
+                            class="bg-google-red/90 text-white font-black px-4 py-2 rounded-full backdrop-blur-md shadow-lg border border-white/10">LOCKED
+                            RATES</span>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4">
+                            <h3 class="text-3xl font-extrabold font-display mb-2">Prepaid Savings</h3>
+                            <p
+                                class="text-white/80 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                                Pay upfront to lock in your rates and enjoy significant savings on your plan.
+                            </p>
                         </div>
-                        <button onclick="toggleTerms('prepaid')"
-                            class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                            Terms and conditions <span class="material-symbols-outlined text-[18px]">info</span>
-                        </button>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <div class="grid grid-cols-3 gap-2 mb-4 text-center">
+                                <div class="bg-white/10 rounded-lg p-2 backdrop-blur-sm">
+                                    <div class="text-[10px] uppercase text-white/60 font-bold">3 Mo</div>
+                                    <div class="text-google-red font-bold">5%</div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg p-2 backdrop-blur-sm">
+                                    <div class="text-[10px] uppercase text-white/60 font-bold">6 Mo</div>
+                                    <div class="text-google-red font-bold">7.5%</div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-google-red/50">
+                                    <div class="text-[10px] uppercase text-white/60 font-bold">12 Mo</div>
+                                    <div class="text-google-red font-bold">10%</div>
+                                </div>
+                            </div>
+                            <button onclick="toggleTerms('prepaid')"
+                                class="flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">
+                                View Terms <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -471,9 +510,9 @@
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a class="hover:text-white transition-colors" href="../../NGFEP.html">Nigeria Google for
+                        <li><a class="hover:text-white transition-colors" href="../ngfep/index.html">Nigeria Google for
                                 Education</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../../Google_Workspace.html">Google
+                        <li><a class="hover:text-white transition-colors" href="../google_workspace/index.html">Google
                                 Workspace</a></li>
                         <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
                                 Provider</a></li>

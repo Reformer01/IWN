@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -111,7 +112,7 @@
                         class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                         <a href="./index.html" class="block px-4 py-2 bg-slate-50 text-primary font-bold">Nigeria Google
                             for Education</a>
-                        <a href="../../Google_Workspace.html"
+                        <a href="../google_workspace/index.html"
                             class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
                     </div>
                 </div>
@@ -548,7 +549,8 @@
             </div>
 
             <div class="bg-white rounded-4xl shadow-2xl p-8 md:p-16 border border-slate-100 italic">
-                <form id="ngfepForm" class="space-y-8">
+                <form id="ngfepForm" class="space-y-8" action="../Assets/forms/form-validation.php" method="POST">
+                    <input type="hidden" name="subject" value="NGFEP Enquiry">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-sm font-black text-slate-400 uppercase tracking-widest mb-3">School
@@ -609,22 +611,21 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-navy text-white pt-20 pb-10 px-6 border-t border-white/10 italic">
+    <footer class="bg-navy text-white pt-20 pb-10 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div>
-                    <img src="../Assets/icons/logos/iworld_logo2.jpg" alt="I-World" class="h-8 mb-6">
+                <div><img src="../Assets/icons/logos/iworld_logo2.jpg" alt="I-World" class="h-8 mb-6">
                     <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
-                        homes and businesses. Secure, fast, and always reliable.</p>
+                        enterprises. Secure, fast, and always reliable.</p>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
-                    <ul class="space-y-4 text-slate-400 text-sm italic font-medium">
+                    <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../homepage/index.html">Home</a></li>
                         <li><a class="hover:text-white transition-colors" href="../about.html">About Us</a></li>
                         <li><a class="hover:text-white transition-colors" href="../contact/index.html">Contact Us</a>
                         </li>
-                        <li><a class="hover:text-white transition-colors" href="../careers/index.html">Careers</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../careers.html">Careers</a></li>
                     </ul>
                 </div>
                 <div>
@@ -641,9 +642,9 @@
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a class="hover:text-white transition-colors text-white font-bold"
-                                href="./index.html">Nigeria Google for Education</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../../Google_Workspace.html">Google
+                        <li><a class="hover:text-white transition-colors" href="../ngfep/index.html">Nigeria Google for
+                                Education</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../google_workspace/index.html">Google
                                 Workspace</a></li>
                         <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
                                 Provider</a></li>
@@ -652,13 +653,18 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> &nbsp;&nbsp; I-World Networks. All
-                    rights
+                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> I-World Networks. All rights
                     reserved.</p>
                 <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
             </div>
         </div>
     </footer>
+
+    <div class="fixed bottom-8 right-8 z-50"><a href="../contact/index.html"
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
+                class="material-symbols-outlined">support_agent</span><span
+                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
+                With Us</span></a></div>
 
     <script>
         function showTab(index) {
@@ -674,6 +680,9 @@
             console.log('NGFEP: Switched to tab ' + index);
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="../Assets/js/redesign-form.js"></script>
 </body>
 
 </html>

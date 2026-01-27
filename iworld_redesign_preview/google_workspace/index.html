@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Workspace | I-World Networks</title>
+    <meta name="description"
+        content="Redefine how your team works with Google Workspace. Secure business email, cloud storage, and collaboration tools powered by AI.">
+    <link rel="shortcut icon" href="../Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        'google-blue': '#4285F4',
+                        'google-red': '#EA4335',
+                        'google-yellow': '#FBBC05',
+                        'google-green': '#34A853',
+                        'brand-dark': '#101922',
+                        'brand-blue': '#1a73e8',
+                        // Standard I-World Colors
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "surface-dark": "#1E293B",
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Hide scrollbar for carousel */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans text-brand-dark bg-slate-50/30 overflow-x-hidden">
+
+    <!-- Migration Sticky Banner -->
+    <div class="fixed top-0 w-full bg-gradient-to-r from-google-blue to-blue-700 text-white py-3 px-4 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined animate-pulse">shield_with_heart</span>
+                <p class="text-sm font-medium">Seamless Migration Services: Transition with zero data loss and zero
+                    downtime.</p>
+            </div>
+            <a href="#enquiry"
+                class="bg-white text-google-blue px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-slate-100 transition-colors shadow-lg">Learn
+                More</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-12 w-full z-40 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../homepage/index.html">
+                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-10 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
+                        Connectivity Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="../home_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Internet for Home</a>
+                        <a href="../business_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Small Business</a>
+                        <a href="../enterprise_internet/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-primary">
+                        Cloud Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="../ngfep/index.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Nigeria
+                            Google for Education</a>
+                        <a href="./index.html" class="block px-4 py-2 bg-slate-50 text-primary">Google Workspace</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors" href="../msp/index.html">Managed IT Services</a>
+                <a class="hover:text-primary transition-colors" href="../loyalty_discounts/index.html">Loyalty &
+                    Discounts</a>
+                <a class="hover:text-primary transition-colors" href="../careers/index.html">Careers</a>
+                <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
+                    Zone</a>
+            </div>
+            <a href="../contact/index.html"
+                class="hidden lg:block bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
+                Sales</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 items-center gap-16">
+            <div class="space-y-8 relative z-10">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-google-blue/10 text-google-blue rounded-full text-xs font-bold uppercase tracking-widest leading-none">
+                    <span class="size-2 rounded-full bg-google-blue animate-ping"></span>
+                    Redefining Productivity
+                </div>
+                <h1 class="text-4xl md:text-5xl font-display font-bold leading-tight tracking-tight text-slate-900">
+                    Enhance Your Business <span class="gradient-text">Productivity</span> with Google Workspace
+                </h1>
+                <p class="text-lg text-slate-500 max-w-xl leading-relaxed">
+                    Empower your team with professional email, video meetings, cloud storage, and advanced collaboration
+                    tools — all integrated with powerful AI.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#enquiry"
+                        class="bg-google-blue text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-blue-600 transition-colors flex items-center gap-2">
+                        Start Your Free Trial
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="#pricing"
+                        class="px-8 py-3 rounded-xl font-bold text-base text-slate-700 border-2 border-slate-200 hover:border-google-blue hover:text-google-blue transition-all">
+                        View Pricing
+                    </a>
+                </div>
+                <div class="flex items-center gap-6 pt-10 border-t border-slate-100 italic text-slate-400 text-sm">
+                    <p>✓ 14-day free trial</p>
+                    <p>✓ No data loss migration</p>
+                    <p>✓ Certified Cloud Partner</p>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="relative z-10 rounded-3xl overflow-hidden border-4 border-slate-100">
+                    <img src="../Assets/img/google-workspace-bg.jpg" alt="Google Workspace Productivity"
+                        class="w-full h-auto object-contain max-h-[450px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="py-32 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-20">
+                <h2 class="text-4xl font-display font-bold text-slate-900 mb-6 leading-tight">Everything you need for
+                    seamless collaboration</h2>
+                <p class="text-lg text-slate-500">Google Workspace provides a complete set of productivity apps for
+                    businesses of all sizes.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Gmail -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/gmail.png" alt="Gmail"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Gmail</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Secure business email at your domain with
+                        advanced spam protection.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Drive -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/drive.png" alt="Drive"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Drive</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Cloud storage with real-time
+                        collaboration and secure file sharing.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Meet -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/meet.png" alt="Meet"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Meet</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Secure video meetings with recording and
+                        live captions for global teams.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Sheets -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/sheets.png" alt="Sheets"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Sheets</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Smart spreadsheets with AI formulas and
+                        collaborative editing for insights.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Docs -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/docs.png" alt="Docs"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Docs</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">AI-powered document creation with
+                        real-time editing and smart suggestions.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Slides -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/slides.png" alt="Slides"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Slides</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Impactful presentations with AI-powered
+                        design and multimedia integration.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Calendar -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/calendar.png" alt="Calendar"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Calendar</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Smart scheduling with appointment booking
+                        and time management tools.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Chat -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/chat.png" alt="Chat"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Chat</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Secure team messaging with built-in
+                        collaboration and real-time communication.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Forms -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/forms.png" alt="Forms"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Forms</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Create surveys and quizzes with automatic
+                        data analysis in Sheets.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Keep -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/keep.png" alt="Keep"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Keep</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Capture ideas, checklists, and voice
+                        memos that sync across all devices.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Admin -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="../Assets/icons/google_workspace/admin.png" alt="Admin"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Admin</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Centralized management platform for
+                        users, devices, and security controls.</p>
+                    <a href="#"
+                        class="mt-auto text-google-blue font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Learn
+                        More <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+
+                <!-- Gemini -->
+                <div
+                    class="product-card bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-3xl shadow-lg shadow-indigo-200 flex flex-col items-center text-center group text-white">
+                    <div
+                        class="size-16 mb-6 bg-white/20 p-4 rounded-2xl flex items-center justify-center backdrop-blur-sm transition-transform group-hover:rotate-12">
+                        <img src="../Assets/icons/google_workspace/gemini.png" alt="Gemini"
+                            class="w-full h-full object-contain brightness-0 invert">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Gemini AI</h3>
+                    <p class="text-indigo-50 text-[13px] leading-relaxed mb-6">Advanced AI integrated across Workspace
+                        to draft content and boost speed.</p>
+                    <a href="#"
+                        class="mt-auto text-white font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 hover:gap-2 transition-all">Supercharge
+                        Work <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features Carousel -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display font-bold text-slate-900 mb-4">One subscription. So much premium value.
+                </h2>
+                <p class="text-lg text-slate-500">Everything your team needs to collaborate and succeed</p>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="relative">
+                <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
+                    <!-- Custom Email Card -->
+                    <div
+                        class="app-showcase-card flex-shrink-0 w-80 bg-white rounded-2xl border border-slate-200 overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-2xl snap-center">
+                        <!-- Feature Image -->
+                        <div
+                            class="relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 group-hover:bg-google-blue transition-colors duration-300 h-56 flex items-center justify-center p-6">
+                            <img src="../Assets/img/company domain.png" alt="Custom Business Email"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-all duration-300">
+                        </div>
+
+                        <!-- App Info -->
+                        <div class="p-6 group-hover:bg-google-blue transition-colors duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="../Assets/icons/google_workspace/gmail.png" alt="Gmail"
+                                    class="w-8 h-8 object-contain transition-all duration-300">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-white transition-colors duration-300">Gmail</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-white transition-colors duration-300">
+                                Custom Business Email
+                            </h3>
+                            <p class="text-sm text-slate-600 group-hover:text-white/90 transition-colors duration-300">
+                                Look professional with @yourcompany.com. Includes advanced spam protection and custom
+                                retention policies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Booking Card -->
+                    <div
+                        class="app-showcase-card flex-shrink-0 w-80 bg-white rounded-2xl border border-slate-200 overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-2xl snap-center">
+                        <!-- Feature Image -->
+                        <div
+                            class="relative overflow-hidden bg-gradient-to-br from-green-50 to-green-100 group-hover:bg-google-blue transition-colors duration-300 h-56 flex items-center justify-center p-6">
+                            <img src="../Assets/img/Appointment Schedule 2.png" alt="Appointment Booking"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-all duration-300">
+                        </div>
+
+                        <!-- App Info -->
+                        <div class="p-6 group-hover:bg-google-blue transition-colors duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="../Assets/icons/google_workspace/calendar.png" alt="Calendar"
+                                    class="w-8 h-8 object-contain transition-all duration-300">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-white transition-colors duration-300">Calendar</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-white transition-colors duration-300">
+                                Smart Appointment Booking
+                            </h3>
+                            <p class="text-sm text-slate-600 group-hover:text-white/90 transition-colors duration-300">
+                                Share your availability via a booking page. Let clients schedule time with you without
+                                the back-and-forth.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- eSignature Card -->
+                    <div
+                        class="app-showcase-card flex-shrink-0 w-80 bg-white rounded-2xl border border-slate-200 overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-2xl snap-center">
+                        <!-- Feature Image -->
+                        <div
+                            class="relative overflow-hidden bg-gradient-to-br from-yellow-50 to-yellow-100 group-hover:bg-google-blue transition-colors duration-300 h-56 flex items-center justify-center p-6">
+                            <img src="../Assets/img/E-signature.png" alt="eSignature"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-all duration-300">
+                        </div>
+
+                        <!-- App Info -->
+                        <div class="p-6 group-hover:bg-google-blue transition-colors duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="../Assets/icons/google_workspace/docs.png" alt="Docs"
+                                    class="w-8 h-8 object-contain transition-all duration-300">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-white transition-colors duration-300">Docs</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-white transition-colors duration-300">
+                                Integrated eSignatures
+                            </h3>
+                            <p class="text-sm text-slate-600 group-hover:text-white/90 transition-colors duration-300">
+                                Request and manage digital signatures for contracts and agreements directly from Google
+                                Docs and Drive.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Video Meetings Card -->
+                    <div
+                        class="app-showcase-card flex-shrink-0 w-80 bg-white rounded-2xl border border-slate-200 overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-2xl snap-center">
+                        <!-- Feature Image -->
+                        <div
+                            class="relative overflow-hidden bg-gradient-to-br from-red-50 to-red-100 group-hover:bg-google-blue transition-colors duration-300 h-56 flex items-center justify-center p-6">
+                            <img src="../Assets/img/enhancedVID.png" alt="Video Meetings"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-all duration-300">
+                        </div>
+
+                        <!-- App Info -->
+                        <div class="p-6 group-hover:bg-google-blue transition-colors duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="../Assets/icons/google_workspace/meet.png" alt="Meet"
+                                    class="w-8 h-8 object-contain transition-all duration-300">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-white transition-colors duration-300">Meet</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-white transition-colors duration-300">
+                                Premium Video Meetings
+                            </h3>
+                            <p class="text-sm text-slate-600 group-hover:text-white/90 transition-colors duration-300">
+                                Host calls with up to 500 participants, recording, noise cancellation, and attendance
+                                tracking.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cloud Storage Card -->
+                    <div
+                        class="app-showcase-card flex-shrink-0 w-80 bg-white rounded-2xl border border-slate-200 overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-2xl snap-center">
+                        <!-- Feature Image -->
+                        <div
+                            class="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-indigo-100 group-hover:bg-google-blue transition-colors duration-300 h-56 flex items-center justify-center p-6">
+                            <img src="../Assets/img/UP TO 5TB.png" alt="Cloud Storage"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-all duration-300">
+                        </div>
+
+                        <!-- App Info -->
+                        <div class="p-6 group-hover:bg-google-blue transition-colors duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="../Assets/icons/google_workspace/drive.png" alt="Drive"
+                                    class="w-8 h-8 object-contain transition-all duration-300">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-white transition-colors duration-300">Drive</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-white transition-colors duration-300">
+                                Expanded Cloud Storage
+                            </h3>
+                            <p class="text-sm text-slate-600 group-hover:text-white/90 transition-colors duration-300">
+                                Secure storage starting at 2TB per user. Centralized shared drives for convenient team
+                                file access.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <h2 class="text-4xl font-display font-bold text-slate-900 mb-6">Flexible plans for every business</h2>
+                <p class="text-lg text-slate-500">Pick a plan that fits your team's needs. Upgrade or downgrade anytime.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Business Starter -->
+                <div class="pricing-card p-10 rounded-[2.5rem] border-2 border-slate-100 flex flex-col">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-slate-500 mb-2">Business Starter</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-display font-bold text-slate-900">$6</span>
+                            <span class="text-slate-400 font-medium italic">USD / user / month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Custom business email (@yourcompany.com)
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            100 participant video meetings
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            30 GB cloud storage per user
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Shared drives for team collaboration
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Gmail, Calendar, Meet, Chat, Drive, Docs, Sheets, Slides
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Standard support (Email, M-F)
+                        </li>
+                    </ul>
+                    <a href="#enquiry"
+                        class="mt-auto block text-center py-4 rounded-2xl border-2 border-slate-100 font-bold hover:border-google-blue hover:text-google-blue transition-all">Choose
+                        Starter</a>
+                </div>
+
+                <!-- Business Standard (Recommended) -->
+                <div
+                    class="pricing-card p-10 rounded-[2.5rem] bg-slate-900 text-white flex flex-col scale-105 shadow-2xl relative z-10 border-4 border-google-blue">
+                    <div
+                        class="absolute -top-5 left-1/2 -translate-x-1/2 bg-google-blue text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest leading-none">
+                        Recommended</div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-blue-300 mb-2">Business Standard</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-display font-bold">$12</span>
+                            <span class="text-slate-400 font-medium italic">USD / user / month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-300">
+                        <li class="flex items-start gap-2 font-medium">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">check_circle</span>
+                            Everything in Starter, plus:
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-blue-400 text-[18px]">verified</span>
+                            150 participant video meetings + recording
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-blue-400 text-[18px]">verified</span>
+                            2 TB cloud storage per user
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-blue-400 text-[18px]">verified</span>
+                            eSignature requests in Docs & Drive
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-blue-400 text-[18px]">verified</span>
+                            Appointment booking pages
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-blue-400 text-[18px]">verified</span>
+                            Noise cancellation for meetings
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-blue-400 text-[18px]">verified</span>
+                            Standard support (24/7, Email & Phone)
+                        </li>
+                    </ul>
+                    <a href="#enquiry"
+                        class="mt-auto block text-center py-4 rounded-2xl bg-google-blue text-white font-bold hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">Choose
+                        Standard</a>
+                </div>
+
+                <!-- Business Plus -->
+                <div class="pricing-card p-10 rounded-[2.5rem] border-2 border-slate-100 flex flex-col">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-slate-500 mb-2">Business Plus</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-display font-bold text-slate-900">$18</span>
+                            <span class="text-slate-400 font-medium italic">USD / user / month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Everything in Standard, plus:
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            500 participant meetings + attendance tracking
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            5 TB cloud storage per user
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Vault for eDiscovery & retention
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            S/MIME encryption for Gmail
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Client-side encryption
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Enhanced support (Priority 24/7)
+                        </li>
+                    </ul>
+                    <a href="#enquiry"
+                        class="mt-auto block text-center py-4 rounded-2xl border-2 border-slate-100 font-bold hover:border-google-blue hover:text-google-blue transition-all">Choose
+                        Plus</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card p-10 rounded-[2.5rem] border-2 border-slate-100 bg-slate-50 flex flex-col">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-slate-500 mb-2">Enterprise</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-display font-bold text-slate-900">Contact Sales</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Everything in Business Plus, plus:
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Unlimited storage (upon request)
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Advanced DLP & enterprise endpoint management
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Cloud Identity Premium & context-aware access
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Data regions for compliance
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Dedicated account manager
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-google-green text-[18px]">verified</span>
+                            Premium support & seamless migration
+                        </li>
+                    </ul>
+                    <a href="#enquiry"
+                        class="mt-auto block text-center py-4 rounded-2xl bg-brand-dark text-white font-bold hover:bg-black transition-all">Contact
+                        Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div><img src="../Assets/icons/logos/iworld_logo2.jpg" alt="I-World" class="h-8 mb-6">
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        enterprises. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../homepage/index.html">Home</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../contact/index.html">Contact Us</a>
+                        </li>
+                        <li><a class="hover:text-white transition-colors" href="../careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../home_internet/index.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../business_internet/index.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="../enterprise_internet/index.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="../ngfep/index.html">Nigeria Google for
+                                Education</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../google_workspace/index.html">Google
+                                Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
+                                Provider</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> I-World Networks. All rights
+                    reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth local scrolling would be added here
+    </script>
+
+</body>
+
+</html>
