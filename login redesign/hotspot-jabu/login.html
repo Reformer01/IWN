@@ -12,14 +12,9 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="./assets/fonts/material-icons.css" rel="stylesheet" />
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="./assets/js/tailwind.js"></script>
     <!-- Theme Configuration -->
     <script id="tailwind-config">
         tailwind.config = {
@@ -32,7 +27,7 @@
                         "google-red": "#EA4335",
                         "google-yellow": "#FBBC05",
                         "google-green": "#34A853",
-                        "background-light": "#f6f7f8",
+                        "background-light": "#f8fafc",
                         "background-dark": "#101922",
                     },
                     fontFamily: {
@@ -72,10 +67,10 @@
         }
 
         .bg-pattern {
-            background-image: radial-gradient(#4285F4 0.5px, transparent 0.5px), radial-gradient(#4285F4 0.5px, transparent 0.5px);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.2) 0.5px, transparent 0.5px), radial-gradient(rgba(255, 255, 255, 0.2) 0.5px, transparent 0.5px);
             background-size: 40px 40px;
             background-position: 0 0, 20px 20px;
-            opacity: 0.05;
+            opacity: 0.1;
         }
     </style>
 </head>
@@ -129,13 +124,14 @@
         <div class="flex items-center gap-4">
             <div class="flex items-center gap-2">
                 <div class="flex items-center gap-3">
-                    <img src="./assets/img/ngfep no bg.png" alt="NGFEP Logo" class="h-10 md:h-14 object-contain">
-                    <img src="./assets/img/JABU-Logo-n-Header.png" alt="School Logo" class="h-10 md:h-14 object-contain">
+                    <img src="./assets/img/ngfep-no-bg.png" alt="NGFEP Logo" class="h-10 md:h-14 object-contain">
+                    <img src="./assets/img/JABU-Logo-n-Header.png" alt="School Logo"
+                        class="h-10 md:h-14 object-contain">
                 </div>
             </div>
         </div>
         <div class="flex items-center gap-3">
-            <img src="./assets/img/Google_for_education no bg.png" alt="Google for Education"
+            <img src="./assets/img/Google_for_education-no-bg.png" alt="Google for Education"
                 class="h-8 md:h-10 object-contain">
         </div>
     </header>
@@ -150,7 +146,7 @@
                 <!-- Background Image with Overlay -->
                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     data-alt="Digital learning illustration"
-                    style='background-image: url("./assets/img/jabu\ login\ image.jpg");'>
+                    style='background-image: url("./assets/img/jabu-login-image.jpg");'>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
                 <!-- Content Overlay -->
@@ -189,13 +185,13 @@
                             <h3 class="text-slate-700 dark:text-slate-300 font-bold text-lg mb-4">Account Creation Forms
                             </h3>
                             <div class="grid grid-cols-2 gap-4">
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScutsf5iPrcg94jExpe-USROVemlRAL_H4KusEGzd6lGUsQNg/viewform?usp=publish-editor"
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeL4inE6qwXSCMAa76LSsc_Uvi5PmYcXbmHSDPAMKsl6oyIBw/viewform?usp=header"
                                     target="_blank"
                                     class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-google-blue/10 text-google-blue text-[10px] font-bold hover:bg-google-blue hover:text-white transition-all text-center uppercase tracking-tighter shadow-sm">
                                     <span class="material-symbols-outlined text-[16px]">school</span>
                                     Student Form
                                 </a>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScyTsOVd6Fb3RNvHwl0SqAcFitDWBjljeCo-cPnKyf60_tP4w/viewform?usp=publish-editor"
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR2Z6be_2ocu1l2eflFhC9TGOvR2ivMG7uTlf_23zsehDuJg/viewform?usp=header"
                                     target="_blank"
                                     class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-google-red/10 text-google-red text-[10px] font-bold hover:bg-google-red hover:text-white transition-all text-center uppercase tracking-tighter shadow-sm">
                                     <span class="material-symbols-outlined text-[16px]">person</span>
@@ -269,6 +265,8 @@
                             </p>
                         </div>
                         $(endif)
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -281,7 +279,7 @@
                     </p>
                     <div class="h-8 w-px bg-slate-200 dark:bg-slate-700 hidden md:block"></div>
                     <div class="flex items-center gap-6">
-                        <img src="./assets/img/IWN no bg.png" alt="IWN Logo"
+                        <img src="./assets/img/IWN-no-bg.png" alt="IWN Logo"
                             class="h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">
                         <img src="./assets/img/cloud_partner_logo.png" alt="Cloud Partner"
                             class="h-10 object-contain opacity-80 hover:opacity-100 transition-opacity">

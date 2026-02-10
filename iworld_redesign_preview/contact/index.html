@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>I-World Networks | Contact Us</title>
+    <link rel="shortcut icon" href="../Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -63,45 +64,38 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="../homepage/index.html">
-                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-10 object-contain">
+                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
             <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
-                <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../homepage/index.html">Home</a>
                 <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
-                        Connectivity Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
                     </button>
                     <div
                         class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                         <a href="../home_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Internet for Home</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
                         <a href="../business_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Small Business</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Business Internet</a>
                         <a href="../enterprise_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
                     </div>
                 </div>
-                <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
-                        Cloud Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                    </button>
-                    <div
-                        class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                        <a href="../ngfep/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Nigeria
-                            Google for Education</a>
-                        <a href="../google_workspace/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
-                    </div>
-                </div>
-                <a class="hover:text-primary transition-colors" href="../msp/index.html">Managed IT Services</a>
-                <a class="hover:text-primary transition-colors" href="../loyalty_discounts/index.html">Loyalty &
-                    Discounts</a>
-                <a class="hover:text-primary transition-colors" href="../careers/index.html">Careers</a>
-                <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
-                    Zone</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../msp/index.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../smartlife/index.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../ngfep/index.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="../google_workspace/index.html">Google Workspace</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="../careers/index.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
             </div>
             <a href="./index.html"
                 class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
@@ -134,34 +128,46 @@
                     <input type="hidden" name="subject" value="Website Enquiry">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700">Contact Name</label>
+                            <label class="text-sm font-semibold text-slate-700">First Name</label>
                             <input
                                 class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3"
-                                placeholder="John Doe" type="text" />
+                                placeholder="John" type="text" name="first_name" required />
                         </div>
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700">Contact Address</label>
+                            <label class="text-sm font-semibold text-slate-700">Surname</label>
                             <input
                                 class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3"
-                                placeholder="123 Street Name" type="text" />
+                                placeholder="Doe" type="text" name="surname" required />
                         </div>
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700">Phone Number</label>
+                            <label class="text-sm font-semibold text-slate-700">City</label>
                             <input
                                 class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3"
-                                placeholder="+234 ..." type="tel" />
+                                placeholder="Lagos" type="text" name="city" required />
                         </div>
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700">WhatsApp Number</label>
+                            <label class="text-sm font-semibold text-slate-700">State</label>
                             <input
                                 class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3"
-                                placeholder="+234 ..." type="tel" />
+                                placeholder="Lagos State" type="text" name="state" required />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-slate-700">Contact Phone Number</label>
+                            <input
+                                class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3"
+                                placeholder="+234 ..." type="tel" name="contact_phone" required />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-slate-700">Contact WhatsApp Number</label>
+                            <input
+                                class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3"
+                                placeholder="+234 ..." type="tel" name="whatsapp_number" required />
                         </div>
                         <div class="md:col-span-2 space-y-2">
-                            <label class="text-sm font-semibold text-slate-700">Email Address</label>
+                            <label class="text-sm font-semibold text-slate-700">Contact Email Address</label>
                             <input
                                 class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3"
-                                placeholder="email@example.com" type="email" />
+                                placeholder="email@example.com" type="email" name="email" required />
                         </div>
                     </div>
                     <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -170,41 +176,73 @@
                             <div class="space-y-3">
                                 <label class="flex items-center gap-3 cursor-pointer group"><input
                                         class="rounded text-primary focus:ring-primary w-5 h-5 border-slate-300"
-                                        type="checkbox" /><span
+                                        type="checkbox" name="services[]" value="Internet for Home" /><span
                                         class="text-slate-600 group-hover:text-primary transition-colors">Internet for
                                         Home</span></label>
                                 <label class="flex items-center gap-3 cursor-pointer group"><input
                                         class="rounded text-primary focus:ring-primary w-5 h-5 border-slate-300"
-                                        type="checkbox" /><span
+                                        type="checkbox" name="services[]" value="Internet for Business" /><span
                                         class="text-slate-900 group-hover:text-primary transition-colors">Internet for
                                         Business</span></label>
                                 <label class="flex items-center gap-3 cursor-pointer group"><input
                                         class="rounded text-primary focus:ring-primary w-5 h-5 border-slate-300"
-                                        type="checkbox" /><span
+                                        type="checkbox" name="services[]"
+                                        value="Nigerian Google for Education Program" /><span
+                                        class="text-slate-900 group-hover:text-primary transition-colors">Nigerian
+                                        Google for Education Program</span></label>
+                                <label class="flex items-center gap-3 cursor-pointer group"><input
+                                        class="rounded text-primary focus:ring-primary w-5 h-5 border-slate-300"
+                                        type="checkbox" name="services[]" value="Google Workspace" /><span
                                         class="text-slate-900 group-hover:text-primary transition-colors">Google
                                         Workspace</span></label>
                                 <label class="flex items-center gap-3 cursor-pointer group"><input
                                         class="rounded text-primary focus:ring-primary w-5 h-5 border-slate-300"
-                                        type="checkbox" /><span
-                                        class="text-slate-900 group-hover:text-primary transition-colors">Managed IT
+                                        type="checkbox" name="services[]" value="Managed Internet Services" /><span
+                                        class="text-slate-900 group-hover:text-primary transition-colors">Managed
+                                        Internet
                                         Services</span></label>
+                                <label class="flex items-center gap-3 cursor-pointer group"><input
+                                        class="rounded text-primary focus:ring-primary w-5 h-5 border-slate-300"
+                                        type="checkbox" name="services[]" value="Multi Protocol Label Switching" /><span
+                                        class="text-slate-900 group-hover:text-primary transition-colors">Multi Protocol
+                                        Label Switching</span></label>
                             </div>
                         </div>
-                        <div>
-                            <p class="text-sm font-semibold text-slate-700 mb-3">Best time to contact</p>
-                            <div class="flex flex-wrap gap-2">
-                                <label class="relative"><input class="peer absolute opacity-0 w-0 h-0" name="time"
-                                        type="radio" /><span
-                                        class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Day</span></label>
-                                <label class="relative"><input class="peer absolute opacity-0 w-0 h-0" name="time"
-                                        type="radio" /><span
-                                        class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Evening</span></label>
-                                <label class="relative"><input class="peer absolute opacity-0 w-0 h-0" name="time"
-                                        type="radio" /><span
-                                        class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Anytime</span></label>
-                                <label class="relative"><input class="peer absolute opacity-0 w-0 h-0" name="time"
-                                        type="radio" /><span
-                                        class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Weekend</span></label>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-sm font-semibold text-slate-700 mb-3">Best Contact Method</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_method" value="WhatsApp" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">WhatsApp</span></label>
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_method" value="Email" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Email</span></label>
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_method" value="Phone Call" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Phone
+                                            Call</span></label>
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_method" value="SMS" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">SMS</span></label>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-700 mb-3">Best Time to Contact</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_time" value="Day" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Day</span></label>
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_time" value="Evening" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Evening</span></label>
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_time" value="Anytime" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Anytime</span></label>
+                                    <label class="relative"><input class="peer absolute opacity-0 w-0 h-0"
+                                            name="contact_time" value="Weekend" type="radio" /><span
+                                            class="px-4 py-2 border border-slate-200 rounded-lg text-sm cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary inline-block transition-all">Weekend</span></label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -317,10 +355,10 @@
                         <div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20"></div>
                         <div
                             class="absolute bottom-2 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-                            Abeokuta (HQ)</div>
+                            Abeokuta</div>
                     </div>
                     <div class="p-4">
-                        <h4 class="text-lg font-bold mb-2">Headquarters</h4>
+                        <h4 class="text-lg font-bold mb-2">Abeokuta</h4>
                         <p class="text-slate-500 text-sm mb-3 leading-snug">Suite 97, Omida Ultra Modern Mall, Ibara,
                             Abeokuta, Ogun State</p>
                         <div
@@ -339,7 +377,7 @@
                             Lagos</div>
                     </div>
                     <div class="p-4">
-                        <h4 class="text-lg font-bold mb-2">Ikoyi Branch</h4>
+                        <h4 class="text-lg font-bold mb-2">Lagos</h4>
                         <p class="text-slate-500 text-sm mb-3 leading-snug">2nd Floor, Mulliner Towers, 39 Alfred
                             Rewane Road, Ikoyi, Lagos State</p>
                         <div
@@ -358,7 +396,7 @@
                             Osogbo</div>
                     </div>
                     <div class="p-4">
-                        <h4 class="text-lg font-bold mb-2">Ring Road Branch</h4>
+                        <h4 class="text-lg font-bold mb-2">Osogbo</h4>
                         <p class="text-slate-500 text-sm mb-3 leading-snug">Opposite Jubilee Baptist Church, Ring
                             Road, Osogbo, Osun State</p>
                         <div
@@ -377,7 +415,7 @@
                             Akure</div>
                     </div>
                     <div class="p-4">
-                        <h4 class="text-lg font-bold mb-2">BOI Building Branch</h4>
+                        <h4 class="text-lg font-bold mb-2">Akure</h4>
                         <p class="text-slate-500 text-sm mb-3 leading-snug">Bank of Industry building, Alagbaka,
                             Akure, Ondo State</p>
                         <div
@@ -414,14 +452,14 @@
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../homepage/index.html">Home</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../about/index.html">About Us</a></li>
                         <li><a class="hover:text-white transition-colors" href="../contact/index.html">Contact Us</a>
                         </li>
-                        <li><a class="hover:text-white transition-colors" href="../careers.html">Careers</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../careers/index.html">Careers</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Internet Service</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../home_internet/index.html">Internet
                                 for Home</a></li>
@@ -435,12 +473,13 @@
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../ngfep/index.html">Nigeria Google for
-                                Education</a></li>
+                                Education Program</a></li>
                         <li><a class="hover:text-white transition-colors" href="../google_workspace/index.html">Google
                                 Workspace</a></li>
                         <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
                                 Provider</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../smartlife/index.html">Smart Life</a>
+                        </li>
                     </ul>
                 </div>
             </div>

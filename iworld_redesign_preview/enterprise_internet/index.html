@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>I-World Networks | Enterprise Internet</title>
+    <link rel="shortcut icon" href="../Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -41,45 +42,38 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="../homepage/index.html">
-                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-10 object-contain">
+                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
             <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
-                <a class="hover:text-primary transition-colors" href="../homepage/index.html">Home</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../homepage/index.html">Home</a>
                 <div class="relative group">
-                    <button class="flex items-center gap-1 text-primary">
-                        Connectivity Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    <button class="flex items-center gap-1 text-primary whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
                     </button>
                     <div
                         class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                         <a href="../home_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Internet for Home</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
                         <a href="../business_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Small Business</a>
-                        <a href="./index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Business Internet</a>
+                        <a href="./index.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise
+                            Internet</a>
                     </div>
                 </div>
-                <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
-                        Cloud Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                    </button>
-                    <div
-                        class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                        <a href="../ngfep/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Nigeria
-                            Google for Education</a>
-                        <a href="../google_workspace/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
-                    </div>
-                </div>
-                <a class="hover:text-primary transition-colors" href="../msp/index.html">Managed IT Services</a>
-                <a class="hover:text-primary transition-colors" href="../loyalty_discounts/index.html">Loyalty &
-                    Discounts</a>
-                <a class="hover:text-primary transition-colors" href="../careers/index.html">Careers</a>
-                <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
-                    Zone</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../msp/index.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../smartlife/index.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../ngfep/index.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="../google_workspace/index.html">Google Workspace</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="../careers/index.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
             </div>
             <a href="../contact/index.html"
                 class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
@@ -94,9 +88,16 @@
             <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40"></div>
         </div>
         <div class="container mx-auto px-6 relative z-10 py-16">
-            <div class="flex items-center gap-2 mb-6"><span
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6">
+                <span
                     class="text-white font-bold text-lg tracking-wider bg-white/10 px-4 py-1 rounded-full backdrop-blur-md border border-white/20">ENTERPRISE
-                    INTERNET</span></div>
+                    INTERNET</span>
+                <span
+                    class="text-white font-bold text-sm tracking-wide bg-primary/20 px-3 py-1 rounded-full backdrop-blur-md border border-primary/30 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">rocket_launch</span> Network Capacity Increased by
+                    150%
+                </span>
+            </div>
             <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 max-w-4xl">
                 Affordability, Availability, <br class="hidden md:block" />
                 <span class="text-secondary">Reliability</span> & <span class="text-primary">World Class Support</span>
@@ -127,59 +128,83 @@
                 <div class="lg:col-span-2">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">YOUR MISSION-CRITICAL CONNECTION
                     </h2>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">Our Enterprise Internet Service is a
-                        dedicated solution designed for <strong>critical business missions</strong>. We have built the
-                        most <strong>resilient infrastructure</strong> to withstand the peculiarities and challenges of
-                        our environment that provide our enterprise customers with most reliable and SLA backed service
-                        anywhere in Nigeria.</p>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        <strong>Major Critical Upgrade:</strong> We have completed a major upgrade to our core network,
+                        increasing overall bandwidth and efficiency by over 150%. Our Enterprise Internet Service is a
+                        dedicated solution designed for <strong>critical business missions</strong>, built on the most
+                        <strong>resilient infrastructure</strong> to withstand environmental challenges and provide the
+                        most reliable, SLA-backed service in Nigeria.
+                    </p>
                     <p class="text-lg text-slate-600 mb-8 leading-relaxed">We combine <strong>world class customers
                             service support</strong>, <strong>alternative technology</strong> and
                         <strong>innovation</strong> to provide dedicated fixed broadband internet service that exceeds
-                        expectations.
+                        expectations. Our fiber last-mile infrastructure ensures unmatched stability for your
+                        mission-critical operations.
                     </p>
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-50 border border-orange-100 text-orange-800 font-bold mb-8">
+                        <span class="material-symbols-outlined text-[20px]">payments</span>
+                        Connection fee starts from ₦200,000
+                    </div>
 
                     <h3 class="text-xl font-bold text-slate-900 mb-4">We provide dedicated fixed broadband at 99.9% SLA
                         backed uptime for:</h3>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Business
-                                    Enterprises</span></li>
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Hotels and
-                                    Resorts</span></li>
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Educational
-                                    Institutions</span></li>
-                        </ul>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Financial
-                                    Institutions</span></li>
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Government
-                                    & NGOs</span></li>
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-secondary">check_circle</span><span>Manufacturing
-                                    Industries</span></li>
                         </ul>
                     </div>
-                </div>
 
-                <div class="lg:col-span-1 flex flex-col gap-6">
-                    <div class="bg-secondary text-white rounded-3xl p-8 text-center">
-                        <div
-                            class="text-xs uppercase tracking-widest font-bold mb-4 bg-white/20 inline-block px-3 py-1 rounded-full">
-                            Guaranteed</div>
-                        <div class="text-6xl font-extrabold mb-2">99.9%</div>
-                        <div class="text-lg text-white/80">SLA Backed Uptime</div>
-                    </div>
-                    <div class="bg-slate-100 rounded-2xl p-6 text-center border border-slate-200">
-                        <div class="inline-flex items-center gap-2 text-secondary font-bold"><span
-                                class="material-symbols-outlined">headset_mic</span>24/7 World-Class Support</div>
+                    <div class="mt-12 overflow-x-auto">
+                        <h3 class="text-xl font-bold text-navy mb-6">Service Comparison</h3>
+                        <table class="w-full text-left border-collapse bg-slate-50 rounded-2xl overflow-hidden">
+                            <thead>
+                                <tr class="bg-navy text-white text-xs uppercase tracking-widest">
+                                    <th class="p-4 border-b border-navy/10 font-bold">Feature</th>
+                                    <th class="p-4 border-b border-navy/10 font-bold text-center">Standard ISP</th>
+                                    <th class="p-4 border-b border-navy/10 font-bold text-center text-primary">I-World
+                                        Enterprise</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-b border-slate-200">
+                                    <td class="p-4 font-bold text-slate-700">Infrastructure</td>
+                                    <td class="p-4 text-center text-slate-500 italic">Shared / Wireless</td>
+                                    <td class="p-4 text-center font-bold text-primary">Dedicated Dual-Leg Fiber</td>
+                                </tr>
+                                <tr class="border-b border-slate-200">
+                                    <td class="p-4 font-bold text-slate-700">Uptime SLA</td>
+                                    <td class="p-4 text-center text-slate-500 italic">Best Effort</td>
+                                    <td class="p-4 text-center font-bold text-primary">99.9% Guaranteed</td>
+                                </tr>
+                                <tr class="border-b border-slate-200">
+                                    <td class="p-4 font-bold text-slate-700">Support</td>
+                                    <td class="p-4 text-center text-slate-500 italic">Reactive / Generic</td>
+                                    <td class="p-4 text-center font-bold text-primary">Proactive 24/7 Managed</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-slate-700">Latency</td>
+                                    <td class="p-4 text-center text-slate-500 italic">Variable</td>
+                                    <td class="p-4 text-center font-bold text-primary">Ultra-Low (Tier-1)</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+
+            <div class="lg:col-span-1 flex flex-col gap-6">
+                <div class="bg-secondary text-white rounded-3xl p-8 text-center">
+                    <div
+                        class="text-xs uppercase tracking-widest font-bold mb-4 bg-white/20 inline-block px-3 py-1 rounded-full">
+                        Guaranteed</div>
+                    <div class="text-6xl font-extrabold mb-2">99.9%</div>
+                    <div class="text-lg text-white/80">SLA Backed Uptime</div>
+                </div>
+                <div class="bg-slate-100 rounded-2xl p-6 text-center border border-slate-200">
+                    <div class="inline-flex items-center gap-2 text-secondary font-bold"><span
+                            class="material-symbols-outlined">headset_mic</span>24/7 World-Class Support</div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -266,38 +291,90 @@
                 <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-2">Enterprise Service Request</h2>
                 <p class="text-center text-slate-900 mb-10">Fill out the form and our enterprise team will contact you
                     for a free survey.</p>
-                <form class="space-y-6">
+                <form class="space-y-6" id="enterpriseForm" action="../Assets/forms/form-validation.php" method="POST">
+                    <input type="hidden" name="subject" value="Enterprise Internet Inquiry">
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div><label
-                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Organization
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Company
                                 Name</label><input
                                 class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
-                                placeholder="Enter organization name" type="text" /></div>
-                        <div><label
-                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Organization
-                                Address</label><input
-                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
-                                placeholder="Enter address" type="text" /></div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
+                                placeholder="Enter company name" type="text" name="company_name" required />
+                        </div>
                         <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Contact
                                 Name</label><input
                                 class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
-                                placeholder="Your name" type="text" /></div>
-                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Contact
-                                Position</label><input
-                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
-                                placeholder="Your role" type="text" /></div>
+                                placeholder="Your name" type="text" name="full_name" required /></div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Phone
                                 Number</label><input
                                 class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
-                                placeholder="080..." type="tel" /></div>
+                                placeholder="080..." type="tel" name="phone" required /></div>
                         <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Email
                                 Address</label><input
                                 class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
-                                placeholder="contact@organization.com" type="email" /></div>
+                                placeholder="contact@organization.com" type="email" name="email" required /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">State</label>
+                            <select name="state" required
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm">
+                                <option value="">Select State</option>
+                                <option value="Lagos">Lagos</option>
+                                <option value="Ogun">Ogun</option>
+                                <option value="Oyo">Oyo</option>
+                                <option value="Osun">Osun</option>
+                                <option value="Ondo">Ondo</option>
+                                <option value="Ekiti">Ekiti</option>
+                                <option value="Rivers">Rivers</option>
+                                <option value="FCT">FCT - Abuja</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">City</label>
+                            <input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Enter city" type="text" name="city" required />
+                        </div>
+                    </div>
+                    <div class="pt-4 grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-900 mb-3">Preferred Contact Method:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="inline-flex items-center"><input type="radio" name="preferred_contact"
+                                        value="WhatsApp"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">WhatsApp</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="preferred_contact"
+                                        value="Email"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Email</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="preferred_contact"
+                                        value="Phone Call"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Phone Call</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-900 mb-3">Best Time to Contact:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="inline-flex items-center"><input type="radio" name="best_time"
+                                        value="Morning"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Morning</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="best_time"
+                                        value="Afternoon"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Afternoon</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="best_time"
+                                        value="Evening"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Evening</span></label>
+                            </div>
+                        </div>
                     </div>
                     <div class="pt-4">
                         <label class="block text-sm font-bold text-slate-900 mb-4">Industry Type:</label>
@@ -305,25 +382,28 @@
                             <label
                                 class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
                                     class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
-                                    name="industry" /><span class="ml-2 text-sm text-slate-700">Education</span></label>
+                                    name="industry" value="Education" /><span
+                                    class="ml-2 text-sm text-slate-700">Education</span></label>
                             <label
                                 class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
                                     class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
-                                    name="industry" /><span class="ml-2 text-sm text-slate-700">Finance</span></label>
+                                    name="industry" value="Finance" /><span
+                                    class="ml-2 text-sm text-slate-700">Finance</span></label>
                             <label
                                 class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
                                     class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
-                                    name="industry" /><span
+                                    name="industry" value="Healthcare" /><span
                                     class="ml-2 text-sm text-slate-700">Healthcare</span></label>
                             <label
                                 class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
                                     class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
-                                    name="industry" /><span
+                                    name="industry" value="Government" /><span
                                     class="ml-2 text-sm text-slate-700">Government</span></label>
                             <label
                                 class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
                                     class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
-                                    name="industry" /><span class="ml-2 text-sm text-slate-700">Other</span></label>
+                                    name="industry" value="Other" /><span
+                                    class="ml-2 text-sm text-slate-700">Other</span></label>
                         </div>
                     </div>
                     <button
@@ -346,14 +426,14 @@
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../homepage/index.html">Home</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../about/index.html">About Us</a></li>
                         <li><a class="hover:text-white transition-colors" href="../contact/index.html">Contact Us</a>
                         </li>
-                        <li><a class="hover:text-white transition-colors" href="../careers.html">Careers</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../careers/index.html">Careers</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Internet Service</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../home_internet/index.html">Internet
                                 for Home</a></li>
@@ -367,12 +447,13 @@
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../ngfep/index.html">Nigeria Google for
-                                Education</a></li>
+                                Education Program</a></li>
                         <li><a class="hover:text-white transition-colors" href="../google_workspace/index.html">Google
                                 Workspace</a></li>
                         <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
                                 Provider</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../smartlife/index.html">Smart Life</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -390,6 +471,9 @@
                 class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
                 With Us</span></a></div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="../Assets/js/redesign-form.js"></script>
 </body>
 
 </html>

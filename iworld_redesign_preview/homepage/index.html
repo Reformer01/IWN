@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>I-World Networks | Nigeria's Leading ISP</title>
+    <link rel="shortcut icon" href="../Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -46,45 +47,37 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="./index.html">
-                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-10 object-contain">
+                <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
             <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
-                <a class="hover:text-primary transition-colors" href="./index.html">Home</a>
                 <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
-                        Connectivity Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
                     </button>
                     <div
                         class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                         <a href="../home_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Internet for Home</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
                         <a href="../business_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Small Business</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Business Internet</a>
                         <a href="../enterprise_internet/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise</a>
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
                     </div>
                 </div>
-                <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
-                        Cloud Services <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                    </button>
-                    <div
-                        class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                        <a href="../ngfep/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Nigeria
-                            Google for Education</a>
-                        <a href="../google_workspace/index.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Google Workspace</a>
-                    </div>
-                </div>
-                <a class="hover:text-primary transition-colors" href="../msp/index.html">Managed IT Services</a>
-                <a class="hover:text-primary transition-colors" href="../loyalty_discounts/index.html">Loyalty &
-                    Discounts</a>
-                <a class="hover:text-primary transition-colors" href="../careers/index.html">Careers</a>
-                <a class="hover:text-primary transition-colors" href="https://app.iwn.ng" target="_blank">Client
-                    Zone</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../msp/index.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../smartlife/index.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="../ngfep/index.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="../google_workspace/index.html">Google Workspace</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="../careers/index.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
             </div>
             <a href="../contact/index.html"
                 class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
@@ -95,13 +88,16 @@
     <!-- Hero Section -->
     <header class="relative w-full min-h-[700px] flex items-center hero-gradient pt-20">
         <div class="container mx-auto px-6 py-20 text-center text-white">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-8">
-                <span class="w-2 h-2 rounded-full bg-secondary"></span> NCC Licensed • Google Cloud Partner
-            </div>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 max-w-5xl mx-auto">Nigeria's
-                Leading <span class="text-primary">Connectivity</span> & Cloud Solutions Provider</h1>
-            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10">Pioneering high-speed internet and
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 max-w-5xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-sm md:text-base mb-4">
+                    <span class="material-symbols-outlined text-lg">rocket_launch</span> Network Capacity Increased by
+                    over 150%
+                </div><br>
+                Nigeria's Leading <span class="text-primary">Connectivity & Cloud Solutions</span> Provider
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto mb-10">
+                Newly optimized for faster, more stable, and resilient connections. Pioneering high-speed internet and
                 cloud services for homes, businesses, and enterprises across Nigeria with world-class customer support.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -138,12 +134,12 @@
                     <div class="text-sm text-slate-500">Customers</div>
                 </div>
                 <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100">
-                    <div class="text-3xl font-extrabold text-secondary mb-2">NCC</div>
-                    <div class="text-sm text-slate-500">Licensed</div>
-                </div>
-                <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100">
                     <div class="text-3xl font-extrabold text-secondary mb-2">Award</div>
                     <div class="text-sm text-slate-500">Best ISP</div>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-extrabold text-primary mb-2">150%</div>
+                    <div class="text-sm text-slate-500">Capacity Increase</div>
                 </div>
             </div>
 
@@ -359,14 +355,14 @@
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../homepage/index.html">Home</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../about/index.html">About Us</a></li>
                         <li><a class="hover:text-white transition-colors" href="../contact/index.html">Contact Us</a>
                         </li>
-                        <li><a class="hover:text-white transition-colors" href="../careers.html">Careers</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../careers/index.html">Careers</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Connectivity</h4>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Internet Service</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../home_internet/index.html">Internet
                                 for Home</a></li>
@@ -380,12 +376,14 @@
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="../ngfep/index.html">Nigeria Google for
-                                Education</a></li>
+                                Education Program</a></li>
                         <li><a class="hover:text-white transition-colors" href="../google_workspace/index.html">Google
                                 Workspace</a></li>
                         <li><a class="hover:text-white transition-colors" href="../msp/index.html">Managed Service
                                 Provider</a></li>
-                        <li><a class="hover:text-white transition-colors" href="../SmartLife.html">Smart Life</a></li>
+                        <li><a class="hover:text-white transition-colors" href="../smartlife/index.html">I-World Smart
+                                Life</a>
+                        </li>
                     </ul>
                 </div>
             </div>
