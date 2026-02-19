@@ -46,7 +46,7 @@
             <a href="../homepage/index.html">
                 <img src="../Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
-            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="../homepage/index.html">Home</a>
                 <div class="relative group">
                     <button class="flex items-center gap-1 text-primary whitespace-nowrap">
@@ -69,14 +69,14 @@
                     Life</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="../ngfep/index.html">NGFEP</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap"
-                    href="../google_workspace/index.html">Google Workspace</a>
+                    href="../google_workspace/index.html">Google Cloud Services</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap"
                     href="../careers/index.html">Careers</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
                     target="_blank">Client Zone</a>
             </div>
             <a href="../contact/index.html"
-                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
                 Us</a>
         </div>
     </nav>
@@ -88,15 +88,21 @@
             <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40"></div>
         </div>
         <div class="container mx-auto px-6 relative z-10 pt-10">
-            <div class="flex items-center gap-2 mb-6"><span
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+                <span
                     class="text-white font-bold text-lg tracking-wider bg-white/10 px-4 py-1 rounded-full backdrop-blur-md border border-white/20">SMALL
-                    BUSINESS INTERNET</span></div>
+                    BUSINESS INTERNET</span>
+                <span
+                    class="text-secondary font-bold text-sm tracking-wide bg-secondary/10 px-4 py-1 rounded-full backdrop-blur-md border border-secondary/30 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">swap_horiz</span> Switch Internet for FREE — Plus 30
+                    Days Free Subscription!
+                </span>
+            </div>
             <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 max-w-3xl">High-Speed +
                 Reliability + <br class="hidden md:block" /><span class="text-primary">Low Cost for SMBs</span></h1>
             <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
-                Our engineering and technical teams have fully resolved past challenges, ensuring a stable business
-                platform. I-World Internet for SMB combines High-Speed + Reliability + Availability + Low cost to help
-                small business grow beyond their expectations. More than 3,000 Small businesses rely on I-World SMB
+                I-World Internet for SMB combines High-Speed + Reliability + Availability + Low cost to help
+                small business grow beyond their expectations. Thousands of Small businesses rely on I-World SMB
                 Wi-Fi for their daily operation.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
@@ -105,16 +111,17 @@
                 <a class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full transition-all text-center"
                     href="#contact">Get Connected</a>
             </div>
+
         </div>
     </header>
 
     <!-- Benefits Section -->
-    <section class="py-20 bg-white">
+    <section class="py-12 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Why Choose I-World Business?</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto mt-4">Now with 150% increased network capacity and fully
-                    optimized stability.</p>
+                <p class="text-slate-500 max-w-2xl mx-auto mt-4">Unparalleled network capacity and state-of-the-art
+                    stability.</p>
                 <div class="w-24 h-1 bg-primary mx-auto rounded-full mt-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -163,11 +170,20 @@
                     </div>
                 </div>
             </div>
+            <!-- Section Quick Nav -->
+            <div class="flex flex-wrap justify-center gap-3 mt-12 pt-8 border-t border-slate-100">
+                <a href="#plans"
+                    class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">View
+                    Plans</a>
+                <a href="#contact"
+                    class="px-5 py-2 bg-primary hover:bg-orange-600 text-white text-sm font-bold rounded-full transition-all">Connect
+                    Business &#8594;</a>
+            </div>
         </div>
     </section>
 
     <!-- Plans Section -->
-    <section class="py-20 bg-slate-50 relative overflow-hidden" id="plans">
+    <section class="py-12 bg-slate-50 relative overflow-hidden" id="plans">
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Choose your Shared Access Plan for Business</h2>
@@ -354,7 +370,7 @@
     </section>
 
     <!-- Managed Services Section -->
-    <section class="py-20 bg-white">
+    <section class="py-12 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Managed Service Combinations</h2>
@@ -411,8 +427,16 @@
                     </ul>
                     <a href="#contact" class="text-primary font-bold hover:underline">Choose Bundle →</a>
                 </div>
+                <!-- Section Quick Nav -->
+                <div class="flex flex-wrap justify-center gap-3 mt-16 pt-8 border-t border-slate-200">
+                    <a href="#plans"
+                        class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">View
+                        Plans</a>
+                    <a href="#contact"
+                        class="px-5 py-2 bg-primary hover:bg-orange-600 text-white text-sm font-bold rounded-full transition-all">Get
+                        Started &#8594;</a>
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- Coverage Section -->
