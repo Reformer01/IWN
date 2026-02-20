@@ -257,7 +257,7 @@
                             </a>
                         </div>
                         <div class="relative hidden h-auto md:w-1/2 md:block">
-                            <img src="https://pagedone.io/asset/uploads/1695028873.png" alt="Google Workspace"
+                            <img src="../Assets/img/geometric.jpg" alt="Google Workspace"
                                 class="h-full ml-auto object-cover rounded-r-2xl">
                         </div>
                     </div>
@@ -967,9 +967,9 @@
     <!-- Currency Conversion Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Fonvert USD to NGN
+            // Convert USD to NGN
             async function convertUsdn(usdAmount) {
-                {
+                try {
                     // First try to get the latest rate from an API (free tier)
                     const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
                     if (!response.ok) throw new Error('Failed to fetch exchange rate');
