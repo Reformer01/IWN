@@ -57,6 +57,42 @@
             backdrop-filter: blur(12px);
             background-color: rgba(255, 255, 255, 0.9);
         }
+
+        /* Client Zone Widget Styles */
+        .client-zone-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F58C29;
+            color: white !important;
+            text-decoration: none !important;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .client-zone-btn:hover {
+            background-color: #FF6600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: white !important;
+        }
+
+        .widget-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            #client-zone-widget {
+                bottom: 20px !important;
+                right: 20px !important;
+            }
+        }
     </style>
 </head>
 
@@ -491,6 +527,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="./Assets/js/redesign-form.js"></script>
+
+    <!-- Client Zone Widget -->
+    <div id="client-zone-widget" style="position: fixed; bottom: 32px; right: 20px; z-index: 999;">
+        <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+            <div class="widget-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="margin-right: 8px;">
+                    <path fill="#FFFFFF"
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                <span>Client Zone</span>
+            </div>
+        </a>
+    </div>
 </body>
 
 </html>

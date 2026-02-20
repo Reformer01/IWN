@@ -110,6 +110,42 @@
                 transform: translateY(-10px);
             }
         }
+
+        /* Client Zone Widget Styles */
+        .client-zone-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F58C29;
+            color: white !important;
+            text-decoration: none !important;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .client-zone-btn:hover {
+            background-color: #FF6600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: white !important;
+        }
+
+        .widget-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            #client-zone-widget {
+                bottom: 20px !important;
+                right: 20px !important;
+            }
+        }
     </style>
 </head>
 
@@ -146,8 +182,7 @@
                     Life</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
                 <a class="text-primary font-bold whitespace-nowrap" href="./index.html">Google Cloud Services</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap"
-                    href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./careers.html">Careers</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
                     target="_blank">Client Zone</a>
             </div>
@@ -912,10 +947,10 @@
                     <ul class="space-y-4 text-slate-400 text-sm">
                         <li><a class="hover:text-white transition-colors" href="./internet_for_home.html">Internet
                                 for Home</a></li>
-                        <li><a class="hover:text-white transition-colors"
-                                href="./internet_for_business.html">Internet for Business</a></li>
-                        <li><a class="hover:text-white transition-colors"
-                                href="./enterprise_internet.html">Enterprise Internet</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./internet_for_business.html">Internet
+                                for Business</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./enterprise_internet.html">Enterprise
+                                Internet</a></li>
                     </ul>
                 </div>
                 <div>
@@ -1038,6 +1073,26 @@
             initializePriceConverters();
         });
     </script>
+
+    <div class="fixed bottom-8 right-8 z-50"><a href="./contact.html"
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
+                class="material-symbols-outlined">support_agent</span><span
+                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
+                With Us</span></a></div>
+
+    <!-- Client Zone Widget -->
+    <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
+        <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
+            <div class="widget-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="margin-right: 8px;">
+                    <path fill="#FFFFFF"
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                <span>Client Zone</span>
+            </div>
+        </a>
+    </div>
 </body>
 
 </html>
