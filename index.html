@@ -2,968 +2,493 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-WSHR85KZCD');
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
-    <meta name="author" content="Reformer Ejembi">
-    <title>I-World Networks</title>
-    <!-- FAVICON -->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>I-World Networks | Nigeria's Leading ISP</title>
     <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="./Assets/css/style.css">
-    <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- Google Fonts  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-
-    <!-- Toastr Css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-
-
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                    },
+                    fontFamily: {
+                        display: ["Lexend", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
     <style>
-        .client-zone-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #F58C29;
-            /* IWN Orange from brand colors */
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            font-weight: bold;
-            font-family: inherit;
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
-        .client-zone-btn:hover {
-            background-color: #FF6600;
-            /* IWN darker Orange from brand colors */
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .widget-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (max-width: 768px) {
-            #client-zone-widget {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .client-zone-btn {
-                padding: 10px 16px;
-            }
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('./Assets/img/aerial-view-city.jpg');
+            background-size: cover;
+            background-position: center;
         }
     </style>
-
-
 </head>
 
-<body class="overflow-x-hidden">
+<body class="bg-background-light text-slate-900 font-body antialiased">
 
-    <!-- Pop up -->
-    <!--<div class="popup-overlay" id="popupOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000;">-->
-    <!--    <div class="popup-content" style="position: relative; width: 80%; max-width: 800px; background: white; padding: 20px; border-radius: 10px; top: 50%; left: 50%; transform: translate(-50%, -50%);">-->
-    <!--        <button class="close-popup" onclick="closePopup()" style="position: absolute; right: 10px; top: 10px; font-size: 30px; background: #ff6600; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">x</button>-->
-    <!--        <img src="./Assets/img/Akure.jpg" alt="Promotional Flyer" class="popup-image" style="width: 100%; height: auto;">-->
-    <!--    </div>-->
-    <!--</div>-->
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="./index.html">
+                <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./internet_for_home.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./Google_Workspace.html">Google Cloud Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
+            </div>
+            <a href="./contact.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                Us</a>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <header class="relative w-full min-h-[700px] flex items-center hero-gradient pt-20">
+        <div class="container mx-auto px-6 py-20 text-center text-white">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 max-w-5xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-sm md:text-base mb-4">
+                    <span class="material-symbols-outlined text-lg">rocket_launch</span> Enterprise-Grade Performance &
+                    Stability
+                </div><br>
+                Nigeria's Leading <span class="text-primary">Connectivity & Cloud Solutions</span> Provider
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto mb-10">
+                State-of-the-art for faster, more stable, and resilient connections. Pioneering high-speed internet and
+                cloud services for homes, businesses, and enterprises across Nigeria with world-class customer support.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30"
+                    href="#services">Explore Services</a>
+                <a class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full transition-all"
+                    href="./contact.html">Talk to Us</a>
+            </div>
+        </div>
+    </header>
 
-    <!-- Back to top Button -->
-    <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M15 20H9v-8H4.16L12 4.16L19.84 12H15z" />
-        </svg>
-    </button>
-    <!-- Back to top Button -->
+    <!-- About Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Who We Are</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">I-World Networks is a leading and one of the
+                    fastest growing Information and Communication solutions and service provider in Nigeria.</p>
+                <p class="text-lg text-slate-600 leading-relaxed">Our resilient nationwide IP-MPLS, Metro Fiber and
+                    Wireless Infrastructure across major cities in Nigeria enable us to provide cost effective,
+                    reliable, and high-quality network and cloud services with world class support to our growing and
+                    satisfied customers.</p>
+            </div>
 
-    <!-- Header Beginning -->
-    <div class="header">
-        <!-- Navbar beginning -->
-        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html">
-                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <!-- Key Facts -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
+                <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-extrabold text-primary mb-2">2019</div>
+                    <div class="text-sm text-slate-500">Established</div>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-2xl font-extrabold text-primary mb-2">Professional Development Partner</div>
+                    <div class="text-sm text-slate-500">Google for Education</div>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-extrabold text-secondary mb-2">5-time</div>
+                    <div class="text-sm text-slate-500">ISP of the Year</div>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-extrabold text-primary mb-2">Ultra-Fast</div>
+                    <div class="text-sm text-slate-500">Capacity Increase</div>
+                </div>
+            </div>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Internet Services
+            <!-- Vision & Mission -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3"><span
+                            class="material-symbols-outlined text-primary">visibility</span> Our Vision</h3>
+                    <p class="text-slate-600 leading-relaxed">I-World Networks envisions a landscape where customers are
+                        guided by our expertise and backed by our world-class infrastructure to achieve unparalleled
+                        growth, agility, and sustainability in their business and lifestyle.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3"><span
+                            class="material-symbols-outlined text-secondary">rocket_launch</span> Our Mission</h3>
+                    <p class="text-slate-600 leading-relaxed">Our mission is to be the preferred Connectivity and Cloud
+                        Solution Provider in Nigeria and to be the catalyst for a more connected and empowered future.
+                        Proudly Nigerian 🇳🇬</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-purple-50 py-16" id="services">
+        <div class="max-w-5xl max-lg:max-w-2xl max-sm:max-w-sm mx-auto px-6">
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Our <span class="text-blue-700">Services</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <!-- Home Internet -->
+                <div class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6">
+                    <span class="material-symbols-outlined text-primary text-[32px]">home</span>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Home Internet</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">I-World offers affordable high-speed Wi-Fi
+                            for your home, perfect for entertainment and security needs. Enjoy 4K streaming and gaming
+                            without interruptions.</p>
+                        <div class="mt-6">
+                            <a href="./internet_for_home.html"
+                                class="flex items-center flex-wrap justify-between gap-2 border border-gray-200 cursor-pointer text-[15px] font-medium rounded-3xl pl-5 pr-3 h-14 w-full hover:bg-purple-100 transition-all duration-300">
+                                Explore
+                                <div class="w-11 h-11 rounded-full bg-purple-200 flex justify-center items-center">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.1313 9.75H3V8.25H12.1313L7.93125 4.05L9 3L15 9L9 15L7.93125 13.95L12.1313 9.75Z"
+                                            fill="#222222"></path>
+                                    </svg>
+                                </div>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
-                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
-                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small
-                                    Business</a>
-                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
-                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Google Cloud Services
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Business Internet -->
+                <div class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6">
+                    <span class="material-symbols-outlined text-secondary text-[32px]">storefront</span>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Small Business Internet</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Our small business internet provides
+                            high-speed, reliable connectivity tailored for small businesses, essential for online
+                            operations and communication.</p>
+                        <div class="mt-6">
+                            <a href="./internet_for_business.html"
+                                class="flex items-center flex-wrap justify-between gap-2 border border-gray-200 cursor-pointer text-[15px] font-medium rounded-3xl pl-5 pr-3 h-14 w-full hover:bg-purple-100 transition-all duration-300">
+                                Explore
+                                <div class="w-11 h-11 rounded-full bg-purple-200 flex justify-center items-center">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.1313 9.75H3V8.25H12.1313L7.93125 4.05L9 3L15 9L9 15L7.93125 13.95L12.1313 9.75Z"
+                                            fill="#222222"></path>
+                                    </svg>
+                                </div>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
-                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
-                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
-                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Internet -->
+                <div class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6">
+                    <span class="material-symbols-outlined text-blue-600 text-[32px]">apartment</span>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Enterprise Internet</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Elevate your business connectivity with
+                            I-World Enterprise Internet. Our robust solutions meet modern business needs with 99.9% SLA
+                            uptime.</p>
+                        <div class="mt-6">
+                            <a href="./enterprise_internet.html"
+                                class="flex items-center flex-wrap justify-between gap-2 border border-gray-200 cursor-pointer text-[15px] font-medium rounded-3xl pl-5 pr-3 h-14 w-full hover:bg-purple-100 transition-all duration-300">
+                                Explore
+                                <div class="w-11 h-11 rounded-full bg-purple-200 flex justify-center items-center">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.1313 9.75H3V8.25H12.1313L7.93125 4.05L9 3L15 9L9 15L7.93125 13.95L12.1313 9.75Z"
+                                            fill="#222222"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Managed Service Provider -->
+                <div class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6">
+                    <span class="material-symbols-outlined text-purple-600 text-[32px]">settings</span>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Managed Service Provider</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Experience Zero Capex IT. We design, finance,
+                            build, support, and upgrade your infrastructure with no upfront cost or commitment.</p>
+                        <div class="mt-6">
+                            <a href="./msp.html"
+                                class="flex items-center flex-wrap justify-between gap-2 border border-gray-200 cursor-pointer text-[15px] font-medium rounded-3xl pl-5 pr-3 h-14 w-full hover:bg-purple-100 transition-all duration-300">
+                                Explore
+                                <div class="w-11 h-11 rounded-full bg-purple-200 flex justify-center items-center">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.1313 9.75H3V8.25H12.1313L7.93125 4.05L9 3L15 9L9 15L7.93125 13.95L12.1313 9.75Z"
+                                            fill="#222222"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NGFEP -->
+                <div class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6">
+                    <span class="material-symbols-outlined text-teal-600 text-[32px]">school</span>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Nigeria Google For Education Program
+                            (NGFEP)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">An initial $10 Million USD investment program
+                            dedicated to advancing digital learning in Nigeria, covering infrastructure and training at
+                            no cost to institutions.</p>
+                        <div class="mt-6">
+                            <a href="./NGFEP.html"
+                                class="flex items-center flex-wrap justify-between gap-2 border border-gray-200 cursor-pointer text-[15px] font-medium rounded-3xl pl-5 pr-3 h-14 w-full hover:bg-purple-100 transition-all duration-300">
+                                Explore
+                                <div class="w-11 h-11 rounded-full bg-purple-200 flex justify-center items-center">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.1313 9.75H3V8.25H12.1313L7.93125 4.05L9 3L15 9L9 15L7.93125 13.95L12.1313 9.75Z"
+                                            fill="#222222"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Cloud Services -->
+                <div class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6">
+                    <span class="material-symbols-outlined text-red-500 text-[32px]">cloud</span>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Google Cloud Services</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">At I-World Networks, we are making cloud-first
+                            tech choices to benefit the planet, your people, and your profitability to give you a
+                            competitive edge.</p>
+                        <div class="mt-6">
+                            <a href="./Google_Workspace.html"
+                                class="flex items-center flex-wrap justify-between gap-2 border border-gray-200 cursor-pointer text-[15px] font-medium rounded-3xl pl-5 pr-3 h-14 w-full hover:bg-purple-100 transition-all duration-300">
+                                Explore
+                                <div class="w-11 h-11 rounded-full bg-purple-200 flex justify-center items-center">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.1313 9.75H3V8.25H12.1313L7.93125 4.05L9 3L15 9L9 15L7.93125 13.95L12.1313 9.75Z"
+                                            fill="#222222"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">What Our Clients Say</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="./Assets/img/John.jpeg" alt="Johnvents Industries"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Johnvents Industries Ltd.</h4>
+                            <p class="text-xs text-slate-500">Akure, Ondo</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"I-World has been fantastic! We enjoy fast internet with
+                        minimal downtime and excellent 24/7 customer service. The installation was smooth, and their
+                        pricing is competitive."</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="./Assets/img/Kolomoni.jpeg" alt="Kolomoni"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Kolomoni Micro-Finance Bank</h4>
+                            <p class="text-xs text-slate-500">Ibadan, Oyo State</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"Working with I-World has been an absolute pleasure. We are
+                        really enjoying top notch service and support at the moment."</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="./Assets/img/RCCG.png" alt="RCCG" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">RCCG (Jesus Embassy)</h4>
+                            <p class="text-xs text-slate-500">Ibadan, Oyo State</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"Our connection is very fast; we can stream our services
+                        online without any network interruptions. It is also reliable; the network is always available."
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="./Assets/img/BST.png" alt="BST Consulting"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">BST Consulting Nigeria Ltd</h4>
+                            <p class="text-xs text-slate-500">Ibadan, Oyo State</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"We rarely experience any downtime, and the upload and
+                        download speeds are consistently impressive. The technical support team is highly responsive."
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="./Assets/img/itc_advisory_services_logo.jpeg" alt="ITC Advisory"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">ITC Advisory Services</h4>
+                            <p class="text-xs text-slate-500">Ibadan, Oyo State</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"I-World arrived at the perfect time when we needed to
+                        change our ISP. Their affordability and reliability have made our experience exceptional."</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="./Assets/img/Finnew.jpeg" alt="Finnew Fin-Tech"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Finnew Fin-Tech</h4>
+                            <p class="text-xs text-slate-500">Ibadan, Oyo State</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">"We've been using I-World Networks for years. This
+                        broadband company provides excellent services with top-notch internet speed."</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 bg-navy">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">Ready to Get Connected?</h2>
+            <p class="text-slate-400 mb-10 max-w-xl mx-auto">Join thousands of satisfied customers across Nigeria.
+                Experience the I-World difference today.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg"
+                    href="./contact.html">Contact Us</a>
+                <a class="px-8 py-4 border border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition-all"
+                    href="https://app.iwn.ng" target="_blank">Client Zone</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-12 pb-10 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        homes and businesses. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./index.html">Home</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./contact.html">Contact Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./careers.html">Careers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./Loyalty_&_Discounts.html"> Loyalty & Discounts</a>
+                        <li><a class="hover:text-white transition-colors" href="./careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Internet Service</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./internet_for_home.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./internet_for_business.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./enterprise_internet.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./NGFEP.html">Nigeria Google for
+                                Education Program</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./Google_Workspace.html">Google
+                                Cloud Services</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./msp.html">Managed Service
+                                Provider</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./SmartLife.html">I-World Smart
+                                Life</a>
                         </li>
                     </ul>
-                    <!-- <div class="subscribe-btn ms-auto">
-                        <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
-                        <a class="nav-link lato" href="#">
-                            <img src="./Assets/icons/phone.svg" width="20" height="20" alt="">
-                            +234 807 767 5560</a>
-                    </div> -->
                 </div>
             </div>
-        </nav>
-        <!-- Ending of navbar -->
-
-
-
-
-
-        <div class="header-content">
-            <!-- Carousel Beginning -->
-            <div class="carousel-container">
-                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="2000">
-                            <img src="./Assets/img/home_internet.jpg"
-                                class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
-                            <img src="./Assets/img/Home-MOBILE.jpg"
-                                class="d-lg-none mobile-view c-md-none d-lg-none w-100 object-fit-contain img-fluid"
-                                alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="./Assets/img/smb.jpg"
-                                class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
-                            <img src="./Assets/img/SMB-MOBILE.jpg"
-                                class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid"
-                                alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="./Assets/img/enterprise.jpg"
-                                class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
-                            <img src="./Assets/img/Enterprise-MOBILE.jpg"
-                                class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid"
-                                alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="./Assets/img/MPLS.jpg"
-                                class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
-                            <img src="./Assets/img/MPLS-MOBILE.jpg"
-                                class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid"
-                                alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="./Assets/img/MITS.jpg"
-                                class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
-                            <img src="./Assets/img/MITSMOBILE.jpg"
-                                class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid"
-                                alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="./Assets/img/google.jpg"
-                                class="desktop-view d-block w-100 object-fit-cover img-fluid" alt="...">
-                            <img src="./Assets/img/Cloud-MOBILE.jpg"
-                                class="mobile-view d-lg-none d-md-none d-lg-none w-100 object-fit-contain img-fluid"
-                                alt="...">
-                        </div>
-                        <!-- Images for smaller screens -->
-                        <!-- 
-                        <div class="carousel-item d-block d-md-none">
-                            <img src="./Assets/img/responsive-business-bg.png" class="d-block w-100 object-fit-cover img-fluid" alt="...">
-                        </div> -->
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> &nbsp;&nbsp; I-World Networks. All
+                    rights
+                    reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
             </div>
         </div>
-    </div>
-    <!-- End of Header -->
+    </footer>
 
-    <!-- Home About us Section -->
-    <div class="container-fluid header-about ">
-        <!--Section: Content-->
-        <section class="text-start container pt-2">
-            <h4 class=" fs-3 fw-bold">Who we are</h4>
-            <hr class="hr">
-            <p class="fs-6 about-us-text">
-                I-World Networks is a leading and one of the fastest growing Information and Communication solutions and
-                service provider in Nigeria.
-                <br> Our resilient nationwide IP-MPLS, Metro Fiber and Wireless Infrastructure across major cities in
-                Nigeria enable us to provide cost effective, reliable, and high-quality network and cloud services with
-                world class support to our growing and satisfied customers.
-            </p>
-            <br>
-            <div class="container about-list1">
-                <div class="about-list-row1 justify-content-center row mb-2">
-                    <div class="col border pt-2  mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/calendar_icon.svg" width="30" height="30" alt="">
-                        Established in 2019
-                    </div>
-                    <div class="col border  mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/user_icon.svg" width="30" height="30" alt="">
-                        Over 7,000 Customers and still growing.
-                    </div>
-                    <div class="col border pt-2   mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/license_icon2.svg" width="30" height="30" alt="">
-                        Licensed by NCC
-                    </div>
-                    <div class="col border   mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/award_icon.svg" width="30" height="30" alt="">
-                        Awarded the Best ISP by Computer Society of Nigeria
-                    </div>
-                </div>
-                <div class="about-list-row1 justify-content-center row ">
-                    <div class="col border pt-2  mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/education_icon.svg" width="30" height="30" alt="">
-                        Best ISPs for Education Sector
-                    </div>
-                    <div class="col border pt-2  mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/google-cloud.svg" width="30" height="30" alt="">
-                        Google Cloud Partner
-                    </div>
-                    <div class="col border   mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/cloud_infrastructure_icon.svg" width="30" height="30"
-                            alt="">
-                        One of the largest wireless network in Nigeria's South-West.
-                    </div>
-                    <div class="col border   mx-1 lato fs-6 fw-bold aboutText text-start">
-                        <img src="./Assets/icons/about-icons/customer_support_icon.svg" width="30" height="30" alt="">
-                        Best in Customer Service Support 2021 2022, 2023
-                    </div>
-                </div>
-            </div>
-            <div class="container about-list2">
-                <div class="row my-3 px-3">
-                    <ul class="">
-                        <li class="col lato text-start fs-6">Established in 2019</li>
-                        <li class="col lato text-start fs-6">Over 7,000 Customers </li>
-                        <li class="col lato text-start fs-6">Licensed by NCC </li>
-                        <li class="col lato text-start fs-6">Awarded the Best ISP by Computer Society of Nigeria</li>
-                        <li class="col lato text-start fs-6">Best ISPs for Education Sector </li>
-                        <li class="col lato text-start fs-6">Google Cloud Partner </li>
-                        <li class="col lato text-start fs-6">The largest Fixed Wireless Infrastructure in the South-West
-                            Region of Nigeria</li>
-                        <li class="col lato text-start fs-6">Best in Customer Service Support 2021 2022, 2023,2024 </li>
-                    </ul>
-                </div>
-            </div>
-            <br>
-            <div class="container mt-3">
-                <div class="row justify-content-center">
-                    <div class="col-md-5 col-sm-12 border px-3 py-2 me-2 my-2 shadow-sm">
-                        <p class="mission fw-bold fs-4">Our Vision</p>
-                        <p class="lato fs-6">
-                            I-World Networks envisions a landscape where customers are guided by our expertise and
-                            backed by our world-class infrastructure to achieve unparalleled growth, agility, and
-                            sustainability in their business and lifestyle.
-                        </p>
-                    </div>
-                    <div class="col-md-5 col-sm-12 border px-3 py-2 my-2 shadow-sm">
-                        <p class="vision fw-bold fs-4">Our Mission</p>
-                        <p class="lato fs-6">
-                            Our mission is to be the preferred Connectivity and Cloud Solution Provider in Nigeria and
-                            to be the catalyst for a more connected and empowered future.
-                            <br>
-                            Proudly Nigeria
-                            <img src="./Assets/icons/about-icons/nigeria_icon.svg" width="30" height="30" alt="">
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Section: Content-->
-    </div>
-
-    <!-- How it works section -->
-    <section class="bg-white mt-5 services-container pt-5" name="services" id="services">
-        <div class="container">
-            <h2 class="text-start mb-4 fw-bold fs-3">Our Services</h2>
-            <hr class="hr">
-            <div class="service-container mt-2 text-start">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-3 col-sm-12 services py-2 px-3 mx-2 mt-2">
-                            <div class="service d-flex flex-column align-items-start justify-content-center">
-                                <div class="">
-                                    <img src="./Assets/icons/home_wifi_icon.svg" width="50" height="50" alt="">
-                                    <h5 class="service-title fw-bold ">Home Internet</h5>
-                                    <p class="lato service-text">
-                                        I-World offers affordable high-speed Wi-Fi for your home, perfect for
-                                        entertainment and security needs. <br>
-                                        Enjoy 4K streaming and gaming without interruptions. Optimized for popular
-                                        streaming platforms like Netflix, YouTube, and more.
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <p class="btn btn-warn">
-                                        <a href="./internet_for_home.html"
-                                            class="text-decoration-none fw-bold text-white">Learn More>></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-12 services  py-2 px-3 mx-2 mt-2">
-                            <div class="service d-flex flex-column align-items-start justify-content-between h-100">
-                                <div class="">
-                                    <img src="./Assets/icons/internet_business_icon.svg" width="50" height="50" alt="">
-                                    <h5 class="service-title fw-bold ">Small Business Internet</h5>
-                                    <p class="lato service-text">
-                                        Our small business internet provides high-speed, reliable connectivity tailored
-                                        for small businesses, essential for online operations and communication.
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <p class="btn btn-warn">
-                                        <a href="./Internet_for_business.html"
-                                            class="text-decoration-none fw-bold text-white">Learn More>></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-12 services py-2 px-3 mx-2 mt-2">
-                            <div class="service h-100  d-flex flex-column align-items-start justify-content-between">
-                                <div class="">
-                                    <img src="./Assets/icons/network-enterprise-icon.svg" width="50" height="50" alt="">
-                                    <h5 class="service-title fw-bold ">Enterprise Internet</h5>
-                                    <p class="lato service-text">
-                                        Elevate your business connectivity with I-World Enterprise Internet. <br> Our
-                                        robust solutions meet modern business needs.
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <p class="btn btn-warn">
-                                        <a href="./enterprise_internet.html"
-                                            class="text-decoration-none fw-bold text-white">Learn More>></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div
-                            class="col-md-3 col-sm-12 services d-flex align-items-start justify-content-center py-2 px-3 mx-2 mt-3">
-                            <div class="service ">
-                                <img src="./Assets/icons/internet-icon.svg" width="50" height="50" alt="">
-                                <h5 class="service-title fw-bold ">Managed Service Provider</h5>
-                                <p class="lato service-text">
-                                    Revolutionizing IT with premier solutions, I-World Networks ensures streamlined
-                                    operations, fortified security, and cost savings. <br> Trust us for comprehensive IT
-                                    support, empowering your business growth.
-                                </p>
-                                <p class="btn btn-warn">
-                                    <a href="./msp.html" class="text-decoration-none fw-bold text-white">Learn
-                                        More>></a>
-                                </p>
-                            </div>
-                        </div>
-                        <div
-                            class="col-md-3 col-sm-12 services d-flex align-items-start justify-content-center py-2 px-3 mx-2 mt-3">
-                            <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
-                                <div class="">
-                                    <img src="./Assets/icons/mpls-icon.svg" width="50" height="50" alt="">
-                                    <h5 class="service-title fw-bold ">Multi-Label Protocol Switching (MPLS)</h5>
-                                    <p class="lato service-text">
-                                        Our cutting-edge solution optimizes data routing, allowing simultaneous handling
-                                        of multiple labels for enhanced network efficiency and performance.
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <p class="btn btn-warn">
-                                        <a href="./mpls.html" class="text-decoration-none fw-bold text-white">Learn
-                                            More>></a>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div
-                            class="col-md-3 col-sm-12 services d-flex align-items-start justify-content-center py-2 px-3 mx-2 mt-3">
-                            <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
-                                <div class="">
-                                    <img src="./Assets/icons/google-cloud.svg" width="50" height="50"
-                                        alt="google-cloud icon">
-                                    <h5 class="service-title fw-bold ">Google Cloud Services</h5>
-                                    <p class="lato service-text">
-                                        At I-World Networks, we are Making cloud-first tech choices to benefit the
-                                        planet, your people, and your profitability to give you a competitive edge — now
-                                        and into the future.
-                                    </p>
-                                </div>
-                                <div class="align-self-start">
-                                    <p class="btn btn-warn">
-                                        <a href="./Google_Workspace.html"
-                                            class="text-decoration-none fw-bold text-white">Learn More>></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- How it works container -->
-
-
-    <!-- Beginning of Customer Testimonial section -->
-    <section class="testimonials py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">What Our Clients Say</h2>
-                <hr class="hr mx-auto" style="width: 50px;">
-            </div>
-            <div class="row testimonial-carousel owl-carousel">
-                <div class="col-md-4">
-                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="./Assets/img/John.jpeg" alt="Client 1" class="rounded-circle" width="60"
-                                height="60">
-                            <div class="ms-3">
-                                <h5 class="mb-0 fw-bold">Johnvents Industries Ltd.</h5>
-                                <p class="mb-0 text-muted">Akure, Ondo</p>
-                            </div>
-                        </div>
-                        <p class="lato mb-0">"I-World has been fantastic for John vents Industries Akure! We enjoy fast
-                            internet with minimal downtime and excellent 24/7 customer service. The installation was
-                            smooth, and their pricing is competitive. Highly recommended"</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="./Assets/img/Kolomoni.jpeg" alt="Client 2" class="rounded-circle" width="60"
-                                height="60">
-                            <div class="ms-3">
-                                <h5 class="mb-0 fw-bold">
-                                    Kolomoni Micro-Finance Bank</h5>
-                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
-                            </div>
-                        </div>
-                        <p class="lato mb-0">"Working with I-World has been an absolute pleasure. We are really enjoying
-                            top notch service and support at the moment, I also hope they keep it up."</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up"
-                        data-aos-delay="300">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="./Assets/img/RCCG.png" alt="Client 3" class="rounded-circle" width="60"
-                                height="60">
-                            <div class="ms-3">
-                                <h5 class="mb-0 fw-bold">RCCG (Jesus Embassy)</h5>
-                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
-                            </div>
-                        </div>
-                        <p class="lato mb-0">"In terms of speed, our connection is very fast; we can stream our services
-                            online without any network interruptions.
-                            It is also reliable; the network is always available whenever we need it."</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up"
-                        data-aos-delay="400">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="./Assets/img/BST.png" alt="Client 4" class="rounded-circle" width="60"
-                                height="60">
-                            <div class="ms-3">
-                                <h5 class="mb-0 fw-bold">BST Consulting Nigeria Ltd</h5>
-                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
-                            </div>
-                        </div>
-                        <p class="lato mb-0">"Using the I-World internet service has proven to be an excellent decision
-                            for both me and my organization. We rarely experience any downtime, and the upload and
-                            download speeds are consistently impressive. Additionally, the technical support team is
-                            highly responsive whenever we need assistance, which reinforces our trust in I-World."</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up"
-                        data-aos-delay="500">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="./Assets/img/itc_advisory_services_logo.jpeg" alt="Client 5"
-                                class="rounded-circle" width="60" height="60">
-                            <div class="ms-3">
-                                <h5 class="mb-0 fw-bold">ITC Advisory Services</h5>
-                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
-                            </div>
-                        </div>
-                        <p class="lato mb-0">"I-World has been a great help for us, arriving at the perfect time when we
-                            needed to change our Internet Service Provider. Their affordability and reliability have
-                            made our experience exceptional. We appreciate their proactive alerts for issues, prompt
-                            responses, and assistance with all our internet infrastructure needs. Thank you for taking
-                            care of our internet requirements!"</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card bg-white p-4 shadow-sm rounded-3 h-100" data-aos="fade-up"
-                        data-aos-delay="500">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="./Assets/img/Finnew.jpeg" alt="Client 5" class="rounded-circle" width="60"
-                                height="60">
-                            <div class="ms-3">
-                                <h5 class="mb-0 fw-bold">Finnew Fin-Tech</h5>
-                                <p class="mb-0 text-muted">Ibadan, Oyo State</p>
-                            </div>
-                        </div>
-                        <p class="lato mb-0">"We've been using I-World Networks for years, and we have never had a
-                            single complaint. This broadband company provides excellent services with top-notch internet
-                            speed and a fully operational customer service line."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NGN Google for Education Preview beginning -->
-    <!-- <div class="container-fluid ngn-edu-container pt-2 pb-5" id="Nigerian_Google_for_Education_Program">
-        <div class="text-start container">
-            <hr class="hr">
-            <h2 class="fw-bold">Nigeria Google For Education Program</h2>
-            <p>
-                I-World Networks Nigeria Google for Education is an initial 10Million USD investment program in Nigeria Education sector to help K-12 and Higher Institutions develop world class digital learning infrastructure, training, and capacity building to launch their school into world class digital learning center using the Google for Education learning platform. <br>
-            </p>
-            <div class="d-flex align-items-center justify-content-center mb-1">
-                <img src="./Assets/img/ngn_edu_student.png" alt="" class="img-fluid">
-            </div>
-            <p class="fs-6">Nigeria Google for Education Program by I-World Networks is; <br> Supported by <br> Stanbic IBTC, WIOCC <br> Backboned by Google Equiano Subsea Cable  </p>
-            <span class="fw-bold fs-6">Benefits of Becoming a Google for Education Partner School</span>
-            <div class="">
-                <ul class="list-unstyled">
-                    <li>81% of students feel that Google Workspace for Education tools improve their grades and efficiency.</li>
-                    <li>99% of schools confirmed cost reduction in learning content delivered to their students</li>
-                    <li>90% reduction in the cost of digital infrastructure and operation</li>
-                    <li>82% of students confirmed that Chromebook devices allow them to spend more time studying</li>
-                    <li>40% more enrollment in schools with Google Workspace for Education</li>
-                </ul>
-                 <hr class="hr"> 
-            </div>
-        </div>
-    </div>
-    <div class="bg-white pt-4">
-        <div class="container">
-            <h4 class="fw-bold fs-3">Project Cost covered by Nigeria Google for Education Program on your campus. </h4>
-            <hr class="hr">
-            <div class=" justify-content-center row my-2">
-                <div class="col-md-3 col-sm-12 border p-4 mx-1 lato fs-6 aboutText bg-white text-start">
-                    <img src="./Assets/icons/ngn-edu-icons/student_icon.svg" width="30" height="30" alt="">
-                    <h5 class="fw-bold">Google for Education Plus</h5>
-                    <p>
-                        The most advanced All-in-One Solution with advanced security and analytics, teaching, and features and more.
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-12 border p-4  mx-1 lato fs-6 aboutText bg-white text-start">
-                    <img src="./Assets/icons/ngn-edu-icons/study_icon.svg" width="30" height="30" alt="">
-                    <h5 class="fw-bold">Google Digital learning Centre</h5>
-                    <p>
-                        A well-equipped learning center that will train your educators on how to use Google for Education tools to deliver enrich and personalize teaching and learning.  
-                    </p>
-                    </div>
-                <div class="col-md-3 col-sm-12 border p-4 mx-1 lato fs-6 aboutText bg-white text-start">
-                    <img src="./Assets/icons/ngn-edu-icons/student_laptop.svg" width="30" height="30" alt="">
-                    <h5 class="fw-bold">Chromebook for all students</h5>
-                    <p>
-                        The most used digital learning device in the world. Over 50Million + Chromebooks used in classroom across the world.  
-                    </p>
-                </div>
-            </div>
-            <div class="about-list-row1 justify-content-center row ">
-                <div class="col-md-3 col-sm-12 border p-4  mx-1 lato fs-6 aboutText bg-white text-start">
-                    <img src="./Assets/icons/ngn-edu-icons/tools_icon.svg" width="30" height="30" alt="">
-                    <h5 class="fw-bold">World Class campus network and internet infrastructure</h5>
-                    <p>
-                        to support the Google for Education Digital learning Eco system to keep students and educators connected.    
-                    </p>
-                    </div>
-                <div class="col-md-3 col-sm-12 border p-4   mx-1 lato fs-6 aboutText bg-white text-start">
-                    <img src="./Assets/icons/ngn-edu-icons/speed_icon.svg" width="30" height="30" alt="">
-                    <h5 class="fw-bold">High Speed Internet Backbone</h5>
-                    <p>
-                        Via Google Equiano Subsea Cable on bandwidth capacity up to 10Gbps per School to support digital learning ecosystem.   
-                    </p>
-                    </div>
-                <div class="col-md-3 col-sm-12 border p-4   mx-1 lato fs-6 aboutText bg-white text-start">
-                    <img src="./Assets/icons/ngn-edu-icons/handshake_icon.svg" width="30" height="30" alt="">
-                    <h5 class="fw-bold">Google for Education Plus</h5>
-                    <p>
-                        The most advanced All-in-One Solution with advanced security and analytics, teaching, and features and more.  
-                    </p>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <div class="gray-bg py-3 mt-2">
-        <div class="container">
-            <div class="row my-3 gfe-text w-100 " style="height: 250px;">
-                <div class="col-md-6 col-sm-12">
-                    <div class="fs-5 fw-bold">Helping equip the next generation with future skills. </div>
-                    <p  class="fs-6">
-                        More than 65% of learners will work in Jobs that don't even exist today but may aren't yet developing the problem-solving skills and basic digital competencies they'll need to be prepared for the future. <br> <br> That is why your school need to join the Nigeria Google for Education to enjoy direct investment to upgrade your school to digital learning hub. <br> We are preparing learners with the adaptive skills they need to tackle the future's biggest challenges.  
-                    </p>
-                </div>
-                <div class="col-md-6 col-sm-12 h-100 d-flex align-items-center justify-content-end gfe-inner-text " >
-                    <img src="./Assets/img/ngn-edu-img1.jpg" alt="" width="350" class="img-fluid  gfe-img ">
-                </div>
-            </div>
-            <hr class="hr">
-            <p class="fs-6">
-                <img src="./Assets/img/iwn-google-logo-noBg.png" class="img-fluid" height="40" width="180"  alt="">
-                <br>
-                <span class="fw-bold">2024/2025 application coming soon!</span> For more information call 0906-000-9738
-            </p>
-        </div>
-    </div> -->
-
-    <!-- NGN Google for Education Preview ending -->
-
-    <!-- Footer section Beginning -->
-    <section>
-        <footer class=" text-start border pt-5 text-white bg-black">
-            <!-- Grid container -->
-            <div class="container">
-                <!-- Section: Links -->
-                <section class="">
-                    <!--Grid row-->
-                    <div class="row py-5">
-                        <!--Grid column-->
-                        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                            <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
-
-                            <ul class="list-unstyled mb-0">
-                                <li class="mt-2">
-                                    <a class="text-white" href="./index.html">Home</a>
-                                </li>
-                                <li class="mt-2">
-                                    <a class="text-white" href="./about.html">About Us</a>
-                                </li>
-                                <li class="mt-2">
-                                    <a class="text-white" href="./contact.html">Contact Us</a>
-                                </li>
-                                <li class="mt-2">
-                                    <a class="text-white" href="./careers.html">Careers</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
-                            <ul class="list-unstyled mb-0">
-
-                                <li class="mt-2">
-                                    <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
-                                </li>
-                                <li class="mt-2">
-                                    <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
-                                </li>
-                                <li class="mt-2">
-                                    <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!--Grid column-->
-                        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                            <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mt-2">
-                                    <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
-                                </li>
-                                <li class="mt-2">
-                                    <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
-                                </li>
-                                <li class="mt-2">
-                                    <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Grid Column -->
-                        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                            <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
-                            <ul class="list-unstyled mb-0">
-                                <li class="">
-                                    <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                    <a class="text-white" href="#">+234 903 984 4309</a>
-                                </li>
-                                <li class="">
-                                    <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                    <a class="text-white" href="#">+234 807 767 5560</a>
-                                </li>
-                                <li class="">
-                                    <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                    <a class="text-white" href="#">+234 807 767 5565</a>
-                                </li>
-                                <li class="">
-                                    <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                    <a class="text-white" href="#">+234 706 605 3380</a>
-                                </li>
-                                <li class="">
-                                    <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                    <a class="text-white" href="#">+234 814 994 5984
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <!-- Facebook -->
-                            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128">
-                                    <rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53"
-                                        ry="6.53" />
-                                    <path fill="#fff"
-                                        d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z" />
-                                </svg>
-                            </a>
-                            <!-- Twitter -->
-                            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-                                    <g fill="none">
-                                        <rect width="256" height="256" fill="#fff" rx="60" />
-                                        <rect width="256" height="256" fill="#1D9BF0" rx="60" />
-                                        <path fill="#fff"
-                                            d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13" />
-                                    </g>
-                                </svg>
-                            </a>
-                            <!-- Instagram -->
-                            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-                                    <g fill="none">
-                                        <rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60" />
-                                        <rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60" />
-                                        <path fill="#fff"
-                                            d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334" />
-                                        <defs>
-                                            <radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1"
-                                                gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FD5" />
-                                                <stop offset=".1" stop-color="#FD5" />
-                                                <stop offset=".5" stop-color="#FF543E" />
-                                                <stop offset="1" stop-color="#C837AB" />
-                                            </radialGradient>
-                                            <radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1"
-                                                gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#3771C8" />
-                                                <stop offset=".128" stop-color="#3771C8" />
-                                                <stop offset="1" stop-color="#60F" stop-opacity="0" />
-                                            </radialGradient>
-                                        </defs>
-                                    </g>
-                                </svg>
-                            </a>
-                            <!-- LinkedIn -->
-                            <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128">
-                                    <path fill="#0076b2"
-                                        d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3" />
-                                    <path fill="#fff"
-                                        d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z" />
-                                </svg>
-                            </a>
-                            <!--Grid column-->
-                            <div class="">
-                                <p class="fw-bold">Sign up for our newsletter</p>
-                                <!-- Email input -->
-                                <div data-mdb-input-init class="form-outline ">
-                                    <input type="email" id="form5Example24" class="form-control"
-                                        placeholder="Enter your Email Address" />
-                                </div>
-                                <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
-                                    Subscribe
-                                </button>
-                            </div>
-                        </div>
-                        <!--Grid row-->
-                    </div>
-                </section>
-                <!-- Section: Links -->
-            </div>
-            <!-- Copyright -->
-            <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-                © 2026 &nbsp;&nbsp; Copyright:
-                <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
-            </div>
-            <!-- Copyright -->
-        </footer>
-    </section>
-
-    <!-- Ending of footer -->
-
-
-
-    <!--======================== Back to top Button Functionality========================== -->
-    <script>
-        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
-        window.onscroll = function () { scrollFunction() };
-        function scrollFunction() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                BacktoTopBtn.style.display = "block";
-            } else {
-                BacktoTopBtn.style.display = "none";
-            }
-        }
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
-    <!--======================== Back to top Button Functionality========================== -->
-    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./Assets/js/app.js"></script>
-    <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Toastr Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <!-- Custom Script -->
-    <script src="Assets/js/forms.js"></script>
-    <script src="Assets/js/popup.js"></script>
-
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
-
-    <!-- Additional Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Initialize Swiper
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                },
-            },
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-        });
-    </script>
-
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-    <div class="elfsight-app-87c0e511-c2f4-4972-96b6-4358f70c6e2c" data-elfsight-app-lazy></div>
-
-
-    <!-- Client Zone Widget -->
-    <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
-        <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
-            <div class="widget-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="margin-right: 8px;">
-                    <path fill="#FFFFFF"
-                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-                <span>Client Zone</span>
-            </div>
-        </a>
-    </div>
-
+    <div class="fixed bottom-8 right-8 z-50"><a href="./contact.html"
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
+                class="material-symbols-outlined">support_agent</span><span
+                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
+                With Us</span></a></div>
 
 </body>
 

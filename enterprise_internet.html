@@ -1,1383 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
-        <meta name="author" content="Armaaneth Esiri">
-        <title>I-World Networks || Connecting possibilities</title>
-        <!-- FAVICON -->
-        <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-        <!-- STYLESHEETS -->
-        <link rel="stylesheet" href="./Assets/css/style.css">
-        <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-        <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-    
-        <!-- Google Fonts  -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <!-- Bootstrap Icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-        <!-- AOS Animation -->
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <!-- Toastr Css-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>I-World Networks | Enterprise Internet</title>
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "surface-dark": "#1E293B",
+                    },
+                    fontFamily: {
+                        display: ["Lexend", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-body antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="./index.html">
+                <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-primary whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./internet_for_home.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Business Internet</a>
+                        <a href="./index.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise
+                            Internet</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./Google_Workspace.html">Google Cloud Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
+            </div>
+            <a href="./contact.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full min-h-[650px] flex items-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0"><img alt="Enterprise" class="w-full h-full object-cover"
+                src="./Assets/img/enterprise.png" />
+            <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 py-16">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6">
+                <span
+                    class="text-white font-bold text-lg tracking-wider bg-white/10 px-4 py-1 rounded-full backdrop-blur-md border border-white/20">ENTERPRISE
+                    INTERNET</span>
+                <span class="material-symbols-outlined text-sm">rocket_launch</span> High-Capacity Ultra-Fast Network
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 max-w-4xl">
+                Affordability, Availability, <br class="hidden md:block" />
+                <span class="text-secondary">Reliability</span> & <span class="text-primary">World Class Support</span>
+            </h1>
+            <div class="flex flex-wrap items-center gap-6 mb-8 text-sm text-slate-300">
+                <div class="flex items-center gap-2"><span
+                        class="material-symbols-outlined text-secondary">verified</span><span>99.9% SLA Uptime</span>
+                </div>
+                <div class="flex items-center gap-2"><span
+                        class="material-symbols-outlined text-secondary">support_agent</span><span>24/7 Support
+                        Coverage</span></div>
+                <div class="flex items-center gap-2"><span
+                        class="material-symbols-outlined text-secondary">hub</span><span>Tier-1 Network</span></div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-center"
+                    href="#contact">REQUEST FREE SURVEY</a>
+                <a class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full transition-all text-center"
+                    href="#learn-more">Learn More</a>
+            </div>
+            <!-- Intra-page Quick Nav -->
+            <div class="flex flex-wrap gap-3 mt-8">
+                <a href="#contact"
+                    class="px-5 py-2 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-sm font-bold rounded-full border border-white/20 transition-all">SLA
+                    Details</a>
+                <a href="#contact"
+                    class="px-5 py-2 bg-primary hover:bg-orange-600 text-white text-sm font-bold rounded-full transition-all">Get
+                    a Quote &#8594;</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mission Critical Section -->
+    <section class="pt-12 pb-32 bg-white" id="learn-more">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">YOUR MISSION-CRITICAL CONNECTION
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        <strong>Dedicated Infrastructure:</strong> We provide a dedicated infrastructure solution
+                        designed for <strong>critical business missions</strong>, built on providing industry-leading
+                        bandwidth and world-class efficiency. Our Enterprise Internet Service is a
+                        dedicated solution built on the most
+                        <strong>resilient infrastructure</strong> to withstand environmental challenges and provide the
+                        most reliable, SLA-backed service in Nigeria.
+                    </p>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        We combine <strong>world class customers service support</strong>, <strong>alternative
+                            technology</strong> and
+                        <strong>innovation</strong> to provide dedicated fixed broadband internet service that exceeds
+                        expectations. Our fiber last-mile infrastructure ensures unmatched stability for your
+                        mission-critical operations.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                                Banks & Financial Institutions</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                                Government Parastatals</li>
+                        </ul>
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                                Multi-national Corporations</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                                Large Industrial Complexes</li>
+                        </ul>
+                    </div>
 
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+                </div>
 
-<body class="overflow-x-hidden">
-    <!-- Back to top button beginning -->
-    <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 20H9v-8H6.16L12 4.16L19.84 12H15z"/></svg>
-    </button>
-    <!-- Back to top button ending -->
-
-    <!-- Header Beginning -->
-    <div class="enterprise-internet-header">
-        <!-- Navbar beginning -->
-        <nav class="navbar navbar-expand-lg navbar-light fw-bold position-fixed w-100 top-0" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html">
-                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50" class="hover-lift">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-        
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Internet Services
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
-                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
-                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
-                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
-                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+                <div class="lg:col-span-1">
+                    <!-- Uptime & Support Features - Right Column -->
+                    <div class="space-y-4">
+                        <div class="bg-secondary text-white rounded-2xl p-6 text-center">
+                            <div
+                                class="text-xs uppercase tracking-widest font-bold mb-3 bg-white/20 inline-block px-2 py-1 rounded-full text-xs">
+                                Guaranteed</div>
+                            <div class="text-4xl font-extrabold mb-1">99.9%</div>
+                            <div class="text-base text-white/80">SLA Backed Uptime</div>
+                        </div>
+                        <div class="bg-slate-100 rounded-2xl p-4 text-center border border-slate-200">
+                            <div class="inline-flex items-center gap-2 text-secondary font-bold text-sm"><span
+                                    class="material-symbols-outlined text-lg">headset_mic</span>24/7 World-Class Support
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Google Cloud Services
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
-                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
-                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Service Comparison - ENLARGED & CENTERED -->
+            <div class="mt-24 mb-32 overflow-x-auto">
+                <div class="max-w-5xl mx-auto px-4">
+                    <h2
+                        class="text-3xl md:text-4xl font-extrabold text-navy mb-10 text-center uppercase tracking-[0.2em]">
+                        Service Comparison</h2>
+                    <table
+                        class="w-full text-left border-collapse bg-slate-50 rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100">
+                        <thead>
+                            <tr class="bg-navy text-white text-sm md:text-base uppercase tracking-[0.3em]">
+                                <th class="p-8 border-b border-white/10 font-bold">Feature</th>
+                                <th class="p-8 border-b border-white/10 font-bold text-center">Standard ISP</th>
+                                <th class="p-8 border-b border-white/10 font-bold text-center text-primary">I-World
+                                    Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-base md:text-lg">
+                            <tr class="border-b border-slate-200 hover:bg-white transition-all duration-300">
+                                <td class="p-8 font-extrabold text-slate-800">Infrastructure</td>
+                                <td class="p-8 text-center text-slate-400 italic">Shared / Wireless</td>
+                                <td class="p-8 text-center font-black text-primary">Dedicated Dual-Leg Fiber</td>
+                            </tr>
+                            <tr class="border-b border-slate-200 hover:bg-white transition-all duration-300">
+                                <td class="p-8 font-extrabold text-slate-800">Uptime SLA</td>
+                                <td class="p-8 text-center text-slate-400 italic">Best Effort</td>
+                                <td class="p-8 text-center font-black text-primary">99.9% SLA</td>
+                            </tr>
+                            <tr class="border-b border-slate-200 hover:bg-white transition-all duration-300">
+                                <td class="p-8 font-extrabold text-slate-800">Support</td>
+                                <td class="p-8 text-center text-slate-400 italic">Reactive / Generic</td>
+                                <td class="p-8 text-center font-black text-primary">24/7 Priority Support</td>
+                            </tr>
+                            <tr class="hover:bg-white transition-all duration-300">
+                                <td class="p-8 font-extrabold text-slate-800">Latency</td>
+                                <td class="p-8 text-center text-slate-400 italic">Variable</td>
+                                <td class="p-8 text-center font-black text-primary">Ultra-Low (Tier-1)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Section Quick Nav -->
+                    <div class="flex flex-wrap justify-center gap-3 mt-12 pt-8 border-t border-slate-200">
+                        <a href="#contact"
+                            class="px-5 py-2 bg-primary hover:bg-orange-600 text-white text-sm font-bold rounded-full transition-all">Get
+                            a Quote &#8594;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="py-12 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-8">Are You Experiencing These Issues?</h2>
+                    <div class="space-y-6">
+                        <div
+                            class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-red-500">schedule</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Waiting Days for Support?</h3>
+                                    <p class="text-slate-900">Tired of endless waiting for technical assistance? Our
+                                        response time is measured in minutes, not days.</p>
+                                </div>
                             </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-orange-500">payments</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Overpaying for Service?</h3>
+                                    <p class="text-slate-900">Stop paying premium prices for subpar service. Our
+                                        enterprise solutions deliver more value for your investment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-yellow-600">warning</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Lacking Technical Support?</h3>
+                                    <p class="text-slate-900">Experience 24/7 proactive support with dedicated technical
+                                        experts who understand your business needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Our 360° End-to-End Support is the Answer.
+                        </h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Experience enterprise-grade support that
+                            anticipates your needs. Our comprehensive solution includes proactive monitoring, rapid
+                            response times, and dedicated technical expertise.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span
+                                    class="font-semibold">24/7 Proactive Monitoring</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span
+                                    class="font-semibold">Dedicated Support Team</span></li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary">check_circle</span><span
+                                    class="font-semibold">Rapid Response Times</span></li>
+                        </ul>
+                        <a href="#contact"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-center">REQUEST
+                            FREE SURVEY <span class="material-symbols-outlined">arrow_forward</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="py-12 bg-slate-50">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Everywhere in Nigeria</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+                    I-World Enterprise Internet provides nationwide coverage. Our extensive fiber network and
+                    advanced solutions ensure that mission-critical connectivity
+                    is available in all <strong>36 states and the FCT</strong>.
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <span
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold">
+                        <span class="material-symbols-outlined">map</span> Nationwide Strategic Coverage
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Form -->
+    <section class="py-12 bg-white" id="contact">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-slate-50 rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100">
+                <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-2">Enterprise Service Request</h2>
+                <p class="text-center text-slate-900 mb-10">Fill out the form and our enterprise team will contact you
+                    for a free survey.</p>
+                <form class="space-y-6" id="enterpriseForm" action="./Assets/forms/form-validation.php" method="POST">
+                    <input type="hidden" name="subject" value="Enterprise Internet Inquiry">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Company
+                                Name</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Enter company name" type="text" name="company_name" required />
+                        </div>
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Contact
+                                Name</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Your name" type="text" name="full_name" required /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Phone
+                                Number</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="080..." type="tel" name="phone" required /></div>
+                        <div><label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Email
+                                Address</label><input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="contact@organization.com" type="email" name="email" required /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">State</label>
+                            <select name="state" required
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm">
+                                <option value="">Select State</option>
+                                <option value="Lagos">Lagos</option>
+                                <option value="Ogun">Ogun</option>
+                                <option value="Oyo">Oyo</option>
+                                <option value="Osun">Osun</option>
+                                <option value="Ondo">Ondo</option>
+                                <option value="Ekiti">Ekiti</option>
+                                <option value="Rivers">Rivers</option>
+                                <option value="FCT">FCT - Abuja</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">City</label>
+                            <input
+                                class="w-full bg-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm shadow-sm"
+                                placeholder="Enter city" type="text" name="city" required />
+                        </div>
+                    </div>
+                    <div class="pt-4 grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-900 mb-3">Preferred Contact Method:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="inline-flex items-center"><input type="radio" name="preferred_contact"
+                                        value="WhatsApp"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">WhatsApp</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="preferred_contact"
+                                        value="Email"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Email</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="preferred_contact"
+                                        value="Phone Call"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Phone Call</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-900 mb-3">Best Time to Contact:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="inline-flex items-center"><input type="radio" name="best_time"
+                                        value="Morning"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Morning</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="best_time"
+                                        value="Afternoon"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Afternoon</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="best_time"
+                                        value="Evening"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Evening</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <label class="block text-sm font-bold text-slate-900 mb-4">Industry Type:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" value="Education" /><span
+                                    class="ml-2 text-sm text-slate-700">Education</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" value="Finance" /><span
+                                    class="ml-2 text-sm text-slate-700">Finance</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" value="Healthcare" /><span
+                                    class="ml-2 text-sm text-slate-700">Healthcare</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" value="Government" /><span
+                                    class="ml-2 text-sm text-slate-700">Government</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-white cursor-pointer hover:border-primary transition-colors"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="industry" value="Other" /><span
+                                    class="ml-2 text-sm text-slate-700">Other</span></label>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
+                        type="submit">REQUEST FREE SURVEY</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        enterprises. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./index.html">Home</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./contact.html">Contact Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./careers.html">Careers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact Us</a>
+                        <li><a class="hover:text-white transition-colors" href="./careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Internet Service</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./internet_for_home.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./internet_for_business.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./enterprise_internet.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./NGFEP.html">Nigeria Google for
+                                Education Program</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./Google_Workspace.html">Google
+                                Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./msp.html">Managed Service
+                                Provider</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./SmartLife.html">Smart Life</a>
                         </li>
                     </ul>
-                    <div class="subscribe-btn ms-auto">
-                        <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
-                    </div>
                 </div>
             </div>
-        </nav>
-        <!-- Ending of navbar -->
-        <!-- Modern Hero Section -->
-        <div class="enterprise-hero-section position-relative overflow-hidden" style="padding-top: 80px; min-height: 60vh;">
-            <div class="container position-relative">
-                <div class="row align-items-center min-vh-50">
-                    <div class="col-lg-7">
-                        <h1 class="display-4 mb-4">
-                            <span class="d-block">Enterprise Internet</span>
-                            <span class="text-success">Affordablity</span>, 
-                            <span class="text-success">Availablity</span>,
-                            <span class="text-success">Reliability</span> 
-                            <span class="d-inline-block">& World Class Support</span>
-                        </h1>
-
-                        <!-- Stats Bar -->
-                        <div class="stats-bar d-flex align-items-center gap-4 mb-4">
-                            <div class="stat-item d-flex align-items-center">
-                                <img src="./Assets/icons/Enterprise-icons/shield_icon.svg" alt="SLA" class="me-2" style="width: 20px; height: 20px;">
-                                <span class="text-muted">99.9% SLA Uptime</span>
-                            </div>
-                            <div class="stat-item d-flex align-items-center">
-                                <img src="./Assets/icons/Enterprise-icons/enterprise-internet/24-hours-support.svg" alt="Support" class="me-2" style="width: 20px; height: 20px;">
-                                <span class="text-muted">24/7 Support Coverage</span>
-                            </div>
-                            <div class="stat-item d-flex align-items-center">
-                                <img src="./Assets/icons/network-enterprise-icon.svg" alt="Network" class="me-2" style="width: 20px; height: 20px;">
-                                <span class="text-muted">Tier-1 Network</span>
-                            </div>
-                        </div>
-
-                        <a href="#enterprise-form" class="btn btn-warning px-4 py-2 text-white fw-bold">
-                            REQUEST FOR FREE SURVEY
-                        </a>
-                    </div>
-                    <div class="col-lg-5 d-flex align-items-center">
-                        <div class="hero-image-container">
-                            <img src="./Assets/img/aerial-view-city.jpg" alt="Enterprise Network" class="img-fluid rounded-3">
-                        </div>
-                    </div>
-                </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> I-World Networks. All rights
+                    reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
             </div>
         </div>
-    </div>
-
-    <style>
-    .hero-image-container {
-        width: 100%;
-        min-height: 450px;
-        margin-top: -20px;
-    }
-    
-    .hero-image-container img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        transform: scale(1.02);
-    }
-
-    @media (max-width: 991.98px) {
-        .hero-image-container {
-            min-height: 400px;
-            margin-top: 20px;
-        }
-        .hero-image-container img {
-            height: 400px;
-            transform: none;
-        }
-    }
-    </style>
-
-    <!-- Features Section -->
-    <div class="mission-critical-section position-relative py-5" id="learn-more">
-        <div class="container">
-            <div class="mission-critical-container bg-white rounded-4 shadow-lg overflow-hidden">
-                <div class="row g-0">
-                    <!-- Left Column - Main Content -->
-                    <div class="col-lg-8 p-5">
-                        <h2 class="display-4 fw-bold mb-4">
-                            YOUR MISSION-CRITICAL CONNECTION
-                        </h2>
-                        <p class="lead text-dark-emphasis mb-4">
-                            Our Enterprise Internet Service is a dedicated solution designed for <span class="fw-medium">critical business missions</span>. We have built the most <span class="fw-medium">resilient infrastructure</span> to withstand the peculiarities and challenges of our environment that provide our enterprise customers with most reliable and SLA backed service anywhere in Nigeria.
-                        </p>
-                        <p class="lead text-dark-emphasis mb-4">
-                            We combine <span class="fw-medium">world class customers service support</span>, <span class="fw-medium">alternative technology</span> and <span class="fw-medium">innovation</span> to provide dedicated fixed broadband internet service that exceeds expectations.
-                        </p>
-
-                        <div class="industries-served">
-                            <p class="lead text-dark-emphasis mb-4">
-                                We provide dedicated fixed broadband internet service at <span class="fw-medium">99.0% SLA backed uptime</span> for:
-                            </p>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2 d-flex align-items-center">
-                                            <i class="bi bi-building text-success me-2"></i>
-                                            <span>Business Enterprises</span>
-                                        </li>
-                                        <li class="mb-2 d-flex align-items-center">
-                                            <i class="bi bi-house-check text-success me-2"></i>
-                                            <span>Hotels and Resorts</span>
-                                        </li>
-                                        <li class="mb-2 d-flex align-items-center">
-                                            <i class="bi bi-mortarboard text-success me-2"></i>
-                                            <span>Educational Institutions</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2 d-flex align-items-center">
-                                            <i class="bi bi-bank text-success me-2"></i>
-                                            <span>Financial Institutions</span>
-                                        </li>
-                                        <li class="mb-2 d-flex align-items-center">
-                                            <i class="bi bi-buildings text-success me-2"></i>
-                                            <span>Government & NGOs</span>
-                                        </li>
-                                        <li class="mb-2 d-flex align-items-center">
-                                            <i class="bi bi-building text-success me-2"></i>
-                                            <span>Manufacturing Industries</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column - Feature Cards -->
-                    <div class="col-lg-4 d-flex flex-column justify-content-center p-5 bg-light">
-                        <!-- Guarantee Card -->
-                        <div class="guarantee-card bg-success text-white rounded-4 p-5 mb-4">
-                            <div class="guarantee-badge mb-3">
-                                <span class="badge bg-white bg-opacity-25 rounded-pill px-3 py-2">
-                                    GUARANTEED
-                                </span>
-                            </div>
-                            <div class="guarantee-icon text-center mb-4">
-                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                    <path d="M16 8L18 6M8 8L6 6M12 4V2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <h3 class="text-center display-5 fw-bold mb-2">99.9% SLA</h3>
-                            <p class="text-center mb-0 text-white-50 fs-5">Backed Uptime</p>
-
-                        </div>
-
-                        <!-- Support Badge -->
-                        <div class="support-badge text-center">
-                            <span class="badge border border-success text-success px-4 py-3 fs-6 rounded-pill">
-                                <i class="bi bi-headset me-2"></i>24/7 World-Class Support
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <style>
-            .mission-critical-section {
-                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            }
-
-            .mission-critical-container {
-                position: relative;
-                z-index: 1;
-                border: 1px solid rgba(0, 0, 0, 0.05);
-            }
-
-            .guarantee-card {
-                background: var(--success);
-                transition: transform 0.3s ease;
-            }
-
-            .guarantee-card:hover {
-                transform: translateY(-5px);
-            }
-
-            .text-dark-emphasis {
-                color: #495057;
-            }
-
-            .fw-medium {
-                font-weight: 500;
-            }
-
-            .support-badge .badge {
-                font-weight: 500;
-                box-shadow: 0 4px 6px rgba(89, 175, 23, 0.1);
-                transition: all 0.3s ease;
-            }
-
-            .support-badge .badge:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 12px rgba(89, 175, 23, 0.15);
-            }
-        </style>
-    </div>
-       
-            <!-- Pain Points Section -->
-            <div class="pain-points-section py-5 position-relative overflow-hidden">
-                <div class="container">
-                    <div class="row g-4">
-                    <!-- Left Column - Pain Points -->
-                    <div class="col-lg-7">
-                        <h2 class="display-6 fw-bold mb-4">Are You Experiencing These Issues?</h2>
-                        <div class="pain-points-grid">
-                            <!-- Pain Point 1 -->
-                            <div class="pain-point-card" data-aos="fade-up">
-                                <div class="icon-badge">
-                                    <i class="bi bi-clock-history text-success"></i>
-                                </div>
-                                <h3 class="h4 mb-2">Waiting Days for Support?</h3>
-                                <p class="lead text-dark-emphasis mb-4">Tired of endless waiting for technical assistance? Our response time is measured in minutes, not days.</p>
-                            </div>
-
-                            <!-- Pain Point 2 -->
-                            <div class="pain-point-card" data-aos="fade-up" data-aos-delay="100">
-                                <div class="icon-badge">
-                                    <i class="bi bi-currency-dollar text-success"></i>
-                                </div>
-                                <h3 class="h4 mb-2">Overpaying for Service?</h3>
-                                <p class="lead text-dark-emphasis mb-4">Stop paying premium prices for subpar service. Our enterprise solutions deliver more value for your investment.</p>
-                            </div>
-
-                            <!-- Pain Point 3 -->
-                            <div class="pain-point-card" data-aos="fade-up" data-aos-delay="200">
-                                <div class="icon-badge">
-                                    <i class="bi bi-exclamation-triangle text-success"></i>
-                                </div>
-                                <h3 class="h4 mb-2">Lacking Technical Support?</h3>
-                                <p class="lead text-dark-emphasis mb-4">Experience 24/7 proactive support with dedicated technical experts who understand your business needs.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column - Solution -->
-                    <div class="col-lg-5">
-                        <div class="solution-card bg-white rounded-4 p-4 h-100">
-                            <h2 class="h3 fw-bold mb-4">Our 360° End-to-End Support is the Answer.</h2>
-                            <p class="lead text-dark-emphasis mb-4">Experience enterprise-grade support that anticipates your needs. Our comprehensive solution includes proactive monitoring, rapid response times, and dedicated technical expertise.</p>
-                            <div class="solution-features">
-                                <div class="feature-item d-flex align-items-center mb-3">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>24/7 Proactive Monitoring</span>
-                                </div>
-                                <div class="feature-item d-flex align-items-center mb-3">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>Dedicated Support Team</span>
-                                </div>
-                                <div class="feature-item d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>Rapid Response Times</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <div class="text-center mt-5">
-                        <a href="#enterprise-form" class="btn btn-warning btn-lg px-5 py-3 text-white fw-bold d-inline-flex align-items-center hover-lift">
-                            REQUEST FOR FREE SURVEY
-                            <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <style>
-                    .pain-points-section {
-                        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-                    }
-
-                    .pain-points-grid {
-                        display: grid;
-                        gap: 1.5rem;
-                    }
-
-                    .pain-point-card {
-                        background: white;
-                        padding: 2rem;
-                        border-radius: 1rem;
-                        position: relative;
-                        transform: rotate(-1deg);
-                        border: 1px solid rgba(0, 0, 0, 0.05);
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                        transition: all 0.3s ease;
-                    }
-
-                    .pain-point-card:nth-child(2) {
-                        transform: rotate(1deg);
-                    }
-
-                    .pain-point-card:hover {
-                        transform: translateY(-5px) rotate(0);
-                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-                    }
-
-                    .icon-badge {
-                        position: absolute;
-                        top: -15px;
-                        right: -15px;
-                        width: 48px;
-                        height: 48px;
-                        background: white;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 1.5rem;
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                    }
-
-                    .solution-card {
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                        border: 1px solid rgba(0, 0, 0, 0.05);
-                    }
-
-                    @media (max-width: 991.98px) {
-                        .pain-point-card {
-                            transform: none !important;
-                        }
-                    }
-                </style>
-            </div>
-        </div>
-    </div>
-    <!-- section beginning -->
-
-
-<!-- Modern Free Trial Section -->
-<section class="modern-trial-section py-5">
-    <div class="container">
-        <div class="trial-container bg-white rounded-4 shadow-sm overflow-hidden">
-            <div class="row g-0">
-                <!-- Left Column - Premium Features -->
-                <div class="col-lg-7 p-5">
-                    <h2 class="h3 fw-bold text-dark mb-4">Premium Features</h2>
-                    
-                    <div class="premium-features">
-                        <div class="feature-item mb-4 pb-4 border-bottom border-light">
-                            <h3 class="h5 fw-bold mb-2">Dedicated Fiber Optic</h3>
-                            <p class="lead text-dark-emphasis mb-4">High-speed, reliable connectivity with 99.9% uptime</p>
-                        </div>
-
-                        <div class="feature-item mb-4 pb-4 border-bottom border-light">
-                            <h3 class="h5 fw-bold mb-2">99.8% SLA Guarantee</h3>
-                            <p class="lead text-dark-emphasis mb-4">Enterprise-grade reliability with service level agreement</p>
-                        </div>
-
-                        <div class="feature-item mb-4 pb-4 border-bottom border-light">
-                            <h3 class="h5 fw-bold mb-2">Self-Healing Network</h3>
-                            <p class="lead text-dark-emphasis mb-4">Automatic failover for continuous uptime</p>
-                        </div>
-
-                        <div class="feature-item">
-                            <h3 class="h5 fw-bold mb-2">24/7 Proactive Support</h3>
-                            <p class="lead text-dark-emphasis mb-4">Round-the-clock monitoring and instant technical assistance</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column - Free Trial Offer -->
-                <div class="col-lg-5 bg-success p-5 text-white d-flex flex-column justify-content-between">
-                    <div class="trial-content">
-                        <div class="text-center mb-4">
-                            <h2 class="display-1 fw-bold mb-2">₦0</h2>
-                            <p class="fs-5 text-white-50 mb-5">First 30 days free, then</p>
-
-                        </div>
-
-                        <div class="trial-benefits mb-5">
-                            <div class="benefit-item mb-3 ps-3">Zero setup & installation costs</div>
-                            <div class="benefit-item mb-3 ps-3">70% renewable energy usage</div>
-                            <div class="benefit-item mb-3 ps-3">Nationwide coverage</div>
-                            <div class="benefit-item mb-3 ps-3">No long-term contracts</div>
-                            <div class="benefit-item ps-3">No hidden fees</div>
-                        </div>
-                    </div>
-
-                    <div class="trial-cta text-center">
-                        <a href="#enterprise-form" class="btn btn-lg w-100 py-3 trial-btn">
-                            Start Free Trial →
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .modern-trial-section {
-            background: #f8f9fa;
-        }
-
-        .trial-container {
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        /* Make premium features stack vertically (override generic .feature-item) */
-        .premium-features .feature-item {
-            display: block;
-            padding: 1rem 0;
-        }
-
-        .premium-features .feature-item h3 {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .premium-features .feature-item p {
-            margin-top: 0;
-        }
-
-        .premium-features .feature-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .border-light {
-            border-color: rgba(0, 0, 0, 0.05) !important;
-        }
-
-        .trial-benefits .benefit-item {
-            font-size: 1.1rem;
-            border-left: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .trial-btn {
-            background: white;
-            color: var(--success);
-            border: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .trial-btn:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 991.98px) {
-            .col-lg-5 {
-                border-radius: 0 0 0.75rem 0.75rem;
-            }
-        }
-    </style>
-</section>
-
-    <style>
-        /* Color Variables */
-        :root {
-            --primary: #F58C29;
-            --primary-light: rgba(245, 140, 41, 0.1);
-            --success: #59AF17;
-            --success-light: rgba(89, 175, 23, 0.1);
-            --accent: #A0C90C;
-            --accent-light: rgba(160, 201, 12, 0.1);
-            --warning: #ff6600;
-            --warning-light: rgba(255, 102, 0, 0.1);
-        }
-
-        /* General Styles */
-        body {
-            padding-top: 80px;
-        }
-
-        .text-gradient {
-            background: linear-gradient(90deg, var(--success), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
-            display: inline;
-        }
-
-        .hover-lift {
-            transition: all 0.3s ease;
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Hero Section */
-        .enterprise-hero-section {
-            background-color: white;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid #eee;
-        }
-
-        .enterprise-hero-section h1 {
-            font-weight: 600;
-            color: #333;
-            line-height: 1.3;
-        }
-
-        .enterprise-hero-section .text-success {
-            color: var(--success) !important;
-        }
-
-        .stats-bar {
-            background: #fff;
-            padding: 1rem 0;
-        }
-
-        .stat-item {
-            font-size: 0.9rem;
-        }
-
-        .btn-warning {
-            background-color: var(--warning);
-            border-color: var(--warning);
-            transition: all 0.3s ease;
-        }
-
-        .btn-warning:hover {
-            background-color: #ff7f2a;
-            border-color: #ff7f2a;
-            transform: translateY(-2px);
-        }
-        
-        .free-trial-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Animated Orbs */
-        .floating-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3;
-            z-index: 0;
-            animation: float 15s ease-in-out infinite;
-        }
-        
-        .orb-1 {
-            width: 300px;
-            height: 300px;
-            background: var(--success);
-            top: -100px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-        
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--accent);
-            bottom: -150px;
-            right: -150px;
-            animation-delay: 2s;
-            animation-duration: 20s;
-        }
-        
-        .orb-3 {
-            width: 200px;
-            height: 200px;
-            background: var(--primary);
-            top: 50%;
-            right: 10%;
-            animation-delay: 4s;
-            animation-duration: 25s;
-        }
-        
-        /* Cards */
-        .offer-card, .pricing-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            z-index: 1;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .offer-card:hover, .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .pricing-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border: 1px solid rgba(92, 198, 64, 0.2);
-        }
-        
-        /* Feature Items */
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .feature-item:hover {
-            background: rgba(92, 198, 64, 0.05);
-            transform: translateX(5px);
-        }
-        
-        /* Stats Bar */
-        .stat-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(89, 175, 23, 0.1);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(89, 175, 23, 0.1);
-        }
-
-        /* Pain Points */
-        .pain-point-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .pain-point-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon-wrapper {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Form Styling */
-        .form-floating > .form-control:focus,
-        .form-floating > .form-control:not(:placeholder-shown) {
-            padding-top: 1.625rem;
-            padding-bottom: 0.625rem;
-        }
-
-        .form-floating > label {
-            padding: 1rem 0.75rem;
-        }
-
-        .btn-check:checked + .btn-outline-success {
-            background-color: var(--success);
-            border-color: var(--success);
-            color: white;
-        }
-
-        /* Feature Icons */
-        .feature-icon {
-            display: inline-flex;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            color: var(--success);
-            transition: all 0.3s ease;
-            min-width: 24px;
-            align-items: flex-start;
-            margin-top: 0.25rem;
-        }
-        
-        /* Buttons */
-        .btn-success {
-            background: var(--success);
-            border-color: var(--success);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-success:hover {
-            background: #4a9e32;
-            border-color: #4a9e32;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(92, 198, 64, 0.3);
-        }
-        
-        .btn-outline-success {
-            color: var(--success);
-            border-color: var(--success);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline-success:hover {
-            background: var(--success);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(92, 198, 64, 0.2);
-        }
-        
-        /* Text Gradient */
-        .text-gradient {
-            background: linear-gradient(90deg, var(--success), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline;
-        }
-        
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-3px);
-        }
-        
-        .hover-lift .transition-transform {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-lift:hover .transition-transform {
-            transform: translateX(5px);
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 991.98px) {
-            .display-5 {
-                font-size: 2.5rem;
-            }
-            
-            .pricing-card {
-                margin-top: 2rem;
-            }
-        }
-    </style>
-</section>
-    <!--section beginning -->
-    <div class="container-fluid py-5 gray-bg">
-        <div class="container">
-            <h4 class="fw-bold text-start text-uppercase mt-2">Why you need to switch your business Now! </h4>
-            <hr class="hr">
-            <div class="container">
-                <div class="row ">
-                    <div class="col services  mx-1 mt-2">
-                        <div class="service p-2">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/tools_icon.svg" width="40" height="40" alt="">
-                                <h6 class="service-title fw-bold ">Zero Equipment and Installation Cost  </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col services  mx-1 mt-2">
-                        <div class="service p-2 h-100">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/enterprise-internet/free.svg" width="40" height="40" alt="">
-                                <h6 class="service-title fw-bold ">1st Month Service is FREE </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col services  mx-1 mt-2">
-                        <div class="service p-2 ">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/plant _icon.svg" width="40" height="40" alt="">
-                                <h6 class="service-title fw-bold ">We use 70% renewable energy, cost savings to customers.</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col services  mx-1 mt-2">
-                        <div class="service p-2">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/shield_icon.svg" width="40" height="40" alt="google-cloud icon">
-                                <h6 class="service-title fw-bold ">99% SLA backed service availability.</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">                        
-                    <div class="col services  mx-1 mt-2">
-                        <div class="service p-2 ">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/enterprise-internet/self-healing.svg" width="40" height="40" alt="">
-                                <h6 class="service-title fw-bold ">Automatic Self-Healing Failover for Business Continuity</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col services mx-1 mt-2">
-                        <div class="service p-2">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/enterprise-internet/24-hours-support.svg" width="40" height="40" alt="">
-                                <h6 class="service-title fw-bold ">24/7 Proactive Support  </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col services mx-1 mt-2">
-                        <div class="service p-2">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/enterprise-internet/help-desk.svg" width="40" height="40" alt="google-cloud icon">
-                                <h6 class="service-title fw-bold ">Dedicated Account Manager</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col services mx-1 mt-2">
-                        <div class="service p-2">
-                            <div class="">
-                                <img src="./Assets/icons/Enterprise-icons/enterprise-internet/coverage.svg" width="40" height="40" alt="">
-                                <h6 class="service-title fw-bold ">Nationwide Coverage </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cta d-flex align-items-center justify-content-start mt-4">
-                <a href="#enterprise-form" class="btn btn-warn w-auto px-3 text-uppercase fw-bold">Request for Free Survey</a>
-            </div>
-        </div>
-    </div>
-    <!--section ending  -->
-
-
-    <!-- Service combinations -->
-    <div class="container-fluid pt-5 pb-5" style="background: linear-gradient(135deg, var(--success) 0%, var(--accent) 100%);">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center text-white">
-                    <h2 class="display-5 fw-bold mb-4">I-World Enterprise Service Combinations</h2>
-                    <p class="lead text-dark-emphasis mb-4">
-                        Choose from our service bundles to reduce your Internet, Network, and Google Workspace initial investment and monthly operational costs. The fastest cost-saving mechanism for Enterprise, Small business, and startups.
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="border p-3 col-md-4 bg-white">
-                    <div class="service-container d-flex flex-column justify-content-between h-100">
-                        <div class="">
-                            <h5 class="service-heading fs-4 fw-bold">
-                                Internet Service + Google Workspace
-                            </h5> <br>
-                            <p class="lead text-dark-emphasis mb-4">Bundle your Internet Subscription with Google Workspace.</p>
-                            <ul class="benefit-list list-unstyled">
-                                <li class="border-bottom border-top py-3 d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>Save up to 50% on monthly bill</span>
-                                </li>
-                                <li class="border-bottom py-3 d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>Zero Sign-up cost</span>
-                                </li>
-                                <li class="border-bottom py-3 d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>Staff training on Google Workspace</span>
-                                </li>
-                                <li class="border-bottom py-3 d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>99.8% Service availability</span>
-                                </li>
-                                <li class="border-bottom py-3 d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>24/7 Technical Support</span>
-                                </li>
-                                <li class="py-3 d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                    <span>Dedicated Account Manager</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="">
-                            <button class="btn btn-warn btn-block call-to-action"> <a href="#msp_Form" class="text-decoration-none text-white text-uppercase">Request Free Consultation</a> </button>
-                        </div>
-                    </div>
-                </div>
-              <div class="border p-3 col-md-4 bg-white">
-                <div class="service-container d-flex flex-column justify-content-between h-100">
-                    <div class="">
-                        <h5 class="service-heading fs-4 fw-bold ">
-                            Internet Service + Network Infrastructure
-                        </h5> <br>
-                         <p class="lead text-dark-emphasis mb-4">Get Internet Connectivity and Network Infrastructure as a service.</p>
-                        <ul class="benefit-list list-unstyled">
-                            <li class="border-bottom py-3 border-top pt-3 mt-3 d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span>Save up to 45% on maintenance costs</span>
-                            </li>
-                            <li class="border-bottom py-3 d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span>Zero Sign-up and build cost</span>
-                            </li>
-                            <li class="border-bottom py-3 d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span>Proactive monitoring and maintenance</span>
-                            </li>
-                            <li class="border-bottom py-3 d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span>99.8% Service availability</span>
-                            </li>
-                            <li class="border-bottom py-3 d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span>24/7 Onsite Technical Support</span>
-                            </li>
-                            <li class="py-3 d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span>Dedicated Account Manager</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="">
-                        <button class="btn btn-warn btn-block call-to-action"> 
-                            <a href="#msp_Form" class="text-decoration-none text-white text-uppercase">Request Free Consultation</a> 
-                        </button>
-                    </div>
-                </div>
-              </div>
-              <div class="border p-3 col-md-4 bg-white">
-                <div class="service-container d-flex flex-column justify-content-between h-100">
-                    <div class="">
-                        <h5 class="service-heading fs-4 fw-bold">
-                            Internet Service + Google Workspace + Network Infrastructure
-                            <br> <span class="fs-5">(Most popular)</span>
-                        </h5>
-                        <br>
-                        <p class="lead text-dark-emphasis mb-4">Our most popular service combination for businesses.</p>
-                        <ul class="benefit-list list-unstyled">
-                            <li class="border-bottom py-3 border-top pt-3 mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Save up to 55% on monthly costs</li>
-                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Lowest Total Cost of Ownership</li>
-                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Zero Sign-up and build cost</li>
-                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Proactive monitoring and maintenance</li>
-                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>99.8% Service availability</li>
-                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 Onsite Technical Support</li>
-                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Dedicated Account Manager</li>
-                            <li class="border-bottom mt-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Data Backup and Recovery</li>
-                        </ul>
-                    </div>
-                    <div class="">
-                        <button class="btn btn-warn btn-block call-to-action"> 
-                            <a href="#msp_Form" class="text-decoration-none text-white text-uppercase">Request Free Consultation</a>
-                        </button>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Enterprise Form  -->
-    <div class="container-fluid py-5 position-relative overflow-hidden" id="enterprise-form" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-        <!-- Animated Background Elements -->
-        <div class="position-absolute top-0 start-0 w-100 h-100">
-            <div class="form-orb orb-1"></div>
-            <div class="form-orb orb-2"></div>
-        </div>
-
-        <div class="container position-relative">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h2 class="display-5 fw-bold mb-4">Get Started Today</h2>
-                    <p class="lead mb-0">Fill out the form below and our team will get back to you within the hour.</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-                        <div class="card-body p-4 p-lg-5">
-                            <form class="needs-validation" novalidate>
-                                <input type="hidden" name="subject" value="IP Order Service Request">
-                                <input type="hidden" name="form_source" value="Enterprise Internet">
-                                
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                                            <label for="name">Full Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="companyName" name="company_name" placeholder="Company Name" required>
-                                            <label for="companyName">Company Name</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
-                                            <label for="email">Email Address</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder="Phone Number" required>
-                                            <label for="phoneNumber">Phone Number</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="state" name="state" placeholder="State" required>
-                                            <label for="state">State</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
-                                            <label for="city">City</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label d-block mb-3">Preferred Contact Method</label>
-                                        <div class="btn-group w-100" role="group" aria-label="Contact method">
-                                            <input type="checkbox" class="btn-check" name="contact[]" id="whatsappCheck" value="WhatsApp" autocomplete="off">
-                                            <label class="btn btn-outline-success" for="whatsappCheck">
-                                                <i class="bi bi-whatsapp me-2"></i>WhatsApp
-                                            </label>
-                                            
-                                            <input type="checkbox" class="btn-check" name="contact[]" id="emailCheck" value="Email" autocomplete="off">
-                                            <label class="btn btn-outline-success" for="emailCheck">
-                                                <i class="bi bi-envelope me-2"></i>Email
-                                            </label>
-                                            
-                                            <input type="checkbox" class="btn-check" name="contact[]" id="phoneCheck" value="Phone" autocomplete="off">
-                                            <label class="btn btn-outline-success" for="phoneCheck">
-                                                <i class="bi bi-telephone me-2"></i>Call
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label d-block mb-3">Best Time to Contact</label>
-                                        <div class="btn-group w-100" role="group" aria-label="Contact time">
-                                            <input type="radio" class="btn-check" name="contact_time" id="daytime" value="Daytime" autocomplete="off">
-                                            <label class="btn btn-outline-success" for="daytime">
-                                                <i class="bi bi-sun me-2"></i>Day
-                                            </label>
-                                            
-                                            <input type="radio" class="btn-check" name="contact_time" id="evening" value="Evening" autocomplete="off">
-                                            <label class="btn btn-outline-success" for="evening">
-                                                <i class="bi bi-moon me-2"></i>Evening
-                                            </label>
-                                            
-                                            <input type="radio" class="btn-check" name="contact_time" id="anytime" value="Anytime" autocomplete="off">
-                                            <label class="btn btn-outline-success" for="anytime">
-                                                <i class="bi bi-clock me-2"></i>Anytime
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="text-center mt-5">
-                                    <button type="submit" class="btn btn-warning btn-lg px-5 py-3 d-inline-flex align-items-center hover-lift">
-                                        Submit Request
-                                        <i class="bi bi-arrow-right ms-2"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer section Beginning -->
- <section>
-    <footer class=" text-start border pt-5 text-white bg-black">
-        <!-- Grid container -->
-        <div class="container">
-            <!-- Section: Links -->
-            <section class="">
-                <!--Grid row-->
-                <div class="row py-5">
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
-            
-                        <ul class="list-unstyled mb-0">
-                        <li class="mt-2">
-                            <a class="text-white" href="./index.html">Home</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./about.html">About Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./contact.html">Contact Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./careers.html">Careers</a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
-                        <ul class="list-unstyled mb-0">
-                            
-                            <li class="mt-2">
-                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mt-2">
-                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!-- Grid Column -->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 903 984 4309</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5560</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5565</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 706 605 3380</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 814 994 5984
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <!-- Facebook -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
-                        </a>
-                        <!-- Twitter -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
-                        </a>
-                        <!-- LinkedIn -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
-                        </a>
-                        <!--Grid column-->
-                        <div class="">
-                            <p class="fw-bold">Sign up for our newsletter</p>
-                            <!-- Email input -->
-                            <div data-mdb-input-init class="form-outline ">
-                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
-                            </div>
-                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                <!--Grid row-->
-                </div>
-            </section>
-        <!-- Section: Links -->
-        </div>
-        <!-- Copyright -->
-        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        © 2026 &nbsp;&nbsp; Copyright:
-        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
-        </div>
-        <!-- Copyright -->
     </footer>
- </section>
 
-    <!-- Ending of footer -->
+    <div class="fixed bottom-8 right-8 z-50"><a href="./contact.html"
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
+                class="material-symbols-outlined">support_agent</span><span
+                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
+                With Us</span></a></div>
 
-
-
-
-
-<!-- =====================Javascripts ===========================-->
-    <!--  Preloader Functionality -->
-    <script>
-        $(document).ready(function() {
-        //Preloader
-        preloaderFadeOutTime = 500;
-        function hidePreloader() {
-        var preloader = $('.spinner-wrapper');
-        preloader.fadeOut(preloaderFadeOutTime);
-        }
-        hidePreloader();
-        });
-    </script>
-    <!-- Back to top Button Functionality -->
-    <script>
-        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            BacktoTopBtn.style.display = "block";
-        } else {
-            BacktoTopBtn.style.display = "none";
-        }
-        }
-        function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
-    </script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="./Assets/js/accordion.js"></script>
-    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <!-- AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Toastr Js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <!-- Custom Script -->
-    <script src="Assets/js/forms.js"></script>
-
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        // Form validation
-        (function () {
-            'use strict'
-            var forms = document.querySelectorAll('.needs-validation')
-            Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-        })()
-    </script>
-
+    <script src="./Assets/js/redesign-form.js"></script>
 </body>
-</html>
 
+</html>

@@ -1,849 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-WSHR85KZCD');
-</script>
-    
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
-    <meta name="author" content="Armaaneth Esiri">
-    <title>I-World Networks|| Business Internet</title>
-    <!-- FAVICON -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>I-World Networks | Small Business Internet</title>
     <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="./Assets/css/style.css">
-    <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-    <!-- Google Fonts  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Toastr Css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    
-     <style>
-    .client-zone-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #F58C29; /* IWN Orange from brand colors */
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 50px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      font-weight: bold;
-      font-family: inherit;
-    }
-    
-    .client-zone-btn:hover {
-      background-color: #FF6600; /* IWN darker Orange from brand colors */
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-    
-    .widget-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    @media (max-width: 768px) {
-      #client-zone-widget {
-        bottom: 20px;
-        right: 20px;
-      }
-      
-      .client-zone-btn {
-        padding: 10px 16px;
-      }
-    }
-  </style>
-  
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "surface-dark": "#1E293B",
+                    },
+                    fontFamily: {
+                        display: ["Lexend", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
 </head>
-<body class="overflow-x-hidden">
-    
-    
-    
-    <!--======================= Back to top button beginning======================= -->
-    <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M15 20H9v-8H6.16L12 4.16L19.84 12H15z"/>
-        </svg>
-    </button>
-    <!--======================= Back to top button ending======================== -->
-    <!-- Header Beginning -->
-    <div class="iob-header internet-header ">
-        <!-- Navbar beginning -->
-        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html">
-                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-        
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Internet Services
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
-                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
-                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
-                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
-                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
+
+<body class="bg-background-light text-slate-900 font-body antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="./index.html">
+                <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-primary whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./internet_for_home.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
+                        <a href="./index.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Business
+                            Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./Google_Workspace.html">Google Cloud Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
+            </div>
+            <a href="./contact.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-[600px] flex items-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0"><img alt="Business" class="w-full h-full object-cover"
+                src="./Assets/img/Business.png" />
+            <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 pt-10">
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+                <span
+                    class="text-white font-bold text-lg tracking-wider bg-white/10 px-4 py-1 rounded-full backdrop-blur-md border border-white/20">SMALL
+                    BUSINESS INTERNET</span>
+                <span
+                    class="text-secondary font-bold text-sm tracking-wide bg-secondary/10 px-4 py-1 rounded-full backdrop-blur-md border border-secondary/30 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">swap_horiz</span> Switch Internet for FREE — Plus 30
+                    Days Free Subscription!
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 max-w-3xl">High-Speed +
+                Reliability + <br class="hidden md:block" /><span class="text-primary">Low Cost for SMBs</span></h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
+                I-World Internet for SMB combines High-Speed + Reliability + Availability + Low cost to help
+                small business grow beyond their expectations. Thousands of Small businesses rely on I-World SMB
+                Wi-Fi for their daily operation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-center flex items-center justify-center gap-2"
+                    href="#plans">View Plans <span class="material-symbols-outlined text-sm">arrow_downward</span></a>
+                <a class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full transition-all text-center"
+                    href="#contact">Get Connected</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Why Choose I-World Business?</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto mt-4">Unparalleled network capacity and state-of-the-art
+                    stability.</p>
+                <div class="w-24 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div class="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-green-600">
+                        <span class="material-symbols-outlined text-3xl">calendar_today</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">60 Days Free Subscription</h3>
+                        <p class="text-slate-900 leading-relaxed">Switch to I-World SMB Internet and get 60 days
+                            subscription absolutely free.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div class="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-orange-600">
+                        <span class="material-symbols-outlined text-3xl">swap_horiz</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Switching Internet is FREE</h3>
+                        <p class="text-slate-900 leading-relaxed">Switching from another provider? The cost of
+                            connection is 100% on us. Seamless transition.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div class="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">payments</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Referral Pay Discount</h3>
+                        <p class="text-slate-900 leading-relaxed">Refer a friend or business and get your next
+                            subscription FREE.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex gap-6 items-start p-6 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md">
+                    <div class="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-purple-600">
+                        <span class="material-symbols-outlined text-3xl">support_agent</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">24/7 Customer Service Support</h3>
+                        <p class="text-slate-900 leading-relaxed">We act as your internal IT team. Professional guidance
+                            and support whenever you need it.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Section Quick Nav -->
+            <div class="flex flex-wrap justify-center gap-3 mt-12 pt-8 border-t border-slate-100">
+                <a href="#plans"
+                    class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">View
+                    Plans</a>
+                <a href="#contact"
+                    class="px-5 py-2 bg-primary hover:bg-orange-600 text-white text-sm font-bold rounded-full transition-all">Connect
+                    Business &#8594;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="py-12 bg-slate-50 relative overflow-hidden" id="plans">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Choose your Shared Access Plan for Business</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Scalable solutions tailored for growing businesses.
+                    Connection fee: <strong class="text-slate-900">For as low as ₦200,000</strong>.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- U-Lite -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200 flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-slate-100 p-6 text-center border-b border-slate-200">
+                        <h3 class="text-slate-800 font-bold text-2xl">U-Lite</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-4xl font-extrabold text-slate-900">₦32,500</span><span
+                                class="text-sm text-slate-500 block mt-1">per month</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Up to
+                                <strong class="text-slate-900">40Mbps</strong>
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                                Unlimited Data</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> No
+                                Throttling</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Static
+                                IP Included</li>
+                            <li class="flex items-center gap-3 font-bold text-primary"><span
+                                    class="material-symbols-outlined text-primary text-lg">star</span> 60 Days
+                                Free</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-3 bg-slate-900 hover:bg-primary text-white font-bold rounded-xl shadow-md transition-colors mt-auto text-center">Subscribe
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- U-Max (Popular) -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-primary relative flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 scale-105 z-10">
+                    <div
+                        class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl z-20">
+                        POPULAR</div>
+                    <div class="bg-primary/10 p-6 text-center border-b border-primary/20">
+                        <h3 class="text-primary font-bold text-2xl">U-Max</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-4xl font-extrabold text-slate-900">₦43,500</span><span
+                                class="text-sm text-slate-500 block mt-1">per month</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Up to
+                                <strong class="text-slate-900">55Mbps</strong>
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                                Unlimited Data</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> No
+                                Throttling</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Static
+                                IP Included</li>
+                            <li class="flex items-center gap-3 font-bold text-primary"><span
+                                    class="material-symbols-outlined text-primary text-lg">star</span> 60 Days
+                                Free</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/30 transition-colors mt-auto text-center">Subscribe
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- U-Pro -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200 flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-slate-100 p-6 text-center border-b border-slate-200">
+                        <h3 class="text-slate-800 font-bold text-2xl">U-Pro</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-4xl font-extrabold text-slate-900">₦58,000</span><span
+                                class="text-sm text-slate-500 block mt-1">per month</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Up to
+                                <strong class="text-slate-900">70Mbps</strong>
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                                Unlimited Data</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Best
+                                for Teams</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-secondary text-lg">check_circle</span> Static
+                                IP Included</li>
+                            <li class="flex items-center gap-3 font-bold text-primary"><span
+                                    class="material-symbols-outlined text-primary text-lg">star</span> 60 Days
+                                Free</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-3 bg-slate-900 hover:bg-primary text-white font-bold rounded-xl shadow-md transition-colors mt-auto text-center">Subscribe
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- U-Custom -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200 flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-slate-900 p-6 text-center">
+                        <h3 class="text-white font-bold text-2xl">U-Custom</h3>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <div class="text-center mb-8 pb-8 border-b border-slate-100"><span
+                                class="text-xl font-bold text-slate-900 leading-tight">Specific Needs?</span><span
+                                class="text-sm text-slate-500 block mt-2">We build what you need.</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> Need Public IPs?
+                            </li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> Bundled Services?
+                            </li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> High Bandwidth?
+                            </li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-lg">help</span> Special Business
+                                Request?</li>
+                        </ul>
+                        <a href="#contact"
+                            class="w-full py-3 bg-slate-200 text-slate-900 hover:bg-primary hover:text-white font-bold rounded-xl shadow-md transition-colors mt-auto text-center">Get
+                            Custom Quote</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty & Rewards Section -->
+    <section class="py-16 bg-white border-t border-slate-100">
+        <div class="container mx-auto px-6">
+            <div
+                class="bg-gradient-to-br from-slate-900 to-navy rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-3xl rounded-full -mr-20 -mt-20"></div>
+                <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-extrabold mb-6">Business Loyalty & Savings</h2>
+                        <p class="text-slate-300 mb-8 leading-relaxed">Maximize your business ROI with I-World's
+                            business
+                            loyalty programs. We offer special discounts for businesses that refer partners and rewards
+                            for consistent growth within our network. Let's grow together.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div
+                                class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/10">
+                                <span class="material-symbols-outlined text-primary">business_center</span>
+                                <span class="text-sm font-bold">B2B Referrals</span>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Google Cloud Services
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
-                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
-                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
+                            <div
+                                class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/10">
+                                <span class="material-symbols-outlined text-secondary">trending_up</span>
+                                <span class="text-sm font-bold">Growth Rewards</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <a href="./Loyalty_&_Discounts.html"
+                            class="inline-block bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition-all shadow-xl hover:shadow-primary/40 group">
+                            Explore Business Rewards <span
+                                class="inline-block transition-transform group-hover:translate-x-1">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Managed Services Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Managed Service Combinations</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Choose the combination that best suits your business needs.
+                    Reduce costs and boost efficiency with our bundled solutions.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bundle 1 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white transition-all">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6"><span
+                            class="material-symbols-outlined text-3xl text-primary">wifi_tethering</span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">1. Internet + LAN/WLAN</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 list-disc pl-5">
+                        <li>Free for the first 30 days</li>
+                        <li><strong class="text-secondary">35% Savings</strong> on Monthly Bill</li>
+                        <li>High-speed Internet Service</li>
+                        <li>Full LAN/WLAN Setup</li>
+                        <li>Business Domain Registration</li>
+                        <li>Optional: Google My Business</li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-bold hover:underline">Choose Bundle →</a>
+                </div>
+                <!-- Bundle 2 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white transition-all">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6"><span
+                            class="material-symbols-outlined text-3xl text-green-600">cloud</span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">2. Internet + Google Workspace</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 list-disc pl-5">
+                        <li>Free for the first 30 days</li>
+                        <li><strong class="text-secondary">40% Savings</strong> on Monthly Bill</li>
+                        <li>High-speed Internet Service</li>
+                        <li>Google Workspace + Gemini AI</li>
+                        <li>Security & Content Filtering</li>
+                        <li>Staff Training on Collaboration</li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-bold hover:underline">Choose Bundle →</a>
+                </div>
+                <!-- Bundle 3 -->
+                <div
+                    class="p-8 rounded-3xl border-2 border-primary bg-primary/5 hover:bg-white transition-all relative">
+                    <div
+                        class="absolute -top-3 right-6 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Best Value</div>
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6"><span
+                            class="material-symbols-outlined text-3xl text-blue-600">verified_user</span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">3. Internet + LAN/WLAN + Google Workspace</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 list-disc pl-5">
+                        <li>Free for the first 30 days</li>
+                        <li><strong class="text-secondary">50% Savings</strong> on Monthly Bill</li>
+                        <li>All-in-One Solution</li>
+                        <li>Internet + LAN/WLAN</li>
+                        <li>Google Workspace + Gemini AI</li>
+                        <li>Security & Bandwidth Management</li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-bold hover:underline">Choose Bundle →</a>
+                </div>
+                <!-- Section Quick Nav -->
+                <div class="flex flex-wrap justify-center gap-3 mt-16 pt-8 border-t border-slate-200">
+                    <a href="#plans"
+                        class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">View
+                        Plans</a>
+                    <a href="#contact"
+                        class="px-5 py-2 bg-primary hover:bg-orange-600 text-white text-sm font-bold rounded-full transition-all">Get
+                        Started &#8594;</a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-extrabold text-slate-900 mb-2">I-World Business Internet Coverage</h2>
+                <p class="text-slate-500">We cover major cities across Nigeria's South-West region</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Abeokuta</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Agbara
+                    & Industrial Estate</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Akure</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Ibadan</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Lagos-Ibadan
+                    Expressway</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Ijebu
+                    Ode</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Mowe/Ibafo/Magboro</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Osogbo</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Sango
+                    Otta</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Epe</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Iseri</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Arepo</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Lasese</span>
+                <span
+                    class="px-4 py-2 bg-white rounded-full text-sm font-semibold text-slate-700 border border-slate-200">Owo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-slate-100" id="contact">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100">
+                <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-2">Service Request Form</h2>
+                <p class="text-center text-slate-500 mb-10">Fill out the form and our team will get back to you shortly.
+                </p>
+                <form class="space-y-6" id="businessForm" action="./Assets/forms/form-validation.php" method="POST">
+                    <input type="hidden" name="subject" value="Business Fiber Inquiry">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Business
+                                Name</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="Enter business name" type="text" name="business_name" required /></div>
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Business
+                                Address</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="Enter address" type="text" name="business_address" required /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Business
+                                Phone
+                                Number</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="080..." type="tel" name="phone" required /></div>
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Business
+                                Email
+                                Address</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="contact@company.com" type="email" name="email" required /></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div><label
+                                class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Business
+                                WhatsApp
+                                Number</label><input
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none text-sm"
+                                placeholder="080..." type="tel" name="whatsapp_number" required /></div>
+                    </div>
+
+                    <div class="pt-4">
+                        <label class="block text-sm font-bold text-slate-900 mb-4">Select Plan:</label>
+                        <div class="flex flex-wrap gap-4">
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" value="U-Lite" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Lite</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" value="U-Max" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Max</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" value="U-Pro" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Pro</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded-full" type="radio"
+                                    name="plan" value="U-Custom" /><span
+                                    class="ml-2 text-sm text-slate-700 font-bold">U-Custom</span></label>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <label class="block text-sm font-bold text-slate-900 mb-4">Services Required (Optional):</label>
+                        <div class="flex flex-wrap gap-4">
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded" type="checkbox"
+                                    name="services[]" value="Internet Service" /><span
+                                    class="ml-2 text-sm text-slate-700">Internet
+                                    Service</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded" type="checkbox"
+                                    name="services[]" value="LAN/WLAN" /><span
+                                    class="ml-2 text-sm text-slate-700">LAN/WLAN</span></label>
+                            <label
+                                class="inline-flex items-center p-3 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100"><input
+                                    class="text-primary focus:ring-primary border-gray-300 rounded" type="checkbox"
+                                    name="services[]" value="Google Workspace" /><span
+                                    class="ml-2 text-sm text-slate-700">Google
+                                    Workspace</span></label>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-900 mb-3">Best Contact Method:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="inline-flex items-center"><input type="radio" name="contact_method"
+                                        value="WhatsApp"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">WhatsApp</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="contact_method"
+                                        value="Email"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Email</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="contact_method"
+                                        value="Phone Call"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Phone Call</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="contact_method"
+                                        value="SMS"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">SMS</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-900 mb-3">Best Contact Time:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="inline-flex items-center"><input type="radio" name="contact_time"
+                                        value="Day"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Daytime</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="contact_time"
+                                        value="Evening"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Evening</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="contact_time"
+                                        value="Anytime"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Anytime</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="contact_time"
+                                        value="Weekend"
+                                        class="text-primary focus:ring-primary border-slate-300 rounded-full"><span
+                                        class="ml-2 text-sm text-slate-700">Weekend</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
+                        type="submit">Submit Request Form</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        homes and businesses. Secure, fast, and always reliable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./index.html">Home</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./contact.html">Contact Us</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./careers.html">Careers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a>   
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./Loyalty_&_Discounts.html"> Loyalty & Discounts</a>   
+                        <li><a class="hover:text-white transition-colors" href="./careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Internet Service</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./internet_for_home.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./internet_for_business.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./enterprise_internet.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./NGFEP.html">Nigeria Google for
+                                Education Program</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./Google_Workspace.html">Google
+                                Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./msp.html">Managed Service
+                                Provider</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./SmartLife.html">Smart Life</a>
                         </li>
                     </ul>
-                    <!-- <div class="subscribe-btn ms-auto">
-                        <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
-                        <a class="nav-link lato" href="#">
-                            <img src="./Assets/icons/phone.svg" width="20" height="20" alt="">
-                            +234 807 767 5560</a>
-                    </div> -->
                 </div>
             </div>
-        </nav>
-        <div class="iob-header-content "></div>
-    </div>
-    <!-- Ending of iob header -->
-
-    <!-- About Internet -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <h4 class=" fs-3 fw-bold">Small Business Internet </h4>
-            <p class="fs-5 about-us-text">
-                I-World Internet for SMB combined High-Speed+Reliability+Availabity+Low cost to help small business grow beyond their expectations. <br> More than 3,000 Small business relies on I-World SMB WI-FI for their daily operation. 
-            </p>
-            <hr class="hr">
-            <h4 class=" fs-4 fw-bold">Benefits of I-World SMB Internet  </h4>
-            <div class="container-fluid">
-                <div class="row ">
-                    <div class="col-sm-12 col-md-3 services mt-2 p-4">
-                        <div class="service d-flex flex-column align-items-start justify-content-center">
-                            <div class="">
-                                <img src="./Assets/icons/biz-icons/subscription.svg" width="50" height="50" alt="">
-                                <h5 class="service-title fw-bold ">First Month Subscription is FREE </h5>
-                                <p class="lato service-text">
-                                    When switch to I-World SMB Internet, you first month subscription is on us.     
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3 services mt-2 p-4">
-                        <div class="service d-flex flex-column align-items-start justify-content-between h-100">
-                            <div class="">
-                                <img src="./Assets/icons/biz-icons/change.svg" width="50" height="50" alt="">
-                                <h5 class="service-title fw-bold ">Switching from another service provider Is FREE  </h5>
-                                <p class="lato service-text">
-                                    When you switch your small business from another service provider, the cost of connection is on us.  
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3 services mt-2 p-4">
-                        <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
-                            <div class="">
-                                <img src="./Assets/icons/biz-icons/affiliate-marketing.svg" width="50" height="50" alt="google-cloud icon">
-                                <h5 class="service-title fw-bold ">Referral Pay Discount  </h5>
-                                <p class="lato service-text">
-                                    Every time you refer your friend or family to subscribe now to our home internet, you will get the next subscription <b>FREE.</b> 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3 services mt-2 p-4">
-                        <div class="service d-flex flex-column align-items-start  justify-content-between h-100">
-                            <div class="">
-                                <img src="./Assets/icons/biz-icons/support.svg" width="50" height="50" alt="">
-                                <h5 class="service-title fw-bold ">24/7 Complimentary Network Support  </h5>
-                                <p class="lato service-text">
-                                    Small businesses often lack the budget to employ a full-time IT specialist. At I-World, we support your internal network and computer needs. Our expert team offers professional guidance to fuel your business growth.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© <span id="currentYear"></span> I-World Networks. All rights
+                    reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
             </div>
         </div>
-    </div>
-
-    <!--  dataplans section beginning -->
-    <div class="container-fluid gray-bg">
-        <div class="dp-section py-4 container">
-            <h5 class="dataplan-title fw-bold fs-3 text-start">Choose your Shared Access Plan for Business</h5>
-            <hr class="hr">
-            <div class="container-fluid mt-4 d-flex flex-column align-items-center">
-                <div class="row ">
-                    <div class="col-md-3 mt-2 col-sm-12 ">
-                        <a href="#business_SRF" id="dp-lite" class="text-decoration">
-                            <div class="card border h-100">
-                                <div class="card-header bg-white w-100">
-                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">U-Lite</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦32,500</strong> per month</li>
-                                        <li class="lato list-group-item px-3">Up to <span class="fw-bold">25mbps</span></li>
-                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>
-                                        <li class="lato list-group-item px-3">99.8% up-time</li>    
-                                        <li class="lato list-group-item px-3">One-off installation fee</li>    
-                                        <li class="lato list-group-item px-3">No speed throttling</li>
-                                        <li class="lato list-group-item px-3">6x faster than 4G </li>
-                                        <li class="lato list-group-item px-3">Multiple device connectivity</li>
-                                        <li class="lato list-group-item px-3">24/7 Customer Support Service</li>      
-                                        <li class="lato list-group-item px-3">Get your 1st Month Free </li>
-                                    </ul>
-                                </div>
-                                <div class=" px-4 w-100 mt-2">
-                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
-                                </div>
-                            </div>
-                        </a>
-                        
-                    </div>
-                    <div class="col-md-3 mt-2 col-sm-12 ">
-                        <a href="#business_SRF" id="dp-lite" class="text-decoration">
-                            <div class="card border h-100">
-                                <div class="card-header bg-white w-100">
-                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">U-Max</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦43,500</strong> per month</li>
-                                        <li class="lato list-group-item px-3">Up to <span class="fw-bold">30mbps</span></li>
-                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>
-                                        <li class="lato list-group-item px-3">99.8% up-time</li>    
-                                        <li class="lato list-group-item px-3">One-off installation fee</li>    
-                                        <li class="lato list-group-item px-3">No speed throttling</li>
-                                        <li class="lato list-group-item px-3">6x faster than 4G </li>
-                                        <li class="lato list-group-item px-3">Multiple device connectivity</li>
-                                        <li class="lato list-group-item px-3">24/7 Customer Support Service</li>      
-                                        <li class="lato list-group-item px-3">Get your 1st Month Free </li>
-                                    </ul>
-                                </div>
-                                <div class=" px-4 w-100 mt-2">
-                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 mt-2 col-sm-12 ">
-                        <a href="#business_SRF" id="dp-lite" class="text-decoration">
-                            <div class="card border h-100">
-                                <div class="card-header bg-white w-100">
-                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">U-Pro</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3"><strong class="fs-5">₦58,000</strong> per month</li>
-                                        <li class="lato list-group-item px-3">Up to <span class="fw-bold">40mbps</span></li>
-                                        <li class="lato list-group-item px-3">100% Unlimited upload and download</li>
-                                        <li class="lato list-group-item px-3">99.8% up-time</li>    
-                                        <li class="lato list-group-item px-3">One-off installation fee</li>    
-                                        <li class="lato list-group-item px-3">No speed throttling</li>
-                                        <li class="lato list-group-item px-3">6x faster than 4G </li>
-                                        <li class="lato list-group-item px-3">Multiple device connectivity</li>
-                                        <li class="lato list-group-item px-3">24/7 Customer Support Service</li>      
-                                        <li class="lato list-group-item px-3">Get your 1st Month Free </li>
-                                        <!-- <li class="lato list-unstyled px-3">Click Here </li> -->
-                                    </ul>
-                                </div>
-                                <div class=" px-4 w-100 mt-2">
-                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
-                                </div>
-                            </div>
-                        </a>
-                        
-                    </div>
-                    <div class="col-md-3 mt-2 col-sm-12 ">
-                        <a href="#business_SRF" id="dp-lite" class="text-decoration">
-                            <div class="card border h-100">
-                                <div class="card-header bg-white w-100">
-                                    <h5 class="card-title py-1 mb-0 fs-3 fw-bold">U-Custom</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="card-text list-group list-group-flush ps-0">
-                                        <li class="lato list-unstyled p-3">Need a <span class="fs-5 fw-bold">Custom</span> Home Plan?</li>
-                                        <li class="lato list-group-item px-3">Tailored to your need only?</li>    
-                                        <li class="lato list-group-item px-3">Are you running a special business?</li>    
-                                        <li class="lato list-group-item px-3">Do you require more block of IPs</li>
-                                        <li class="lato list-group-item px-3">Do you require a bundled service?</li>
-                                        <li class="lato list-group-item px-3">Got a device with high internet demands?</li>
-                                        <li class="lato list-group-item px-3">Whatever your special need?</li>      
-                                        <li class="lato list-group-item px-3">Get a free survey and quote Here</li>
-                                    </ul>
-                                </div>
-                                <div class=" px-4 w-100">
-                                    <button type="button" class="btn btn-warn my-2 px-3 text-uppercase">Subscribe Now</button>
-                                </div>
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- dataplans section ending  -->
-    
-    
-        
-            <!-- Loyalty and Discounts -->
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                <h5 class="fw-bold fs-3">Exclusive Discounts for Our Valued Customers</h5>
-                <p>Discover how loyalty pays with I-World Networks' premium discount programs.</p>
-                <button class="btn btn-warn"><a href="https://iwn.ng/Loyalty_&_Discounts.html#" class="text-white fs-5">Click to view discounts</a> </button>
-                <p class="mt-3 fw-bold">Terms and conditions apply.</p>
-                </div>
-            </div>
-        </div>
-
-    <!-- Section beginning -->
-    <div class="pb-4 bg-green">
-        <div class="combination-section container-fluid ">
-            <section class="container pt-5">
-                <h2 class="fw-bold">Managed Service Combinations for Small Businesses</h2>
-                <hr>
-                <p>
-                Technology and connectivity are crucial for growth in today's business landscape. 
-                I-World Networks understands the challenges faced by small businesses in Nigeria, 
-                including managing operational costs. That's why we offer managed IT service 
-                combinations designed to:
-                </p>
-                <div class="container">
-                    <div class="row ">
-                        <div class="col services  mx-1 mt-2">
-                            <div class="service p-2">
-                                <div class="">
-                                    <img src="./Assets/icons/biz-icons/50percent_off.svg" width="40" height="40" alt="">
-                                    <h6 class="service-title fw-bold ">Reduce internet & network costs by 50%</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col services  mx-1 mt-2">
-                            <div class="service p-2 h-100">
-                                <div class="">
-                                    <img src="./Assets/icons/biz-icons/End-to-End.svg" width="40" height="40" alt="">
-                                    <h6 class="service-title fw-bold ">Resilient End-to-End connectivity and Infrastructure</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col services  mx-1 mt-2">
-                            <div class="service p-2 ">
-                                <div class="">
-                                    <img src="./Assets/icons/biz-icons/24-7-support.svg" width="40" height="40" alt="">
-                                    <h6 class="service-title fw-bold ">Offer 24/7/365 online and onsite support</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col services  mx-1 mt-2">
-                            <div class="service p-2">
-                                <div class="">
-                                    <img src="./Assets/icons/biz-icons/Connectivity-Security.svg" width="40" height="40" alt="google-cloud icon">
-                                    <h6 class="service-title fw-bold ">Network and Connectivity Security</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">                        
-                        <div class="col services  mx-1 mt-2">
-                            <div class="service p-2 ">
-                                <div class="">
-                                    <img src="./Assets/icons/biz-icons/content-filtering.svg" width="40" height="40" alt="">
-                                    <h6 class="service-title fw-bold ">Implement content filtering to boost Productivity</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col services mx-1 mt-2">
-                            <div class="service p-2">
-                                <div class="">
-                                    <img src="./Assets/icons/biz-icons/staff-training.svg" width="40" height="40" alt="">
-                                    <h6 class="service-title fw-bold ">Train staff on Google Workspace for collaboration and efficiency</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col services mx-1 mt-2">
-                            <div class="service p-2">
-                                <div class="">
-                                    <img src="./Assets/icons/biz-icons/business-management.svg" width="40" height="40" alt="google-cloud icon">
-                                    <h6 class="service-title fw-bold ">Manage business domains, websites, Google My Business, SEO, and digital marketing</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col services mx-1 mt-2">
-                            <div class="service p-2">
-                                <div class="">
-                                    <img src="./Assets/icons/Enterprise-icons/enterprise-internet/coverage.svg" width="40" height="40" alt="">
-                                    <h6 class="service-title fw-bold ">Nationwide Coverage</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        
-            <section class="container pt-5">
-                <p class="fs-4 fw-bold">Choose the combination that best suits your business needs:</p>
-                <div class="row  bg-white " >
-                    <div class="col-md-4 border">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="fw-bold">1. Internet Service + LAN/WLAN</h4>
-                                <br>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Free for the first 30 days</li>
-                                <li class="list-group-item">35% savings on your monthly bill</li>
-                                <li class="list-group-item">High-speed internet service</li>
-                                <li class="list-group-item">Local Area Network (LAN) and Wireless Area Network (WLAN)</li>
-                                <li class="list-group-item">Business domain name registration and website</li>
-                                <li class="list-group-item">Optional: Google My Business listing</li>
-                                <li class="list-group-item"><a href="#business_SRF" class="btn btn-warn">Choose Plan</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 border">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="fw-bold">2. Internet Service + Google Workspace</h4> 
-                                <br>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Free for the first 30 days</li>
-                                <li class="list-group-item">40% savings on your monthly bill</li>
-                                <li class="list-group-item">High-speed internet service</li>
-                                <li class="list-group-item">Google Workspace Business Starter + Gemini (Generative AI)</li>
-                                <li class="list-group-item">Security, content filtering, and bandwidth management for productivity</li>
-                                <li class="list-group-item">Optional: Google My Business listing</li>
-                                <li class="list-group-item">Training on Google Workspace for cloud-based collaboration, communication, and productivity</li>
-                                <li class="list-group-item">Business domain name registration and website</li>
-                                <li class="list-group-item"><a href="#business_SRF" class="btn btn-warn">Choose Plan</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 border">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="fw-bold">3. Internet Service + LAN/WLAN + Google Workspace</h4>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Free for the first 30 days</li>
-                                <li class="list-group-item">50% savings on your monthly bill</li>
-                                <li class="list-group-item">High-speed internet service</li>
-                                <li class="list-group-item">Local Area Network (LAN) and Wireless Area Network (WLAN)</li>
-                                <li class="list-group-item">Google Workspace Business Starter + Gemini (Generative AI)</li>
-                                <li class="list-group-item">Security, content filtering, and bandwidth management for productivity</li>
-                                <li class="list-group-item">Optional: Google My Business listing</li>
-                                <li class="list-group-item">Training on Google Workspace for cloud-based collaboration, communication, and productivity</li>
-                                <li class="list-group-item">Business domain name registration and website</li>
-                                <li class="list-group-item"><a href="#business_SRF" class="btn btn-warn">Choose Plan</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-    <!-- Section ending -->
-
-    <!-- Business SRF Beginning -->
-    <div class="container-fluid gray-bg py-5" id="business_SRF">
-        <div class="container">
-            <h5 class="fw-bold fs-3">Service Request Form</h5>
-            <hr class="hr">
-            
-            <form>
-                <input type="hidden" name="subject" value="IWN Order Service Request">
-                <input type="hidden" name="request_source" value="Internet for Business">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="business-name" class="form-label ">Business Name</label>
-                        <input required type="text" class="form-control" id="business-name" name="business_name">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="business-address" class="form-label ">Business Address</label>
-                        <input type="text" class="form-control" id="business-address" name="business_address" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="business-phoneNo" class="form-label ">Business Phone Number</label>
-                    <input required type="tel" class="form-control" id="business-phoneNo" name="business_phone_number">
-                </div>
-                <div class="col-md-6">
-                    <label for="business-whatsapp" class="form-label ">Business WhatsApp Number</label>
-                    <input required type="tel" class="form-control" id="business-whatsapp" name="business_whatsapp_number">
-                </div>
-                </div>
-                <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="business-email" class="form-label ">Business Email Address</label>
-                    <input type="email" class="form-control" id="business-email" name="business_email" required>
-                </div>
-                <div class="col-md-6">
-                    <div class="">
-                        <label class="form-label ">Select Plan:</label><br>
-                        <div class="">
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input" required type="radio" name="plan" id="Ulite" value="U-Lite">
-                            <label class="form-check-label" for="Ulite">U-Lite</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input" required type="radio" name="plan" id="Umax" value="U-Max">
-                            <label class="form-check-label" for="Umax">U-Max</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input" required type="radio" name="plan" id="Upro" value="U-Pro">
-                            <label class="form-check-label" for="Upro">U-Pro</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input" required type="radio" name="plan" id="Ucustom" value="U-Custom">
-                            <label class="form-check-label" for="Ucustom">U-Custom</label>
-                            </div>
-                        </div>
-                        </div>
-                </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="">
-                            <label class="form-label ">Select which of our service you require (Optional): </label><br>
-                            <div class="">
-                                <div class="form-check form-check">
-                                    <input class="form-check-input" type="checkbox" name="service[]" id="internetService" value="Internet_for_Home">
-                                    <label class="form-check-label" for="internetService">Internet Service</label>
-                                </div>
-                                <div class="form-check form-check">
-                                    <input class="form-check-input" type="checkbox" name="service[]" id="lan/wlan" value="lan/wlan">
-                                    <label class="form-check-label" for="lan/wlan">LAN/WLAN</label>
-                                </div>
-                                <div class="form-check form-check">
-                                    <input class="form-check-input" type="checkbox" name="service[]" id="google-workspace" value="Google_Workspace">
-                                    <label class="form-check-label" for="google-workspace">Google Workspace</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="">
-                            <label class="form-label">How best to contact you:</label><br>
-                            <div class="">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="contact[]" id="whatsappCheck" value="WhatsApp">
-                                <label class="form-check-label" for="whatsappCheck">WhatsApp</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="contact[]" id="emailCheck" value="Email">
-                                <label class="form-check-label" for="emailCheck">Email</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="contact[]" id="phoneCheck" value="Phone Call">
-                                <label class="form-check-label" for="phoneCheck">Phone Call</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="contact[]" id="smsCheck" value="SMS">
-                                <label class="form-check-label" for="smsCheck">SMS</label>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="">
-                            <label class="form-label">Best time to contact you:</label><br>
-                            <div class="d-flex flex-row">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input me-4" type="checkbox" name="contact_time[]" id="daytimeCheck" value="Daytime">
-                                <label class="form-check-label" for="daytimeCheck">Day</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Evening" id="evening">
-                                <label class="form-check-label" for="evening">Evening</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Anytime" id="anytime">
-                                <label class="form-check-label" for="anytime">Anytime</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input mx-4" type="checkbox" name="contact_time[]" value="Weekend" id="weekend">
-                                <label class="form-check-label" for="weekend">Weekend</label>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-warn px-5 text-uppercase">Submit</button>
-            </form>
-        </div>
-    </div>
-    <!-- Business SRF Ending -->
-
-    <!-- Coverage section beginning -->
-    <div class="coverage container">
-        <div class="coverage-content row align-items-center justify-content-evenly">
-            <div class="coverage-list col-lg-6">
-                <h5 class="lato fw-bold fs-3">I-World Business Internet coverage</h5>
-                <ul class="list-unstyled">
-                    <li class="coverage-place my-2 lato fs-5">Abeokuta</li>
-                    <li class="coverage-place my-2 lato fs-5">Agbara & Agbara Industrial Estate </li>
-                    <li class="coverage-place my-2 lato fs-5">Akure</li>
-                    <li class="coverage-place my-2 lato fs-5">Ibadan</li>
-                    <li class="coverage-place my-2 lato fs-5">Ibadan - Abeokuta Expressway </li>
-                    <li class="coverage-place my-2 lato fs-5">Ijebu Ode</li>
-                    <li class="coverage-place my-2 lato fs-5">Mowe, Ibafo, Magboro & Lagos-Ibadan Expressway </li>
-                    <li class="coverage-place my-2 lato fs-5">Oshogbo</li>
-                    <li class="coverage-place my-2 lato fs-5">Sango Otta</li>
-                    <li class="coverage-place my-2 lato fs-5">Shagamu</li>
-                </ul>
-            </div>
-            <div class="coverage-img col-lg-6">
-                <img src="./Assets/img/Directions-amico.png" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-    <!-- Coverage section ending -->
-
-    <!-- Footer section Beginning -->
- <section>
-    <footer class=" text-start border pt-5 text-white bg-black">
-        <!-- Grid container -->
-        <div class="container">
-            <!-- Section: Links -->
-            <section class="">
-                <!--Grid row-->
-                <div class="row py-5">
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
-            
-                        <ul class="list-unstyled mb-0">
-                        <li class="mt-2">
-                            <a class="text-white" href="./index.html">Home</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./about.html">About Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./contact.html">Contact Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./careers.html">Careers</a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
-                        <ul class="list-unstyled mb-0">
-                            
-                            <li class="mt-2">
-                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mt-2">
-                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!-- Grid Column -->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 903 984 4309</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5560</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5565</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 706 605 3380</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 814 994 5984
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <!-- Facebook -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
-                        </a>
-                        <!-- Twitter -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
-                        </a>
-                        <!-- LinkedIn -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
-                        </a>
-                        <!--Grid column-->
-                        <div class="">
-                            <p class="fw-bold">Sign up for our newsletter</p>
-                            <!-- Email input -->
-                            <div data-mdb-input-init class="form-outline ">
-                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
-                            </div>
-                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                <!--Grid row-->
-                </div>
-            </section>
-        <!-- Section: Links -->
-        </div>
-        <!-- Copyright -->
-        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        © 2026 &nbsp;&nbsp; Copyright:
-        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
-        </div>
-        <!-- Copyright -->
     </footer>
- </section>
 
-    <!-- Ending of footer -->
+    <div class="fixed bottom-8 right-8 z-50"><a href="./contact.html"
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
+                class="material-symbols-outlined">support_agent</span><span
+                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
+                With Us</span></a></div>
 
-    <!--======================== Back to top Button Functionality========================== -->
-    <script>
-        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            BacktoTopBtn.style.display = "block";
-        } else {
-            BacktoTopBtn.style.display = "none";
-        }
-        }
-        function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
-    <!--======================== Back to top Button Functionality========================== -->
-    <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./Assets/js/app.js"></script>
-    <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="Assets/js/popup.js"></script>
-    
-    <!-- Toastr Js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <!-- Custom Script -->
-    <script src="Assets/js/forms.js"></script>
-    
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
-
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-    <div class="elfsight-app-87c0e511-c2f4-4972-96b6-4358f70c6e2c" data-elfsight-app-lazy></div>
-    
-            <!-- Client Zone Widget -->
-<div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
-    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
-      <div class="widget-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
-          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-        </svg>
-        <span>Client Zone</span>
-      </div>
-    </a>
-  </div>
+    <script src="./Assets/js/redesign-form.js"></script>
 </body>
-</html>
 
+</html>

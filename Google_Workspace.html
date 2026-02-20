@@ -1,1866 +1,1043 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en" class="scroll-smooth">
 
-  gtag('config', 'G-WSHR85KZCD');
-</script>
-        
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="I-World Networks is a connectivity service provider in Nigeria">
-        <meta name="author" content="Armaaneth Esiri">
-        <title>I-World Networks || Google Workspace</title>
-        <!-- FAVICON -->
-        <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-        <!-- STYLESHEETS -->
-        <link rel="stylesheet" href="./Assets/css/style.css">
-        <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-    <link rel="stylesheet" href="./Assets/css/products-grid.css">
-    <link rel="stylesheet" href="./Assets/css/hero.css">
-    <link rel="stylesheet" href="./Assets/css/carousel.css">
-    <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-        <!-- AOS Animation -->
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <!-- Swiper CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-        <!-- Google Fonts  -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Cloud Services | I-World Networks</title>
+    <meta name="description"
+        content="I-World Networks is a Google Professional Development Partner. Get Google Workspace with Naira payments, free training, AI tools, and local expert support â€” all in Nigeria.">
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
 
-        <!-- Toastr Css-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <style>
-        /* Migration Banner Styles */
-        .migration-banner {
-            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .migration-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="rgba(255,255,255,0.1)"><path d="M30,50 Q50,30 70,50 Q90,70 70,90 L30,90 Q10,70 30,50"/></svg>') no-repeat right center;
-            background-size: contain;
-            opacity: 0.5;
-        }
-        .migration-banner .btn-light {
-            color: #1a73e8 !important;
-            background-color: #ffffff !important;
-            font-weight: 700;
-            padding: 0.6rem 2rem;
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border: 2px solid #ffffff;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none !important;
-            position: relative;
-            overflow: hidden;
-        }
-        .migration-banner .btn-light::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-        .migration-banner .btn-light:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            color: #0d47a1 !important;
-            border-color: #f8f9fa;
-        }
-        .migration-banner .btn-light:hover::after {
-            transform: translateX(100%);
-        }
-        .migration-banner .btn-light i {
-            transition: transform 0.3s ease;
-            margin-left: 8px;
-        }
-        .migration-banner .btn-light:hover i {
-            transform: translateX(4px);
-        }
-        @media (max-width: 991px) {
-            .migration-banner .text-lg-end {
-                text-align: left !important;
-                margin-top: 10px;
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        'google-blue': '#4285F4',
+                        'google-red': '#EA4335',
+                        'google-yellow': '#FBBC05',
+                        'google-green': '#34A853',
+                        'brand-dark': '#101922',
+                        'brand-blue': '#1a73e8',
+                        // Standard I-World Colors
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "surface-dark": "#1E293B",
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
             }
-            .migration-banner .btn {
-                width: 100%;
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Hide scrollbar for carousel */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
             }
         }
     </style>
+</head>
 
-    </head>
+<body class="font-sans text-brand-dark bg-slate-50/30 overflow-x-hidden">
 
-     
-<style>
-    .pricing-plan {
-    border: 4px solid; /* Border thickness */
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px; /* Reduced margin for better fitting */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    background-color: #ffffff; /* White background */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 0 21%; /* Flexbox to allow fitting */
-    max-width: 25%; /* Limit maximum width */
+    <!-- Migration Sticky Banner -->
 
-    
-}
-
-.product-price {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-weight: 200;
-    font-size: 1.4em;
-    color: #2c2c2c;
-    letter-spacing: 0.03em;
-  }
-  
-  .price {
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
-    font-weight: 100;
-    font-size: 1.2em;
-    color: blue;
-    letter-spacing: 0.02em;
-  }
-  
-
-.business-starter { border-color: #4285F4; } /* Google Blue */
-.business-standard { border-color: #34A853; } /* Google Green */
-.business-plus { border-color: #FBBC05; } /* Google Yellow */
-.enterprise { border-color: #DB4437; } /* Google Red */
-
-.pricing-plan h2 {
-    color: #333; /* Darker color for contrast */
-    margin: 0;
-}
-
-.price {
-    font-weight: bold;
-    font-size: 1.8em; /* Increased font size for price */
-    color: #333; /* Color for price text */
-    margin: 0; /* Remove default margin */
-}
-
-.price span {
-    font-size: 0.8em; /* Smaller font for user/mo */
-    display: block; /* Pushes user/mo down */
-    margin-top: 5px; /* Space above */
-    color: #666; /* Lighter color for user/mo */
-}
-
-.feature {
-    border-top: 1px solid #ddd; /* Light separation line */
-    padding: 10px 0;
-}
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-top: 10px;
-    background: orange;
-}            .button.start {
-                background: #0d6efd;
-            }            .button.start:hover {
-                background: linear-gradient(to right, #34A853, #FBBC05);
-            }
-            .pricing-plan:hover {
-                transform: scale(1.05);
-                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            }
-
-            /* Refined Pricing Section Styles - Improved Aesthetic Balance */
-
-            /* A. Global Layout (The Grid) */
-            .pricing-table {
-                display: grid;
-                /* Create 4 columns of equal size */
-                grid-template-columns: repeat(4, 1fr);
-                gap: 24px;
-                padding: 40px 20px;
-                max-width: 1400px;
-                margin: 0 auto;
-                align-items: start; /* Align cards to top for equal heights */
-            }
-
-            /* B. Card Styling (The Boxes) */
-            .pricing-card {
-                /* Create clear visual separation with refined styling */
-                border: 1px solid #e0e0e0;
-                border-radius: 12px; /* Slightly more rounded for modern look */
-                padding: 32px 24px;
-                text-align: left;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer shadow */
-                background: white;
-                position: relative;
-                height: 100%; /* Ensure equal heights */
-                display: flex;
-                flex-direction: column;
-                transition: all 0.3s ease;
-            }
-
-            .pricing-card:hover {
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-                transform: translateY(-2px);
-            }
-
-            /* C. Highlighting the Standard Plan (Refined Blue Border) */
-            .pricing-card[data-plan-name="Business Standard"] {
-                /* More subtle highlighting */
-                border: 2px solid #4285F4;
-                box-shadow: 0 4px 16px rgba(66, 133, 244, 0.15);
-                /* Subtle lift instead of dramatic transform */
-                transform: translateY(-3px);
-            }
-
-            /* D. Visual Hierarchy (Refined Text & Pricing) */
-            .card-header {
-                flex-shrink: 0; /* Prevent header from shrinking */
-            }
-
-            .card-features {
-                flex-grow: 1; /* Allow features section to grow */
-                display: flex;
-                flex-direction: column;
-            }
-
-            .price-box {
-                margin: 20px 0;
-            }
-
-            .price-usd {
-                /* Refined font size for better balance */
-                font-size: 2.8em;
-                font-weight: 600;
-                display: block;
-                line-height: 1.1;
-                color: #202124; /* Slightly darker for better contrast */
-            }
-
-            .price-terms {
-                /* Improved typography for terms */
-                font-size: 0.875em;
-                color: #5f6368;
-                line-height: 1.3;
-            }
-
-            .plan-title {
-                font-size: 1.4em;
-                font-weight: 600;
-                margin-bottom: 16px;
-                color: #202124;
-            }
-
-            .features-title {
-                font-size: 1.05em;
-                font-weight: 500;
-                margin-bottom: 16px;
-                color: #202124;
-            }
-
-            /* Refined feature list styling */
-            .feature-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                flex-grow: 1; /* Allow list to fill available space */
-            }
-
-            .feature-item {
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 12px;
-                padding-bottom: 8px;
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            .feature-item:last-child {
-                border-bottom: none;
-                margin-bottom: 0;
-            }
-
-            .icon-checkmark {
-                color: #34a853; /* Google green for checkmarks */
-                font-size: 1.1em;
-                margin-right: 10px;
-                margin-top: 2px;
-                flex-shrink: 0;
-            }
-
-            .feature-text {
-                text-align: left;
-                font-size: 0.95em;
-                line-height: 1.4;
-                color: #3c4043;
-            }
-
-            .cta-button {
-                display: inline-block;
-                padding: 14px 28px;
-                background-color: #4285F4;
-                color: white;
-                text-decoration: none;
-                border-radius: 6px;
-                font-weight: 500;
-                text-align: center;
-                margin-top: auto; /* Push button to bottom */
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                font-size: 0.95em;
-            }
-
-            .cta-button:hover {
-                background-color: #3367d6;
-                color: white;
-                transform: translateY(-1px);
-                box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
-            }
-
-            /* Responsive Design */
-            @media (max-width: 1200px) {
-                .pricing-table {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 20px;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .pricing-table {
-                    grid-template-columns: 1fr;
-                    gap: 16px;
-                    padding: 20px;
-                }
-
-                .pricing-card {
-                    padding: 24px 20px;
-                }
-
-                .pricing-card[data-plan-name="Business Standard"] {
-                    transform: none; /* Remove transform on mobile */
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-                }
-
-                .price-usd {
-                    font-size: 2.4em;
-                }
-            }
-</style>
-
-
-
-
-<body class="overflow-x-hidden bg-white">
-    <!-- Header Beginning -->
-    <div class="workspace-header">
-        <!-- Navbar beginning -->
-        <nav class="navbar navbar-expand-lg navbar-light fw-bold">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html">
-                    <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-        
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Internet Services
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="InternetDropdown">
-                                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
-                                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
-                                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
-                                <!-- <a class="dropdown-item" href="./mpls.html">MPLS (Multiprotocol Label Switching)</a> -->
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Google Cloud Services
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
-                                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
-                                <!-- <a class="dropdown-item" href="./chrome_os.html">Google Chrome Enterprise</a> -->
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./msp.html">Managed IT Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./careers.html">Careers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                    <div class="subscribe-btn ms-auto">
-                        <a href="#workspace_form" class="button start">Get Started</a>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="./index.html">
+                <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./internet_for_home.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
                     </div>
                 </div>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
+                <a class="text-primary font-bold whitespace-nowrap" href="./index.html">Google Cloud Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
             </div>
-        </nav>
-        <!-- Ending of navbar -->
+            <a href="./contact.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                Us</a>
+        </div>
+    </nav>
 
-        <!-- Migration Banner -->
-        <div class="migration-banner bg-primary text-white py-3">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-10">
-                        <div class="d-flex align-items-center">
-                            <i class="ri-shield-check-line fs-4 me-3"></i>
-                            <div>
-                                <h6 class="mb-0 fw-bold">Seamless Migration Services</h6>
-                                <p class="mb-0 small">Let our experts handle your transition to Google Workspace. We ensure zero data loss and minimal downtime.</p>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-12 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 items-center gap-16">
+            <div class="space-y-8 relative z-10">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-google-blue/10 text-google-blue rounded-full text-xs font-bold uppercase tracking-widest leading-none">
+                    <span class="size-2 rounded-full bg-google-blue animate-ping"></span>
+                    Redefining Productivity
+                </div>
+                <h1 class="text-4xl md:text-5xl font-display font-bold leading-tight tracking-tight text-slate-900">
+                    Transform Your Nigerian Business with <span class="gradient-text">Google Cloud Services</span>
+                </h1>
+                <p class="text-lg text-slate-500 max-w-xl leading-relaxed">
+                    Local support, Naira payment, world-class tools. As a Google <strong>Professional Development
+                        Partner</strong>,
+                    I-World Networks brings you professional email, video meetings, AI tools, and expert onboarding
+                    &mdash; tailored for Nigeria.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#enquiry"
+                        class="bg-google-blue text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-blue-600 transition-colors flex items-center gap-2">
+                        Get Started Today
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Intra-page Quick Nav -->
+                <div class="flex flex-wrap gap-3 pt-4">
+                    <a href="#apps"
+                        class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">See
+                        the Apps</a>
+                    <a href="#partner"
+                        class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">Why
+                        I-World?</a>
+                    <a href="#enquiry"
+                        class="px-5 py-2 bg-google-blue text-white text-sm font-bold rounded-full hover:bg-blue-600 transition-all">Get
+                        Started &#8594;</a>
+                </div>
+
+            </div>
+
+            <div class="relative">
+                <div class="relative z-10 rounded-3xl overflow-hidden border-4 border-slate-100">
+                    <img src="./Assets/img/google-workspace-bg.jpg" alt="Google Workspace Productivity"
+                        class="w-full h-auto object-contain max-h-[450px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose I-World — Google Cloud -->
+    <section id="partner" class="py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-14 text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-google-blue/10 text-google-blue font-bold text-xs uppercase tracking-widest mb-4">
+                    <span class="material-symbols-outlined text-sm">verified</span>
+                    Official Google Partner in Nigeria
+                </div>
+                <h2 class="text-4xl font-display font-bold text-slate-900 leading-tight mb-4 max-w-3xl mx-auto">Why
+                    Nigerian Businesses Choose <span class="text-google-blue">I-World for Google Cloud</span></h2>
+                <p class="text-base text-slate-500 max-w-2xl mx-auto mb-8">We are one of Nigeria&rsquo;s select
+                    <strong>Google Professional Development Partners</strong> &mdash; with direct access to Google
+                    tools, certifications, local billing in Naira, and dedicated support resources.
+                </p>
+                <div class="flex flex-col justify-center md:flex-row gap-4 max-w-lg mx-auto md:max-w-2xl lg:max-w-full">
+                    <a href="#enquiry"
+                        class="cursor-pointer bg-google-blue py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-white transition-all duration-500 focus:outline-none hover:bg-blue-700">Get
+                        Started</a>
+                    <a href="#apps"
+                        class="cursor-pointer bg-blue-50 py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-google-blue transition-all duration-500 focus:outline-none hover:bg-blue-100">See
+                        the Apps</a>
+                </div>
+            </div>
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-lg mx-auto md:max-w-2xl lg:max-w-full">
+                <!-- Large Card: Google Workspace -->
+                <div class="relative w-full h-auto md:col-span-2">
+                    <div class="bg-gray-800 rounded-2xl flex justify-between flex-row flex-wrap h-full">
+                        <div class="p-6 xl:p-8 w-full md:w-1/2">
+                            <div class="block mb-4">
+                                <span class="material-symbols-outlined text-white text-3xl">workspace_premium</span>
                             </div>
+                            <h3 class="text-lg font-bold xl:text-xl text-white pb-4 w-full xl:w-64">Google Workspace
+                                &mdash; Professional Email &amp; Collaboration</h3>
+                            <p class="text-xs font-normal text-gray-300 w-full mb-6 xl:w-64 leading-relaxed">Gmail,
+                                Drive, Meet, Docs, Sheets, Slides, and Gemini AI &mdash; billed in Naira with free
+                                onboarding and free migration. Setup in under 48 hours.</p>
+                            <a href="#enquiry"
+                                class="py-2 px-5 border border-solid border-gray-300 rounded-full gap-2 text-xs text-white font-semibold inline-flex items-center justify-between transition-all duration-500 hover:bg-white/10">
+                                Get Started
+                                <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="ml-2">
+                                    <path
+                                        d="M1 9L3.58579 6.41421C4.25245 5.74755 4.58579 5.41421 4.58579 5C4.58579 4.58579 4.25245 4.25245 3.58579 3.58579L1 1"
+                                        stroke="white" stroke-width="1.6" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="relative hidden h-auto md:w-1/2 md:block">
+                            <img src="./Assets/img/geometric.jpg" alt="Google Workspace"
+                                class="h-full ml-auto object-cover rounded-r-2xl">
                         </div>
                     </div>
-                    <div class="col-lg-2 text-lg-end mt-3 mt-lg-0 d-flex align-items-center">
-                        <a href="#migration-section" class="btn btn-light btn-lg" style="white-space: nowrap;">
-                            <span>Learn More</span>
-                            <i class="ri-arrow-right-line ms-2"></i>
+                </div>
+                <!-- Small Card: Google for Education -->
+                <div class="relative w-full h-auto">
+                    <div class="bg-google-blue rounded-2xl p-5 xl:p-8 h-full">
+                        <div class="block mb-4">
+                            <span class="material-symbols-outlined text-white text-3xl">school</span>
+                        </div>
+                        <h3 class="py-3 text-white text-lg font-bold xl:text-xl">Google Workspace for Education</h3>
+                        <p class="text-xs font-normal text-white mb-6 leading-relaxed">Purpose-built for Nigerian
+                            schools and universities. The NGFEP program delivers tools, teacher training, Chromebook
+                            devices, and campus internet &mdash; at zero cost to the institution.</p>
+                        <a href="./NGFEP.html"
+                            class="py-2 px-5 border border-solid border-slate-300 rounded-full gap-2 text-xs text-white font-semibold inline-flex items-center justify-between transition-all duration-500 hover:bg-white/10">
+                            Learn About NGFEP
+                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="ml-2">
+                                <path
+                                    d="M1 9L3.58579 6.41421C4.25245 5.74755 4.58579 5.41421 4.58579 5C4.58579 4.58579 4.25245 4.25245 3.58579 3.58579L1 1"
+                                    stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Small Card: Google Cloud -->
+                <div class="relative w-full h-auto">
+                    <div class="bg-violet-600 rounded-2xl p-5 xl:p-8 h-full">
+                        <div class="block mb-4">
+                            <span class="material-symbols-outlined text-white text-3xl">cloud</span>
+                        </div>
+                        <h3 class="py-3 text-white text-lg font-bold xl:text-xl">Google Cloud Infrastructure</h3>
+                        <p class="text-xs font-normal text-white mb-6 leading-relaxed">Scalable cloud computing,
+                            storage, data analytics, and AI/ML services for Nigerian businesses. Backed by
+                            I-World&rsquo;s local engineers and billed transparently in Naira.</p>
+                        <a href="#enquiry"
+                            class="py-2 px-5 border border-solid border-slate-300 rounded-full gap-2 text-xs text-white font-semibold inline-flex items-center justify-between transition-all duration-500 hover:bg-white/10">
+                            Request a Consultation
+                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="ml-2">
+                                <path
+                                    d="M1 9L3.58579 6.41421C4.25245 5.74755 4.58579 5.41421 4.58579 5C4.58579 4.58579 4.25245 4.25245 3.58579 3.58579L1 1"
+                                    stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Section Quick Nav -->
+                <div class="flex flex-wrap justify-center gap-3 mt-16 pt-8 border-t border-slate-200">
+                    <a href="#apps"
+                        class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">View
+                        Apps</a>
+                    <a href="#partner"
+                        class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">Why
+                        I-World?</a>
+                    <a href="#enquiry"
+                        class="px-5 py-2 bg-google-blue hover:bg-blue-600 text-white text-sm font-bold rounded-full transition-all">Get
+                        Started &#8594;</a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="apps" class="pt-16 pb-32 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-12">
+                <h2 class="text-4xl font-display font-bold text-slate-900 mb-6 leading-tight">Everything you need for
+                    seamless collaboration</h2>
+                <p class="text-lg text-slate-500">Google Workspace provides a complete set of productivity apps for
+                    businesses of all sizes.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Gmail -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/gmail.png" alt="Gmail"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Gmail</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed mb-6">Secure business email at your domain with
+                        advanced spam protection.</p>
+                </div>
+
+                <!-- Drive -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/drive.png" alt="Drive"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Drive</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Cloud storage with real-time
+                        collaboration and secure file sharing.</p>
+                </div>
+
+                <!-- Meet -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/meet.png" alt="Meet"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Meet</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Secure video meetings with recording and
+                        live captions for global teams.</p>
+                </div>
+
+                <!-- Sheets -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/sheets.png" alt="Sheets"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Sheets</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Smart spreadsheets with AI formulas and
+                        collaborative editing for insights.</p>
+                </div>
+
+                <!-- Docs -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/docs.png" alt="Docs"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Docs</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">AI-powered document creation with
+                        real-time editing and smart suggestions.</p>
+                </div>
+
+                <!-- Slides -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/slides.png" alt="Slides"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Slides</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Impactful presentations with AI-powered
+                        design and multimedia integration.</p>
+                </div>
+
+                <!-- Calendar -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/calendar.png" alt="Calendar"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Calendar</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Smart scheduling with appointment booking
+                        and time management tools.</p>
+                </div>
+
+                <!-- Chat -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/chat.png" alt="Chat"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Chat</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Secure team messaging with built-in
+                        collaboration and real-time communication.</p>
+                </div>
+
+                <!-- Forms -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/forms.png" alt="Forms"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Forms</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Create surveys and quizzes with automatic
+                        data analysis in Sheets.</p>
+                </div>
+
+                <!-- Keep -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/keep.png" alt="Keep"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Keep</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Capture ideas, checklists, and voice
+                        memos that sync across all devices.</p>
+                </div>
+
+                <!-- Admin -->
+                <div
+                    class="product-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                    <div class="size-16 mb-6 bg-slate-50 p-4 rounded-2xl flex items-center justify-center">
+                        <img src="./Assets/icons/google_workspace/admin.png" alt="Admin"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Admin</h3>
+                    <p class="text-slate-500 text-[13px] leading-relaxed">Centralized management platform for
+                        users, devices, and security controls.</p>
+                </div>
+
+                <!-- Gemini -->
+                <div
+                    class="product-card bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-3xl shadow-lg shadow-indigo-200 flex flex-col items-center text-center group text-white">
+                    <div
+                        class="size-16 mb-6 bg-white/20 p-4 rounded-2xl flex items-center justify-center backdrop-blur-sm transition-transform group-hover:rotate-12">
+                        <img src="./Assets/icons/google_workspace/gemini.png" alt="Gemini"
+                            class="w-full h-full object-contain brightness-0 invert">
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Gemini AI</h3>
+                    <p class="text-indigo-50 text-[13px] leading-relaxed">Advanced AI integrated across Workspace
+                        to draft content and boost speed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="py-12 bg-white sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">Make every
+                    step user-centric</h2>
+                <p class="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">We help you get the most out of Google
+                    Workspace with expert local support.</p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
+                <div class="md:p-8 lg:p-14">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M45 29V23C45 10.85 35.15 1 23 1C10.85 1 1 10.85 1 23V29" stroke="#161616"
+                            stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M13 29H1V41C1 43.209 2.791 45 5 45H13V29Z" fill="#D4D4D8" stroke="#161616"
+                            stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M45 29H33V45H41C43.209 45 45 43.209 45 41V29Z" fill="#D4D4D8" stroke="#161616"
+                            stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Custom License Provisioning</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Education Plus licensing is not done by a site
+                        license, so it can take a lot of time. We help assist schools with this provisioning
+                        efficiently.</p>
+                </div>
+
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200">
+                    <svg class="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27 27H19V45H27V27Z" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M9 37H1V45H9V37Z" fill="#D4D4D8" stroke="#161616" stroke-width="2"
+                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M45 17H37V45H45V17Z" fill="#D4D4D8" stroke="#161616" stroke-width="2"
+                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 17L15 7L23 15L37 1" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M28 1H37V10" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Dedicated Onboarding Team</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">We offer multiple live training sessions a week. We
+                        also have a portal with videos and guides so your staff can quickly become experts.</p>
+                </div>
+
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200">
+                    <svg class="mx-auto" width="42" height="42" viewBox="0 0 42 42" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M41 1H1V41H41V1Z" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 7H7V20H18V7Z" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 26H7V35H18V26Z" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M35 7H24V35H35V7Z" fill="#D4D4D8" stroke="#161616" stroke-width="2"
+                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Regular Updates</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Join us each quarter as we share Google Workspace
+                        for Education Plus best practices, deep dives, and updates on what’s new.</p>
+                </div>
+
+                <div class="md:p-8 lg:p-14 md:border-t md:border-gray-200">
+                    <svg class="mx-auto" width="42" height="42" viewBox="0 0 42 42" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.66667 25H6C3.23858 25 1 27.2386 1 30V37C1 39.7614 3.23858 42 6 42H36C38.7614 42 41 39.7614 41 37V30C41 27.2386 38.7614 25 36 25H31.8333C30.2685 25 29 26.2685 29 27.8333C29 29.3981 27.7315 30.6667 26.1667 30.6667H15.3333C13.7685 30.6667 12.5 29.3981 12.5 27.8333C12.5 26.2685 11.2315 25 9.66667 25Z"
+                            fill="#D4D4D8" />
+                        <path d="M9 9H33" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M9 17H33" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M1 25H13V31H29V25H41" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M37 1H5C2.79086 1 1 2.79086 1 5V37C1 39.2091 2.79086 41 5 41H37C39.2091 41 41 39.2091 41 37V5C41 2.79086 39.2091 1 37 1Z"
+                            stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Advanced Support</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">If you have issues, rely on two levels of support:
+                        Google’s and ours. Scale your issue directly with Google through our Partner status.</p>
+                </div>
+
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
+                    <svg class="mx-auto" width="46" height="42" viewBox="0 0 46 42" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M30.562 18.4609C30.0511 17.9392 29.4292 17.5392 28.7426 17.2907C28.0559 17.0422 27.3221 16.9516 26.5956 17.0256C25.8692 17.0996 25.1687 17.3362 24.5462 17.718C23.9237 18.0998 23.3952 18.6169 23 19.2309C22.6049 18.6167 22.0764 18.0995 21.4539 17.7176C20.8315 17.3357 20.1309 17.099 19.4044 17.025C18.6779 16.951 17.944 17.0417 17.2573 17.2903C16.5706 17.5389 15.9488 17.939 15.438 18.4609C14.5163 19.4035 14.0002 20.6695 14.0002 21.9879C14.0002 23.3063 14.5163 24.5722 15.438 25.5149L23 33.1999L30.564 25.5159C31.485 24.5726 32.0004 23.3064 32 21.988C31.9997 20.6696 31.4835 19.4037 30.562 18.4609Z"
+                            fill="#D4D4D8" stroke="#161616" stroke-width="2" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M41 41H5C3.93913 41 2.92172 40.5786 2.17157 39.8284C1.42143 39.0783 1 38.0609 1 37V1H17L22 9H45V37C45 38.0609 44.5786 39.0783 43.8284 39.8284C43.0783 40.5786 42.0609 41 41 41Z"
+                            stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Technical Services</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Essential updates for IT administrators on features
+                        and best practices. We help you optimize your devices and systems for learning and safety.</p>
+                </div>
+
+                <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
+                    <svg class="mx-auto" width="44" height="44" viewBox="0 0 44 44" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 7C34.941 7 43 15.059 43 25C43 34.941 34.941 43 25 43C15.059 43 7 34.941 7 25"
+                            stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M19 1C9.059 1 1 9.059 1 19H19V1Z" fill="#D4D4D8" stroke="#161616" stroke-width="2"
+                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Certified Educator</h3>
+                    <p class="mt-5 text-base text-gray-600 font-pj">Learn how to utilize Google products effectively.
+                        Earn your Google Certified Educator Level 1 certification and become a digital leader!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Included Service Options -->
+    <section id="services" class="py-20 bg-white">
+        <div class="p-4">
+            <div class="max-w-screen-xl mx-auto">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="md:text-4xl text-3xl text-slate-900 font-bold mb-6 md:!leading-[45px] leading-[40px]">
+                        Included <span class="text-blue-700 whitespace-nowrap">Service Options</span>
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">Explore the service options you receive at no
+                        additional cost as part of NGFEP. Delivered by I-World Networks.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
+                    <!-- ChromeOS Deployment -->
+                    <div class="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6">
+                        <span
+                            class="material-symbols-outlined text-google-blue text-[44px] mb-6 block">laptop_chromebook</span>
+                        <h3 class="text-slate-900 text-lg font-semibold mb-3">ChromeOS Deployment</h3>
+                        <p class="text-[15px] leading-relaxed text-slate-600">We help with Chrome configuration,
+                            rollout, and insights to ensure your institution gets the most from its new Chromebooks or
+                            ChromeOS Flex devices with Chrome Education Upgrades.</p>
+                        <p class="text-xs font-bold text-google-blue uppercase tracking-widest mt-6">Delivered by
+                            I-World Networks</p>
+                        <a href="#enquiry"
+                            class="text-[15px] inline-flex items-center font-medium hover:text-blue-700 mt-6">
+                            Learn more<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1.5 fill-current"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="m23.564 11.235-7.56-7.56a1.08 1.08 0 0 0-1.528 1.528l5.717 5.716H1.2a1.08 1.08 0 0 0 0 2.16h18.993l-5.717 5.716a1.08 1.08 0 1 0 1.528 1.528l7.56-7.56a1.08 1.08 0 0 0 0-1.528z"
+                                    data-original="#000000"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Google Workspace for Education Deployment -->
+                    <div class="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6">
+                        <span
+                            class="material-symbols-outlined text-google-green text-[44px] mb-6 block">cloud_sync</span>
+                        <h3 class="text-slate-900 text-lg font-semibold mb-3">Google Workspace for Education Deployment
+                        </h3>
+                        <p class="text-[15px] leading-relaxed text-slate-600">Hit the ground running. We work with your
+                            school on configuration, rollout, and insights to implement Google Workspace for Education
+                            Plus edition seamlessly.</p>
+                        <p class="text-xs font-bold text-google-green uppercase tracking-widest mt-6">Delivered by
+                            I-World Networks</p>
+                        <a href="#enquiry"
+                            class="text-[15px] inline-flex items-center font-medium hover:text-blue-700 mt-6">
+                            Learn more<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1.5 fill-current"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="m23.564 11.235-7.56-7.56a1.08 1.08 0 0 0-1.528 1.528l5.717 5.716H1.2a1.08 1.08 0 0 0 0 2.16h18.993l-5.717 5.716a1.08 1.08 0 1 0 1.528 1.528l7.56-7.56a1.08 1.08 0 0 0 0-1.528z"
+                                    data-original="#000000"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Educator Training -->
+                    <div class="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6">
+                        <span class="material-symbols-outlined text-google-yellow text-[44px] mb-6 block">school</span>
+                        <h3 class="text-slate-900 text-lg font-semibold mb-3">Educator Training</h3>
+                        <p class="text-[15px] leading-relaxed text-slate-600">We support educators with professional
+                            development training and institutional transformation &mdash; guiding vision, approach,
+                            culture, skill development, and diversity and equity.</p>
+                        <p class="text-xs font-bold text-google-yellow uppercase tracking-widest mt-6">Delivered by
+                            I-World Networks</p>
+                        <a href="#enquiry"
+                            class="text-[15px] inline-flex items-center font-medium hover:text-blue-700 mt-6">
+                            Learn more<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1.5 fill-current"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="m23.564 11.235-7.56-7.56a1.08 1.08 0 0 0-1.528 1.528l5.717 5.716H1.2a1.08 1.08 0 0 0 0 2.16h18.993l-5.717 5.716a1.08 1.08 0 1 0 1.528 1.528l7.56-7.56a1.08 1.08 0 0 0 0-1.528z"
+                                    data-original="#000000"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Data Analytics -->
+                    <div class="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6">
+                        <span class="material-symbols-outlined text-google-red text-[44px] mb-6 block">analytics</span>
+                        <h3 class="text-slate-900 text-lg font-semibold mb-3">Data Analytics</h3>
+                        <p class="text-[15px] leading-relaxed text-slate-600">We help your school make use of data to
+                            gain insights into domain usage and develop actionable strategies to achieve teaching and
+                            learning objectives.</p>
+                        <p class="text-xs font-bold text-google-red uppercase tracking-widest mt-6">Delivered by I-World
+                            Networks</p>
+                        <a href="#enquiry"
+                            class="text-[15px] inline-flex items-center font-medium hover:text-blue-700 mt-6">
+                            Learn more<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1.5 fill-current"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="m23.564 11.235-7.56-7.56a1.08 1.08 0 0 0-1.528 1.528l5.717 5.716H1.2a1.08 1.08 0 0 0 0 2.16h18.993l-5.717 5.716a1.08 1.08 0 1 0 1.528 1.528l7.56-7.56a1.08 1.08 0 0 0 0-1.528z"
+                                    data-original="#000000"></path>
+                            </svg>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="hero-content" data-aos="fade-right">
-                            <h1 class="hero-title">Enhance Your Business Productivity with<br>Google Workspace Today</h1>
-                            <p class="hero-description">Empower your team with advanced collaboration tools, integrated email, calendar, cloud storage, and video conferencing.</p>
-                            <p class="hero-subtitle">Enhance productivity with AI-powered solutions designed for the modern workplace.</p>
-                            <div class="hero-cta">
-                                <a href="#workspace_form" class="btn btn-primary btn-lg">Start Your Free Trial Today</a>
-                            </div>
+    <!-- Claim Your Offer -->
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="p-4">
+            <div class="max-w-screen-xl mx-auto">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="md:text-4xl text-3xl text-slate-900 font-bold mb-6 md:!leading-[45px] leading-[40px]">
+                        Claim Your <span class="text-blue-700 whitespace-nowrap">Offer</span>
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">Select the product you need, fill out the
+                        application form, and upload your proof of purchase or promo code to apply for this limited-time
+                        offer.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
+                    <!-- Google Workspace for Education Plus -->
+                    <div class="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6">
+                        <span
+                            class="material-symbols-outlined text-google-blue text-[44px] mb-6 block">workspace_premium</span>
+                        <h3 class="text-slate-900 text-lg font-semibold mb-3">Google Workspace for Education Plus</h3>
+                        <p class="text-[15px] leading-relaxed text-slate-600">The most comprehensive edition for digital
+                            transformation &mdash; incorporating all teaching, learning, and advanced security
+                            capabilities from every Google Workspace for Education edition, providing the most effective
+                            and unified learning environment for the entire school community.</p>
+                        <a href="#enquiry"
+                            class="text-[15px] inline-flex items-center font-medium hover:text-blue-700 mt-12">
+                            Learn more<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1.5 fill-current"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="m23.564 11.235-7.56-7.56a1.08 1.08 0 0 0-1.528 1.528l5.717 5.716H1.2a1.08 1.08 0 0 0 0 2.16h18.993l-5.717 5.716a1.08 1.08 0 1 0 1.528 1.528l7.56-7.56a1.08 1.08 0 0 0 0-1.528z"
+                                    data-original="#000000"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Chrome Education Upgrades -->
+                    <div class="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6">
+                        <span
+                            class="material-symbols-outlined text-google-green text-[44px] mb-6 block">laptop_chromebook</span>
+                        <h3 class="text-slate-900 text-lg font-semibold mb-3">Chrome Education Upgrades</h3>
+                        <p class="text-[15px] leading-relaxed text-slate-600">Empower your entire school with
+                            Chromebooks &mdash; collaborative, powerful, intuitive devices purpose-built for education.
+                            The Chrome Education Upgrade helps manage your ChromeOS environment, including converted
+                            Macs, PCs, and Linux devices with ChromeOS Flex, to meet the individual needs of every
+                            student and teacher.</p>
+                        <a href="#enquiry"
+                            class="text-[15px] inline-flex items-center font-medium hover:text-blue-700 mt-12">
+                            Learn more<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1.5 fill-current"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="m23.564 11.235-7.56-7.56a1.08 1.08 0 0 0-1.528 1.528l5.717 5.716H1.2a1.08 1.08 0 0 0 0 2.16h18.993l-5.717 5.716a1.08 1.08 0 1 0 1.528 1.528l7.56-7.56a1.08 1.08 0 0 0 0-1.528z"
+                                    data-original="#000000"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Additional Managed Services -->
+                <div class="max-w-3xl mx-auto mt-16">
+                    <h3 class="text-xl font-black text-slate-900 mb-6 text-center">Additional Managed Services</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-gray-300">
+                            <span
+                                class="material-symbols-outlined text-google-blue text-xl">integration_instructions</span>
+                            <span class="text-sm font-semibold text-slate-700">Systems Integration &amp; Projects</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-gray-300">
+                            <span class="material-symbols-outlined text-google-green text-xl">support_agent</span>
+                            <span class="text-sm font-semibold text-slate-700">ICT Support (Onsite &amp;
+                                Remote)</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-gray-300">
+                            <span class="material-symbols-outlined text-google-yellow text-xl">rocket_launch</span>
+                            <span class="text-sm font-semibold text-slate-700">Technology Planning &amp;
+                                Deployment</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-gray-300">
+                            <span class="material-symbols-outlined text-google-red text-xl">cloud</span>
+                            <span class="text-sm font-semibold text-slate-700">Cloud Transformation</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-gray-300">
+                            <span class="material-symbols-outlined text-google-blue text-xl">shopping_cart</span>
+                            <span class="text-sm font-semibold text-slate-700">Procurement &amp; Leasing</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-gray-300">
+                            <span class="material-symbols-outlined text-google-green text-xl">devices</span>
+                            <span class="text-sm font-semibold text-slate-700">Chromebook &amp; Mobile Device
+                                Management</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-gray-300 sm:col-span-2">
+                            <span class="material-symbols-outlined text-google-yellow text-xl">school</span>
+                            <span class="text-sm font-semibold text-slate-700">Professional Learning &amp; Educator
+                                Certification</span>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="hero-image" data-aos="fade-left">
-                            <div class="interface-preview">
-                                <img src="./Assets/img/google-workspace-bg.jpg" alt="Google Workspace Interface" class="img-fluid interface-img">
-                            </div>
-                        </div>
+                    <div class="text-center mt-10">
+                        <a href="#enquiry"
+                            class="bg-google-blue text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-blue-600 transition-colors inline-flex items-center gap-2">
+                            Apply Now
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End of Header -->
+    </section>
 
 
-    <!-- Google Workspace Products Grid -->
-    <section class="workspace-products py-5" aria-labelledby="products-heading">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h1 id="products-heading" class="mega-title">Everything you need for seamless collaboration and productivity</h1>
-            </div>
-            <div class="product-grid-container">
-            <div class="product-grid" role="grid" aria-label="Google Workspace Products">
-                <div class="product-item" data-aos="fade-up" role="gridcell">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/gmail.png" alt="" aria-hidden="true">
-                        <h3>Gmail</h3>
-                    </div>
-                    <div class="product-info" role="complementary">
-                        <h4>Gmail</h4>
-                        <p>Secure business email with custom domain, 30GB storage, advanced spam protection, and seamless integration with other Google tools for enhanced productivity.</p>
-                    </div>
+
+    <!-- Inquiry Section -->
+    <section id="enquiry" class="py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-[3rem] shadow-xl p-8 md:p-16 border border-slate-100">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-display font-bold text-slate-900 mb-4">Ready to upgrade your team?</h2>
+                    <p class="text-slate-500">Fill out the form below and our Google Workspace experts will contact you
+                        shortly.</p>
                 </div>
-                <div class="product-item" data-aos="fade-up" role="gridcell">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/drive.png" alt="Drive">
-                        <h3>Drive</h3>
-                    </div>
-                    <div class="product-info" role="complementary">
-                        <h4>Drive</h4>
-                        <p>Cloud storage with real-time collaboration, AI-powered search, and secure file sharing across devices for efficient team workflows.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/meet.png" alt="Meet">
-                        <h3>Meet</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Meet</h4>
-                        <p>Secure video meetings with AI-powered features, including noise cancellation, live captions, and seamless integration for global teams.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/calendar.png" alt="Calendar">
-                        <h3>Calendar</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Calendar</h4>
-                        <p>Smart scheduling with AI assistance, time management tools, and easy integration with other apps for optimal productivity.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/chat.png" alt="Chat">
-                        <h3>Chat</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Chat</h4>
-                        <p>Team messaging with built-in collaboration tools, file sharing, and real-time communication for efficient teamwork.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/docs.png" alt="Docs">
-                        <h3>Docs</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Docs</h4>
-                        <p>AI-powered document creation, real-time collaboration, and smart editing features for seamless content development.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/sheets.png" alt="Sheets">
-                        <h3>Sheets</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Sheets</h4>
-                        <p>Smart spreadsheets with AI formulas, data analysis, and collaborative editing for powerful insights and reporting.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/slides.png" alt="Slides">
-                        <h3>Slides</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Slides</h4>
-                        <p>Beautiful presentations with AI-powered design suggestions, real-time collaboration, and multimedia integration for impactful storytelling.</p>
-                    </div>
-                </div>
-
-                
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/gemini.png" alt="Gemini">
-                        <h3>Gemini</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Gemini</h4>
-                        <p>Advanced AI assistant integrated across Workspace, providing smart suggestions, automation, and insights to boost productivity.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/appsheet.png" alt="AppSheet">
-                        <h3>AppSheet</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>AppSheet</h4>
-                        <p>No-code app development platform for creating custom business applications quickly and integrating with Google Workspace.</p>
-                    </div>
-                </div>
-                
-                <!-- Additional Google Workspace Tools -->
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/forms.png" alt="Forms">
-                        <h3>Forms</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Forms</h4>
-                        <p>Create surveys, quizzes, and forms with automatic data collection, analysis, and seamless integration with Sheets.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/sites.png" alt="Sites">
-                        <h3>Sites</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Sites</h4>
-                        <p>Create professional websites and intranets quickly with drag-and-drop tools and secure team collaboration features.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/keep.png" alt="Keep">
-                        <h3>Keep</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Keep</h4>
-                        <p>Note-taking app with voice memos, checklists, and image capture that syncs across all devices.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/currents.png" alt="Currents">
-                        <h3>Currents</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Currents</h4>
-                        <p>Enterprise communication platform for meaningful discussions and knowledge sharing across organizations.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/Google_Cloud_Search-removebg-preview.png" alt="Cloud Search">
-                        <h3>Cloud Search</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Cloud Search</h4>
-                        <p>Enterprise search that helps employees quickly find information across G Suite and other business applications.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/admin.png" alt="Admin Console">
-                        <h3>Admin Console</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Admin Console</h4>
-                        <p>Centralized management platform for IT administrators to manage Google Workspace and other Google services.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/Google Cloud Identity.png" alt="Cloud Identity">
-                        <h3>Cloud Identity</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Cloud Identity</h4>
-                        <p>Identity and access management for cloud applications with single sign-on and security controls.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/Google_Cloud_Print.png" alt="Cloud Print">
-                        <h3>Cloud Print</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Cloud Print</h4>
-                        <p>Print from any device to any printer with secure cloud printing capabilities.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/Google_Voice.png" alt="Voice">
-                        <h3>Voice</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Google Voice</h4>
-                        <p>Business phone system with voicemail transcription, call forwarding, and SMS capabilities.</p>
-                    </div>
-                </div>
-
-                <div class="product-item" data-aos="fade-up">
-                    <div class="product-icon">
-                        <img src="./Assets/icons/google_workspace/Workspace_Marketplace.png" alt="Marketplace">
-                        <h3>Marketplace</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4>Workspace Marketplace</h4>
-                        <p>Discover and install third-party applications that integrate with Google Workspace.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   
-    <!-- End of Google Workspace Products Grid -->
-
-    <!-- Beginning of Google Workspace Info -->
-    <div class="container-fluid py-5">
-        <!-- Individual Workspace Section -->
-        <div class="section-individual mb-5">
-            <div class="container">
-               
-                
-                <h3 class="h4 mb-4">Premium Features</h3>
-                <div class="carousel-wrap">
-                    <div class="carousel-arrow left">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                        </svg>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-track">
-                            <!-- Email Card -->
-                            <div class="carousel-card">
-                                <div class="card-bg"></div>
-                                <div class="card-content">
-                                    <div class="card-graphic">
-                                        <img src="./Assets/img/company domain.png" width="48" height="48" alt="">
-                                    </div>
-                                    <h4>Look professional with custom email</h4>
-                                    <p>Stand out with a professional email at your company domain. Create branded layouts and personalize messaging with mail-merge.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Calendar Card -->
-                            <div class="carousel-card">
-                                <div class="card-bg"></div>
-                                <div class="card-content">
-                                    <div class="card-graphic">
-                                        <img src="./Assets/img/Appointment Schedule 2.png" width="48" height="48" alt="">
-                                    </div>
-                                    <h4>Simplify booking with appointment scheduling</h4>
-                                    <p>Let customers book time with you directly within Google Calendar via a personal booking page.</p>
-                                </div>
-                            </div>
-
-                            <!-- Docs Card -->
-                            <div class="carousel-card">
-                                <div class="card-bg"></div>
-                                <div class="card-content">
-                                    <div class="card-graphic">
-                                        <img src="./Assets/img/E-signature.png" width="48" height="48" alt="">
-                                    </div>
-                                    <h4>Streamline contract management with eSignature</h4>
-                                    <p>Request electronic signatures and easily manage vendor agreements, customer contracts, and more.</p>
-                                </div>
-                            </div>
-
-                            <!-- Meet Card -->
-                            <div class="carousel-card">
-                                <div class="card-bg"></div>
-                                <div class="card-content">
-                                    <div class="card-graphic">
-                                        <img src="./Assets/img/enhancedVID.png" width="48" height="48" alt="">
-                                    </div>
-                                    <h4>Enhanced video meetings</h4>
-                                    <p>Host professional video meetings with premium features like recording, attendance tracking, and noise cancellation.</p>
-                                </div>
-                            </div>
-
-                            <!-- Drive Card -->
-                            <div class="carousel-card">
-                                <div class="card-bg"></div>
-                                <div class="card-content">
-                                    <div class="card-graphic">
-                                        <img src="./Assets/img/UP TO 5TB.png" width="48" height="48" alt="">
-                                    </div>
-                                    <h4>Secure cloud storage</h4>
-                                    <p>Get 1TB of secure cloud storage per user, with advanced sharing controls and real-time collaboration.</p>
-                                </div>
-                            </div>
-
-                            <!-- Support Card -->
-                             <div class="carousel-card">
-                                <div class="card-bg"></div>
-                                <div class="card-content">
-                                    <div class="card-graphic">
-                                        <img src="./Assets/img/customer support.jpg" width="48" height="48" alt="">
-                                    </div>
-                                    <h4>24/7 Support</h4>
-                                    <p>Dedicated assistance whenever you need it.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="carousel-arrow right">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-5">
-                    <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Try Google Workspace for Free</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SME Workspace Section -->
-        <div class="section-sme bg-light py-5">
-            <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-6">
-                        <h2 class="display-6 fw-bold mb-4">Google Workspace For SME</h2>
-                        <p class="lead text-muted mb-5">Empower your team with comprehensive collaboration tools, from business email to video conferencing and cloud storage. Google Workspace for Small and Medium Enterprises (SMEs) is tailored to meet the unique needs of growing businesses, providing a suite of applications that enhance productivity, foster teamwork, and streamline operations.</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="./Assets/img/WSBUSINESS3.png" alt="SME Workspace" class="img-fluid rounded">
-                    </div>
-                </div>
-
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
-                            <img src="./Assets/icons/workspace-icons/smb-icons/new.svg" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Enterprise-Grade Email</h4>
-                            <p class="text-muted mb-0">99.9% uptime guarantee with advanced spam filtering</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/global-network.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Remote Work Ready</h4>
-                            <p class="text-muted mb-0">Real-time collaboration across all devices and locations</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/protection.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Advanced Security</h4>
-                            <p class="text-muted mb-0">Enterprise-level data protection and device management</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/languages.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Multi-Language Support</h4>
-                            <p class="text-muted mb-0">Language options for diverse teams working in different regions.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/archives.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Archiving and Compliance</h4>
-                            <p class="text-muted mb-0">Centralized storage and compliance management for all your data.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="benefit-card h-100 p-4 bg-white rounded shadow-sm hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/help-desk.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Support and Training</h4>
-                            <p class="text-muted mb-0">Dedicated support and training resources for your team.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-5">
-                    <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Begin Your Free Trial</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Enterprise Workspace Section -->
-        <div class="section-enterprise bg-gradient py-5">
-            <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-6">
-                        <h2 class="display-6 fw-bold text-black mb-3">Google Workspace For Enterprise</h2>
-                        <p class="lead text-black-50">Transform your organization with powerful cloud-based collaboration tools that enable seamless work from anywhere.
-                            Google Workspace for Enterprises is designed to support large teams by providing innovative solutions that enhance productivity, streamline communication, and foster collaboration across all levels of your organization.</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="./Assets/img/WSBUSINESS.png" alt="Enterprise Workspace" class="img-fluid rounded">
-                    </div>
-                </div>
-
-                <div class="row g-4">
-                    <div class="col-lg-4">
-                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/collaboration (1).png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Advanced Collaboration</h4>
-                            <p class="text-muted mb-0">Real-time co-editing and sharing across Docs, Sheets, and Slides with enterprise-grade controls</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/discussion.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Unified Communication</h4>
-                            <p class="text-muted mb-0">Integrated email, video, and chat platforms for seamless team coordination</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/ai.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">AI-Powered Productivity</h4>
-                            <p class="text-muted mb-0">Smart features and automation to enhance workflow efficiency and team well-being</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/file-transfer.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Secure File Sharing</h4>
-                            <p class="text-muted mb-0">Secure file sharing with access controls and encryption for your organization's data</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">  
-                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/solution.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Integrations with Third-Party Apps</h4> 
-                            <p class="text-muted mb-0">Compatibility with popular productivity tools and applications for enhanced functionality.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">  
-                        <div class="enterprise-card h-100 p-4 bg-white rounded shadow hover-lift">
-                            <img src="./Assets/icons/ngn-edu-icons/bar-graph.png" width="48" height="48" alt="" class="mb-3">
-                            <h4 class="h5 fw-bold">Automated Reporting</h4> 
-                            <p class="text-muted mb-0">Smart features and automation to enhance workflow efficiency and team well-being</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-5">
-                    <a href="#workspace_form" class="btn btn-primary btn-lg px-5 py-3">Contact Sales</a>
-                </div>
-            </div>
-        </div>
-
-        
-    </div>
-
-    <!-- Ending of google workspace info -->
-
-    
-
-    <!-- Pricing Plans -->
-    <div class="pricing-table">
-        <div class="pricing-card" data-plan-name="Business Starter">
-            <div class="card-header">
-                <h2 class="plan-title">Business Starter</h2>
-                <div class="price-box">
-                    <span class="price-usd">$8.40</span>
-                    <span class="price-terms">USD / user / month,<br>1 year commitment</span>
-                </div>
-                <a href="#workspace_form" class="cta-button">Get started</a>
-            </div>
-            <div class="card-features">
-                <h3 class="features-title">Starter includes:</h3>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>30 GB</strong> pooled storage per user</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>Custom business email</strong>, you@your-company.com</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Gemini AI assistant in Gmail</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Chat with AI in the Gemini app</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Video meetings, 100 participants</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Security and management controls</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="pricing-card" data-plan-name="Business Standard">
-            <div class="card-header">
-                <h2 class="plan-title">Business Standard</h2>
-                <div class="price-box">
-                    <span class="price-usd">$16.80</span>
-                    <span class="price-terms">USD / user / month,<br>1 year commitment</span>
-                </div>
-                <a href="#workspace_form" class="cta-button">Get started</a>
-            </div>
-            <div class="card-features">
-                <h3 class="features-title">All of Starter, and:</h3>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>2 TB</strong><br>65x more than Starter*</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>Custom business email</strong>,<br>you@your-company.com + custom layouts, and mail merge</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Gemini AI assistant in Gmail, Docs, Meet, and more</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">AI research assistant (NotebookLM)</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Chat with AI in the Gemini app + create your team of AI experts</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Video meetings with recording, noise cancellation, 150 participants</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Appointment booking pages</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">eSignature with Docs and PDFs</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Google Workspace Migrate tool for data migration</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="pricing-card" data-plan-name="Business Plus">
-            <div class="card-header">
-                <h2 class="plan-title">Business Plus</h2>
-                <div class="price-box">
-                    <span class="price-usd">$26.40</span>
-                    <span class="price-terms">USD / user / month,<br>1 year commitment</span>
-                </div>
-                <a href="#workspace_form" class="cta-button">Get started</a>
-            </div>
-            <div class="card-features">
-                <h3 class="features-title">All of Standard, and:</h3>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>5 TB</strong><br>2.5x more than Standard*</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>Custom business email<br>+ eDiscovery</strong></span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Video meetings with attendance tracking, 500 participants</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Vault to retain, archive, and search data</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Secure LDAP</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Advanced endpoint management</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Enhanced security and management controls</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="pricing-card" data-plan-name="Enterprise">
-            <div class="card-header">
-                <h2 class="plan-title">Enterprise</h2>
-                <div class="price-box">
-                    <span class="price-usd">Custom Pricing</span>
-                    <span class="price-terms"><br>per user / month, 1 year commitment</span>
-                </div>
-                <a href="#workspace_form" class="cta-button">Contact Sales</a>
-            </div>
-            <div class="card-features">
-                <h3 class="features-title">All features mentioned, and:</h3>
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>5 TB</strong><br>or upgrade for more*</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text"><strong>Custom business email<br>+ S/MIME encryption</strong></span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Video meetings with in-domain live streaming, 1000 participants</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Data Loss Prevention (DLP)</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Context-Aware Access (CAA)</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Enterprise data regions</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Cloud Identity Premium</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Enterprise endpoint management</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">AI Classification for Google Drive</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Assured controls available as an add-on</span>
-                    </li>
-                    <li class="feature-item">
-                        <span class="icon-checkmark">✓</span>
-                        <span class="feature-text">Enhanced Support with faster response times for critical issues</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
- <!-- Expert Migration Services Section -->
-<section class="py-5 bg-light">
-    <div id="migration-section" class="pt-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="display-6 fw-bold mb-4">Business migration to Google Workspace</h2>
-                <p class="lead text-muted mb-4">
-                    Our dedicated migration team ensures a seamless transfer of all your emails, contacts, and calendar events, preserving your complete communication history. Everything will be right where you need it, organized and ready to use in your new Google Workspace environment.
-                </p>
-                <div class="mb-4">
-                    <h5 class="fw-bold mb-3">Experience the Difference with Our Team</h5>
-                    <div class="mb-3">
-                        <h6 class="fw-bold mb-1">Certified Expertise</h6>
-                        <p class="text-muted small mb-0">Our Google-certified professionals bring extensive experience to every migration project.</p>
-                    </div>
-                    <div class="mb-3">
-                        <h6 class="fw-bold mb-1">Data Security First</h6>
-                        <p class="text-muted small mb-0">Your information remains protected throughout the entire migration process.</p>
-                    </div>
-                    <div>
-                        <h6 class="fw-bold mb-1">Business as Usual</h6>
-                        <p class="text-muted small mb-0">Minimal disruption to your daily operations with our carefully planned migrations.</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-wrap gap-3 mt-4">
-                    <a href="#workspace_form" class="btn btn-primary btn-lg px-4">
-                        Start Your Migration Today
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <img src="./Assets/img/migration.png" alt="Expert Migration Team" class="img-fluid rounded-3 shadow">
-            </div>
-        </div>
-    </div>
-</section>
-
-    
-  
-    
-
-    <!-- Beginning of form section -->
-     <section>
-        <div class="container-fluid py-3">
-            <div class="container py-2" id="workspace_form">
-                <p class="text-start fs-4 fw-bold">Google Workspace Request Form</p>
-                <hr class="">
-                <p class="text-start fs-5 lato">
-                    We're excited to learn more about your IT requirements. Please take a moment to provide us with some essential details so that we can tailor our managed services to meet your business needs.
-                </p>
-                <form>
+                <form class="space-y-8" id="workspaceForm" action="./Assets/forms/form-validation.php" method="POST">
                     <input type="hidden" name="subject" value="Google Workspace Enquiry">
-                    <input type="hidden" name="form_source" value="Google Workspace">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="fullName" class="form-label lato">Full Name</label>
-                                <input type="text" class="form-control" id="fullName" name="Name" placeholder="Enter full name">
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-slate-700">First Name</label>
+                            <input required type="text" name="first_name"
+                                class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all"
+                                placeholder="John">
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="businessName" class="form-label lato">Business Name</label>
-                                <input type="text" class="form-control" id="businessName" name="business_name" placeholder="Enter business name">
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="phoneNumber" class="form-label lato">Phone Number</label>
-                                <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder="Enter phone number">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="businessEmail" class="form-label lato">Business Email</label>
-                                <input type="email" class="form-control" id="businessEmail" name="business_email" placeholder="Enter business email">
-                            </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-slate-700">Surname</label>
+                            <input required type="text" name="surname"
+                                class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all"
+                                placeholder="Doe">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="companySize" class="form-label lato">Company Size</label>
-                                <select class="form-select" id="companySize" name="company_size">
-                                    <option selected disabled>Select company size</option>
-                                    <option value="Small Business (10-50)">Small Business (10-50)</option>
-                                    <option value="Enterprise (100-1000)">Enterprise (100-1000)</option>
-                                    <option value="Enterprise (1000+)">Enterprise (1000 and above)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="businessDomain" class="form-label lato">Business Domain Name</label>
-                                <input type="text" class="form-control" id="businessDomain" name="business_domain_name" placeholder="Enter business domain name">
-                            </div>
-                        </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-bold text-slate-700">Business Name</label>
+                        <input required type="text" name="business_name"
+                            class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all"
+                            placeholder="Acme Inc">
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="howDidYouHear" class="form-label lato">How did you hear about us?</label>
-                                <select class="form-select" id="howDidYouHear" name="referral_source">
-                                    <option selected disabled>Select option</option>
-                                    <option value="Google Search">Google Search</option>
-                                    <option value="Social Media (Facebook, Instagram, Twitter, etc.)">Social Media</option>
-                                    <option value="Referral">Referral from a friend/colleague</option>
-                                    <option value="Email Marketing">Email Newsletter</option>
-                                    <option value="Webinar">Webinar or Online Event</option>
-                                    <option value="Trade Show">Trade Show or Conference</option>
-                                    <option value="Online Ad">Online Advertisement</option>
-                                    <option value="Existing Client">Existing Client</option>
-                                    <option value="Other">Other (please specify)</option>
-                                </select>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-slate-700">Business Email</label>
+                            <input required type="email" name="email"
+                                class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all"
+                                placeholder="name@company.com">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-slate-700">Phone Number</label>
+                            <input required type="tel" name="phone"
+                                class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all"
+                                placeholder="+234...">
                         </div>
                     </div>
-                    <div class="nter">
-                        <button type="submit" class="btn btn-warn w-auto text-uppercase fw-bold">Submit</button>
-                        <p class="my-2 lato">
-                            Thank you for choosing I-World Networks! We will contact you within the hour.
-                        </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-slate-700">Company Size</label>
+                            <select required name="company_size"
+                                class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all">
+                                <option value="">Select company size</option>
+                                <option value="1-10">1-10 Employees</option>
+                                <option value="11-50">11-50 Employees</option>
+                                <option value="51-200">51-200 Employees</option>
+                                <option value="200+">200+ Employees</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-slate-700">Business Domain Name</label>
+                            <input type="text" name="domain_name"
+                                class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all"
+                                placeholder="company.com">
+                        </div>
                     </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-bold text-slate-700">How did you hear about us?</label>
+                        <select name="referral_source"
+                            class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-google-blue transition-all">
+                            <option value="">Select source</option>
+                            <option value="Search Engine">Search Engine (Google, Bing)</option>
+                            <option value="Social Media">Social Media (LinkedIn, Twitter, IG)</option>
+                            <option value="Referral">Referral / Word of Mouth</option>
+                            <option value="Advertisement">Advertisement</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-google-blue text-white font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-600 transition-all text-lg">Send
+                        Inquiry</button>
                 </form>
             </div>
         </div>
-     </section>
-        
-    <!-- Ending of form section -->
+    </section>
 
-
-
-
-<!-- FAQ Section -->
-<section>
-    <div class="container-fluid py-4">
-        <div class="container">
-            <h4 class="text-start fw-bold mb-4">Frequently Asked Questions</h4>
-            <hr class="">
-            <div class="accordion" id="workspaceFAQ">
-                <!-- FAQ 1: What is Google Workspace? -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                            What is Google Workspace?
-                        </button>
-                    </h2>
-                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Google Workspace is an integrated suite of secure, cloud-native collaboration and productivity applications powered by Google. It provides businesses with professional email, document creation, video conferencing, and cloud storage, all seamlessly integrated. The platform enables real-time collaboration, allowing teams to work together from anywhere in the world, on any device, with enterprise-grade security and 99.9% uptime. Beyond just tools, it's a complete digital workspace that transforms how teams communicate, create, and collaborate.
-                        </div>
-                    </div>
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                        enterprises. Secure, fast, and always reliable.</p>
                 </div>
-
-                <!-- FAQ 10: How do I get started with Google Workspace? -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
-                            How do I get started with Google Workspace?
-                        </button>
-                    </h2>
-                    <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Getting started with Google Workspace is simple and straightforward. You can begin with a 14-day free trial that includes all the premium features. To get started, visit our website and click on the 'Get Started' button. Our dedicated onboarding team will guide you through the setup process, help you migrate your existing data, and provide training for your team. We offer different subscription plans to suit businesses of all sizes, and our support team is available 24/7 to assist with any questions during your transition.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 7: Why choose Google Workspace over Microsoft 365? -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
-                            Why should I choose Google Workspace over Microsoft 365?
-                        </button>
-                    </h2>
-                    <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Google Workspace offers several advantages over Microsoft 365, including a more intuitive interface, superior real-time collaboration features, and seamless integration with other Google services. Unlike Microsoft 365, Google Workspace was built for the cloud from the ground up, offering better performance and fewer compatibility issues. The per-user pricing is often more cost-effective, and you'll benefit from Google's industry-leading security and 99.9% uptime guarantee. Our migration specialists can help you move from Microsoft 365 to Google Workspace with minimal downtime, and we provide comprehensive training to ensure your team can take full advantage of all the features available.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 11: Can I move my old emails, calendar events, and contacts? -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
-                            Can I move my old emails, calendar events, and contacts to Google Workspace?
-                        </button>
-                    </h2>
-                    <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Absolutely! Our team can help you migrate all your existing emails, calendar events, and contacts to Google Workspace with zero data loss. We use Google's enterprise-grade migration tools that support moving data from various platforms including Microsoft Exchange, Office 365, IMAP servers, and PST files. The migration process is carefully planned to ensure minimal disruption to your business operations. We'll handle the entire process, including pre-migration assessment, data transfer, and post-migration verification to ensure everything is working perfectly. Best of all, this service is included at no additional cost with your Google Workspace subscription.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3: How much does Google Workspace cost? -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                            How much does Google Workspace cost?
-                        </button>
-                    </h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Google Workspace offers flexible pricing plans designed to meet the needs of businesses of all sizes. Our Business Starter plan begins at just $6 per user/month, providing professional email, video meetings, and 30GB of cloud storage per user. For growing businesses, our Business Standard plan at $12 per user/month includes additional features like enhanced security controls and 2TB of storage. Larger organizations can benefit from our Business Plus plan at $18 per user/month, which includes advanced security and management controls. We also offer custom Enterprise solutions with additional features and support for organizations with more complex needs. All plans come with a 14-day free trial, and we offer special discounts for annual commitments and educational/non-profit organizations.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 13: Advantages of buying from a reseller -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13">
-                            What are the advantages of buying from a reseller?
-                        </button>
-                    </h2>
-                    <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Buying from a reseller offers benefits such as expert guidance, customized solutions tailored to your needs, local support, competitive pricing, and faster access to products.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Remaining FAQ items in their original order -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                            What is included in Google Workspace?
-                        </button>
-                    </h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Basic features include access to Google Suite, emails with domains, meetings and security. Depending on the package you choose, extra features include access to BigQuery, and data loss prevention applications.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                            What are the differences between Google Workspace's editions?
-                        </button>
-                    </h2>
-                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            The main differences between Google Workspace editions lie in features such as storage capacity, video conferencing capabilities, security options, and administrative controls. Each edition is designed to cater to varying business needs, from small teams to large enterprises.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                            Is Google Workspace Secure?
-                        </button>
-                    </h2>
-                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Yes, Google Workspace is designed with security in mind. It includes robust security features such as two-factor authentication, advanced phishing protection, and data encryption to keep your information safe.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                            How much storage does Google Workspace offer?
-                        </button>
-                    </h2>
-                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            Basic plans start at 30GB storage per user, but each package offers more storage. Our enterprise plan provides 5TB of storage for all users.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
-                            What is the cost of setting up and migrating to Google Workspace?
-                        </button>
-                    </h2>
-                    <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            We offer migration to Google Workspace at no additional cost. This includes transferring your emails, calendar events, and contacts, ensuring a seamless transition without any hidden fees.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
-                            Can I use Google Workspace on my phone?
-                        </button>
-                    </h2>
-                    <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">                               
-                            Yes, you can use Google Workspace on your phone by downloading the Google Workspace app from the Google Play Store or Apple App Store.  
-                        </div>              
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12">
-                            Will this transition affect my current website? Can you host my website?
-                        </button>
-                    </h2>
-                    <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#workspaceFAQ">
-                        <div class="accordion-body lato">
-                            The transition to Google Workspace will not affect your current website. Additionally, we can host websites for you at an additional cost. If you're interested, we can provide more details on our hosting services.
-                        </div>
-                    </div>
-                </div>
-                                        
-    </div>
-    
-    <style>
-    .accordion-button:not(.collapsed) {
-        background-color: #f8f9fa;
-        color: #1a73e8;
-    }
-    
-    .accordion-button:focus {
-        box-shadow: none;
-        border-color: rgba(0,0,0,.125);
-    }
-    
-    .accordion-button::after {
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .accordion-item {
-        margin-bottom: 1rem;
-        border-radius: 8px !important;
-        overflow: hidden;
-    }
-    
-    .accordion-button {
-        padding: 1rem 1.25rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    
-    .accordion-button:hover {
-        background-color: #f8f9fa;
-    }
-    
-    .accordion-body {
-        padding: 1.25rem;
-        line-height: 1.6;
-    }
-    </style>
-    
-
-</div>
-
-</div>
-    
- </section>
-
- <!-- FAQ Section End -->
-
-
-
-
-
-
-
-
-<!-- Footer section Beginning -->
- <section>
-    <footer class=" text-start border pt-5 text-white bg-black">
-        <!-- Grid container -->
-        <div class="container">
-            <!-- Section: Links -->
-            <section class="">
-                <!--Grid row-->
-                <div class="row py-5">
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
-            
-                        <ul class="list-unstyled mb-0">
-                        <li class="mt-2">
-                            <a class="text-white" href="./index.html">Home</a>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./index.html">Home</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./contact.html">Contact Us</a>
                         </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./about.html">About Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./contact.html">Contact Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./careers.html">Careers</a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
-                        <ul class="list-unstyled mb-0">
-                            
-                            <li class="mt-2">
-                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mt-2">
-                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!-- Grid Column -->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 903 984 4309</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5560</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5565</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 706 605 3380</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 814 994 5984
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <!-- Facebook -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
-                        </a>
-                        <!-- Twitter -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
-                        </a>
-                        <!-- LinkedIn -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
-                        </a>
-                        <!--Grid column-->
-                        <div class="">
-                            <p class="fw-bold">Sign up for our newsletter</p>
-                            <!-- Email input -->
-                            <div data-mdb-input-init class="form-outline ">
-                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
-                            </div>
-                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                <!--Grid row-->
+                        <li><a class="hover:text-white transition-colors" href="./careers.html">Careers</a></li>
+                    </ul>
                 </div>
-            </section>
-        <!-- Section: Links -->
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Internet Service</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./internet_for_home.html">Internet
+                                for Home</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./internet_for_business.html">Internet for Business</a></li>
+                        <li><a class="hover:text-white transition-colors"
+                                href="./enterprise_internet.html">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Cloud Services</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="./NGFEP.html">Nigeria Google for
+                                Education Program</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./Google_Workspace.html">Google
+                                Workspace</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./msp.html">Managed Service
+                                Provider</a></li>
+                        <li><a class="hover:text-white transition-colors" href="./SmartLife.html">Smart Life</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">Â© <span id="currentYear"></span> I-World Networks. All rights
+                    reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+            </div>
         </div>
-        <!-- Copyright -->
-        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        © 2026 &nbsp;&nbsp; Copyright:
-        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
-        </div>
-        <!-- Copyright -->
     </footer>
- </section>
 
-    <!-- Ending of footer -->
-
-
-
-    <!--======================== Back to top Button Functionality========================== -->
+    <!-- Scripts -->
     <script>
-        let BacktoTopBtn = document.getElementById("BacktoTopBtn");
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            BacktoTopBtn.style.display = "block";
-        } else {
-            BacktoTopBtn.style.display = "none";
-        }
-        }
-        function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
+        // Smooth local scrolling would be added here
     </script>
-    <!--======================== Back to top Button Functionality========================== -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="./Assets/js/redesign-form.js"></script>
+    <!-- Currency Conversion Styles -->
     <style>
-        .price-converter {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-        .price-converter .price-naira {
-            display: none;
-            position: absolute;
-            background-color: #1a73e8;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            white-space: nowrap;
-            z-index: 1;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        .price-converter:hover .price-naira {
+        .price-naira-container {
             display: block;
-        }
-        .price-converter .price-usd {
-            border-bottom: 1px dashed #5f6368;
-            transition: all 0.2s ease;
-        }
-        .price-converter:hover .price-usd {
+            margin-top: 0.5rem;
             color: #1a73e8;
+            /* Google Blue */
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .price-usd-highlight {
+            border-bottom: 2px solid #e2e8f0;
         }
     </style>
-    <script src="./Assets/js/dropdown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Toastr Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <!-- Custom Script -->
-    <script src="Assets/js/forms.js"></script>
-    
+
+    <!-- Currency Conversion Script -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Function to convert USD to NGN
-        async function convertUsdToNgn(usdAmount) {
-            try {
-                // First try to get the latest rate from an API (free tier)
-                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-                if (!response.ok) throw new Error('Failed to fetch exchange rate');
-                
-                const data = await response.json();
-                const ngnRate = data.rates.NGN || 1500; // Fallback to 1500 if NGN not in response
-                return Math.round(usdAmount * ngnRate);
-            } catch (error) {
-                console.warn('Using fallback exchange rate (1 USD = 1500 NGN)');
-                // Fallback rate if API fails
-                return Math.round(usdAmount * 1500);
-            }
-        }
-
-        // Format number with commas
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
-
-        // Process all price elements
-        async function initializePriceConverters() {
-            const priceElements = document.querySelectorAll('.price-usd');
-            
-            for (const priceElement of priceElements) {
-                // Skip if already processed or if it's not a price (like 'Custom Pricing')
-                if (priceElement.closest('.price-converter') || !priceElement.textContent.includes('$')) {
-                    continue;
-                }
-
-                // Get the USD amount
-                const usdMatch = priceElement.textContent.match(/\$([\d.]+)/);
-                if (!usdMatch) continue;
-                
-                const usdAmount = parseFloat(usdMatch[1]);
-                if (isNaN(usdAmount)) continue;
-
-                // Create container for price converter
-                const container = document.createElement('span');
-                container.className = 'price-converter';
-                
-                // Add the original price
-                container.innerHTML = `
-                    <span class="price-usd">${priceElement.innerHTML}</span>
-                    <span class="price-naira">Converting...</span>
-                `;
-                
-                // Replace the original element with our container
-                priceElement.replaceWith(container);
-                
-                // Convert and update the NGN price
+        document.addEventListener('DOMContentLoaded', function () {
+            // Convert USD to NGN
+            async function convertUsdn(usdAmount) {
                 try {
-                    const ngnAmount = await convertUsdToNgn(usdAmount);
-                    const nairaElement = container.querySelector('.price-naira');
-                    nairaElement.textContent = `₦${formatNumber(ngnAmount)} NGN`;
-                    nairaElement.title = `Approximate Naira equivalent (1 USD = ${Math.round(ngnAmount/usdAmount)} NGN)`;
+                    // First try to get the latest rate from an API (free tier)
+                    const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                    if (!response.ok) throw new Error('Failed to fetch exchange rate');
+
+                    const data = await response.json();
+                    const ngnRate = data.rates.NGN || 1500; // Fallback if NGN not in response
+                    return Math.round(usdAmount * ngnRate);
                 } catch (error) {
-                    console.error('Error converting price:', error);
-                    container.querySelector('.price-naira').textContent = 'Price conversion unavailable';
+                    console.warn('Using fallback exchange rate (1 USD = 1500 NGN)');
+                    // Fallback rate if API fails
+                    return Math.round(usdAmount * 1500);
                 }
             }
-        }
 
-        // Initialize the price converters
-        initializePriceConverters();
-    });
+            // Format number with commas
+            function formatNumber(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+
+            // Process all price elements
+            async function initializePriceConverters() {
+                const priceElements = document.querySelectorAll('.price-usd');
+
+                for (const priceElement of priceElements) {
+                    // Skip if already processed
+                    if (priceElement.closest('.price-converter-processed')) {
+                        continue;
+                    }
+
+                    // Get the USD amount
+                    const text = priceElement.textContent;
+                    const usdMatch = text.match(/\$([\d.]+)/);
+                    if (!usdMatch) continue;
+
+                    const usdAmount = parseFloat(usdMatch[1]);
+                    if (isNaN(usdAmount)) continue;
+
+                    // Mark as processed
+                    priceElement.classList.add('price-converter-processed');
+                    priceElement.classList.add('price-usd-highlight');
+
+                    // Create naira element
+                    const nairaElement = document.createElement('div');
+                    nairaElement.className = 'price-naira-container';
+                    nairaElement.textContent = 'Calculating NGN...';
+
+                    // Find the parent flex container and insert after it
+                    const flexContainer = priceElement.closest('.flex.items-baseline');
+                    if (flexContainer) {
+                        flexContainer.parentNode.insertBefore(nairaElement, flexContainer.nextSibling);
+                    }
+
+                    // Convert and update the NGN price
+                    try {
+                        const ngnAmount = await convertUsdToNgn(usdAmount);
+                        nairaElement.textContent = `â‚¦${formatNumber(ngnAmount)} NGN`;
+                        nairaElement.title = `Approximate Naira equivalent based on current market rates.`;
+                    } catch (error) {
+                        console.error('Error converting price:', error);
+                        nairaElement.textContent = 'NGN conversion unavailable';
+                    }
+                }
+            }
+
+            // Initialize the price converters
+            initializePriceConverters();
+        });
     </script>
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
-
-     <!-- Additional Scripts -->
-     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-     
-     <script>
-         // Initialize AOS
-         AOS.init({
-             duration: 1000,
-             once: true
-         });
- 
-         // Initialize Swiper
-         var swiper = new Swiper(".mySwiper", {
-             slidesPerView: 1,
-             spaceBetween: 10,
-             pagination: {
-                 el: ".swiper-pagination",
-                 clickable: true,
-             },
-             breakpoints: {
-                 640: {
-                     slidesPerView: 2,
-                     spaceBetween: 20,
-                 },
-                 768: {
-                     slidesPerView: 3,
-                     spaceBetween: 30,
-                 },
-                 1024: {
-                     slidesPerView: 4,
-                     spaceBetween: 40,
-                 },
-             },
-             autoplay: {
-                 delay: 2500,
-                 disableOnInteraction: false,
-             },
-         });
-     </script>
-
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-    <div class="elfsight-app-87c0e511-c2f4-4972-96b6-4358f70c6e2c" data-elfsight-app-lazy></div>
-    <script src="./Assets/js/carousel.js"></script>
-    
 </body>
-</html>
 
+</html>

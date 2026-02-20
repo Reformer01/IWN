@@ -1,721 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WSHR85KZCD');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Apply for jobs at I-World Networks, a leading connectivity service provider in Nigeria.">
-  <meta name="author" content="Armaaneth Esiri">
-  <title>I-World Networks | Job Application</title>
-  <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-  <link rel="stylesheet" href="./Assets/css/style.css">
-  <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="./Assets/css/responsivecss.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-  <style>
-    .client-zone-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #F58C29;
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 50px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      font-weight: bold;
-      font-family: inherit;
-    }
-    .client-zone-btn:hover {
-      background-color: #FF6600;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-    .widget-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    @media (max-width: 768px) {
-      #client-zone-widget { bottom: 20px; right: 20px; }
-      .client-zone-btn { padding: 10px 16px; }
-    }
-    .step { display: none; }
-    .step.active { display: block; }
-    .form-section { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px; }
-    .step-indicator { display: flex; justify-content: space-between; margin-bottom: 24px; }
-    .step-indicator .circle { width: 32px; height: 32px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-    .step-indicator .circle.active { background: #F58C29; color: #fff; }
-    .step-indicator .circle.done { background: #28a745; color: #fff; }
-    .hero-section {
-      background: linear-gradient(90deg, #f8fafc 60%, #F58C29 100%);
-      padding: 48px 0 24px 0;
-      text-align: center;
-      margin-bottom: 0;
-    }
-    .hero-section h1 { font-size: 2.5rem; font-weight: bold; color: #222; }
-    .hero-section p { font-size: 1.2rem; color: #444; }
-    .why-work-section {
-      background: #f8fafc;
-      border-radius: 8px;
-      margin: 32px auto 24px auto;
-      max-width: 700px;
-      padding: 32px 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .why-work-section h3 { color: #F58C29; font-weight: bold; }
-    .why-work-section ul { margin-top: 16px; }
-    .why-work-section li { margin-bottom: 10px; font-size: 1.08rem; }
-    #BacktoTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      z-index: 99;
-      border: none;
-      outline: none;
-      background-color: #F58C29;
-      color: white;
-      cursor: pointer;
-      padding: 12px 16px;
-      border-radius: 50%;
-      font-size: 18px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    #BacktoTopBtn:hover { background-color: #FF6600; }
-  </style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Job Application | I-World Networks</title>
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+    <meta name="description"
+        content="Apply for jobs at I-World Networks, a leading connectivity service provider in Nigeria.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSHR85KZCD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WSHR85KZCD');
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F58C29",
+                        secondary: "#34A853",
+                        navy: "#0F172A",
+                        "background-light": "#F8FAFC",
+                    },
+                    fontFamily: {
+                        display: ["Lexend", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(245, 140, 41, 0.1) 0%, rgba(52, 168, 83, 0.1) 100%);
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .step-indicator .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .step-indicator .circle.active {
+            background: #F58C29;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .step-indicator .circle.done {
+            background: #34A853;
+            color: #fff;
+        }
+    </style>
 </head>
-<body class="overflow-x-hidden bg-light">
-  <!-- Back to top Button -->
-  <button onclick="topFunction()" id="BacktoTopBtn" title="Go to top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 20H9v-8H4.16L12 4.16L19.84 12H15z"/></svg>
-  </button>
-  <!-- Header Beginning -->
-  <div class="career-header">
-    <!-- Navbar beginning -->
-    <nav class="navbar navbar-expand-lg navbar-light fw-bold">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">
-          <img src="./Assets/icons/logos/iworld_logo2.jpg" alt="iworld_logo" height="50">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="InternetDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internet Services</a>
-              <div class="dropdown-menu" aria-labelledby="InternetDropdown">
-                <a class="dropdown-item" href="./internet_for_home.html">Internet for Home</a>
-                <a class="dropdown-item" href="Internet_for_business.html">Internet for Small Business</a>
-                <a class="dropdown-item" href="./enterprise_internet.html">Enterprise Internet</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="googleCloudDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Google Cloud Services</a>
-              <div class="dropdown-menu" aria-labelledby="googleCloudDropdown">
-                <a class="dropdown-item" href="NGFEP.html">Nigeria Google for Education Program</a>
-                <a class="dropdown-item" href="Google_Workspace.html">Google Workspace</a>
-              </div>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="./msp.html">Managed IT Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
-            <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="./Loyalty_&_Discounts.html" target="_blank">Loyalty and Discounts</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://app.iwn.ng" target="_blank">Client Zone</a></li>
-          </ul>
-          <div class="subscribe-btn ms-auto">
-            <a href="./internet_for_home.html" class="btn btn-warn">Subscribe</a>
-          </div>
+
+<body class="bg-background-light text-slate-900 font-body antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="./index.html">
+                <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./internet_for_home.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
+                    </div>
+                </div>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./Google_Workspace.html">Google Cloud Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap"
+                    href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
+            </div>
+            <a href="./contact.html"
+                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
+                Us</a>
         </div>
-      </div>
     </nav>
-    <!-- Ending of navbar -->
-    <div class="career-header-content py-5"></div>
-  </div>
-  <!-- End of Header -->
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <h1>Apply for Your Next Career Opportunity</h1>
-    <p>Join I-World Networks and help us connect Nigeria to the world. We value innovation, teamwork, and growth.</p>
-  </section>
-  <!-- Why Work With Us Section -->
-  <section class="why-work-section">
-    <h3>Why Work With Us?</h3>
-    <ul>
-      <li>Be part of a fast-growing, innovative tech company</li>
-      <li>Collaborative and supportive work environment</li>
-      <li>Opportunities for professional growth and training</li>
-      <li>Competitive salary and benefits</li>
-      <li>Make a real impact in the connectivity industry</li>
-    </ul>
-  </section>
-  <!-- Application Form Section -->
-  <div class="container py-5">
-    <div class="form-section">
-      <h2 class="mb-4 text-center">Job Application</h2>
-      <div class="step-indicator mb-4">
-        <div class="circle step1">1</div>
-        <div class="circle step2">2</div>
-        <div class="circle step3">3</div>
-        <div class="circle step4">4</div>
-      </div>
-      <form id="jobAppForm" enctype="multipart/form-data" novalidate>
-        <!-- Step 1: Basic Info -->
-        <div class="step step-1 active">
-          <div class="mb-3">
-            <label class="form-label">Job Title</label>
-            <input type="text" class="form-control" id="jobTitle" name="job_title" readonly required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Full Name</label>
-            <input type="text" class="form-control" name="full_name" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Phone Number</label>
-            <input type="text" class="form-control" name="phone" required>
-          </div>
+
+    <!-- Hero Section -->
+    <header class="relative w-full min-h-[400px] flex items-center hero-gradient pt-20">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 max-w-4xl mx-auto">Apply for Your Next
+                <span class="text-primary">Career Opportunity</span>
+            </h1>
+            <p class="text-lg text-slate-900 max-w-2xl mx-auto">Join I-World Networks and help us connect Nigeria to the
+                world. We value innovation, teamwork, and growth.</p>
         </div>
-        <!-- Step 2: Preset Questions -->
-        <div class="step step-2">
-          <div class="mb-3">
-            <label class="form-label">Why are you interested in this position?</label>
-            <textarea class="form-control" name="why_interested" required></textarea>
-          </div>
-          <!-- Job Experience Section -->
-          <div class="mb-3">
-            <label class="form-label">Relevant Job Experience</label>
-            <div id="experience-list"></div>
-            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-experience">Add Experience</button>
-          </div>
-          <!-- Education Section -->
-          <div class="mb-3">
-            <label class="form-label">Educational Background</label>
-            <div id="education-list"></div>
-            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-education">Add Education</button>
-          </div>
-          <!-- Certificates Section -->
-          <div class="mb-3">
-            <label class="form-label">Certificates (Professional or Otherwise)</label>
-            <div id="certificate-list"></div>
-            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-certificate">Add Certificate</button>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">When can you start?</label>
-            <input type="date" class="form-control" name="start_date" required>
-          </div>
+    </header>
+
+    <!-- Why Work With Us Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div
+                class="max-w-4xl mx-auto bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 p-8 shadow-sm">
+                <h3 class="text-2xl font-bold text-primary mb-4">Why Work With Us?</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+                        <span class="text-slate-900">Be part of a fast-growing, innovative tech company</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+                        <span class="text-slate-900">Collaborative and supportive work environment</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+                        <span class="text-slate-900">Opportunities for professional growth and training</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+                        <span class="text-slate-900">Competitive salary and benefits</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+                        <span class="text-slate-900">Make a real impact in the connectivity industry</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- Step 3: File Uploads -->
-        <div class="step step-3">
-          <div class="mb-3">
-            <label class="form-label">Upload CV/Resume (.doc, .docx, .pdf)</label>
-            <input type="file" class="form-control" name="cv" accept=".doc,.docx,.pdf" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Upload Cover Letter (.pdf)</label>
-            <input type="file" class="form-control" name="cover_letter" accept=".pdf" required>
-          </div>
-        </div>
-        <!-- Step 4: Review & Submit -->
-        <div class="step step-4">
-          <h5>Review your application</h5>
-          <ul class="list-group mb-3" id="reviewList"></ul>
-        </div>
-        <input type="hidden" name="subject" value="Career Application">
-        <div class="d-flex justify-content-between mt-4">
-          <button type="button" class="btn btn-secondary" id="prevBtn" style="display:none">Previous</button>
-          <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
-          <button type="submit" class="btn btn-success" id="submitBtn" style="display:none">Submit Application</button>
-        </div>
-      </form>
-      <div class="alert mt-4 d-none" id="formAlert"></div>
-    </div>
-  </div>
-  <!-- Footer section Beginning -->
- <section>
-    <footer class=" text-start border pt-5 text-white bg-black">
-        <!-- Grid container -->
-        <div class="container">
-            <!-- Section: Links -->
-            <section class="">
-                <!--Grid row-->
-                <div class="row py-5">
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Quick Links</h6>
-            
-                        <ul class="list-unstyled mb-0">
-                        <li class="mt-2">
-                            <a class="text-white" href="./index.html">Home</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./about.html">About Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./contact.html">Contact Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a class="text-white" href="./careers.html">Careers</a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Connectivity Services</h6>
-                        <ul class="list-unstyled mb-0">
-                            
-                            <li class="mt-2">
-                                <a class="text-white" href="./internet_for_home.html">Internet for Home</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Internet_for_business.html">Internet for Business</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./enterprise_internet.html">Enterprise Internet</a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Cloud Services </h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mt-2">
-                                <a class="text-white" href="NGFEP.html">Nigeria Google for Education</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./Google_Workspace.html">Google Workspace</a>
-                            </li>
-                            <li class="mt-2">
-                                <a class="text-white" href="./msp.html">Managed Service Provider (MSP) </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!-- Grid Column -->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h6 class="fw-bold fs-5 text-uppercase i-green">Hotlines</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 903 984 4309</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5560</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 807 767 5565</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 706 605 3380</a>
-                            </li>
-                            <li class="">
-                                <img src="./Assets/icons/telephone.svg" width="20" height="20" alt="">
-                                <a class="text-white" href="#">+234 814 994 5984
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <!-- Facebook -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53" ry="6.53"/><path fill="#fff" d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0 0 91 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"/></svg>
-                        </a>
-                        <!-- Twitter -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#1D9BF0" rx="60"/><path fill="#fff" d="M199.572 91.411c.11 1.587.11 3.174.11 4.776c0 48.797-37.148 105.075-105.075 105.075v-.03A104.54 104.54 0 0 1 38 184.677c2.918.351 5.85.526 8.79.533a74.154 74.154 0 0 0 45.865-15.839a36.976 36.976 0 0 1-34.501-25.645a36.811 36.811 0 0 0 16.672-.636c-17.228-3.481-29.623-18.618-29.623-36.198v-.468a36.705 36.705 0 0 0 16.76 4.622c-16.226-10.845-21.228-32.432-11.43-49.31a104.814 104.814 0 0 0 76.111 38.582a36.95 36.95 0 0 1 10.683-35.283c14.874-13.982 38.267-13.265 52.249 1.601a74.105 74.105 0 0 0 23.451-8.965a37.061 37.061 0 0 1-16.234 20.424A73.446 73.446 0 0 0 218 72.282a75.023 75.023 0 0 1-18.428 19.13"/></g></svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
-                        </a>
-                        <!-- LinkedIn -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><path fill="#0076b2" d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"/><path fill="#fff" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"/></svg>
-                        </a>
-                        <!--Grid column-->
-                        <div class="">
-                            <p class="fw-bold">Sign up for our newsletter</p>
-                            <!-- Email input -->
-                            <div data-mdb-input-init class="form-outline ">
-                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter your Email Address"/>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="py-16 bg-background-light">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-lg p-8">
+                <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-8">Job Application</h2>
+
+                <!-- Step Indicator -->
+                <div class="step-indicator flex justify-between mb-8 max-w-md mx-auto">
+                    <div class="circle step1">1</div>
+                    <div class="circle step2">2</div>
+                    <div class="circle step3">3</div>
+                    <div class="circle step4">4</div>
+                </div>
+
+                <form id="jobAppForm" enctype="multipart/form-data" novalidate
+                    action="./Assets/forms/form-validation.php" method="POST">
+                    <input type="hidden" name="subject" value="Career Application">
+                    <!-- Step 1: Basic Info -->
+                    <div class="step step-1 active">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Basic Information</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Job Title</label>
+                                <input type="text"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50"
+                                    id="jobTitle" name="job_title" readonly required>
                             </div>
-                            <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
-                                Subscribe
-                            </button>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">First Name *</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                        name="first_name" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Surname *</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                        name="surname" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Email *</label>
+                                <input type="email"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                    name="email" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                                <input type="text"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                    name="phone" required>
+                            </div>
                         </div>
                     </div>
-                <!--Grid row-->
+
+                    <style>
+                        .step {
+                            display: none;
+                        }
+
+                        .step.active {
+                            display: block;
+                            animation: fadeIn 0.5s;
+                        }
+
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        .step-indicator .circle {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            background: #e2e8f0;
+                            color: #64748b;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .step-indicator .circle.active {
+                            background: #F58C29;
+                            color: white;
+                        }
+
+                        .step-indicator .circle.completed {
+                            background: #34A853;
+                            color: white;
+                        }
+                    </style>
+
+                    <!-- Step 2: Experience & Education -->
+                    <div class="step step-2">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Experience & Qualifications</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Why are you interested in
+                                    this position? *</label>
+                                <textarea
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                    name="why_interested" rows="4" required></textarea>
+                            </div>
+
+                            <!-- Job Experience -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Relevant Job
+                                    Experience</label>
+                                <div id="experience-list" class="space-y-3"></div>
+                                <button type="button"
+                                    class="mt-3 px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-all font-semibold text-sm"
+                                    id="add-experience">+ Add Experience</button>
+                            </div>
+
+                            <!-- Education -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Educational
+                                    Background</label>
+                                <div id="education-list" class="space-y-3"></div>
+                                <button type="button"
+                                    class="mt-3 px-4 py-2 bg-secondary/10 text-secondary rounded-lg hover:bg-secondary/20 transition-all font-semibold text-sm"
+                                    id="add-education">+ Add Education</button>
+                            </div>
+
+                            <!-- Certificates -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Certificates</label>
+                                <div id="certificate-list" class="space-y-3"></div>
+                                <button type="button"
+                                    class="mt-3 px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-all font-semibold text-sm"
+                                    id="add-certificate">+ Add Certificate</button>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">When can you start?
+                                    *</label>
+                                <input type="date"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                    name="start_date" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .step {
+                            display: none;
+                        }
+
+                        .step.active {
+                            display: block;
+                            animation: fadeIn 0.5s;
+                        }
+
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        .step-indicator .circle {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            background: #e2e8f0;
+                            color: #64748b;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .step-indicator .circle.active {
+                            background: #F58C29;
+                            color: white;
+                        }
+
+                        .step-indicator .circle.completed {
+                            background: #34A853;
+                            color: white;
+                        }
+                    </style>
+
+                    <!-- Step 3: File Uploads -->
+                    <div class="step step-3">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Upload Documents</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Upload CV/Resume (.doc,
+                                    .docx, .pdf) *</label>
+                                <input type="file"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
+                                    name="cv" accept=".doc,.docx,.pdf" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Upload Cover Letter
+                                    (.pdf) *</label>
+                                <input type="file"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary/10 file:text-secondary hover:file:bg-secondary/20"
+                                    name="cover_letter" accept=".pdf" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .step {
+                            display: none;
+                        }
+
+                        .step.active {
+                            display: block;
+                            animation: fadeIn 0.5s;
+                        }
+
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        .step-indicator .circle {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            background: #e2e8f0;
+                            color: #64748b;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .step-indicator .circle.active {
+                            background: #F58C29;
+                            color: white;
+                        }
+
+                        .step-indicator .circle.completed {
+                            background: #34A853;
+                            color: white;
+                        }
+                    </style>
+
+                    <!-- Step 4: Review & Submit -->
+                    <div class="step step-4">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Review Your Application</h3>
+                        <ul class="space-y-2 bg-background-light rounded-xl p-4" id="reviewList"></ul>
+                    </div>
+
+                    <input type="hidden" name="subject" value="Career Application">
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between mt-8">
+                        <button type="button"
+                            class="px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl transition-all"
+                            id="prevBtn" style="display:none">Previous</button>
+                        <button type="button"
+                            class="px-6 py-3 bg-primary hover:bg-orange-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-primary/20"
+                            id="nextBtn">Next</button>
+                        <button type="submit"
+                            class="px-6 py-3 bg-secondary hover:bg-green-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-secondary/20"
+                            id="submitBtn" style="display:none">Submit Application</button>
+                    </div>
+                </form>
+
+                <div class="mt-4 p-4 rounded-xl hidden" id="formAlert"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Nigeria's leading connectivity and IT management provider.
+                    </p>
                 </div>
-            </section>
-        <!-- Section: Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./index.html"
+                                class="text-slate-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="./about.html"
+                                class="text-slate-300 hover:text-white transition-colors">About
+                                Us</a></li>
+                        <li><a href="./contact.html"
+                                class="text-slate-300 hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Connectivity Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./internet_for_home.html"
+                                class="text-slate-300 hover:text-white transition-colors">Internet for Home</a></li>
+                        <li><a href="./internet_for_business.html"
+                                class="text-slate-300 hover:text-white transition-colors">Internet for Business</a></li>
+                        <li><a href="./enterprise_internet.html"
+                                class="text-slate-300 hover:text-white transition-colors">Enterprise Internet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Cloud Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./NGFEP.html"
+                                class="text-slate-300 hover:text-white transition-colors">Nigeria
+                                Google for Education</a></li>
+                        <li><a href="./Google_Workspace.html"
+                                class="text-slate-300 hover:text-white transition-colors">Google Cloud Services</a></li>
+                        <li><a href="./msp.html"
+                                class="text-slate-300 hover:text-white transition-colors">Managed Service Provider</a>
+                        </li>
+                        <li><a href="./SmartLife.html"
+                                class="text-slate-300 hover:text-white transition-colors">Smart Life</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-secondary">Contact</h3>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">call</span>
+                            <span>+234 903 984 4309</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">mail</span>
+                            <span>support@iworldnetworks.net</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 pt-8 text-center text-slate-400">
+                <p>&copy; <span id="currentYear"></span> I-World Networks. All rights reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+            </div>
         </div>
-        <!-- Copyright -->
-        <div class="text-center p-3 mt-2" style="background-color: rgba(255, 255, 255, 0.1) !important;">
-        © 2026 &nbsp;&nbsp; Copyright:
-        <a class="text-reset fw-bold" href="./index.html">I-World Networks</a>
-        </div>
-        <!-- Copyright -->
     </footer>
- </section>
 
-    <!-- Ending of footer -->
-  <!-- Footer section ending -->
-  <!-- Client Zone Widget -->
-  <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
-    <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
-      <div class="widget-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;">
-          <path fill="#FFFFFF" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-        </svg>
-        <span>Client Zone</span>
-      </div>
-    </a>
-  </div>
-  <!-- Scripts -->
-  <script>
-    function dropdownFunction() {
-      document.getElementById("CoverageDropdown").classList.toggle("show");
-    }
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-  </script>
-  <script>
-    let BacktoTopBtn = document.getElementById("BacktoTopBtn");
-    window.onscroll = function() {scrollFunction()};
-    function scrollFunction() {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        BacktoTopBtn.style.display = "block";
-      } else {
-        BacktoTopBtn.style.display = "none";
-      }
-    }
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <script src="./Assets/bootstrap/js/bootstrap.bundle.js"></script>
-  <script src="./Assets/js/app.js"></script>
-  <script src="./Assets/js/dropdown.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slide.js/2.3.0/slide.min.js"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <script src="Assets/js/forms.js"></script>
-  <script src="Assets/js/career-form.js"></script>
-  <!-- Tawk.to Script -->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Job title from URL
-  function getJobTitleFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('job') || '';
-  }
-  var jobTitleInput = document.getElementById('jobTitle');
-  if (jobTitleInput) {
-    jobTitleInput.value = getJobTitleFromURL();
-  }
+    <!-- Multi-step Form JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Job title from URL
+            function getJobTitleFromURL() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('job') || '';
+            }
+            var jobTitleInput = document.getElementById('jobTitle');
+            if (jobTitleInput) {
+                jobTitleInput.value = getJobTitleFromURL();
+            }
 
-  // Multi-step logic
-  let currentStep = 1;
-  const totalSteps = 4;
-  const steps = document.querySelectorAll('.step');
-  const stepCircles = [
-    document.querySelector('.step1'),
-    document.querySelector('.step2'),
-    document.querySelector('.step3'),
-    document.querySelector('.step4')
-  ];
-  function showStep(step) {
-    steps.forEach((el, idx) => {
-      el.classList.toggle('active', idx === step - 1);
-      stepCircles[idx].classList.remove('active', 'done');
-      if (idx < step - 1) stepCircles[idx].classList.add('done');
-      else if (idx === step - 1) stepCircles[idx].classList.add('active');
-    });
-    document.getElementById('prevBtn').style.display = step === 1 ? 'none' : '';
-    document.getElementById('nextBtn').style.display = step === totalSteps ? 'none' : '';
-    document.getElementById('submitBtn').style.display = step === totalSteps ? '' : 'none';
-  }
-  // Make step circles clickable
-  stepCircles.forEach((circle, idx) => {
-    circle.style.cursor = 'pointer';
-    circle.addEventListener('click', function() {
-      currentStep = idx + 1;
-      if (currentStep === totalSteps) fillReview();
-      showStep(currentStep);
-    });
-  });
-  function fillReview() {
-    const form = document.getElementById('jobAppForm');
-    const reviewList = document.getElementById('reviewList');
-    // Experience
-    let expHtml = '';
-    const expDivs = document.querySelectorAll('#experience-list > div');
-    expDivs.forEach((div, i) => {
-      const job = div.querySelector('[name^="experience"][name$="[job_title]"]').value;
-      const company = div.querySelector('[name^="experience"][name$="[company]"]').value;
-      const website = div.querySelector('[name^="experience"][name$="[website]"]').value;
-      const address = div.querySelector('[name^="experience"][name$="[address]"]').value;
-      const contact = div.querySelector('[name^="experience"][name$="[contact]"]').value;
-      const start = div.querySelector('[name^="experience"][name$="[start_date]"]').value;
-      const stillHere = div.querySelector('[name^="experience"][name$="[still_here]"]').checked;
-      let end = '';
-      if (!stillHere) {
-        end = div.querySelector('[name^="experience"][name$="[end_date]"]').value;
-      }
-      const desc = div.querySelector('[name^="experience"][name$="[description]"]').value;
-      expHtml += `<li><b>${job}</b> at ${company} (${start}${stillHere ? ' - Present' : ' to ' + end})<br>
+            // Multi-step logic
+            let currentStep = 1;
+            const totalSteps = 4;
+            const steps = document.querySelectorAll('.step');
+            const stepCircles = [
+                document.querySelector('.step1'),
+                document.querySelector('.step2'),
+                document.querySelector('.step3'),
+                document.querySelector('.step4')
+            ];
+            function showStep(step) {
+                steps.forEach((el, idx) => {
+                    el.classList.toggle('active', idx === step - 1);
+                    stepCircles[idx].classList.remove('active', 'done');
+                    if (idx < step - 1) stepCircles[idx].classList.add('done');
+                    else if (idx === step - 1) stepCircles[idx].classList.add('active');
+                });
+                document.getElementById('prevBtn').style.display = step === 1 ? 'none' : '';
+                document.getElementById('nextBtn').style.display = step === totalSteps ? 'none' : '';
+                document.getElementById('submitBtn').style.display = step === totalSteps ? '' : 'none';
+            }
+            // Make step circles clickable
+            stepCircles.forEach((circle, idx) => {
+                circle.addEventListener('click', function () {
+                    currentStep = idx + 1;
+                    if (currentStep === totalSteps) fillReview();
+                    showStep(currentStep);
+                });
+            });
+            function fillReview() {
+                const form = document.getElementById('jobAppForm');
+                const reviewList = document.getElementById('reviewList');
+                // Experience
+                let expHtml = '';
+                const expDivs = document.querySelectorAll('#experience-list > div');
+                expDivs.forEach((div, i) => {
+                    const job = div.querySelector('[name^="experience"][name$="[job_title]"]').value;
+                    const company = div.querySelector('[name^="experience"][name$="[company]"]').value;
+                    const website = div.querySelector('[name^="experience"][name$="[website]"]').value;
+                    const address = div.querySelector('[name^="experience"][name$="[address]"]').value;
+                    const contact = div.querySelector('[name^="experience"][name$="[contact]"]').value;
+                    const start = div.querySelector('[name^="experience"][name$="[start_date]"]').value;
+                    const stillHere = div.querySelector('[name^="experience"][name$="[still_here]"]').checked;
+                    let end = '';
+                    if (!stillHere) {
+                        end = div.querySelector('[name^="experience"][name$="[end_date]"]').value;
+                    }
+                    const desc = div.querySelector('[name^="experience"][name$="[description]"]').value;
+                    expHtml += `<li class="p-3 bg-white rounded-lg"><b>${job}</b> at ${company} (${start}${stillHere ? ' - Present' : ' to ' + end})<br>
         Website: ${website || 'N/A'}<br>
         Address: ${address || 'N/A'}<br>
         Verifiable Contact: ${contact}<br>
         ${desc}
       </li>`;
-    });
-    // Education
-    let eduHtml = '';
-    const eduDivs = document.querySelectorAll('#education-list > div');
-    eduDivs.forEach((div, i) => {
-      const school = div.querySelector('[name^="education"][name$="[school]"]').value;
-      const degree = div.querySelector('[name^="education"][name$="[degree]"]').value;
-      const start = div.querySelector('[name^="education"][name$="[start_date]"]').value;
-      const end = div.querySelector('[name^="education"][name$="[end_date]"]').value;
-      eduHtml += `<li><b>${degree}</b> at ${school} (Admission: ${start} to Graduation: ${end})</li>`;
-    });
-    // Certificates
-    let certHtml = '';
-    const certDivs = document.querySelectorAll('#certificate-list > div');
-    certDivs.forEach((div, i) => {
-      const name = div.querySelector('[name^="certificate"][name$="[name]"]').value;
-      const issuer = div.querySelector('[name^="certificate"][name$="[issuer]"]').value;
-      const dateObtained = div.querySelector('[name^="certificate"][name$="[date_obtained]"]').value;
-      const canExpire = div.querySelector('[name^="certificate"][name$="[can_expire]"]').checked;
-      let expiry = '';
-      if (canExpire) {
-        expiry = div.querySelector('[name^="certificate"][name$="[expiry_date]"]').value;
-      }
-      certHtml += `<li><b>${name}</b> from ${issuer} (Obtained: ${dateObtained}${canExpire ? ', Expires: ' + expiry : ''})</li>`;
-    });
-    reviewList.innerHTML = `
-      <li class="list-group-item"><strong>Job Title:</strong> ${form.job_title.value}</li>
-      <li class="list-group-item"><strong>Name:</strong> ${form.full_name.value}</li>
-      <li class="list-group-item"><strong>Email:</strong> ${form.email.value}</li>
-      <li class="list-group-item"><strong>Phone:</strong> ${form.phone.value}</li>
-      <li class="list-group-item"><strong>Why interested:</strong> ${form.why_interested.value}</li>
-      <li class="list-group-item"><strong>Job Experience:</strong><ul>${expHtml || '<li>None</li>'}</ul></li>
-      <li class="list-group-item"><strong>Education:</strong><ul>${eduHtml || '<li>None</li>'}</ul></li>
-      <li class="list-group-item"><strong>Certificates:</strong><ul>${certHtml || '<li>None</li>'}</ul></li>
-      <li class="list-group-item"><strong>Start Date:</strong> ${form.start_date.value}</li>
-      <li class="list-group-item"><strong>CV:</strong> ${form.cv.files[0] ? form.cv.files[0].name : 'Not uploaded'}</li>
-      <li class="list-group-item"><strong>Cover Letter:</strong> ${form.cover_letter.files[0] ? form.cover_letter.files[0].name : 'Not uploaded'}</li>
+                });
+                // Education
+                let eduHtml = '';
+                const eduDivs = document.querySelectorAll('#education-list > div');
+                eduDivs.forEach((div, i) => {
+                    const school = div.querySelector('[name^="education"][name$="[school]"]').value;
+                    const degree = div.querySelector('[name^="education"][name$="[degree]"]').value;
+                    const start = div.querySelector('[name^="education"][name$="[start_date]"]').value;
+                    const end = div.querySelector('[name^="education"][name$="[end_date]"]').value;
+                    eduHtml += `<li class="p-3 bg-white rounded-lg"><b>${degree}</b> at ${school} (Admission: ${start} to Graduation: ${end})</li>`;
+                });
+                // Certificates
+                let certHtml = '';
+                const certDivs = document.querySelectorAll('#certificate-list > div');
+                certDivs.forEach((div, i) => {
+                    const name = div.querySelector('[name^="certificate"][name$="[name]"]').value;
+                    const issuer = div.querySelector('[name^="certificate"][name$="[issuer]"]').value;
+                    const dateObtained = div.querySelector('[name^="certificate"][name$="[date_obtained]"]').value;
+                    const canExpire = div.querySelector('[name^="certificate"][name$="[can_expire]"]').checked;
+                    let expiry = '';
+                    if (canExpire) {
+                        expiry = div.querySelector('[name^="certificate"][name$="[expiry_date]"]').value;
+                    }
+                    certHtml += `<li class="p-3 bg-white rounded-lg"><b>${name}</b> from ${issuer} (Obtained: ${dateObtained}${canExpire ? ', Expires: ' + expiry : ''})</li>`;
+                });
+                reviewList.innerHTML = `
+      <li class="p-3 bg-white rounded-lg"><strong>Job Title:</strong> ${form.job_title.value}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>Name:</strong> ${form.full_name.value}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>Email:</strong> ${form.email.value}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>Phone:</strong> ${form.phone.value}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>Why interested:</strong> ${form.why_interested.value}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>Job Experience:</strong><ul class="mt-2 space-y-2">${expHtml || '<li>None</li>'}</ul></li>
+      <li class="p-3 bg-white rounded-lg"><strong>Education:</strong><ul class="mt-2 space-y-2">${eduHtml || '<li>None</li>'}</ul></li>
+      <li class="p-3 bg-white rounded-lg"><strong>Certificates:</strong><ul class="mt-2 space-y-2">${certHtml || '<li>None</li>'}</ul></li>
+      <li class="p-3 bg-white rounded-lg"><strong>Start Date:</strong> ${form.start_date.value}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>CV:</strong> ${form.cv.files[0] ? form.cv.files[0].name : 'Not uploaded'}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>Cover Letter:</strong> ${form.cover_letter.files[0] ? form.cover_letter.files[0].name : 'Not uploaded'}</li>
     `;
-  }
-  document.getElementById('nextBtn').addEventListener('click', function() {
-    // Validate only visible fields in the current step
-    const activeStep = document.querySelector('.step.active');
-    const requiredFields = activeStep.querySelectorAll('[required]');
-    let valid = true;
-    requiredFields.forEach(field => {
-      if (field.type === 'file') {
-        if (!field.files || !field.files.length) {
-          field.classList.add('is-invalid');
-          valid = false;
-        } else {
-          field.classList.remove('is-invalid');
-        }
-      } else if (!field.value) {
-        field.classList.add('is-invalid');
-        valid = false;
-      } else {
-        field.classList.remove('is-invalid');
-      }
-    });
-    if (!valid) return;
-    if (currentStep < totalSteps) {
-      currentStep++;
-      if (currentStep === totalSteps) fillReview();
-      showStep(currentStep);
-    }
-  });
-  document.getElementById('prevBtn').addEventListener('click', function() {
-    if (currentStep > 1) {
-      currentStep--;
-      showStep(currentStep);
-    }
-  });
-  showStep(currentStep);
-  // Form submit
-  document.getElementById('jobAppForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const alertBox = document.getElementById('formAlert');
-    alertBox.classList.add('d-none');
-    fetch('Assets/forms/form-validation.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.status) {
-        alertBox.className = 'alert alert-success mt-4';
-        alertBox.textContent = 'Application submitted successfully!';
-        alertBox.classList.remove('d-none');
-        document.getElementById('jobAppForm').reset();
-        currentStep = 1;
-        showStep(currentStep);
-      } else {
-        alertBox.className = 'alert alert-danger mt-4';
-        alertBox.textContent = data.message || 'Could not submit application.';
-        alertBox.classList.remove('d-none');
-      }
-    })
-    .catch(() => {
-      alertBox.className = 'alert alert-danger mt-4';
-      alertBox.textContent = 'Network error. Please try again.';
-      alertBox.classList.remove('d-none');
-    });
-  });
+            }
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                // Validate only visible fields in the current step
+                const activeStep = document.querySelector('.step.active');
+                const requiredFields = activeStep.querySelectorAll('[required]');
+                let valid = true;
+                requiredFields.forEach(field => {
+                    if (field.type === 'file') {
+                        if (!field.files || !field.files.length) {
+                            field.classList.add('border-red-500');
+                            valid = false;
+                        } else {
+                            field.classList.remove('border-red-500');
+                        }
+                    } else if (!field.value) {
+                        field.classList.add('border-red-500');
+                        valid = false;
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+                if (!valid) return;
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    if (currentStep === totalSteps) fillReview();
+                    showStep(currentStep);
+                }
+            });
+            document.getElementById('prevBtn').addEventListener('click', function () {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+            showStep(currentStep);
+            // Form submit
+            document.getElementById('jobAppForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const alertBox = document.getElementById('formAlert');
+                alertBox.classList.add('hidden');
+                fetch('./Assets/forms/form-validation.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.status) {
+                            alertBox.className = 'mt-4 p-4 rounded-xl bg-green-100 border border-green-300 text-green-800';
+                            alertBox.textContent = 'Application submitted successfully!';
+                            alertBox.classList.remove('hidden');
+                            document.getElementById('jobAppForm').reset();
+                            currentStep = 1;
+                            showStep(currentStep);
+                        } else {
+                            alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
+                            alertBox.textContent = data.message || 'Could not submit application.';
+                            alertBox.classList.remove('hidden');
+                        }
+                    })
+                    .catch(() => {
+                        alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
+                        alertBox.textContent = 'Network error. Please try again.';
+                        alertBox.classList.remove('hidden');
+                    });
+            });
 
-  // --- Dynamic Job Experience ---
-  const experienceList = document.getElementById('experience-list');
-  document.getElementById('add-experience').addEventListener('click', function() {
-    const idx = experienceList.children.length;
-    const div = document.createElement('div');
-    div.className = 'border rounded p-3 mb-2 position-relative bg-light';
-    div.innerHTML = `
-      <button type="button" class="btn-close position-absolute top-0 end-0 remove-experience" title="Remove" style="z-index:2"></button>
-      <div class="row g-2">
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][job_title]" placeholder="Job Title" required></div>
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][company]" placeholder="Company" required></div>
-        <div class="col-md-6"><input type="url" class="form-control mb-2" name="experience[${idx}][website]" placeholder="Company Website (optional)"></div>
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][address]" placeholder="Company Address (optional)"></div>
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="experience[${idx}][contact]" placeholder="Verifiable Contact (required)" required></div>
-        <div class="col-md-6"><label class="form-label small">Job Start Date</label><input type="date" class="form-control mb-2" name="experience[${idx}][start_date]" required></div>
-        <div class="col-md-6 d-flex align-items-end"><div class="form-check mb-2"><input class="form-check-input still-here-toggle" type="checkbox" id="still-here-${idx}" name="experience[${idx}][still_here]"><label class="form-check-label" for="still-here-${idx}">I currently work here</label></div></div>
-        <div class="col-md-6 end-date-field"><label class="form-label small">Job End Date</label><input type="date" class="form-control mb-2" name="experience[${idx}][end_date]"></div>
-        <div class="col-12"><textarea class="form-control mb-2" name="experience[${idx}][description]" placeholder="Briefly describe your job role / roles" rows="2"></textarea></div>
+            // --- Dynamic Job Experience ---
+            const experienceList = document.getElementById('experience-list');
+            document.getElementById('add-experience').addEventListener('click', function () {
+                const idx = experienceList.children.length;
+                const div = document.createElement('div');
+                div.className = 'border border-slate-200 rounded-xl p-4 bg-background-light relative';
+                div.innerHTML = `
+      <button type="button" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-100 text-red-500 transition-all remove-experience">×</button>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][job_title]" placeholder="Job Title" required></div>
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][company]" placeholder="Company" required></div>
+        <div><input type="url" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][website]" placeholder="Company Website (optional)"></div>
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][address]" placeholder="Company Address (optional)"></div>
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][contact]" placeholder="Verifiable Contact (required)" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Job Start Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][start_date]" required></div>
+        <div class="flex items-end"><div class="flex items-center gap-2"><input class="still-here-toggle" type="checkbox" id="still-here-${idx}" name="experience[${idx}][still_here]"><label class="text-sm" for="still-here-${idx}">I currently work here</label></div></div>
+        <div class="end-date-field"><label class="block text-xs text-slate-900 mb-1">Job End Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][end_date]"></div>
+        <div class="md:col-span-2"><textarea class="w-full px-3 py-2 rounded-lg border border-slate-300" name="experience[${idx}][description]" placeholder="Briefly describe your job role / roles" rows="2"></textarea></div>
       </div>
     `;
-    experienceList.appendChild(div);
-    div.querySelector('.remove-experience').onclick = () => div.remove();
-    // Toggle end date field
-    const toggle = div.querySelector('.still-here-toggle');
-    const endDateField = div.querySelector('.end-date-field');
-    const endDateInput = endDateField.querySelector('input');
-    toggle.addEventListener('change', function() {
-      if (this.checked) {
-        endDateField.style.display = 'none';
-        endDateInput.required = false;
-        endDateInput.value = '';
-      } else {
-        endDateField.style.display = '';
-        endDateInput.required = true;
-      }
-    });
-    // Default state
-    endDateField.style.display = '';
-    endDateInput.required = true;
-  });
+                experienceList.appendChild(div);
+                div.querySelector('.remove-experience').onclick = () => div.remove();
+                // Toggle end date field
+                const toggle = div.querySelector('.still-here-toggle');
+                const endDateField = div.querySelector('.end-date-field');
+                const endDateInput = endDateField.querySelector('input');
+                toggle.addEventListener('change', function () {
+                    if (this.checked) {
+                        endDateField.style.display = 'none';
+                        endDateInput.required = false;
+                        endDateInput.value = '';
+                    } else {
+                        endDateField.style.display = '';
+                        endDateInput.required = true;
+                    }
+                });
+                // Default state
+                endDateField.style.display = '';
+                endDateInput.required = true;
+            });
 
-  // --- Dynamic Education ---
-  const educationList = document.getElementById('education-list');
-  document.getElementById('add-education').addEventListener('click', function() {
-    const idx = educationList.children.length;
-    const div = document.createElement('div');
-    div.className = 'border rounded p-3 mb-2 position-relative bg-light';
-    div.innerHTML = `
-      <button type="button" class="btn-close position-absolute top-0 end-0 remove-education" title="Remove" style="z-index:2"></button>
-      <div class="row g-2">
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="education[${idx}][school]" placeholder="School" required></div>
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="education[${idx}][degree]" placeholder="Degree" required></div>
-        <div class="col-md-6"><label class="form-label small">Admission Date</label><input type="date" class="form-control mb-2" name="education[${idx}][start_date]" required></div>
-        <div class="col-md-6"><label class="form-label small">Graduation Date</label><input type="date" class="form-control mb-2" name="education[${idx}][end_date]" required></div>
+            // --- Dynamic Education ---
+            const educationList = document.getElementById('education-list');
+            document.getElementById('add-education').addEventListener('click', function () {
+                const idx = educationList.children.length;
+                const div = document.createElement('div');
+                div.className = 'border border-slate-200 rounded-xl p-4 bg-background-light relative';
+                div.innerHTML = `
+      <button type="button" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-100 text-red-500 transition-all remove-education">×</button>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][school]" placeholder="School" required></div>
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][degree]" placeholder="Degree" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Admission Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][start_date]" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Graduation Date</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="education[${idx}][end_date]" required></div>
       </div>
     `;
-    educationList.appendChild(div);
-    div.querySelector('.remove-education').onclick = () => div.remove();
-  });
+                educationList.appendChild(div);
+                div.querySelector('.remove-education').onclick = () => div.remove();
+            });
 
-  // --- Dynamic Certificates ---
-  const certificateList = document.getElementById('certificate-list');
-  document.getElementById('add-certificate').addEventListener('click', function() {
-    const idx = certificateList.children.length;
-    const div = document.createElement('div');
-    div.className = 'border rounded p-3 mb-2 position-relative bg-light';
-    div.innerHTML = `
-      <button type="button" class="btn-close position-absolute top-0 end-0 remove-certificate" title="Remove" style="z-index:2"></button>
-      <div class="row g-2">
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="certificate[${idx}][name]" placeholder="Certificate Name" required></div>
-        <div class="col-md-6"><input type="text" class="form-control mb-2" name="certificate[${idx}][issuer]" placeholder="Issuer" required></div>
-        <div class="col-md-6"><label class="form-label small">Date Obtained</label><input type="date" class="form-control mb-2" name="certificate[${idx}][date_obtained]" required></div>
-        <div class="col-md-6 d-flex align-items-end">
-          <div class="form-check mb-2">
-            <input class="form-check-input cert-expiry-toggle" type="checkbox" id="cert-expiry-${idx}" name="certificate[${idx}][can_expire]">
-            <label class="form-check-label" for="cert-expiry-${idx}">Can Expire?</label>
+            // --- Dynamic Certificates ---
+            const certificateList = document.getElementById('certificate-list');
+            document.getElementById('add-certificate').addEventListener('click', function () {
+                const idx = certificateList.children.length;
+                const div = document.createElement('div');
+                div.className = 'border border-slate-200 rounded-xl p-4 bg-background-light relative';
+                div.innerHTML = `
+      <button type="button" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-100 text-red-500 transition-all remove-certificate">×</button>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][name]" placeholder="Certificate Name" required></div>
+        <div><input type="text" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][issuer]" placeholder="Issuer" required></div>
+        <div><label class="block text-xs text-slate-900 mb-1">Date Obtained</label><input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][date_obtained]" required></div>
+        <div class="flex items-end">
+          <div class="flex items-center gap-2">
+            <input class="cert-expiry-toggle" type="checkbox" id="cert-expiry-${idx}" name="certificate[${idx}][can_expire]">
+            <label class="text-sm" for="cert-expiry-${idx}">Can Expire?</label>
           </div>
         </div>
-        <div class="col-md-6 expiry-date-field" style="display:none">
-          <label class="form-label small">Expiry Date</label>
-          <input type="date" class="form-control mb-2" name="certificate[${idx}][expiry_date]">
+        <div class="expiry-date-field md:col-span-2" style="display:none">
+          <label class="block text-xs text-slate-900 mb-1">Expiry Date</label>
+          <input type="date" class="w-full px-3 py-2 rounded-lg border border-slate-300" name="certificate[${idx}][expiry_date]">
         </div>
       </div>
     `;
-    certificateList.appendChild(div);
-    div.querySelector('.remove-certificate').onclick = () => div.remove();
-    // Toggle expiry date field
-    const toggle = div.querySelector('.cert-expiry-toggle');
-    const expiryField = div.querySelector('.expiry-date-field');
-    toggle.addEventListener('change', function() {
-      expiryField.style.display = this.checked ? '' : 'none';
-      expiryField.querySelector('input').required = this.checked;
-    });
-  });
-});
-</script>
-</body>
-</html> 
+                certificateList.appendChild(div);
+                div.querySelector('.remove-certificate').onclick = () => div.remove();
+                // Toggle expiry date field
+                const toggle = div.querySelector('.cert-expiry-toggle');
+                const expiryField = div.querySelector('.expiry-date-field');
+                toggle.addEventListener('change', function () {
+                    expiryField.style.display = this.checked ? '' : 'none';
+                    expiryField.querySelector('input').required = this.checked;
+                });
+            });
+        });
+    </script>
 
+</body>
+
+</html>
