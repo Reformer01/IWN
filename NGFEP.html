@@ -10,6 +10,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script>
         tailwind.config = {
@@ -38,6 +40,10 @@
         };
     </script>
     <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
         .glass-nav {
             backdrop-filter: blur(12px);
             background-color: rgba(255, 255, 255, 0.9);
@@ -47,42 +53,6 @@
             background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8)), url('./Assets/img/k-12 (2).jpg');
             background-size: cover;
             background-position: center;
-        }
-
-        /* Client Zone Widget Styles */
-        .client-zone-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #F58C29;
-            color: white !important;
-            text-decoration: none !important;
-            padding: 12px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            font-weight: bold;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .client-zone-btn:hover {
-            background-color: #FF6600;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            color: white !important;
-        }
-
-        .widget-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (max-width: 768px) {
-            #client-zone-widget {
-                bottom: 20px !important;
-                right: 20px !important;
-            }
         }
 
         .tab-btn.active {
@@ -120,17 +90,19 @@
 <body class="bg-background-light text-slate-900 font-body antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="./index.html" class="flex items-center gap-4">
                 <img src="./Assets/icons/logos/ngfep no bg.png" alt="NGFEP Logo" class="h-12 object-contain">
             </a>
+
+            <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
                 <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
-                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                    </button>
+                    <button
+                        class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">Internet
+                        Service <span class="material-symbols-outlined text-[18px]">expand_more</span></button>
                     <div
                         class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                         <a href="./internet_for_home.html"
@@ -143,8 +115,7 @@
                 </div>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
                     Services</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
-                    Smart
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World Smart
                     Life</a>
                 <a class="text-primary font-bold whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./Google_Workspace.html">Google
@@ -153,9 +124,82 @@
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
                     target="_blank">Client Zone</a>
             </div>
-            <a href="./contact.html"
-                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
-                Us</a>
+
+            <div class="flex items-center gap-4">
+                <a href="./contact.html"
+                    class="hidden md:block bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                    Us</a>
+
+                <!-- Hamburger Button -->
+                <button class="lg:hidden p-2 text-slate-700 hover:text-primary transition-colors"
+                    @click="mobileMenuOpen = !mobileMenuOpen">
+                    <span class="material-symbols-outlined text-3xl" x-show="!mobileMenuOpen">menu</span>
+                    <span class="material-symbols-outlined text-3xl" x-show="mobileMenuOpen" x-cloak>close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen" x-collapse x-cloak
+            class="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 overflow-hidden">
+            <div class="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+                <a href="./index.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home</span> Home
+                </a>
+
+                <div x-data="{ internetOpen: false }">
+                    <button @click="internetOpen = !internetOpen"
+                        class="w-full px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">cloud_done</span> Internet Services
+                        </div>
+                        <span class="material-symbols-outlined transition-transform duration-300"
+                            :class="{ 'rotate-180': internetOpen }">expand_more</span>
+                    </button>
+                    <div x-show="internetOpen" x-collapse x-cloak class="pl-12 flex flex-col gap-1 pb-2">
+                        <a href="./internet_for_home.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Enterprise
+                            Internet</a>
+                    </div>
+                </div>
+
+                <a href="./msp.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">settings_suggest</span> Manage IT Services
+                </a>
+                <a href="./SmartLife.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home_iot_device</span> I-World Smart Life
+                </a>
+                <a href="./NGFEP.html"
+                    class="px-4 py-3 rounded-xl font-bold text-primary hover:bg-slate-50 transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">school</span> NGFEP
+                </a>
+                <a href="./Google_Workspace.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">cloud</span> Google Cloud Services
+                </a>
+                <a href="./careers.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">work</span> Careers
+                </a>
+                <a href="https://app.iwn.ng" target="_blank"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">account_circle</span> Client Zone
+                </a>
+
+                <div class="mt-4 pt-4 border-t border-slate-100">
+                    <a href="./contact.html"
+                        class="w-full inline-block bg-primary hover:bg-orange-600 text-white px-6 py-4 rounded-full font-extrabold text-center shadow-lg shadow-primary/20 transition-all text-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -169,7 +213,7 @@
         </div>
         <div class="container mx-auto px-6 relative z-10 text-center">
             <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 font-display leading-tight">
+                <h1 class="text-3xl md:text-6xl font-extrabold text-white mb-6 font-display leading-tight">
                     Transform Education with the <span class="text-google-blue">Nigeria Google for Education Program
                         (NGFEP)</span>
                 </h1>
@@ -187,17 +231,10 @@
                         class="bg-google-blue hover:bg-blue-600 text-white px-10 py-4 rounded-full font-bold shadow-2xl transition-all inline-flex items-center gap-2">
                         Join the Program <span class="material-symbols-outlined">school</span>
                     </a>
-                    <a href="#covered"
-                        class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">
-                        What's Covered
-                    </a>
                 </div>
             </div>
             <!-- Intra-page Quick Nav -->
             <div class="flex flex-wrap justify-center gap-3 mt-10">
-                <a href="#covered"
-                    class="px-5 py-2 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-sm font-bold rounded-full border border-white/20 transition-all">What's
-                    Covered</a>
                 <a href="#legitimacy"
                     class="px-5 py-2 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-sm font-bold rounded-full border border-white/20 transition-all">Why
                     Trust Us</a>
@@ -258,17 +295,14 @@
                     <span class="material-symbols-outlined text-sm">groups</span>
                     Who Benefits from NGFEP?
                 </div>
-                <h2 class="text-4xl font-bold text-navy font-display leading-tight mb-4 max-w-3xl mx-auto">A Program
-                    That Works for <span class="text-google-blue">Everyone</span> in Your School</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy font-display leading-tight mb-4 max-w-3xl mx-auto">
+                    A Program That Works for <span class="text-google-blue">Everyone</span> in Your School</h2>
                 <p class="text-base text-slate-500 max-w-2xl mx-auto mb-8">Whether you run the school, work in the
                     classroom, or sit at a desk — NGFEP delivers real, measurable benefits to each group.</p>
                 <div class="flex flex-col justify-center md:flex-row gap-4 max-w-lg mx-auto md:max-w-2xl lg:max-w-full">
                     <a href="#enquiry"
                         class="cursor-pointer bg-google-blue py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-white transition-all duration-500 focus:outline-none hover:bg-blue-700">Apply
                         Now</a>
-                    <a href="#covered"
-                        class="cursor-pointer bg-blue-50 py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-google-blue transition-all duration-500 focus:outline-none hover:bg-blue-100">See
-                        What's Covered</a>
                 </div>
             </div>
 
@@ -283,12 +317,13 @@
                                 <span class="material-symbols-outlined text-white text-3xl">admin_panel_settings</span>
                             </div>
                             <h3 class="text-lg font-bold xl:text-xl text-white pb-4 w-full xl:w-64">
-                                For School Management &amp; Leadership
+                                For School Management & Leadership
                             </h3>
-                            <p class="text-xs font-normal text-slate-300 w-full mb-6 xl:w-64 leading-relaxed">Modernise
-                                your institution at zero capital expenditure. Attract quality enrolments, satisfy
-                                accreditation bodies, and position your school as a forward-thinking digital learning
-                                centre — all while I-World handles every technical detail.</p>
+                            <p class="text-xs font-normal text-slate-300 w-full mb-6 xl:w-64 leading-relaxed">Achieve a
+                                world-class digital learning environment at zero initial cost. Attract more students and
+                                exceed accreditation benchmarks.
+                                I-World manages the technical complexities for you while you position your institution
+                                at the forefront of educational innovation.</p>
                             <a href="#enquiry"
                                 class="py-2 px-5 border border-solid border-slate-400 rounded-full gap-2 text-xs text-white font-semibold inline-flex items-center justify-between transition-all duration-500 hover:bg-white/10">
                                 Apply for Your School
@@ -314,10 +349,11 @@
                         <div class="block mb-4">
                             <span class="material-symbols-outlined text-white text-3xl">school</span>
                         </div>
-                        <h3 class="py-3 text-white text-lg font-bold xl:text-xl">For Educators &amp; Teachers</h3>
-                        <p class="text-xs font-normal text-white mb-6 leading-relaxed">Gain access to Google's
-                            internationally certified teaching tools, AI-powered lesson planning, and hands-on training
-                            — so you can deliver more engaging, personalised lessons without the extra workload.</p>
+                        <h3 class="py-3 text-white text-lg font-bold xl:text-xl">For Educators</h3>
+                        <p class="text-xs font-normal text-white mb-6 leading-relaxed">Get access to world-class
+                            teaching tools and automated lesson planning with AI capabilities. Benefit from the hands-on
+                            training you need to elevate your classroom impact without adding a single hour to your
+                            workload. Become a Google-certified educator.</p>
                         <a href="#covered"
                             class="py-2 px-5 border border-solid border-slate-300 rounded-full gap-2 text-xs text-white font-semibold inline-flex items-center justify-between transition-all duration-500 hover:bg-white/10">
                             See Educator Tools
@@ -338,10 +374,10 @@
                             <span class="material-symbols-outlined text-white text-3xl">menu_book</span>
                         </div>
                         <h3 class="py-3 text-white text-lg font-bold xl:text-xl">For Students</h3>
-                        <p class="text-xs font-normal text-white mb-6 leading-relaxed">Receive a personal Chromebook
-                            device, access to Google Workspace for Education, high-speed internet, and a
-                            Google-certified digital learning environment — giving you the skills and tools to succeed
-                            today and tomorrow.</p>
+                        <p class="text-xs font-normal text-white mb-6 leading-relaxed">Everything You Need to Succeed:
+                            Receive a personal laptop, fast internet, and access to premium Google Workspace tools. Our
+                            certified digital ecosystem ensures you have the right technology and hands-on experience to
+                            master your studies and prepare for a digital-first world.</p>
                         <a href="#enquiry"
                             class="py-2 px-5 border border-solid border-slate-300 rounded-full gap-2 text-xs text-white font-semibold inline-flex items-center justify-between transition-all duration-500 hover:bg-white/10">
                             Learn More
@@ -791,9 +827,6 @@
             </div>
             <!-- Section Quick Nav -->
             <div class="flex flex-wrap justify-center gap-3 mt-16 pt-8 border-t border-slate-100">
-                <a href="#covered"
-                    class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">What's
-                    Covered</a>
                 <a href="#partner-schools"
                     class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-full transition-all">Partner
                     Schools</a>
@@ -985,11 +1018,6 @@
         </div>
     </footer>
 
-    <div class="fixed bottom-8 right-8 z-50"><a href="./contact.html"
-            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
-                class="material-symbols-outlined">support_agent</span><span
-                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
-                With Us</span></a></div>
 
     <script>
         function showTab(index) {
@@ -1009,25 +1037,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="./Assets/js/redesign-form.js"></script>
 
-    <div class="fixed bottom-8 right-8 z-50"><a href="./contact.html"
-            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group"><span
-                class="material-symbols-outlined">support_agent</span><span
-                class="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-500 font-bold whitespace-nowrap">Chat
-                With Us</span></a></div>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 
-    <!-- Client Zone Widget -->
-    <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
-        <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
-            <div class="widget-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="margin-right: 8px;">
-                    <path fill="#FFFFFF"
-                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-                <span>Client Zone</span>
-            </div>
-        </a>
-    </div>
 </body>
 
 </html>

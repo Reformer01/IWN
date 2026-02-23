@@ -15,9 +15,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
-    <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -45,6 +46,10 @@
         };
     </script>
     <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
         .glass-nav {
             backdrop-filter: blur(12px);
             background-color: rgba(255, 255, 255, 0.9);
@@ -70,59 +75,25 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        /* Client Zone Widget Styles */
-        .client-zone-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #F58C29;
-            color: white !important;
-            text-decoration: none !important;
-            padding: 12px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            font-weight: bold;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .client-zone-btn:hover {
-            background-color: #FF6600;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            color: white !important;
-        }
-
-        .widget-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (max-width: 768px) {
-            #client-zone-widget {
-                bottom: 20px !important;
-                right: 20px !important;
-            }
-        }
     </style>
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="./index.html">
                 <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
+
+            <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
                 <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
-                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                    </button>
+                    <button
+                        class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">Internet
+                        Service <span class="material-symbols-outlined text-[18px]">expand_more</span></button>
                     <div
                         class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                         <a href="./internet_for_home.html"
@@ -133,10 +104,8 @@
                             class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
                     </div>
                 </div>
-                <a class="text-primary font-bold whitespace-nowrap" href="./index.html">Manage IT
-                    Services</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
-                    Smart
+                <a class="text-primary font-bold whitespace-nowrap" href="./msp.html">Manage IT Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World Smart
                     Life</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./Google_Workspace.html">Google
@@ -145,9 +114,82 @@
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
                     target="_blank">Client Zone</a>
             </div>
-            <a href="./contact.html"
-                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
-                Us</a>
+
+            <div class="flex items-center gap-4">
+                <a href="./contact.html"
+                    class="hidden md:block bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                    Us</a>
+
+                <!-- Hamburger Button -->
+                <button class="lg:hidden p-2 text-slate-700 hover:text-primary transition-colors"
+                    @click="mobileMenuOpen = !mobileMenuOpen">
+                    <span class="material-symbols-outlined text-3xl" x-show="!mobileMenuOpen">menu</span>
+                    <span class="material-symbols-outlined text-3xl" x-show="mobileMenuOpen" x-cloak>close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen" x-collapse x-cloak
+            class="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 overflow-hidden">
+            <div class="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+                <a href="./index.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home</span> Home
+                </a>
+
+                <div x-data="{ internetOpen: false }">
+                    <button @click="internetOpen = !internetOpen"
+                        class="w-full px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">cloud_done</span> Internet Services
+                        </div>
+                        <span class="material-symbols-outlined transition-transform duration-300"
+                            :class="{ 'rotate-180': internetOpen }">expand_more</span>
+                    </button>
+                    <div x-show="internetOpen" x-collapse x-cloak class="pl-12 flex flex-col gap-1 pb-2">
+                        <a href="./internet_for_home.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Enterprise
+                            Internet</a>
+                    </div>
+                </div>
+
+                <a href="./msp.html"
+                    class="px-4 py-3 rounded-xl font-bold text-primary bg-slate-50 transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">settings_suggest</span> Manage IT Services
+                </a>
+                <a href="./SmartLife.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home_iot_device</span> I-World Smart Life
+                </a>
+                <a href="./NGFEP.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">school</span> NGFEP
+                </a>
+                <a href="./Google_Workspace.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">cloud</span> Google Cloud Services
+                </a>
+                <a href="./careers.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">work</span> Careers
+                </a>
+                <a href="https://app.iwn.ng" target="_blank"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">account_circle</span> Client Zone
+                </a>
+
+                <div class="mt-4 pt-4 border-t border-slate-100">
+                    <a href="./contact.html"
+                        class="w-full inline-block bg-primary hover:bg-orange-600 text-white px-6 py-4 rounded-full font-extrabold text-center shadow-lg shadow-primary/20 transition-all text-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -168,10 +210,6 @@
                 supports, and
                 upgrades your entire IT setup at zero upfront cost — no capital investment required from your side.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a class="px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-orange-500/30"
-                    href="#msp-form">Call Us Now</a>
-            </div>
             <!-- Intra-page Quick Nav -->
             <div class="flex flex-wrap justify-center gap-3 mt-8">
                 <a href="#services-detail"
@@ -690,21 +728,19 @@
         </div>
     </footer>
 
-    With Us</span></a></div>
-
-    <!-- Client Zone Widget -->
-    <div id="client-zone-widget" style="position: fixed; bottom: 80px; right: 20px; z-index: 999;">
-        <a href="https://app.iwn.ng" target="_blank" class="client-zone-btn">
-            <div class="widget-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="margin-right: 8px;">
-                    <path fill="#FFFFFF"
-                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-                <span>Client Zone</span>
-            </div>
-        </a>
-    </div>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/65fd5fc51ec1082f04da1ba9/1hpirs7am';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
