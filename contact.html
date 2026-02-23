@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script>
         tailwind.config = {
@@ -39,7 +40,27 @@
             },
         };
     </script>
+    <script>
+        // Function to generate a simple token (for demonstration)
+        function generateToken() {
+            return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+
+        // Set the form_token on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const formTokenField = document.getElementById('form_token');
+            if (formTokenField) {
+                formTokenField.value = generateToken();
+            }
+        });
+    </script>
     <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         .bento-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -93,23 +114,37 @@
                 right: 20px !important;
             }
         }
+
+        /* Anti-Spam Honeypot */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
     </style>
 </head>
 
 <body class="bg-background-light text-slate-900 font-sans antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="./index.html">
                 <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
-            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
                 <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
-                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                    </button>
+                    <button
+                        class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">Internet
+                        Service <span class="material-symbols-outlined text-[18px]">expand_more</span></button>
                     <div
                         class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                         <a href="./internet_for_home.html"
@@ -122,8 +157,7 @@
                 </div>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
                     Services</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
-                    Smart
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World Smart
                     Life</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./Google_Workspace.html">Google
@@ -133,6 +167,68 @@
                     target="_blank">Client Zone</a>
             </div>
 
+            <!-- Hamburger Button -->
+            <button class="lg:hidden p-2 text-slate-700 hover:text-primary transition-colors"
+                @click="mobileMenuOpen = !mobileMenuOpen">
+                <span class="material-symbols-outlined text-3xl" x-show="!mobileMenuOpen">menu</span>
+                <span class="material-symbols-outlined text-3xl" x-show="mobileMenuOpen" x-cloak>close</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen" x-collapse x-cloak
+            class="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 overflow-hidden">
+            <div class="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+                <a href="./index.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home</span> Home
+                </a>
+
+                <div x-data="{ internetOpen: false }">
+                    <button @click="internetOpen = !internetOpen"
+                        class="w-full px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">cloud_done</span> Internet Services
+                        </div>
+                        <span class="material-symbols-outlined transition-transform duration-300"
+                            :class="{ 'rotate-180': internetOpen }">expand_more</span>
+                    </button>
+                    <div x-show="internetOpen" x-collapse x-cloak class="pl-12 flex flex-col gap-1 pb-2">
+                        <a href="./internet_for_home.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Enterprise
+                            Internet</a>
+                    </div>
+                </div>
+
+                <a href="./msp.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">settings_suggest</span> Manage IT Services
+                </a>
+                <a href="./SmartLife.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home_iot_device</span> I-World Smart Life
+                </a>
+                <a href="./NGFEP.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">school</span> NGFEP
+                </a>
+                <a href="./Google_Workspace.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">cloud</span> Google Cloud Services
+                </a>
+                <a href="./careers.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">work</span> Careers
+                </a>
+                <a href="https://app.iwn.ng" target="_blank"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">account_circle</span> Client Zone
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -158,6 +254,14 @@
                     </p>
                 </div>
                 <form class="space-y-6" id="contactForm" action="./Assets/forms/form-validation.php" method="POST">
+                    <!-- Anti-Spam Honeypots -->
+                    <div class="hp-field">
+                        <label for="middle_name">Middle Name</label>
+                        <input type="text" name="middle_name" id="middle_name" tabindex="-1" autocomplete="off">
+                        <label for="website_url">Website URL</label>
+                        <input type="text" name="website_url" id="website_url" tabindex="-1" autocomplete="off">
+                        <input type="hidden" name="form_token" id="form_token" value="">
+                    </div>
                     <input type="hidden" name="subject" value="Website Enquiry">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
@@ -357,7 +461,7 @@
         <div class="mt-20">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                 <div>
-                    <h2 class="text-4xl font-extrabold text-navy">Our Office Locations</h2>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-navy">Our Office Locations</h2>
                     <p class="text-slate-500 mt-2">Visit any of our physical branches across Nigeria.</p>
                 </div>
             </div>
@@ -526,6 +630,14 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tokenField = document.getElementById('form_token');
+            if (tokenField) {
+                tokenField.value = Math.floor(Date.now() / 1000);
+            }
+        });
+    </script>
     <script src="./Assets/js/redesign-form.js"></script>
 
     <!-- Client Zone Widget -->

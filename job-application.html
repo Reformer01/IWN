@@ -39,7 +39,14 @@
             },
         };
     </script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
         .glass-nav {
             backdrop-filter: blur(12px);
             background-color: rgba(255, 255, 255, 0.9);
@@ -80,18 +87,76 @@
             background: #34A853;
             color: #fff;
         }
+
+        /* Loading Overlay Styles */
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: none;
+            /* Changed from flex to none */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        #loadingOverlay.show {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #F58C29;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Anti-Spam Honeypot */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
     </style>
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
 
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+        <p class="font-bold text-lg">Submitting your application...</p>
+        <p class="text-white/70 text-sm mt-2">Please wait while we process your request.</p>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="./index.html">
                 <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
-            <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
                 <div class="relative group">
                     <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
@@ -113,16 +178,88 @@
                     Smart
                     Life</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap"
-                    href="./Google_Workspace.html">Google Cloud Services</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap"
-                    href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./Google_Workspace.html">Google
+                    Cloud Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./careers.html">Careers</a>
                 <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
                     target="_blank">Client Zone</a>
             </div>
-            <a href="./contact.html"
-                class="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm">Contact
-                Us</a>
+
+            <div class="flex items-center gap-4 lg:ml-8">
+                <a href="./contact.html"
+                    class="hidden md:block bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                    Us</a>
+
+                <!-- Hamburger Button -->
+                <button class="lg:hidden p-2 text-slate-700 hover:text-primary transition-colors"
+                    @click="mobileMenuOpen = !mobileMenuOpen">
+                    <span class="material-symbols-outlined text-3xl" x-show="!mobileMenuOpen">menu</span>
+                    <span class="material-symbols-outlined text-3xl" x-show="mobileMenuOpen" x-cloak>close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen" x-collapse x-cloak
+            class="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 overflow-hidden">
+            <div class="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+                <a href="./index.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home</span> Home
+                </a>
+
+                <div x-data="{ internetOpen: false }">
+                    <button @click="internetOpen = !internetOpen"
+                        class="w-full px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">cloud_done</span> Internet Services
+                        </div>
+                        <span class="material-symbols-outlined transition-transform duration-300"
+                            :class="{ 'rotate-180': internetOpen }">expand_more</span>
+                    </button>
+                    <div x-show="internetOpen" x-collapse x-cloak class="pl-12 flex flex-col gap-1 pb-2">
+                        <a href="./internet_for_home.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Home Internet</a>
+                        <a href="./internet_for_business.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Enterprise
+                            Internet</a>
+                    </div>
+                </div>
+
+                <a href="./msp.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">settings_suggest</span> Manage IT Services
+                </a>
+                <a href="./SmartLife.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">home_iot_device</span> I-World Smart Life
+                </a>
+                <a href="./NGFEP.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">school</span> NGFEP
+                </a>
+                <a href="./Google_Workspace.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">cloud</span> Google Cloud Services
+                </a>
+                <a href="./careers.html"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">work</span> Careers
+                </a>
+                <a href="https://app.iwn.ng" target="_blank"
+                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">account_circle</span> Client Zone
+                </a>
+
+                <div class="mt-4 pt-4 border-t border-slate-100">
+                    <a href="./contact.html"
+                        class="w-full inline-block bg-primary hover:bg-orange-600 text-white px-6 py-4 rounded-full font-extrabold text-center shadow-lg shadow-primary/20 transition-all text-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -185,6 +322,14 @@
 
                 <form id="jobAppForm" enctype="multipart/form-data" novalidate
                     action="./Assets/forms/form-validation.php" method="POST">
+                    <!-- Anti-Spam Honeypots -->
+                    <div class="hp-field">
+                        <label for="middle_name">Middle Name</label>
+                        <input type="text" name="middle_name" id="middle_name" tabindex="-1" autocomplete="off">
+                        <label for="website_url">Website URL</label>
+                        <input type="text" name="website_url" id="website_url" tabindex="-1" autocomplete="off">
+                        <input type="hidden" name="form_token" id="form_token" value="">
+                    </div>
                     <input type="hidden" name="subject" value="Career Application">
                     <!-- Step 1: Basic Info -->
                     <div class="step step-1 active">
@@ -465,13 +610,12 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="./index.html"
-                                class="text-slate-300 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="./about.html"
-                                class="text-slate-300 hover:text-white transition-colors">About
+                        <li><a href="./index.html" class="text-slate-300 hover:text-white transition-colors">Home</a>
+                        </li>
+                        <li><a href="./about.html" class="text-slate-300 hover:text-white transition-colors">About
                                 Us</a></li>
-                        <li><a href="./contact.html"
-                                class="text-slate-300 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="./contact.html" class="text-slate-300 hover:text-white transition-colors">Contact
+                                Us</a></li>
                     </ul>
                 </div>
                 <div>
@@ -488,16 +632,15 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-secondary">Cloud Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="./NGFEP.html"
-                                class="text-slate-300 hover:text-white transition-colors">Nigeria
+                        <li><a href="./NGFEP.html" class="text-slate-300 hover:text-white transition-colors">Nigeria
                                 Google for Education</a></li>
                         <li><a href="./Google_Workspace.html"
                                 class="text-slate-300 hover:text-white transition-colors">Google Cloud Services</a></li>
-                        <li><a href="./msp.html"
-                                class="text-slate-300 hover:text-white transition-colors">Managed Service Provider</a>
+                        <li><a href="./msp.html" class="text-slate-300 hover:text-white transition-colors">Managed
+                                Service Provider</a>
                         </li>
-                        <li><a href="./SmartLife.html"
-                                class="text-slate-300 hover:text-white transition-colors">Smart Life</a>
+                        <li><a href="./SmartLife.html" class="text-slate-300 hover:text-white transition-colors">Smart
+                                Life</a>
                         </li>
                     </ul>
                 </div>
@@ -629,7 +772,7 @@
                 });
                 reviewList.innerHTML = `
       <li class="p-3 bg-white rounded-lg"><strong>Job Title:</strong> ${form.job_title.value}</li>
-      <li class="p-3 bg-white rounded-lg"><strong>Name:</strong> ${form.full_name.value}</li>
+      <li class="p-3 bg-white rounded-lg"><strong>Name:</strong> ${form.first_name.value} ${form.surname.value}</li>
       <li class="p-3 bg-white rounded-lg"><strong>Email:</strong> ${form.email.value}</li>
       <li class="p-3 bg-white rounded-lg"><strong>Phone:</strong> ${form.phone.value}</li>
       <li class="p-3 bg-white rounded-lg"><strong>Why interested:</strong> ${form.why_interested.value}</li>
@@ -680,13 +823,22 @@
                 e.preventDefault();
                 const formData = new FormData(this);
                 const alertBox = document.getElementById('formAlert');
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                const submitBtn = document.getElementById('submitBtn');
+
                 alertBox.classList.add('hidden');
+                loadingOverlay.classList.add('show');
+                if (submitBtn) submitBtn.disabled = true;
+
                 fetch('./Assets/forms/form-validation.php', {
                     method: 'POST',
                     body: formData
                 })
                     .then(res => res.json())
                     .then(data => {
+                        loadingOverlay.classList.remove('show');
+                        if (submitBtn) submitBtn.disabled = false;
+
                         if (data.status) {
                             alertBox.className = 'mt-4 p-4 rounded-xl bg-green-100 border border-green-300 text-green-800';
                             alertBox.textContent = 'Application submitted successfully!';
@@ -701,6 +853,9 @@
                         }
                     })
                     .catch(() => {
+                        loadingOverlay.classList.remove('show');
+                        if (submitBtn) submitBtn.disabled = false;
+
                         alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
                         alertBox.textContent = 'Network error. Please try again.';
                         alertBox.classList.remove('hidden');
@@ -800,6 +955,10 @@
                     expiryField.style.display = this.checked ? '' : 'none';
                     expiryField.querySelector('input').required = this.checked;
                 });
+                const tokenField = document.getElementById('form_token');
+                if (tokenField) {
+                    tokenField.value = Math.floor(Date.now() / 1000);
+                }
             });
         });
     </script>

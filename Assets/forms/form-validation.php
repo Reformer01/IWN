@@ -49,12 +49,49 @@ if (isset($_SESSION['last_submission']) && $_SESSION['last_submission'] === $sub
 $_SESSION['last_submission'] = $submissionKey;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // --- ANTI-SPAM CHECK (Honeypot & Timing) ---
+    $isSpam = false;
+    
+    // Check honeypot fields
+    if (!empty($_POST['middle_name']) || !empty($_POST['website_url'])) {
+        $isSpam = true;
+        logDebug('Spam detected via honeypot', [
+            'middle_name' => $_POST['middle_name'] ?? '',
+            'website_url' => $_POST['website_url'] ?? ''
+        ]);
+    }
+    
+    // Check submission timing (must be at least 3 seconds)
+    $formToken = isset($_POST['form_token']) ? (int)$_POST['form_token'] : 0;
+    $currentTime = time();
+    if ($formToken > 0 && ($currentTime - $formToken < 3)) {
+        $isSpam = true;
+        logDebug('Spam detected via timing', [
+            'elapsed_seconds' => $currentTime - $formToken,
+            'token' => $formToken
+        ]);
+    }
+    
+    // If spam, silently reject (return success to trick bot)
+    if ($isSpam) {
+        $data['status'] = true; // Trick the bot
+        $data['message'] = 'Your request has been received. An agent will reach out to you.';
+        echo json_encode($data);
+        exit;
+    }
+    // --- END ANTI-SPAM CHECK ---
+
     $fields = $_POST;
     $uploads = $_FILES;
     $content = $files = array();
     
     // Iterate over input fields
     foreach ($fields as $field => $value) {
+        // Skip honeypot and internal fields
+        if (in_array($field, ['middle_name', 'website_url', 'form_token', 'subject'])) {
+            continue;
+        }
+        
         // Replace underscores with spaces and capitalize first letters
         $field = ucwords(str_replace('_', ' ', $field));
         // Separate multiple values by commas or just append
@@ -132,7 +169,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               'titilade.bakare@iworldnetworks.net',
               'kikachukwu.omordia@iworldnetworks.net',
               'jeffery.udoji@iworldnetworks.net',
-              'fisayo.adeboye@iworldnetworks.net',
               'reformer.ejembi@iworldnetworks.net',
               'emmanuel.oladimeji@iworldnetworks.net',
               'kolade.adegelu@iworldnetworks.net',
