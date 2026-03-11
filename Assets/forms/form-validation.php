@@ -61,7 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ]);
     }
     
-    // Check submission timing (must be at least 3 seconds)
+    // Check submission timing (disabled due to client/server clock drift causing false positives)
+    /*
     $formToken = isset($_POST['form_token']) ? (int)$_POST['form_token'] : 0;
     $currentTime = time();
     if ($formToken > 0 && ($currentTime - $formToken < 3)) {
@@ -71,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'token' => $formToken
         ]);
     }
+    */
     
     // If spam, silently reject (return success to trick bot)
     if ($isSpam) {
@@ -138,6 +140,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   'kikachukwu.omordia@iworldnetworks.net',
                   'kolade.adegelu@iworldnetworks.net'
               ]
+          ],
+          'Google Ads Lead' => [
+              'to' => 'sales@iworldnetworks.net',
+              'cc' => [],
+              'state_routing' => [
+                  'Ogun' => [
+                      'to' => 'titilade.bakare@iworldnetworks.net',
+                      'cc' => ['janet.oke@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net', 'henry.adiene@iworldnetworks.net']
+                  ],
+                  'Oyo' => [
+                      'to' => 'jeffery.udoji@iworldnetworks.net',
+                      'cc' => ['reformer.ejembi@iworldnetworks.net']
+                  ],
+                  'Osun' => [
+                      'to' => 'emmanuel.oladimeji@iworldnetworks.net',
+                      'cc' => ['reformer.ejembi@iworldnetworks.net', 'elizabeth.tola@iworldnetworks.net']
+                  ],
+                  'Ondo' => [
+                      'to' => 'kikachukwu.omordia@iworldnetworks.net',
+                      'cc' => ['reformer.ejembi@iworldnetworks.net', 'ruth.suleimon@iworldnetworks.net']
+                  ]
+              ]
           ]
       ];
 
@@ -156,8 +180,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       
       // Find matching configuration
       if (isset($formConfigs[$subject])) {
-          $to = $formConfigs[$subject]['to'];
-          $cc = $formConfigs[$subject]['cc'];
+          $config = $formConfigs[$subject];
+          $to = $config['to'];
+          $cc = isset($config['cc']) ? $config['cc'] : [];
+          
+          // Check for state-based sub-routing
+          if (isset($config['state_routing']) && !empty($_POST['state'])) {
+              $state = trim($_POST['state']);
+              if (isset($config['state_routing'][$state])) {
+                  $stateConfig = $config['state_routing'][$state];
+                  $to = $stateConfig['to'];
+                  $cc = isset($stateConfig['cc']) ? $stateConfig['cc'] : [];
+                  logDebug('State-based routing applied', [
+                      'state' => $state,
+                      'routed_to' => $to,
+                      'routed_cc' => $cc
+                  ]);
+              } else {
+                  logDebug('State not found in routing config, using default', ['state' => $state]);
+              }
+          }
+          
           logDebug('Found matching configuration', [
               'subject' => $subject,
               'to' => $to,
@@ -188,6 +231,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'to' => $to,
         'cc' => $cc
     ]);
+    
+    // --- GOOGLE SHEETS WEBHOOK (Google Ads Leads Only) ---
+    if ($subject === 'Google Ads Lead') {
+        // NOTE: The user must replace this URL with their active deployed Google Apps Script Web App URL
+        $webhookUrl = 'https://script.google.com/macros/s/AKfycbwkIwlN8C4DfsZROyusnc8QoUGulqsGUsr3Bjnxrj5k684EOe2oCVCeo15vfIorGndG/exec'; 
+
+        if (!empty($webhookUrl) && strpos($webhookUrl, 'script.google.com') !== false) {
+            $postData = [
+                'timestamp' => date('Y-m-d H:i:s'),
+                'name' => isset($_POST['full_name']) ? $_POST['full_name'] : '',
+                'email' => isset($_POST['email']) ? $_POST['email'] : '',
+                'phone' => isset($_POST['phone']) ? $_POST['phone'] : '',
+                'state' => isset($_POST['state']) ? $_POST['state'] : '',
+                'internet_type' => isset($_POST['internet_type']) ? $_POST['internet_type'] : '',
+                'address' => isset($_POST['address']) ? $_POST['address'] : ''
+            ];
+
+            $ch = curl_init($webhookUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json'
+            ]);
+            // Use standard timeout to prevent PHP crashes on Windows
+            curl_setopt($ch, CURLOPT_TIMEOUT, 5); 
+            $webhookResponse = curl_exec($ch);
+            $curlError = curl_error($ch);
+            curl_close($ch);
+            
+            logDebug('Google Sheets Webhook Triggered', [
+                'url' => $webhookUrl,
+                'response' => $webhookResponse,
+                'error' => $curlError
+            ]);
+        } else {
+            logDebug('Google Sheets Webhook Skipped: Invalid URL', ['url' => $webhookUrl]);
+        }
+    }
+    // --- END GOOGLE SHEETS WEBHOOK ---
     
     try {
         // Generate email body

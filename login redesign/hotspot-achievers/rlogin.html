@@ -17,6 +17,16 @@ $(if http-header == "Location")$(link-redirect)$(endif)
   </WISPAccessGatewayParam>
 -->
 <head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17971358769');
+</script>
 <title>...</title>
 <meta http-equiv="refresh" content="0; url=$(link-redirect)">
 <meta http-equiv="pragma" content="no-cache">
@@ -25,4 +35,5 @@ $(if http-header == "Location")$(link-redirect)$(endif)
 <body>
 </body>
 </html>
+
 
