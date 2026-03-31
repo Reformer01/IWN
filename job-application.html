@@ -445,6 +445,50 @@
                                     name="why_interested" rows="4" required></textarea>
                             </div>
 
+                            <!-- Corporate Driver Specific Requirements -->
+                            <div id="corporate-driver-requirements" class="space-y-4" style="display: none;">
+                                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                                    <h4 class="font-semibold text-blue-900 mb-3">Please confirm the following key requirements:</h4>
+                                    
+                                    <div class="space-y-3">
+                                        <label class="flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="age_requirement" required class="mt-1">
+                                            <span class="text-sm text-slate-700">Are you 35 years or above?</span>
+                                        </label>
+                                        
+                                        <label class="flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="transmission_competent" required class="mt-1">
+                                            <span class="text-sm text-slate-700">Are you competent in driving both manual and automatic transmission vehicles?</span>
+                                        </label>
+                                        
+                                        <label class="flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="corporate_experience" required class="mt-1">
+                                            <span class="text-sm text-slate-700">Do you have proven corporate driving experience?</span>
+                                        </label>
+                                        
+                                        <label class="flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="interstate_travel" required class="mt-1">
+                                            <span class="text-sm text-slate-700">Are you willing and able to drive long distances across states?</span>
+                                        </label>
+                                        
+                                        <label class="flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="weekend_work" required class="mt-1">
+                                            <span class="text-sm text-slate-700">Are you flexible and willing to work weekends?</span>
+                                        </label>
+                                        
+                                        <label class="flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="physically_fit" required class="mt-1">
+                                            <span class="text-sm text-slate-700">Are you physically fit and alert for long-duration driving?</span>
+                                        </label>
+                                        
+                                        <label class="flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="clean_license" required class="mt-1">
+                                            <span class="text-sm text-slate-700">Do you have a valid driver's license with a consistently clean record?</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Job Experience -->
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 mb-2">Relevant Job
@@ -709,6 +753,16 @@
             var jobTitleInput = document.getElementById('jobTitle');
             if (jobTitleInput) {
                 jobTitleInput.value = getJobTitleFromURL();
+            }
+            
+            // Show/hide job-specific requirements
+            var corporateDriverRequirements = document.getElementById('corporate-driver-requirements');
+            if (corporateDriverRequirements) {
+                if (getJobTitleFromURL() === 'Corporate Driver') {
+                    corporateDriverRequirements.style.display = 'block';
+                } else {
+                    corporateDriverRequirements.style.display = 'none';
+                }
             }
 
             // Multi-step logic
