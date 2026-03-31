@@ -113,7 +113,7 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div x-show="mobileMenuOpen" x-collapse x-cloak
+        <div x-show="mobileMenuOpen" x-collapse @click.away="mobileMenuOpen = false" x-cloak
             class="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 overflow-hidden">
             <div class="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
                 <a href="./index.html"
