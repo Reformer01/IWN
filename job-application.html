@@ -451,40 +451,117 @@
                                     <h4 class="font-semibold text-blue-900 mb-3">Please confirm the following key requirements:</h4>
                                     
                                     <div class="space-y-3">
-                                        <label class="flex items-start gap-3 cursor-pointer">
-                                            <input type="checkbox" name="age_requirement" required class="mt-1">
-                                            <span class="text-sm text-slate-700">Are you 35 years or above?</span>
-                                        </label>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you 35 years or above? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="age_requirement" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="age_requirement" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                         
-                                        <label class="flex items-start gap-3 cursor-pointer">
-                                            <input type="checkbox" name="transmission_competent" required class="mt-1">
-                                            <span class="text-sm text-slate-700">Are you competent in driving both manual and automatic transmission vehicles?</span>
-                                        </label>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you competent in driving both manual and automatic transmission vehicles? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="transmission_competent" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="transmission_competent" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                         
-                                        <label class="flex items-start gap-3 cursor-pointer">
-                                            <input type="checkbox" name="corporate_experience" required class="mt-1">
-                                            <span class="text-sm text-slate-700">Do you have proven corporate driving experience?</span>
-                                        </label>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Do you have proven corporate driving experience? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="corporate_experience" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="corporate_experience" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                         
-                                        <label class="flex items-start gap-3 cursor-pointer">
-                                            <input type="checkbox" name="interstate_travel" required class="mt-1">
-                                            <span class="text-sm text-slate-700">Are you willing and able to drive long distances across states?</span>
-                                        </label>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you willing and able to drive long distances across states? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="interstate_travel" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="interstate_travel" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                         
-                                        <label class="flex items-start gap-3 cursor-pointer">
-                                            <input type="checkbox" name="weekend_work" required class="mt-1">
-                                            <span class="text-sm text-slate-700">Are you flexible and willing to work weekends?</span>
-                                        </label>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you flexible and willing to work weekends? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="weekend_work" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="weekend_work" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                         
-                                        <label class="flex items-start gap-3 cursor-pointer">
-                                            <input type="checkbox" name="physically_fit" required class="mt-1">
-                                            <span class="text-sm text-slate-700">Are you physically fit and alert for long-duration driving?</span>
-                                        </label>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you physically fit and alert for long-duration driving? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="physically_fit" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="physically_fit" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                         
-                                        <label class="flex items-start gap-3 cursor-pointer">
-                                            <input type="checkbox" name="clean_license" required class="mt-1">
-                                            <span class="text-sm text-slate-700">Do you have a valid driver's license with a consistently clean record?</span>
-                                        </label>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Do you have a valid driver's license with a consistently clean record? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="clean_license" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="clean_license" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you computer literate? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="computer_literate" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="computer_literate" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
