@@ -142,24 +142,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               ]
           ],
           'Google Ads Lead' => [
-              'to' => 'sales@iworldnetworks.net',
-              'cc' => [],
+              'to' => 'jeffery.udoji@iworldnetworks.net',
+              'cc' => [
+                  'reformer.ejembi@iworldnetworks.net'
+              ],
               'state_routing' => [
                   'Ogun' => [
-                      'to' => 'titilade.bakare@iworldnetworks.net',
-                      'cc' => ['janet.oke@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net', 'henry.adiene@iworldnetworks.net']
+                      'to' => 'jeffery.udoji@iworldnetworks.net',
+                      'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ],
                   'Oyo' => [
                       'to' => 'jeffery.udoji@iworldnetworks.net',
                       'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ],
                   'Osun' => [
-                      'to' => 'emmanuel.oladimeji@iworldnetworks.net',
-                      'cc' => ['reformer.ejembi@iworldnetworks.net', 'elizabeth.tola@iworldnetworks.net']
+                      'to' => 'jeffery.udoji@iworldnetworks.net',
+                      'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ],
                   'Ondo' => [
-                      'to' => 'kikachukwu.omordia@iworldnetworks.net',
-                      'cc' => ['reformer.ejembi@iworldnetworks.net', 'ruth.suleimon@iworldnetworks.net']
+                      'to' => 'jeffery.udoji@iworldnetworks.net',
+                      'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ]
               ]
           ]

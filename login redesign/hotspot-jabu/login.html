@@ -4,24 +4,15 @@
 
 <head>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17971358769');
-</script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>JABU | Login</title>
     <link rel="shortcut icon" href="./assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
+    <!-- Inline fallback styles - no external dependencies -->
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .material-symbols-outlined { font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
+    </style>
     <link href="./assets/fonts/material-icons.css" rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="./assets/js/tailwind.js"></script>
@@ -132,16 +123,7 @@
     <header
         class="relative z-10 w-full px-6 py-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17971358769');
-</script>
-        <div class="flex items-center gap-4">
+    <div class="flex items-center gap-4">
             <div class="flex items-center gap-2">
                 <div class="flex items-center gap-3">
                     <img src="./assets/img/ngfep-no-bg.png" alt="NGFEP Logo" class="h-10 md:h-14 object-contain">
@@ -164,10 +146,12 @@
             <div
                 class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px] bg-slate-100 dark:bg-slate-900 overflow-hidden group order-last lg:order-none">
                 <!-- Background Image with Overlay -->
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                <div id="heroAdMedia" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     data-alt="Digital learning illustration"
                     style='background-image: url("./assets/img/jabu-login-image.jpg");'>
                 </div>
+                <a id="heroAdLink" href="#" target="_blank" rel="noopener" aria-label="Open sponsor"
+                    style="position:absolute; inset:0; z-index: 5; display:none;"></a>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
                 <!-- Content Overlay -->
                 <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end items-start text-white">
@@ -180,15 +164,17 @@
                         </div>
                     </div>
                     <div class="space-y-4 md:space-y-6 max-w-2xl">
-                        <h1 class="text-3xl md:text-7xl font-bold leading-tight tracking-tight">Building the Future of
+                        <h1 id="heroAdHeadline" class="text-3xl md:text-7xl font-bold leading-tight tracking-tight">Building the Future of
                             Higher Education with Google
                         </h1>
+                        <p id="heroAdSubtext" class="text-sm md:text-base text-white/80 max-w-xl"></p>
                     </div>
                 </div>
             </div>
             <!-- RIGHT COLUMN: Login Form -->
             <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white dark:bg-slate-800">
                 <div class="max-w-sm mx-auto w-full">
+                    <div id="mobileTopAd" class="mb-8 hidden"></div>
                     <!-- Form Header -->
                     <!-- New Form Header / Registration CTA -->
                     <div class="mb-10">
@@ -313,6 +299,400 @@
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
         </div>
     </footer>
+
+    <div id="adModalBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden items-center justify-center p-4">
+        <div id="adModal"
+            class="relative w-full max-w-5xl max-h-[92vh] md:h-[550px] bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row border border-white/10">
+            <button id="adModalClose"
+                class="absolute top-4 right-4 z-[70] h-10 w-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-white transition-all active:scale-90"
+                type="button" disabled aria-label="Close ad">
+                <span id="adModalCloseIcon" class="material-symbols-outlined" data-icon="close">5</span>
+            </button>
+            <div id="adModalMedia" class="relative w-full md:w-2/3 overflow-hidden bg-slate-950 flex items-center justify-center">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-slate-900/40 md:to-transparent"></div>
+            </div>
+            <div class="w-full md:w-1/3 bg-slate-900 p-6 md:p-10 flex flex-col justify-center text-white">
+                <div class="space-y-6">
+                    <div>
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-google-blue/20 text-white text-[10px] font-bold uppercase tracking-[0.2em] mb-4">Sponsored</span>
+                        <h2 id="adModalHeadline"
+                            class="text-3xl md:text-4xl font-extrabold tracking-tight leading-none mb-4">
+                            Exclusive Offer.
+                        </h2>
+                        <p id="adModalSubtext" class="text-white/70 text-xs md:text-sm leading-relaxed">
+                            Tap open to learn more.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <button id="adModalCta"
+                            class="w-full bg-gradient-to-r from-google-blue via-google-red to-google-yellow text-white py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-black/20"
+                            type="button">
+                            OPEN
+                        </button>
+                        <p class="text-[10px] text-white/50 text-center uppercase tracking-widest">Sponsored</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var AD_METRICS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwZlsONwBsmumE1bbbQ5xZoxj0RNNj2C5J9Qs2Ld1RJX_wle-ImujUp_trNvwsR6EhORQ/exec';
+
+            var ADS = [
+                {
+                    id: 'ad_1',
+                    title: 'Sponsored',
+                    headline: 'Shop for your Unisex Shoes and Bags at affordable prices',
+                    subtext: 'ORDER NOW',
+                    type: 'image',
+                    src: './assets/img/Jabu%20Ad%202.jpeg',
+                    href: 'https://wa.me/message/UWVV4UIZX4H6M1',
+                    activeHours: [0, 24]
+                },
+                {
+                    id: 'ad_2',
+                    title: 'Sponsored',
+                    headline: 'Shop for your Unisex Shoes and Bags at affordable prices',
+                    subtext: 'ORDER NOW',
+                    type: 'image',
+                    src: './assets/img/Jabu%20Ad%202.jpeg',
+                    href: 'https://wa.me/message/UWVV4UIZX4H6M1',
+                    activeHours: [0, 24]
+                },
+                {
+                    id: 'ad_3',
+                    title: 'Sponsored',
+                    headline: 'Shop for your Unisex Shoes and Bags at affordable prices',
+                    subtext: 'ORDER NOW',
+                    type: 'image',
+                    src: './assets/img/Jabu%20Ad%201.jpeg',
+                    href: 'https://wa.me/message/UWVV4UIZX4H6M1',
+                    activeHours: [0, 24]
+                }
+            ];
+
+            function nowHour() {
+                return new Date().getHours();
+            }
+
+            function isInWindow(hour, startEnd) {
+                var start = startEnd[0];
+                var end = startEnd[1];
+                // [0, 24] means 24/7 (always active)
+                if (start === 0 && end === 24) return true;
+                if (start < end) return hour >= start && hour < end;
+                // Wrap-around case (e.g., [22, 6] for night hours)
+                return hour >= start || hour < end;
+            }
+
+            function selectActiveAd() {
+                var h = nowHour();
+                for (var i = 0; i < ADS.length; i++) {
+                    if (isInWindow(h, ADS[i].activeHours)) return ADS[i];
+                }
+                return ADS[0];
+            }
+
+            function isMobile() {
+                return window.matchMedia && window.matchMedia('(max-width: 1023px)').matches;
+            }
+
+            function safeJsonParse(s, fallback) {
+                try { return JSON.parse(s); } catch (e) { return fallback; }
+            }
+
+            function getQueue() {
+                return safeJsonParse(localStorage.getItem('iwn_ad_metrics_queue_jabu') || '[]', []);
+            }
+
+            function setQueue(q) {
+                try { localStorage.setItem('iwn_ad_metrics_queue_jabu', JSON.stringify(q)); } catch (e) { }
+            }
+
+            function enqueueMetric(evt) {
+                var q = getQueue();
+                q.push(evt);
+                if (q.length > 50) q = q.slice(q.length - 50);
+                setQueue(q);
+                flushMetrics(false);
+            }
+
+            var metricsFlushInFlight = false;
+
+            function flushMetrics(force) {
+                if (!AD_METRICS_ENDPOINT) return;
+                if (metricsFlushInFlight) return;
+                var q = getQueue();
+                if (!q.length) return;
+                metricsFlushInFlight = true;
+
+                var payload = {
+                    source: 'hotspot-jabu',
+                    userAgent: navigator.userAgent,
+                    ts: new Date().toISOString(),
+                    events: q
+                };
+
+                var body = JSON.stringify(payload);
+                var sent = false;
+
+                if (navigator.sendBeacon) {
+                    try {
+                        sent = navigator.sendBeacon(AD_METRICS_ENDPOINT, new Blob([body], { type: 'text/plain;charset=UTF-8' }));
+                    } catch (e) { }
+                }
+
+                if (sent) {
+                    setQueue([]);
+                    metricsFlushInFlight = false;
+                    return;
+                }
+
+                try {
+                    fetch(AD_METRICS_ENDPOINT, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: body,
+                        keepalive: true
+                    }).then(function () {
+                        setQueue([]);
+                        metricsFlushInFlight = false;
+                    }).catch(function () {
+                        metricsFlushInFlight = false;
+                    });
+                } catch (e) {
+                    metricsFlushInFlight = false;
+                }
+            }
+
+            function track(eventName, ad, extra) {
+                var eid = '';
+                try {
+                    eid = (crypto && crypto.randomUUID) ? crypto.randomUUID() : (String(Date.now()) + '_' + Math.random().toString(16).slice(2));
+                } catch (e) {
+                    eid = String(Date.now()) + '_' + Math.random().toString(16).slice(2);
+                }
+
+                enqueueMetric({
+                    id: eid,
+                    event: eventName,
+                    adId: ad && ad.id ? ad.id : '',
+                    href: ad && ad.href ? ad.href : '',
+                    page: location.pathname,
+                    ref: document.referrer || '',
+                    mobile: isMobile(),
+                    extra: extra || {},
+                    at: new Date().toISOString()
+                });
+            }
+
+            function normalizeMediaUrl(url) {
+                if (!url) return '';
+                var u = String(url);
+                u = u.replace(/\\/g, '/');
+                u = u.replace(/ /g, '%20');
+                return u;
+            }
+
+            function renderMedia(container, ad, placement) {
+                if (!container) return;
+                container.innerHTML = '';
+                if (!ad) return;
+
+                var safeSrc = '';
+                try { safeSrc = encodeURI(normalizeMediaUrl(ad.src)); } catch (e) { safeSrc = normalizeMediaUrl(ad.src); }
+
+                if (ad.type === 'video') {
+                    var v = document.createElement('video');
+                    v.src = safeSrc;
+                    if (ad.poster) {
+                        try { v.poster = encodeURI(ad.poster); } catch (e) { v.poster = ad.poster; }
+                    }
+                    v.muted = true;
+                    v.playsInline = true;
+                    v.loop = true;
+                    v.autoplay = true;
+                    v.preload = 'auto';
+                    v.style.cursor = 'pointer';
+                    v.style.maxWidth = '100%';
+                    v.style.maxHeight = '60vh';
+                    v.style.width = 'auto';
+                    v.style.height = 'auto';
+                    v.style.objectFit = 'contain';
+                    v.onerror = function () {
+                        var fallback = normalizeMediaUrl(ad.src);
+                        if (fallback && v.src !== fallback) v.src = fallback;
+                    };
+                    v.addEventListener('click', function () {
+                        track('click', ad, { placement: placement });
+                        window.open(ad.href, '_blank', 'noopener');
+                    });
+                    container.appendChild(v);
+                    return;
+                }
+
+                var img = document.createElement('img');
+                img.src = safeSrc;
+                img.alt = ad.title || 'Sponsored';
+                img.style.cursor = 'pointer';
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '60vh';
+                img.style.width = 'auto';
+                img.style.height = 'auto';
+                img.style.objectFit = 'contain';
+                img.onerror = function () {
+                    var fallback = normalizeMediaUrl(ad.src);
+                    if (fallback && img.src !== fallback) img.src = fallback;
+                };
+                img.addEventListener('click', function () {
+                    track('click', ad, { placement: placement });
+                    window.open(ad.href, '_blank', 'noopener');
+                });
+                container.appendChild(img);
+            }
+
+            function renderInlineAd(targetEl, ad, placement) {
+                if (!targetEl) return;
+                targetEl.classList.remove('hidden');
+                targetEl.innerHTML = '';
+
+                var wrap = document.createElement('div');
+                wrap.style.borderRadius = '16px';
+                wrap.style.overflow = 'hidden';
+                wrap.style.border = '1px solid rgba(148, 163, 184, 0.35)';
+                wrap.style.background = 'rgba(15, 23, 42, 0.04)';
+
+                var media = document.createElement('div');
+                media.style.display = 'flex';
+                media.style.alignItems = 'center';
+                media.style.justifyContent = 'center';
+                media.style.background = '#0b1220';
+                media.style.padding = '4px';
+
+                renderMedia(media, ad, placement);
+
+                var cap = document.createElement('div');
+                cap.style.padding = '10px 12px';
+                cap.style.fontSize = '12px';
+                cap.style.fontWeight = '700';
+                cap.style.color = 'rgb(51 65 85)';
+                cap.textContent = ad.headline || ad.title || 'Sponsored';
+
+                wrap.appendChild(media);
+                wrap.appendChild(cap);
+                targetEl.appendChild(wrap);
+
+                track('impression', ad, { placement: placement });
+            }
+
+            function applyHero(ad, trackIt) {
+                var heroMedia = document.getElementById('heroAdMedia');
+                if (heroMedia) {
+                    var safeSrc = '';
+                    try { safeSrc = encodeURI(normalizeMediaUrl(ad.src)); } catch (e) { safeSrc = normalizeMediaUrl(ad.src); }
+
+                    heroMedia.style.backgroundImage = 'url("' + safeSrc + '")';
+                    void heroMedia.offsetHeight;
+                }
+
+                var heroLink = document.getElementById('heroAdLink');
+                if (heroLink && ad && ad.href) {
+                    heroLink.href = ad.href;
+                    heroLink.style.display = 'block';
+                    heroLink.target = '_blank';
+                    heroLink.onclick = function () {
+                        track('click', ad, { placement: 'hero' });
+                    };
+                } else if (heroLink) {
+                    heroLink.style.display = 'none';
+                }
+
+                var headline = document.getElementById('heroAdHeadline');
+                if (headline && ad.headline) headline.textContent = ad.headline;
+
+                var sub = document.getElementById('heroAdSubtext');
+                if (sub) sub.textContent = ad.subtext || '';
+
+                if (trackIt) {
+                    track('impression', ad, { placement: 'hero' });
+                }
+            }
+
+            function swapHeroToAd(ad) {
+                applyHero(ad, true);
+            }
+
+            function showModal(ad) {
+                var backdrop = document.getElementById('adModalBackdrop');
+                var closeBtn = document.getElementById('adModalClose');
+                var closeIcon = document.getElementById('adModalCloseIcon');
+                var cta = document.getElementById('adModalCta');
+                var media = document.getElementById('adModalMedia');
+                var head = document.getElementById('adModalHeadline');
+                var sub = document.getElementById('adModalSubtext');
+
+                if (!backdrop || !closeBtn || !closeIcon || !cta || !media) return;
+
+                if (head) head.textContent = ad.headline || 'Sponsored';
+                if (sub) sub.textContent = ad.subtext || '';
+
+                media.innerHTML = '';
+                renderMedia(media, ad, 'modal');
+
+                cta.onclick = function () {
+                    track('click', ad, { placement: 'modal' });
+                    window.open(ad.href, '_blank', 'noopener');
+                };
+
+                backdrop.classList.remove('hidden');
+                backdrop.classList.add('flex');
+
+                closeBtn.disabled = true;
+                var remaining = 5;
+                closeIcon.textContent = String(remaining);
+
+                track('impression', ad, { placement: 'modal' });
+
+                var timer = setInterval(function () {
+                    remaining -= 1;
+                    if (remaining > 0) {
+                        closeIcon.textContent = String(remaining);
+                        return;
+                    }
+                    clearInterval(timer);
+                    closeIcon.textContent = 'close';
+                    closeBtn.disabled = false;
+                }, 1000);
+
+                closeBtn.onclick = function () {
+                    backdrop.classList.add('hidden');
+                    backdrop.classList.remove('flex');
+                    setTimeout(function () { swapHeroToAd(ad); }, 0);
+                };
+            }
+
+            function init() {
+                var ad = selectActiveAd();
+                if (!ad) return;
+
+                // Show hero + inline ads on login page, but do not show the modal popup.
+                applyHero(ad, true);
+                renderInlineAd(document.getElementById('mobileTopAd'), ad, 'mobile_top');
+
+                window.addEventListener('beforeunload', function () { flushMetrics(true); });
+                setInterval(function () { flushMetrics(false); }, 8000);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
 </body>
 
 </html>

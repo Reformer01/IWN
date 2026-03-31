@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <script>
+        (function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var to = urlParams.get('to');
+            var target = '';
+            if (to === 'whatsapp') {
+                target = 'https://chat.whatsapp.com/IJSgyLeTBpH3RleUU6C00n';
+            } else if (to === 'jabu') {
+                target = 'https://wa.me/message/UWVV4UIZX4H6M1';
+            }
+            if (target) {
+                window.open(target, '_blank');
+                // Fallback: also set location in case popup is blocked
+                window.location.href = target;
+            } else {
+                document.body.innerHTML = '<p style="font-family:sans-serif;text-align:center;margin-top:2rem;">Invalid redirect.</p>';
+            }
+        })();
+    </script>
+    <noscript>
+        <p style="font-family:sans-serif;text-align:center;margin-top:2rem;">JavaScript required to redirect.</p>
+    </noscript>
+</head>
+<body>
+    <p style="font-family:sans-serif;text-align:center;margin-top:2rem;">Redirecting...</p>
+</body>
+</html>

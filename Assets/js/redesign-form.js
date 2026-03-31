@@ -41,7 +41,19 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.status === true) {
                     showToast(data.message || 'Success!', 'success');
-                    this.reset();
+                    
+                    // FIRE GOOGLE ADS CONVERSION EVENT HERE
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-17971358769/ef2eCKe2xIYcELHYtPlC'
+                        });
+                    }
+                    
+                    // Delay form reset to prevent "form not connected" warning
+                    setTimeout(() => {
+                        this.reset();
+                    }, 100);
+                    
                     // Optional: redirect
                     // window.location.href = 'thank-you.html';
                 } else {

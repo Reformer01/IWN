@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>I-World Networks - Payment Guide</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8CC63F;   /* Bright Green */
+            --accent: #F15A29;    /* I-World Orange */
+            --bg-light: #F4F7F9;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: #e2e8f0; color: var(--text-dark); -webkit-font-smoothing: antialiased; }
+
+        /* A4 Page Setup */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 10mm auto;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            break-inside: avoid;
+        }
+
+        /* Abstract Geometric Background Design */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; 
+            right: 0;
+            width: 150mm;
+            height: 150mm;
+            background: radial-gradient(circle, rgba(140, 198, 63, 0.08) 0%, transparent 70%);
+            transform: translate(30%, -30%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page::after {
+            content: '';
+            position: absolute;
+            bottom: 0; 
+            left: 0;
+            width: 100mm;
+            height: 100mm;
+            background: radial-gradient(circle, rgba(241, 90, 41, 0.05) 0%, transparent 70%);
+            transform: translate(-30%, 30%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Branding Elements */
+        .page-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-bar {
+            background: white;
+            height: 110px;
+            margin: -20mm -20mm 40px -20mm;
+            display: flex;
+            align-items: center;
+            padding: 0 20mm;
+            border-bottom: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header Geometric Accent */
+        .header-bar::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 0;
+            height: 100%;
+            width: 150px;
+            background: var(--accent);
+            transform: skewX(-30deg);
+        }
+        
+        .header-bar::before {
+            content: '';
+            position: absolute;
+            right: 120px;
+            top: 0;
+            height: 100%;
+            width: 30px;
+            background: var(--primary);
+            transform: skewX(-30deg);
+        }
+
+        .header-logo {
+            height: 60px;
+            object-fit: contain;
+            position: relative;
+            z-index: 2; /* Keep logo above geometric shape */
+        }
+
+        h1 { 
+            font-size: 38px; 
+            color: var(--text-dark); 
+            margin-bottom: 8px; 
+            font-weight: 800; 
+            letter-spacing: -0.5px; 
+        }
+        
+        .subtitle { 
+            color: var(--text-muted); 
+            font-size: 18px;
+            font-weight: 500; 
+            margin-bottom: 35px; 
+            border-bottom: 2px dashed #CBD5E1; 
+            padding-bottom: 15px; 
+        }
+        
+        .subtitle span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        a.portal-link {
+            color: var(--primary);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        a.portal-link:hover {
+            color: var(--accent);
+        }
+
+        /* Step Styling */
+        .step-container { margin-bottom: 40px; display: flex; gap: 24px; align-items: flex-start; break-inside: avoid; position: relative; }
+        
+        .step-badge-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px; /* Square badge for a more tech/geometric look */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            box-shadow: 4px 4px 0px rgba(241, 90, 41, 0.4); /* Solid orange shadow */
+            border: 2px solid white;
+            z-index: 2;
+            transform: rotate(-3deg);
+        }
+
+        .step-content { flex: 1; padding-top: 5px; }
+        .step-text { 
+            font-size: 18px; 
+            font-weight: 600; 
+            margin-bottom: 18px; 
+            line-height: 1.5; 
+            color: var(--text-dark); 
+        }
+
+        /* Image Frame */
+        .image-frame {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            width: 100%;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 8px 8px 0px rgba(140, 198, 63, 0.15); /* Solid green graphic shadow */
+            break-inside: avoid;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #F8FAFC;
+            color: var(--text-dark);
+            padding: 20px 20mm;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            border-top: 5px solid var(--accent);
+        }
+
+        .alert-box {
+            background: #F0FDF4; /* Very light green */
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            border-radius: 0 8px 8px 0;
+            break-inside: avoid;
+        }
+
+        .alert-box strong {
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body { background: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .page { margin: 0; box-shadow: none; border: none; }
+            .image-frame { box-shadow: none; border: 1px solid #CBD5E1; }
+            .page::before, .page::after { opacity: 0.3; } /* Ensure geometric bg is light on print */
+            
+            /* Hide the download button when generating the PDF */
+            .download-btn { display: none !important; }
+        }
+
+        /* Floating Download Button */
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(140, 198, 63, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(140, 198, 63, 0.6);
+            background: var(--accent);
+        }
+
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Download Button -->
+    <button class="download-btn" onclick="window.print()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </svg>
+        Save as PDF
+    </button>
+
+    <!-- Page 1 -->
+    <!-- Page 1 -->
+    <div class="page">
+        <div class="page-content">
+            <div class="header-bar">
+                <img src="Assets/icons/logos/iworld_logo2.jpg" alt="I-World Networks" class="header-logo">
+            </div>
+
+            <h1>Payment Guide</h1>
+            <p class="subtitle">Paying your I-World invoices through our <span>Portal</span></p>
+
+            <div class="step-container">
+                <div class="step-badge-wrapper">
+                    <div class="step-number">1</div>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">Visit <a href="https://portal.iwn.ng" class="portal-link">portal.iwn.ng</a> (Chrome browser is recommended)</div>
+                    <div class="image-frame">
+                        <img src="Assets/img/portal clientzone.png" alt="Portal Landing Page" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-container">
+                <div class="step-badge-wrapper">
+                    <div class="step-number">2</div>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">Login using your registered email and password.</div>
+                    <div class="image-frame">
+                        <img src="Assets/img/login clientzone.png" alt="Login Page" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>Support: support@iworldnetworks.net</span>
+            <span><a href="https://portal.iwn.ng" class="portal-link" style="color: var(--text-dark);">www.iwn.ng</a></span>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+        <div class="page-content">
+            <div class="step-container" style="margin-top: 40px;">
+                <div class="step-badge-wrapper">
+                    <div class="step-number">3</div>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">From the dashboard, under the Account balance section, click on the Pay by Paystack button.</div>
+                    <div class="image-frame">
+                        <img src="Assets/img/Account balance section.png" alt="Account Balance section" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-container">
+                <div class="step-badge-wrapper">
+                    <div class="step-number">4</div>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">Click on "Pay by Paystack" on the redirected page.</div>
+                    <div class="image-frame">
+                        <img src="Assets/img/redirected page clientzone.png" alt="Redirect Page" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>Billing: accounts@iworldnetworks.net</span>
+            <span><a href="https://portal.iwn.ng" class="portal-link" style="color: var(--text-dark);">portal.iwn.ng</a></span>
+        </div>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page">
+        <div class="page-content">
+            <div class="step-container" style="margin-top: 40px;">
+                <div class="step-badge-wrapper">
+                    <div class="step-number">5</div>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">Click on "Pay Securely with paystack" on the redirected page.</div>
+                    <div class="image-frame">
+                        <img src="Assets/img/pay securely with paystack.png" alt="Secure Pay Button" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-container">
+                <div class="step-badge-wrapper">
+                    <div class="step-number">6</div>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">Authorize payment with your preferred method and wait for confirmation.</div>
+                    <div class="image-frame">
+                        <img src="Assets/img/payment methods.png" alt="Payment Methods" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <strong>Important Notice</strong>
+                Your account will be credited once payment is successful. If unsure, check your dashboard balance or contact support for failed transactions.
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>I-World Networks</span>
+            <span>Call: 07004443333</span>
+        </div>
+    </div>
+
+</body>
+</html>

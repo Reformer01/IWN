@@ -9,6 +9,34 @@
         content="Get unlimited, blazing-fast internet from ₦27,500/mo. 99.9% uptime, 24/7 support, free installation. Available in Ogun, Oyo, Ondo & Osun states.">
     <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17971358769');
+    </script>
+
+    <!-- Event snippet for Submit lead form conversion -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17971358769/ef2eCKe2xIYcELHYtPlC',
+        'value': 1.0,
+        'currency': 'USD',
+        'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,47 +121,24 @@
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
 
-    <!-- Navigation -->
+    <!-- Navigation (Simplified for Landing Page) -->
     <nav class="fixed top-0 w-full z-50 glass-bar border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="./index.html">
                 <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
 
-            <!-- Desktop Navigation -->
+            <!-- Desktop Navigation (Simplified) -->
             <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
-                <div class="relative group">
-                    <button class="flex items-center gap-1 text-primary whitespace-nowrap">
-                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                    </button>
-                    <div
-                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                        <a href="./internet_for_home.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
-                        <a href="./internet_for_business.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">SMB Internet</a>
-                        <a href="./enterprise_internet.html"
-                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
-                    </div>
-                </div>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
-                    Services</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
-                    Smart
-                    Life</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./Google_Workspace.html">Google
-                    Cloud Services</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./careers.html">Careers</a>
-                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
-                    target="_blank">Client Zone</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="#lead-form">Get a Quote</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="#packages">View Plans</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="tel:+2349039844309">Call Now</a>
             </div>
 
             <div class="flex items-center gap-4">
                 <a href="#lead-form"
-                    class="hidden md:block bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Get
-                    a Quote
+                    class="hidden md:block bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Check
+                    Availability
                 </a>
 
                 <!-- Hamburger Button -->
@@ -145,64 +150,27 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
+        <!-- Mobile Menu Dropdown (Simplified) -->
         <div x-show="mobileMenuOpen" x-collapse x-cloak
             class="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 overflow-hidden">
             <div class="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
-                <a href="./index.html"
-                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary">home</span> Home
+                <a href="#lead-form"
+                    class="px-4 py-3 rounded-xl font-bold text-primary bg-slate-50 transition-colors flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">edit_note</span> Get a Quote
                 </a>
-
-                <div x-data="{ internetOpen: true }">
-                    <button @click="internetOpen = !internetOpen"
-                        class="w-full px-4 py-3 rounded-xl font-bold text-primary bg-slate-50 transition-colors flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-primary">cloud_done</span> Internet Services
-                        </div>
-                        <span class="material-symbols-outlined transition-transform duration-300"
-                            :class="{ 'rotate-180': internetOpen }">expand_more</span>
-                    </button>
-                    <div x-show="internetOpen" x-collapse x-cloak class="pl-12 flex flex-col gap-1 pb-2">
-                        <a href="./internet_for_home.html" class="block py-2 text-sm font-bold text-primary">Home
-                            Internet</a>
-                        <a href="./internet_for_business.html"
-                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">SMB Internet</a>
-                        <a href="./enterprise_internet.html"
-                            class="block py-2 text-sm font-semibold text-slate-600 hover:text-primary">Enterprise
-                            Internet</a>
-                    </div>
-                </div>
-
-                <a href="./msp.html"
+                <a href="#packages"
                     class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary">settings_suggest</span> Manage IT Services
+                    <span class="material-symbols-outlined text-primary">view_list</span> View Plans
                 </a>
-                <a href="./SmartLife.html"
+                <a href="tel:+2349039844309"
                     class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary">home_iot_device</span> I-World Smart Life
-                </a>
-                <a href="./NGFEP.html"
-                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary">school</span> NGFEP
-                </a>
-                <a href="./Google_Workspace.html"
-                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary">cloud</span> Google Cloud Services
-                </a>
-                <a href="./careers.html"
-                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary">work</span> Careers
-                </a>
-                <a href="https://app.iwn.ng" target="_blank"
-                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary">account_circle</span> Client Zone
+                    <span class="material-symbols-outlined text-primary">call</span> Call Now
                 </a>
 
                 <div class="mt-4 pt-4 border-t border-slate-100">
                     <a href="#lead-form"
                         class="w-full inline-block bg-primary hover:bg-orange-600 text-white px-6 py-4 rounded-full font-extrabold text-center shadow-lg shadow-primary/20 transition-all text-lg">
-                        Get a Quote
+                        Check Availability
                     </a>
                 </div>
             </div>
@@ -217,15 +185,14 @@
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-widest border border-white/20">
                     <span class="size-2 rounded-full bg-secondary pulse-ring"></span>
-                    Connecting Homes & Businesses Across Nigeria
+                    Now Available in Ibadan, Oyo State
                 </div>
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight">
-                    Fast, Unlimited Internet <br class="hidden md:block">
-                    <span class="text-primary">Starting at ₦27,500/mo</span>
+                    High-Speed, Unlimited Internet <br class="hidden md:block">
+                    <span class="text-primary">in Ibadan</span>
                 </h1>
                 <p class="text-lg text-slate-300 max-w-lg leading-relaxed">
-                    Join thousands of homes and businesses enjoying blazing-fast speeds, unlimited data, and 24/7 expert
-                    support anywhere you are.
+                    Get blazing-fast fiber internet for your home or business in Ibadan. Unlimited data, 99.9% uptime, and 24/7 local support—starting at just ₦27,500/month.
                 </p>
                 <!-- Trust Badges -->
                 <div class="flex flex-wrap gap-4 pt-2">
@@ -248,7 +215,7 @@
                 <div class="flex flex-wrap gap-4 pt-2">
                     <a href="#lead-form"
                         class="bg-primary hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-base shadow-xl shadow-primary/30 transition-all inline-flex items-center gap-2">
-                        Get Connected Today
+                        Check Availability
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                     <a href="tel:+2349039844309"
@@ -512,7 +479,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-4xl font-display font-bold text-navy mb-3">What Our Customers Say</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
                     <div class="flex gap-1 text-primary mb-4">
                         <span class="material-symbols-outlined text-lg">star</span>
@@ -550,6 +517,23 @@
                         <div>
                             <p class="text-sm font-bold text-navy">Kolomoni Micro-Finance Bank</p>
                             <p class="text-xs text-slate-500">Ibadan, Oyo State</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                    <div class="flex gap-1 text-primary mb-4">
+                        <span class="material-symbols-outlined text-lg">star</span>
+                        <span class="material-symbols-outlined text-lg">star</span>
+                        <span class="material-symbols-outlined text-lg">star</span>
+                        <span class="material-symbols-outlined text-lg">star</span>
+                        <span class="material-symbols-outlined text-lg">star</span>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6 italic">"I-World transformed our home connectivity in Ibadan. The kids can stream, I can work from home, and my husband runs his online business — all at the same time without any lag. Truly unlimited data!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">OA</div>
+                        <div>
+                            <p class="text-sm font-bold text-navy">Olumide Adeyemi</p>
+                            <p class="text-xs text-slate-500">Home Customer — Ibadan, Oyo State</p>
                         </div>
                     </div>
                 </div>

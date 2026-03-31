@@ -3,25 +3,15 @@
 <html class="light" lang="en">
 
 <head>
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17971358769');
-</script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Achievers University | Login</title>
     <link rel="shortcut icon" href="./assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
+    <!-- Inline fallback styles - no external dependencies -->
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .material-symbols-outlined { font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
+    </style>
     <link href="./assets/fonts/material-icons.css" rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="./assets/js/tailwind.js"></script>
@@ -130,16 +120,6 @@
     </div>
     <!-- Header / Logo Area -->
     <header class="relative z-20 w-full bg-[#4a148c] shadow-lg">
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17971358769');
-</script>
         <div
             class="max-w-7xl mx-auto px-6 py-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
             <div class="flex items-center gap-4">
@@ -166,10 +146,12 @@
             <div
                 class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px] bg-slate-100 dark:bg-slate-900 overflow-hidden group order-last lg:order-none">
                 <!-- Background Image with Overlay -->
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                <div id="heroAdMedia" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     data-alt="Digital learning illustration"
                     style='background-image: url("./assets/img/Digital-learning.png");'>
                 </div>
+                <a id="heroAdLink" href="#" target="_blank" rel="noopener" aria-label="Open sponsor"
+                    style="position:absolute; inset:0; z-index: 5; display:none;"></a>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
                 <!-- Content Overlay -->
                 <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end items-start text-white">
@@ -182,15 +164,17 @@
                         </div>
                     </div>
                     <div class="space-y-4 md:space-y-6 max-w-2xl">
-                        <h1 class="text-3xl md:text-7xl font-bold leading-tight tracking-tight">Building the Future of
+                        <h1 id="heroAdHeadline" class="text-base md:text-5xl font-bold leading-tight tracking-tight">Building the Future of
                             Higher Education with Google
                         </h1>
+                        <p id="heroAdSubtext" class="text-sm md:text-base text-white/80 max-w-xl"></p>
                     </div>
                 </div>
             </div>
             <!-- RIGHT COLUMN: Login Form -->
             <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white dark:bg-slate-800">
                 <div class="max-w-sm mx-auto w-full">
+                    <div id="mobileTopAd" class="mb-8 hidden"></div>
                     <!-- Form Header -->
                     <!-- New Form Header / Registration CTA -->
                     <div class="mb-10">
@@ -290,6 +274,7 @@
                     </form>
 
                 </div>
+
             </div>
         </div>
         <!-- Powered By Section -->
@@ -315,6 +300,595 @@
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
         </div>
     </footer>
+
+    <style>
+        .ad-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            background: rgba(0, 0, 0, 0.78);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .ad-modal {
+            width: min(980px, 100%);
+            max-height: min(92vh, 920px);
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ad-modal-media {
+            position: relative;
+            width: 100%;
+            background: #0b1220;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-modal-media img,
+        .ad-modal-media video {
+            max-width: 100%;
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #0b1220;
+        }
+
+        .ad-modal-footer {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: #fff;
+        }
+
+        .ad-modal-title {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1.3;
+            opacity: 0.95;
+        }
+
+        .ad-modal-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            padding: 10px 12px;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .ad-modal-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            flex: 0 0 auto;
+        }
+
+        .ad-inline {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.04);
+        }
+
+        .ad-inline a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .ad-inline img,
+        .ad-inline video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #0b1220;
+        }
+
+        .ad-inline-caption {
+            padding: 10px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: rgb(51 65 85);
+        }
+
+        .dark .ad-inline-caption {
+            color: rgb(226 232 240);
+        }
+    </style>
+
+    <div id="adModalBackdrop" class="ad-modal-backdrop" aria-hidden="true">
+        <div class="ad-modal" role="dialog" aria-modal="true" aria-label="Sponsored message">
+            <div id="adModalMedia" class="ad-modal-media"></div>
+            <div class="ad-modal-footer">
+                <div class="ad-modal-title" id="adModalTitle"></div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <button id="adModalCta" type="button" class="ad-modal-cta">Open</button>
+                    <button id="adModalClose" type="button" class="ad-modal-close" style="opacity:0.6" disabled
+                        aria-label="Close ad">X</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var AD_METRICS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw_PBeCji3wKRhgeKNLU2cn7R54YBF1m12zZATXpq5ydJpJjF9nRVPmclex8WT4fHgd/exec';
+
+            var ADS = [
+                {
+                    id: 'ad_1',
+                    title: 'Sponsored',
+                    headline: 'Without accessories, your outfit looks like laundry hung to dry. WhatsApp: <a href="tel:08111353490"><u>08111353490</u></a>',
+                    subtext: 'Click to order now! Call/WhatsApp: <a href="tel:08111353490"><u>08111353490</u></a>',
+                    type: 'video',
+                    src: './img/timmy.mp4',
+                    poster: './img/timmy image.jpeg',
+                    href: 'https://chat.whatsapp.com/IJSgyLeTBpH3RleUU6C00n',
+                    activeHours: [0, 24]
+                },
+                {
+                    id: 'ad_2',
+                    title: 'Sponsored',
+                    headline: 'Without accessories, your outfit looks like laundry hung to dry. WhatsApp: <a href="tel:08111353490"><u>08111353490</u></a>',
+                    subtext: 'Click to order now! Call/WhatsApp: <a href="tel:08111353490"><u>08111353490</u></a>',
+                    type: 'image',
+                    src: './img/timmy image.jpeg',
+                    href: 'https://chat.whatsapp.com/IJSgyLeTBpH3RleUU6C00n',
+                    activeHours: [0, 24]
+                },
+                {
+                    id: 'ad_3',
+                    title: 'Sponsored',
+                    headline: 'Without accessories, your outfit looks like laundry hung to dry. WhatsApp: <a href="tel:08111353490"><u>08111353490</u></a>',
+                    subtext: 'Click to order now! Call/WhatsApp: <a href="tel:08111353490"><u>08111353490</u></a>',
+                    type: 'video',
+                    src: './img/timmy.mp4',
+                    poster: './img/timmy image.jpeg',
+                    href: 'https://chat.whatsapp.com/IJSgyLeTBpH3RleUU6C00n',
+                    activeHours: [0, 24]
+                }
+            ];
+
+            function nowHour() {
+                return new Date().getHours();
+            }
+
+            function isInWindow(hour, startEnd) {
+                var start = startEnd[0];
+                var end = startEnd[1];
+                if (start === end) return true;
+                if (start < end) return hour >= start && hour < end;
+                return hour >= start || hour < end;
+            }
+
+            function selectActiveAd() {
+                var h = nowHour();
+                for (var i = 0; i < ADS.length; i++) {
+                    if (isInWindow(h, ADS[i].activeHours)) return ADS[i];
+                }
+                return ADS[0];
+            }
+
+            function isMobile() {
+                return window.matchMedia && window.matchMedia('(max-width: 1023px)').matches;
+            }
+
+            function safeJsonParse(s, fallback) {
+                try { return JSON.parse(s); } catch (e) { return fallback; }
+            }
+
+            function getQueue() {
+                return safeJsonParse(localStorage.getItem('iwn_ad_metrics_queue') || '[]', []);
+            }
+
+            function setQueue(q) {
+                try { localStorage.setItem('iwn_ad_metrics_queue', JSON.stringify(q)); } catch (e) { }
+            }
+
+            function enqueueMetric(evt) {
+                var q = getQueue();
+                q.push(evt);
+                if (q.length > 50) q = q.slice(q.length - 50);
+                setQueue(q);
+                flushMetrics(false);
+            }
+
+            var metricsFlushInFlight = false;
+
+            function flushMetrics(force) {
+                if (!AD_METRICS_ENDPOINT) return;
+                if (metricsFlushInFlight) return;
+                var q = getQueue();
+                if (!q.length) return;
+                if (!force && q.length < 3) return;
+
+                metricsFlushInFlight = true;
+
+                var payload = {
+                    source: 'hotspot-achievers',
+                    userAgent: navigator.userAgent,
+                    ts: new Date().toISOString(),
+                    events: q
+                };
+
+                var body = JSON.stringify(payload);
+                var sent = false;
+
+                if (navigator.sendBeacon) {
+                    try {
+                        // Use text/plain to avoid CORS preflight against Apps Script
+                        sent = navigator.sendBeacon(AD_METRICS_ENDPOINT, new Blob([body], { type: 'text/plain;charset=UTF-8' }));
+                    } catch (e) { }
+                }
+
+                if (sent) {
+                    setQueue([]);
+                    metricsFlushInFlight = false;
+                    return;
+                }
+
+                if (!sent) {
+                    try {
+                        fetch(AD_METRICS_ENDPOINT, {
+                            method: 'POST',
+                            // no-cors avoids CORS blocking in local testing; response will be opaque
+                            mode: 'no-cors',
+                            body: body,
+                            keepalive: true
+                        }).then(function (res) {
+                            // With no-cors, res is opaque. If we got here, the request was dispatched.
+                            setQueue([]);
+                            metricsFlushInFlight = false;
+                        }).catch(function () {
+                            metricsFlushInFlight = false;
+                        });
+                    } catch (e) { }
+                }
+
+                if (!window.fetch) {
+                    metricsFlushInFlight = false;
+                }
+            }
+
+            function track(eventName, ad, extra) {
+                var eid = '';
+                try {
+                    eid = (crypto && crypto.randomUUID) ? crypto.randomUUID() : (String(Date.now()) + '_' + Math.random().toString(16).slice(2));
+                } catch (e) {
+                    eid = String(Date.now()) + '_' + Math.random().toString(16).slice(2);
+                }
+                var ev = {
+                    id: eid,
+                    event: eventName,
+                    adId: ad && ad.id ? ad.id : '',
+                    href: ad && ad.href ? ad.href : '',
+                    page: location.pathname,
+                    ref: document.referrer || '',
+                    mobile: isMobile(),
+                    extra: extra || {},
+                    at: new Date().toISOString()
+                };
+                enqueueMetric(ev);
+
+                // DEBUG: Log clicks to console for immediate visibility
+                if (eventName === 'click') {
+                    console.log('Ad click tracked:', ev);
+                }
+            }
+
+            function renderMedia(container, ad) {
+                container.innerHTML = '';
+                if (!ad) return;
+
+                var safeSrc = '';
+                try { safeSrc = encodeURI(ad.src); } catch (e) { safeSrc = ad.src; }
+
+                if (ad.type === 'video') {
+                    var v = document.createElement('video');
+                    v.src = safeSrc;
+                    if (ad.poster) {
+                        try { v.poster = encodeURI(ad.poster); } catch (e) { v.poster = ad.poster; }
+                    }
+                    v.muted = true;
+                    v.playsInline = true;
+                    v.loop = true;
+                    v.autoplay = true;
+                    v.preload = 'auto';
+                    v.style.cursor = 'pointer';
+                    v.addEventListener('click', function () {
+                        track('click', ad, { placement: 'modal' });
+                        window.open(ad.href, '_blank', 'noopener');
+                    });
+                    container.appendChild(v);
+                    return;
+                }
+
+                var img = document.createElement('img');
+                img.src = safeSrc;
+                img.alt = ad.title || 'Sponsored';
+                img.loading = 'eager';
+                img.decoding = 'async';
+                img.style.cursor = 'pointer';
+                try { img.fetchPriority = 'high'; } catch (e) { }
+                img.addEventListener('click', function () {
+                    track('click', ad, { placement: 'modal' });
+                    window.open(ad.href, '_blank', 'noopener');
+                });
+                container.appendChild(img);
+            }
+
+            function renderInlineAd(targetEl, ad, placement) {
+                if (!targetEl) return;
+                targetEl.classList.remove('hidden');
+                targetEl.innerHTML = '';
+
+                var safeSrc = '';
+                try { safeSrc = encodeURI(ad.src); } catch (e) { safeSrc = ad.src; }
+
+                var wrap = document.createElement('div');
+                wrap.className = 'ad-inline';
+                var a = document.createElement('a');
+                a.href = '#';
+                a.target = '_self';
+                a.rel = 'noopener';
+                a.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    track('click', ad, { placement: placement });
+                    window.open(ad.href, '_blank', 'noopener');
+                });
+
+                if (ad.type === 'video') {
+                    var v = document.createElement('video');
+                    v.src = safeSrc;
+                    if (ad.poster) {
+                        try { v.poster = encodeURI(ad.poster); } catch (e) { v.poster = ad.poster; }
+                    }
+                    v.muted = true;
+                    v.playsInline = true;
+                    v.loop = true;
+                    v.autoplay = true;
+                    v.preload = 'auto';
+                    v.style.cursor = 'pointer';
+                    v.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        track('click', ad, { placement: placement });
+                        window.open(ad.href, '_blank', 'noopener');
+                    });
+                    a.appendChild(v);
+                } else {
+                    var img = document.createElement('img');
+                    img.src = safeSrc;
+                    img.alt = ad.title || 'Sponsored';
+                    img.loading = 'eager';
+                    img.decoding = 'async';
+                    img.style.cursor = 'pointer';
+                    try { img.fetchPriority = 'high'; } catch (e) { }
+                    img.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        track('click', ad, { placement: placement });
+                        window.open(ad.href, '_blank', 'noopener');
+                    });
+                    a.appendChild(img);
+                }
+
+                var cap = document.createElement('div');
+                cap.className = 'ad-inline-caption';
+                cap.innerHTML = ad.headline || ad.title || 'Sponsored';
+                wrap.appendChild(a);
+                wrap.appendChild(cap);
+                targetEl.appendChild(wrap);
+
+                track('impression', ad, { placement: placement });
+            }
+
+            function applyHero(ad, trackIt) {
+                var heroMedia = document.getElementById('heroAdMedia');
+                if (heroMedia) {
+                    // Always use Jimmy image as background for text overlay
+                    var jimmySrc = './img/timmy image.jpeg';
+                    var safeJimmySrc = '';
+                    try { safeJimmySrc = encodeURI(jimmySrc); } catch (e) { safeJimmySrc = jimmySrc; }
+
+                    var existingVideo = document.getElementById('heroAdVideo');
+                    if (existingVideo && existingVideo.parentNode) {
+                        existingVideo.parentNode.removeChild(existingVideo);
+                    }
+
+                    var existingImg = document.getElementById('heroAdImg');
+                    if (existingImg && existingImg.parentNode) {
+                        existingImg.parentNode.removeChild(existingImg);
+                    }
+
+                    // Use <img> with object-fit: contain to avoid cropping
+                    var img = document.createElement('img');
+                    img.id = 'heroAdImg';
+                    img.src = safeJimmySrc;
+                    img.alt = 'Ad background';
+                    img.style.position = 'absolute';
+                    img.style.inset = '0';
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'contain';
+                    img.style.background = '#0b1220';
+                    heroMedia.appendChild(img);
+
+                    // Remove background-image styles
+                    heroMedia.style.backgroundImage = 'none';
+                    void heroMedia.offsetHeight;
+                }
+
+                var heroLink = document.getElementById('heroAdLink');
+                if (heroLink && ad && ad.href) {
+                    heroLink.href = '#';
+                    heroLink.style.display = 'block';
+                    heroLink.target = '_self';
+                    heroLink.onclick = function (e) {
+                        e.preventDefault();
+                        track('click', ad, { placement: 'hero' });
+                        window.open(ad.href, '_blank', 'noopener');
+                    };
+                } else if (heroLink) {
+                    heroLink.style.display = 'none';
+                }
+
+                var headline = document.getElementById('heroAdHeadline');
+                if (headline && ad.headline) headline.innerHTML = ad.headline;
+
+                var sub = document.getElementById('heroAdSubtext');
+                if (sub) sub.innerHTML = ad.subtext || '';
+
+                if (trackIt) {
+                    track('impression', ad, { placement: 'hero' });
+                }
+            }
+
+            function swapHeroToAd(ad) {
+                applyHero(ad, true);
+            }
+
+            function showModal(ad) {
+                var backdrop = document.getElementById('adModalBackdrop');
+                var media = document.getElementById('adModalMedia');
+                var title = document.getElementById('adModalTitle');
+                var cta = document.getElementById('adModalCta');
+                var closeBtn = document.getElementById('adModalClose');
+
+                if (!backdrop || !media || !cta || !closeBtn) return;
+
+                title.innerHTML = ad.title || 'Sponsored';
+                media.innerHTML = '';
+
+                cta.onclick = function () {
+                    track('click', ad, { placement: 'modal' });
+                    window.open(ad.href, '_blank', 'noopener');
+                };
+
+                closeBtn.disabled = true;
+                closeBtn.style.opacity = '0.6';
+                closeBtn.textContent = '5';
+
+                backdrop.style.display = 'flex';
+                track('impression', ad, { placement: 'modal' });
+
+                renderMedia(media, ad);
+
+                var remaining = 5;
+                var timer = setInterval(function () {
+                    remaining -= 1;
+                    if (remaining > 0) {
+                        closeBtn.textContent = String(remaining);
+                        return;
+                    }
+                    clearInterval(timer);
+                    closeBtn.textContent = 'X';
+                    closeBtn.disabled = false;
+                    closeBtn.style.opacity = '1';
+                }, 1000);
+
+                closeBtn.onclick = function () {
+                    backdrop.style.display = 'none';
+                    setTimeout(function () { swapHeroToAd(ad); }, 0);
+                };
+            }
+
+            function preloadAd(ad) {
+                if (!ad || !ad.src) return;
+
+                var safeSrc = '';
+                try { safeSrc = encodeURI(ad.src); } catch (e) { safeSrc = ad.src; }
+
+                if (ad.type === 'video') {
+                    try {
+                        var link = document.createElement('link');
+                        link.rel = 'preload';
+                        // Some browsers warn on as="video"; use a broadly-supported value
+                        link.as = 'fetch';
+                        link.href = safeSrc;
+                        document.head.appendChild(link);
+                    } catch (e) { }
+
+                    if (ad.poster) {
+                        try {
+                            var linkPoster = document.createElement('link');
+                            linkPoster.rel = 'preload';
+                            linkPoster.as = 'image';
+                            try { linkPoster.href = encodeURI(ad.poster); } catch (e) { linkPoster.href = ad.poster; }
+                            document.head.appendChild(linkPoster);
+                        } catch (e) { }
+                    }
+                    return;
+                }
+
+                try {
+                    var img = new Image();
+                    img.src = safeSrc;
+                } catch (e) { }
+
+                try {
+                    var linkImg = document.createElement('link');
+                    linkImg.rel = 'preload';
+                    linkImg.as = 'image';
+                    linkImg.href = safeSrc;
+                    document.head.appendChild(linkImg);
+                } catch (e) { }
+            }
+
+            function init() {
+                var ad = selectActiveAd();
+                if (!ad) return;
+
+                // Show hero + inline ads on login page, but do not show the modal popup.
+                preloadAd(ad);
+                applyHero(ad, true);
+                renderInlineAd(document.getElementById('mobileTopAd'), ad, 'mobile_top');
+
+                window.addEventListener('beforeunload', function () { flushMetrics(true); });
+                setInterval(function () { flushMetrics(false); }, 8000);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+
 </body>
 
 </html>

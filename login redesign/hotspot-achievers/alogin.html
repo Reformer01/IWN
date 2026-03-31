@@ -14,23 +14,134 @@
 </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="2; url=$(link-redirect)">
+    <meta http-equiv="refresh" content="50; url=$(link-redirect)">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <title>Internet hotspot - Redirect</title>
     <link rel="stylesheet" href="css/style.css">
     <script>
         function startClock() {
-            $(if popup == 'true')
+            // MikroTik templating directives must be inside an HTML comment
+            // to avoid breaking JS parsing in editors/linters.
+            /*$(if popup == 'true')
             open('$(link-status)', 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290,height=200');
-        $(endif)
-        location.href = unescape('$(link-redirect-esc)');
+            $(endif)*/
+        setTimeout(function () {
+            location.href = unescape('$(link-redirect-esc)');
+        }, 50000);
         }
 
     </script> 
+    <style>
+        .ad-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.78);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .ad-modal {
+            width: min(980px, 100%);
+            max-height: min(92vh, 920px);
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ad-modal-media {
+            position: relative;
+            width: 100%;
+            background: #0b1220;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-modal-media img,
+        .ad-modal-media video {
+            max-width: 100%;
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #0b1220;
+        }
+
+        .ad-modal-footer {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: #fff;
+        }
+
+        .ad-modal-title {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1.3;
+            opacity: 0.95;
+        }
+
+        .ad-modal-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            padding: 10px 12px;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .ad-modal-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            flex: 0 0 auto;
+        }
+    </style>
 </head>
 
 <body onLoad="startClock()">
+    <div id="adModalBackdrop" class="ad-modal-backdrop" aria-hidden="true">
+        <div class="ad-modal" role="dialog" aria-modal="true" aria-label="Sponsored message">
+            <div id="adModalMedia" class="ad-modal-media"></div>
+            <div class="ad-modal-footer">
+                <div class="ad-modal-title" id="adModalTitle"></div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <button id="adModalCta" type="button" class="ad-modal-cta">Open</button>
+                    <button id="adModalClose" type="button" class="ad-modal-close" aria-label="Close ad">X</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="ie-fixMinHeight">
         <div class="main">
             <div class="wrap">
@@ -39,6 +150,75 @@
             </div>
         </div>
     </div>
+
+    <script>
+        (function () {
+            var ad = {
+                title: 'Sponsored - WhatsApp: <a href="tel:08111353490"><u>08111353490</u></a>',
+                type: 'video',
+                src: './img/timmy.mp4',
+                poster: './img/timmy image.jpeg',
+                href: 'https://chat.whatsapp.com/IJSgyLeTBpH3RleUU6C00n'
+            };
+
+            function renderMedia(container, ad) {
+                if (!container || !ad) return;
+                container.innerHTML = '';
+
+                var safeSrc = '';
+                try { safeSrc = encodeURI(ad.src); } catch (e) { safeSrc = ad.src; }
+
+                if (ad.type === 'video') {
+                    var v = document.createElement('video');
+                    v.src = safeSrc;
+                    if (ad.poster) {
+                        try { v.poster = encodeURI(ad.poster); } catch (e) { v.poster = ad.poster; }
+                    }
+                    v.muted = true;
+                    v.playsInline = true;
+                    v.loop = true;
+                    v.autoplay = true;
+                    v.preload = 'auto';
+                    container.appendChild(v);
+                    return;
+                }
+
+                var img = document.createElement('img');
+                img.src = safeSrc;
+                img.alt = ad.title || 'Sponsored';
+                container.appendChild(img);
+            }
+
+            function showModal(ad) {
+                var backdrop = document.getElementById('adModalBackdrop');
+                var media = document.getElementById('adModalMedia');
+                var title = document.getElementById('adModalTitle');
+                var cta = document.getElementById('adModalCta');
+                var closeBtn = document.getElementById('adModalClose');
+
+                if (!backdrop || !media || !cta || !closeBtn) return;
+
+                if (title) title.innerHTML = ad.title || 'Sponsored';
+                renderMedia(media, ad);
+
+                cta.onclick = function () {
+                    window.open(ad.href, '_blank', 'noopener');
+                };
+
+                closeBtn.onclick = function () {
+                    backdrop.style.display = 'none';
+                };
+
+                backdrop.style.display = 'flex';
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function () { showModal(ad); });
+            } else {
+                showModal(ad);
+            }
+        })();
+    </script>
 </body>
 
 </html>
