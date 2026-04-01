@@ -715,10 +715,8 @@
             function applyHero(ad, trackIt) {
                 var heroMedia = document.getElementById('heroAdMedia');
                 if (heroMedia) {
-                    // Always use Jimmy image as background for text overlay
-                    var jimmySrc = './img/timmy image.jpeg';
-                    var safeJimmySrc = '';
-                    try { safeJimmySrc = encodeURI(jimmySrc); } catch (e) { safeJimmySrc = jimmySrc; }
+                    // Always use timmy image as background for text overlay
+                    var jimmySrc = 'img/timmyimage.jpeg';
 
                     var existingVideo = document.getElementById('heroAdVideo');
                     if (existingVideo && existingVideo.parentNode) {
@@ -733,7 +731,7 @@
                     // Use <img> with object-fit: contain to avoid cropping
                     var img = document.createElement('img');
                     img.id = 'heroAdImg';
-                    img.src = safeJimmySrc;
+                    img.src = jimmySrc;
                     img.alt = 'Ad background';
                     img.style.position = 'absolute';
                     img.style.inset = '0';
