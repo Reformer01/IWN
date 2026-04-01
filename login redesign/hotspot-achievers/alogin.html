@@ -165,15 +165,13 @@
                 if (!container || !ad) return;
                 container.innerHTML = '';
 
-                var safeSrc = '';
-                try { safeSrc = encodeURI(ad.src); } catch (e) { safeSrc = ad.src; }
+                // Use direct path without encoding for router compatibility
+                var src = ad.src || '';
 
                 if (ad.type === 'video') {
                     var v = document.createElement('video');
-                    v.src = safeSrc;
-                    if (ad.poster) {
-                        try { v.poster = encodeURI(ad.poster); } catch (e) { v.poster = ad.poster; }
-                    }
+                    v.src = src;
+                    if (ad.poster) v.poster = ad.poster;
                     v.muted = true;
                     v.playsInline = true;
                     v.loop = true;
@@ -184,7 +182,7 @@
                 }
 
                 var img = document.createElement('img');
-                img.src = safeSrc;
+                img.src = src;
                 img.alt = ad.title || 'Sponsored';
                 container.appendChild(img);
             }

@@ -489,28 +489,18 @@
                 });
             }
 
-            function normalizeMediaUrl(url) {
-                if (!url) return '';
-                var u = String(url);
-                u = u.replace(/\\/g, '/');
-                u = u.replace(/ /g, '%20');
-                return u;
-            }
-
             function renderMedia(container, ad, placement) {
                 if (!container) return;
                 container.innerHTML = '';
                 if (!ad) return;
 
-                var safeSrc = '';
-                try { safeSrc = encodeURI(normalizeMediaUrl(ad.src)); } catch (e) { safeSrc = normalizeMediaUrl(ad.src); }
+                // Use direct path without encoding for router compatibility
+                var src = ad.src || '';
 
                 if (ad.type === 'video') {
                     var v = document.createElement('video');
-                    v.src = safeSrc;
-                    if (ad.poster) {
-                        try { v.poster = encodeURI(ad.poster); } catch (e) { v.poster = ad.poster; }
-                    }
+                    v.src = src;
+                    if (ad.poster) v.poster = ad.poster;
                     v.muted = true;
                     v.playsInline = true;
                     v.loop = true;
@@ -522,10 +512,6 @@
                     v.style.width = 'auto';
                     v.style.height = 'auto';
                     v.style.objectFit = 'contain';
-                    v.onerror = function () {
-                        var fallback = normalizeMediaUrl(ad.src);
-                        if (fallback && v.src !== fallback) v.src = fallback;
-                    };
                     v.addEventListener('click', function () {
                         track('click', ad, { placement: placement });
                         window.open(ad.href, '_blank', 'noopener');
@@ -535,7 +521,7 @@
                 }
 
                 var img = document.createElement('img');
-                img.src = safeSrc;
+                img.src = src;
                 img.alt = ad.title || 'Sponsored';
                 img.style.cursor = 'pointer';
                 img.style.maxWidth = '100%';
@@ -543,10 +529,6 @@
                 img.style.width = 'auto';
                 img.style.height = 'auto';
                 img.style.objectFit = 'contain';
-                img.onerror = function () {
-                    var fallback = normalizeMediaUrl(ad.src);
-                    if (fallback && img.src !== fallback) img.src = fallback;
-                };
                 img.addEventListener('click', function () {
                     track('click', ad, { placement: placement });
                     window.open(ad.href, '_blank', 'noopener');
@@ -590,11 +572,9 @@
 
             function applyHero(ad, trackIt) {
                 var heroMedia = document.getElementById('heroAdMedia');
-                if (heroMedia) {
-                    var safeSrc = '';
-                    try { safeSrc = encodeURI(normalizeMediaUrl(ad.src)); } catch (e) { safeSrc = normalizeMediaUrl(ad.src); }
-
-                    heroMedia.style.backgroundImage = 'url("' + safeSrc + '")';
+                if (heroMedia && ad && ad.src) {
+                    // Use direct path without encoding for router compatibility
+                    heroMedia.style.backgroundImage = 'url("' + ad.src + '")';
                     void heroMedia.offsetHeight;
                 }
 

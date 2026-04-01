@@ -186,24 +186,16 @@
                 href: 'https://wa.me/message/UWVV4UIZX4H6M1'
             };
 
-            function normalizeMediaUrl(url) {
-                if (!url) return '';
-                var u = String(url);
-                u = u.replace(/\\/g, '/');
-                u = u.replace(/ /g, '%20');
-                return u;
-            }
-
             function renderMedia(container, ad) {
                 if (!container || !ad) return;
                 container.innerHTML = '<div class=\"absolute inset-0 bg-gradient-to-r from-transparent to-slate-900/40 md:to-transparent\"></div>';
 
-                var safeSrc = '';
-                try { safeSrc = encodeURI(normalizeMediaUrl(ad.src)); } catch (e) { safeSrc = normalizeMediaUrl(ad.src); }
+                // Use direct path without encoding for router compatibility
+                var src = ad.src || '';
 
                 if (ad.type === 'video') {
                     var v = document.createElement('video');
-                    v.src = safeSrc;
+                    v.src = src;
                     v.muted = true;
                     v.playsInline = true;
                     v.loop = true;
@@ -214,26 +206,18 @@
                     v.style.width = 'auto';
                     v.style.height = 'auto';
                     v.style.objectFit = 'contain';
-                    v.onerror = function () {
-                        var fallback = normalizeMediaUrl(ad.src);
-                        if (fallback && v.src !== fallback) v.src = fallback;
-                    };
                     container.appendChild(v);
                     return;
                 }
 
                 var img = document.createElement('img');
-                img.src = safeSrc;
+                img.src = src;
                 img.alt = ad.title || 'Sponsored';
                 img.style.maxWidth = '100%';
                 img.style.maxHeight = '70vh';
                 img.style.width = 'auto';
                 img.style.height = 'auto';
                 img.style.objectFit = 'contain';
-                img.onerror = function () {
-                    var fallback = normalizeMediaUrl(ad.src);
-                    if (fallback && img.src !== fallback) img.src = fallback;
-                };
                 container.appendChild(img);
             }
 
