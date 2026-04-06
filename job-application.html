@@ -294,34 +294,14 @@
         </div>
     </header>
 
-    <!-- Why Work With Us Section -->
-    <section class="py-16 bg-white">
+    <!-- Job Role Details Section -->
+    <section class="py-16 bg-white" id="jobRoleDetails">
         <div class="container mx-auto px-6">
-            <div
-                class="max-w-4xl mx-auto bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 p-8 shadow-sm">
-                <h3 class="text-2xl font-bold text-primary mb-4">Why Work With Us?</h3>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-900">Be part of a fast-growing, innovative tech company</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-900">Collaborative and supportive work environment</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-900">Opportunities for professional growth and training</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-900">Competitive salary and benefits</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
-                        <span class="text-slate-900">Make a real impact in the connectivity industry</span>
-                    </li>
-                </ul>
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 p-8 shadow-sm">
+                <h3 class="text-2xl font-bold text-primary mb-4" id="roleTitle">Position Overview</h3>
+                <div id="roleContent" class="space-y-4">
+                    <p class="text-slate-600">Loading position details...</p>
+                </div>
             </div>
         </div>
     </section>
@@ -884,6 +864,168 @@
                 document.getElementById('jobEducation').textContent = details.education;
                 document.getElementById('jobExperience').textContent = details.experience;
                 jobDetailsSection.classList.remove('hidden');
+            }
+            
+            // Job role details content
+            const jobRoleDetails = {
+                'Google for Education Change Management Officer': {
+                    title: 'Google for Education Change Management Officer',
+                    responsibilities: [
+                        'Lead digital transformation initiatives in partner schools',
+                        'Train educators on Google for Education tools and best practices',
+                        'Develop and implement change management strategies',
+                        'Collaborate with school leadership to drive technology adoption',
+                        'Monitor and evaluate the impact of digital learning programs'
+                    ],
+                    requirements: [
+                        'B.Ed, B.Sc or HND in Computer or IT related fields',
+                        'Prior teaching experience advantageous',
+                        'Strong communication and presentation skills',
+                        'Passion for education technology and digital learning',
+                        'Ability to travel to partner institutions within Nigeria'
+                    ],
+                    benefits: [
+                        'Competitive salary package',
+                        'Professional development and Google certification opportunities',
+                        'Travel allowances for school visits',
+                        'Work with cutting-edge educational technology',
+                        'Make a meaningful impact on Nigerian education'
+                    ]
+                },
+                'Field Technician': {
+                    title: 'Field Technician',
+                    responsibilities: [
+                        'Install and maintain network infrastructure at client sites',
+                        'Troubleshoot and resolve technical issues promptly',
+                        'Configure and deploy network equipment (routers, switches, access points)',
+                        'Provide on-site technical support and customer service',
+                        'Document installation procedures and service reports'
+                    ],
+                    requirements: [
+                        'B.Sc or HND in Computer Science, IT, Engineering or related field',
+                        'No prior experience required - training provided',
+                        'Basic computer networking knowledge',
+                        'Ability to work under pressure and meet deadlines',
+                        'Valid driver\'s license and willingness to travel',
+                        'Strong problem-solving and communication skills'
+                    ],
+                    benefits: [
+                        'Competitive entry-level salary',
+                        'Comprehensive training and certification programs',
+                        'Transportation and accommodation allowances for field work',
+                        'Career growth opportunities in technical operations',
+                        'Health insurance and employee benefits'
+                    ]
+                },
+                'Sales & Marketing Officer': {
+                    title: 'Sales & Marketing Officer',
+                    responsibilities: [
+                        'Identify and prospect new business opportunities in assigned territories',
+                        'Develop and maintain relationships with potential and existing clients',
+                        'Conduct product presentations and demonstrations to prospects',
+                        'Negotiate contracts and close sales deals',
+                        'Meet and exceed monthly sales targets and KPIs',
+                        'Gather market intelligence and competitor information'
+                    ],
+                    requirements: [
+                        'Minimum of OND in any discipline',
+                        'Field Marketing & Sales experience preferred',
+                        'Excellent communication and negotiation skills',
+                        'Self-driven with strong analytical thinking',
+                        'Computer proficiency and time management skills',
+                        'Friendly demeanor and professional appearance'
+                    ],
+                    benefits: [
+                        'Attractive base salary plus performance bonuses',
+                        'Uncapped commission structure',
+                        'Transportation allowance for field activities',
+                        'Career advancement opportunities in business development',
+                        'Regular sales training and skill development'
+                    ]
+                },
+                'Corporate Driver': {
+                    title: 'Corporate Driver',
+                    responsibilities: [
+                        'Safely transport staff and executives to various destinations',
+                        'Maintain vehicle cleanliness and ensure regular maintenance',
+                        'Plan routes efficiently to ensure timely arrivals',
+                        'Assist with light administrative tasks during travel',
+                        'Adhere to all traffic regulations and company safety policies'
+                    ],
+                    requirements: [
+                        'Valid driver\'s license with clean driving record',
+                        'Proficiency in both manual and automatic transmission vehicles',
+                        'Experience in interstate travel and long-distance driving',
+                        'Flexible schedule with availability for weekend travel',
+                        'Professional demeanor and excellent time management',
+                        'Knowledge of vehicle basic maintenance and troubleshooting'
+                    ],
+                    benefits: [
+                        'Competitive salary of 100,000 NGN monthly',
+                        'Travel and meal allowances',
+                        'Corporate environment with professional growth opportunities',
+                        'Vehicle maintenance support',
+                        'Health insurance coverage'
+                    ]
+                }
+            };
+            
+            // Populate job role details section
+            var roleTitleEl = document.getElementById('roleTitle');
+            var roleContentEl = document.getElementById('roleContent');
+            var jobRole = getJobTitleFromURL();
+            
+            if (roleTitleEl && roleContentEl && jobRole && jobRoleDetails[jobRole]) {
+                var role = jobRoleDetails[jobRole];
+                roleTitleEl.textContent = role.title;
+                
+                var html = '<div class="space-y-6">';
+                
+                // Key Responsibilities
+                html += '<div>';
+                html += '<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">';
+                html += '<span class="material-symbols-outlined text-primary text-base">task</span>';
+                html += 'Key Responsibilities</h4>';
+                html += '<ul class="space-y-2 ml-6">';
+                role.responsibilities.forEach(function(item) {
+                    html += '<li class="text-slate-700 text-sm flex items-start gap-2">';
+                    html += '<span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>';
+                    html += '<span>' + item + '</span></li>';
+                });
+                html += '</ul></div>';
+                
+                // Requirements
+                html += '<div>';
+                html += '<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">';
+                html += '<span class="material-symbols-outlined text-primary text-base">verified</span>';
+                html += 'Requirements</h4>';
+                html += '<ul class="space-y-2 ml-6">';
+                role.requirements.forEach(function(item) {
+                    html += '<li class="text-slate-700 text-sm flex items-start gap-2">';
+                    html += '<span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>';
+                    html += '<span>' + item + '</span></li>';
+                });
+                html += '</ul></div>';
+                
+                // Benefits
+                html += '<div class="bg-primary/5 rounded-xl p-4">';
+                html += '<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">';
+                html += '<span class="material-symbols-outlined text-primary text-base">stars</span>';
+                html += 'What We Offer</h4>';
+                html += '<ul class="space-y-2 ml-6">';
+                role.benefits.forEach(function(item) {
+                    html += '<li class="text-slate-700 text-sm flex items-start gap-2">';
+                    html += '<span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>';
+                    html += '<span>' + item + '</span></li>';
+                });
+                html += '</ul></div>';
+                
+                html += '</div>';
+                roleContentEl.innerHTML = html;
+            } else if (roleTitleEl && roleContentEl) {
+                // Fallback for unknown job titles
+                roleTitleEl.textContent = 'Join Our Team';
+                roleContentEl.innerHTML = '<div class="space-y-4"><p class="text-slate-700">We are always looking for talented individuals to join our growing team. This position offers:</p><ul class="space-y-2 ml-6"><li class="text-slate-700 text-sm flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span><span>Competitive salary and benefits</span></li><li class="text-slate-700 text-sm flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span><span>Professional growth opportunities</span></li><li class="text-slate-700 text-sm flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span><span>Collaborative work environment</span></li><li class="text-slate-700 text-sm flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span><span>Make an impact in Nigerian connectivity</span></li></ul></div>';
             }
             
             // Show/hide job-specific requirements
