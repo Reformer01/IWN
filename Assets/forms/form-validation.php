@@ -87,21 +87,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $uploads = $_FILES;
     $content = $files = array();
     
+    // Helper function to recursively handle nested arrays
+    function formatValue($value, $prefix = '') {
+        if (is_array($value)) {
+            // Check if it's an associative array with meaningful keys
+            $formatted = [];
+            foreach ($value as $k => $v) {
+                $formatted[] = formatValue($v, $prefix . $k . ': ');
+            }
+            return implode("\n", $formatted);
+        }
+        return $prefix . htmlspecialchars($value);
+    }
+
     // Iterate over input fields
     foreach ($fields as $field => $value) {
         // Skip honeypot and internal fields
         if (in_array($field, ['middle_name', 'website_url', 'form_token', 'subject'])) {
             continue;
         }
-        
+
         // Replace underscores with spaces and capitalize first letters
-        $field = ucwords(str_replace('_', ' ', $field));
-        // Separate multiple values by commas or just append
-        $value = is_array($value) ? implode(', ', $value) : $value;
-        
+        $fieldName = ucwords(str_replace('_', ' ', $field));
+
+        // Handle nested arrays properly
+        $formattedValue = formatValue($value);
+
         $content[] = array(
-            'label' => $field, 
-            'value' => htmlspecialchars($value) // Sanitize output
+            'label' => $fieldName,
+            'value' => $formattedValue
         );
     }
 
