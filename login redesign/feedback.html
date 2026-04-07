@@ -1,0 +1,164 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="bg-gray-50 min-h-screen p-8 font-sans">
+  <div class="max-w-6xl mx-auto">
+    <header class="flex justify-between items-center mb-10">
+      <h1 class="text-3xl font-bold text-gray-800">I-world <span class="text-blue-600">Executive Intelligence</span></h1>
+      <div id="status" class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-medium">Live Sync Active</div>
+    </header>
+
+    <div id="error-banner" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-6">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined">error</span>
+          <span id="error-message">Unable to load live data. Showing demo data.</span>
+        </div>
+        <button onclick="retryLoad()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-lg text-sm font-medium transition-colors">
+          Retry
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+        <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Avg. Satisfaction</p>
+        <h2 id="avg-sat" class="text-5xl font-bold text-blue-600 my-2">0.0</h2>
+        <p class="text-sm text-gray-400">Target: 4.5+</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+        <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Network Stability</p>
+        <h2 id="net-stab" class="text-5xl font-bold text-indigo-600 my-2">0.0</h2>
+        <div class="w-full bg-gray-200 h-2 rounded-full mt-2">
+            <div id="stab-bar" class="bg-indigo-600 h-2 rounded-full" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+        <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Total Responses</p>
+        <h2 id="total-resp" class="text-5xl font-bold text-gray-800 my-2">0</h2>
+        <p class="text-sm text-gray-400">Total volume analyzed</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h3 class="text-lg font-bold mb-4">Staff Performance (Avg Score)</h3>
+        <canvas id="staffChart"></canvas>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h3 class="text-lg font-bold mb-4">Recent Commendations</h3>
+        <div id="testimonial-container" class="space-y-4">
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const API_URL = 'https://script.google.com/macros/s/AKfycbz7TEJymj9CEb9JRbUHQFysYx6K9OaqTSx8g1FtFqgMdKrt7UeQ4gCQ44LEOP-9RKuCng/exec';
+
+  // Demo data for when API is unavailable
+  const demoData = {
+    support: {
+      avg: 4.2,
+      total: 156,
+      staff: [
+        { name: 'John D.', score: 4.8 },
+        { name: 'Sarah M.', score: 4.5 },
+        { name: 'Mike R.', score: 4.1 },
+        { name: 'Emma K.', score: 3.9 }
+      ]
+    },
+    network: { stability: 4.3 },
+    testimonials: [
+      { text: 'Excellent service and very professional team!', name: 'Client A' },
+      { text: 'Network uptime has been fantastic since the upgrade.', name: 'Client B' }
+    ]
+  };
+
+  async function updateDashboard() {
+    const errorBanner = document.getElementById('error-banner');
+    const statusEl = document.getElementById('status');
+    
+    try {
+      const response = await fetch(API_URL, { 
+        method: 'GET',
+        mode: 'cors'
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      renderDashboard(data);
+      
+      // Hide error banner if previously shown
+      errorBanner.classList.add('hidden');
+      statusEl.textContent = 'Live Sync Active';
+      statusEl.className = 'bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-medium';
+      
+    } catch (error) {
+      console.error('Dashboard error:', error);
+      
+      // Show error banner
+      errorBanner.classList.remove('hidden');
+      document.getElementById('error-message').textContent = 
+        'Unable to load live data. ' + (error.message.includes('CORS') ? 'CORS policy blocked the request.' : 'API temporarily unavailable.') + ' Showing demo data.';
+      
+      // Update status
+      statusEl.textContent = 'Demo Mode';
+      statusEl.className = 'bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full text-sm font-medium';
+      
+      // Render demo data as fallback
+      renderDashboard(demoData);
+    }
+  }
+
+  function retryLoad() {
+    document.getElementById('error-banner').classList.add('hidden');
+    updateDashboard();
+  }
+
+  function renderDashboard(data) {
+    // Clear previous chart if exists
+    const existingChart = Chart.getChart('staffChart');
+    if (existingChart) {
+      existingChart.destroy();
+    }
+
+    // Update Scores
+    document.getElementById('avg-sat').innerText = data.support.avg;
+    document.getElementById('net-stab').innerText = data.network.stability;
+    document.getElementById('total-resp').innerText = data.support.total;
+    document.getElementById('stab-bar').style.width = (data.network.stability / 5 * 100) + '%';
+
+    // Build Staff Chart
+    const ctx = document.getElementById('staffChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: data.support.staff.map(s => s.name),
+        datasets: [{
+          label: 'Rating',
+          data: data.support.staff.map(s => s.score),
+          backgroundColor: '#3b82f6',
+          borderRadius: 8
+        }]
+      },
+      options: { scales: { y: { beginAtZero: true, max: 5 } } }
+    });
+
+    // Build Testimonials
+    const tContainer = document.getElementById('testimonial-container');
+    tContainer.innerHTML = ''; // Clear existing
+    data.testimonials.forEach(t => {
+        tContainer.innerHTML += `
+            <div class="border-l-4 border-blue-500 pl-4 py-2 italic text-gray-700">
+                "${t.text}" <br> <span class="font-bold text-xs not-italic text-gray-500">- ${t.name}</span>
+            </div>
+        `;
+    });
+  }
+  updateDashboard();
+</script>
