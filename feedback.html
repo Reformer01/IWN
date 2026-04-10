@@ -59,6 +59,69 @@
           </div>
     </div>
   </div>
+
+  <!-- New Stats Row: Satisfaction & Network Breakdown -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+      <h3 class="text-lg font-bold mb-4">Satisfaction Rating Distribution</h3>
+      <canvas id="satisfactionChart"></canvas>
+      <div id="satisfaction-stats" class="mt-4 grid grid-cols-3 gap-2 text-center text-sm">
+        <div class="bg-green-50 p-2 rounded">
+          <span class="block font-bold text-green-600" id="sat-excellent">0%</span>
+          <span class="text-gray-500">Excellent (5★)</span>
+        </div>
+        <div class="bg-blue-50 p-2 rounded">
+          <span class="block font-bold text-blue-600" id="sat-good">0%</span>
+          <span class="text-gray-500">Good (4★)</span>
+        </div>
+        <div class="bg-red-50 p-2 rounded">
+          <span class="block font-bold text-red-600" id="sat-poor">0%</span>
+          <span class="text-gray-500">Poor (1-3★)</span>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+      <h3 class="text-lg font-bold mb-4">Network Quality Breakdown</h3>
+      <canvas id="networkChart"></canvas>
+      <div id="network-stats" class="mt-4 grid grid-cols-2 gap-2 text-sm">
+        <div class="flex justify-between border-b py-1">
+          <span class="text-gray-500">Uptime</span>
+          <span class="font-bold text-indigo-600" id="net-uptime">99.9%</span>
+        </div>
+        <div class="flex justify-between border-b py-1">
+          <span class="text-gray-500">Avg Speed</span>
+          <span class="font-bold text-indigo-600" id="net-speed">45 Mbps</span>
+        </div>
+        <div class="flex justify-between border-b py-1">
+          <span class="text-gray-500">Outages</span>
+          <span class="font-bold text-indigo-600" id="net-outages">0</span>
+        </div>
+        <div class="flex justify-between border-b py-1">
+          <span class="text-gray-500">Issues Reported</span>
+          <span class="font-bold text-indigo-600" id="net-issues">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Response Volume & Trends -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+      <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Response Rate</p>
+      <h2 id="response-rate" class="text-4xl font-bold text-emerald-600 my-2">0%</h2>
+      <p class="text-sm text-gray-400">Completion rate</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+      <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Avg. Resolution Time</p>
+      <h2 id="resolution-time" class="text-4xl font-bold text-orange-600 my-2">0h</h2>
+      <p class="text-sm text-gray-400">Time to resolve issues</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+      <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">NPS Score</p>
+      <h2 id="nps-score" class="text-4xl font-bold text-purple-600 my-2">0</h2>
+      <p class="text-sm text-gray-400">Net Promoter Score</p>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -73,9 +136,20 @@
         { name: 'Sarah M.', score: 4.5 },
         { name: 'Mike R.', score: 4.1 },
         { name: 'Emma K.', score: 3.9 }
-      ]
+      ],
+      distribution: { excellent: 65, good: 25, poor: 10 },
+      responseRate: 78,
+      resolutionTime: 2.5,
+      nps: 42
     },
-    network: { stability: 4.3 },
+    network: {
+      stability: 4.3,
+      breakdown: { excellent: 70, good: 20, poor: 10 },
+      uptime: 99.9,
+      avgSpeed: 45,
+      outages: 2,
+      issues: 5
+    },
     testimonials: [
       { text: 'Excellent service and very professional team!', name: 'Client A' },
       { text: 'Network uptime has been fantastic since the upgrade.', name: 'Client B' }
@@ -127,11 +201,11 @@
   }
 
   function renderDashboard(data) {
-    // Clear previous chart if exists
-    const existingChart = Chart.getChart('staffChart');
-    if (existingChart) {
-      existingChart.destroy();
-    }
+    // Clear previous charts if exist
+    ['staffChart', 'satisfactionChart', 'networkChart'].forEach(chartId => {
+      const existingChart = Chart.getChart(chartId);
+      if (existingChart) existingChart.destroy();
+    });
 
     // Update Scores
     document.getElementById('avg-sat').innerText = data.support.avg;
@@ -139,11 +213,18 @@
     document.getElementById('total-resp').innerText = data.support.total;
     document.getElementById('stab-bar').style.width = (data.network.stability / 5 * 100) + '%';
 
+    // Update new stats
+    document.getElementById('response-rate').innerText = (data.support.responseRate || 0) + '%';
+    document.getElementById('resolution-time').innerText = (data.support.resolutionTime || 0) + 'h';
+    document.getElementById('nps-score').innerText = data.support.nps || 0;
+    document.getElementById('net-uptime').innerText = (data.network.uptime || 99.9) + '%';
+    document.getElementById('net-speed').innerText = (data.network.avgSpeed || 0) + ' Mbps';
+    document.getElementById('net-outages').innerText = data.network.outages || 0;
+    document.getElementById('net-issues').innerText = data.network.issues || 0;
+
     // Build Staff Chart
-    const ctx = document.getElementById('staffChart').getContext('2d');
-    const chartContainer = document.getElementById('staffChart').parentElement;
     document.getElementById('staffChart').height = 300;
-    new Chart(ctx, {
+    new Chart(document.getElementById('staffChart').getContext('2d'), {
       type: 'bar',
       data: {
         labels: data.support.staff.map(s => s.name),
@@ -157,9 +238,49 @@
       options: { scales: { y: { beginAtZero: true, max: 5 } } }
     });
 
+    // Build Satisfaction Distribution Chart
+    const satDist = data.support.distribution || { excellent: 0, good: 0, poor: 0 };
+    document.getElementById('sat-excellent').innerText = satDist.excellent + '%';
+    document.getElementById('sat-good').innerText = satDist.good + '%';
+    document.getElementById('sat-poor').innerText = satDist.poor + '%';
+    
+    new Chart(document.getElementById('satisfactionChart').getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Excellent (5★)', 'Good (4★)', 'Poor (1-3★)'],
+        datasets: [{
+          data: [satDist.excellent, satDist.good, satDist.poor],
+          backgroundColor: ['#22c55e', '#3b82f6', '#ef4444'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+
+    // Build Network Quality Breakdown Chart
+    const netBreak = data.network.breakdown || { excellent: 0, good: 0, poor: 0 };
+    new Chart(document.getElementById('networkChart').getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Excellent', 'Good', 'Poor'],
+        datasets: [{
+          data: [netBreak.excellent, netBreak.good, netBreak.poor],
+          backgroundColor: ['#6366f1', '#8b5cf6', '#f59e0b'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+
     // Build Testimonials
     const tContainer = document.getElementById('testimonial-container');
-    tContainer.innerHTML = ''; // Clear existing
+    tContainer.innerHTML = '';
     data.testimonials.forEach(t => {
         tContainer.innerHTML += `
             <div class="border-l-4 border-blue-500 pl-4 py-2 italic text-gray-700">
