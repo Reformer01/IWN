@@ -48,6 +48,10 @@
             background-color: rgba(255, 255, 255, 0.9);
         }
     </style>
+
+    <!-- reCAPTCHA v2 Invisible -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="./recaptcha-config.js"></script>
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
@@ -159,7 +163,7 @@
 
                 <div class="mt-4 pt-4 border-t border-slate-100">
                     <a href="./contact.html"
-                        class="w-full inline-block bg-primary hover:bg-orange-600 text-white px-6 py-4 rounded-full font-extrabold text-center shadow-lg shadow-primary/20 transition-all text-lg">
+                        class="w-full inline-block bg-primary text-white px-6 py-4 rounded-full font-extrabold text-center shadow-lg shadow-primary/20 transition-all text-lg">
                         Contact Us
                     </a>
                 </div>
@@ -717,8 +721,11 @@
                     </div>
 
                     <button
-                        class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
-                        type="submit">Submit Request Form</button>
+                        class="g-recaptcha w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
+                        type="submit"
+                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                        data-callback='onSubmit'
+                        data-action='submit'>Submit Request Form</button>
             </div>
         </div>
     </section>

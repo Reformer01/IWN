@@ -525,6 +525,10 @@
     </style>
 </head>
 
+<!-- reCAPTCHA v2 Invisible -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="./recaptcha-config.js"></script>
+
 <body class="overflow-x-hidden">
     <!-- Hero Section with Integrated Header -->
     <div class="">
@@ -556,8 +560,7 @@
                         Services</a>
                     <a class="text-primary font-bold whitespace-nowrap" href="./SmartLife.html">I-World Smart Life</a>
                     <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
-                    <a class="hover:text-primary transition-colors whitespace-nowrap"
-                        href="./Google_Workspace.html">Google Cloud Services</a>
+                    <a class="hover:text-primary transition-colors whitespace-nowrap" href="./Google_Workspace.html">Google Cloud Services</a>
                     <a class="hover:text-primary transition-colors whitespace-nowrap" href="./careers.html">Careers</a>
                     <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
                         target="_blank">Client Zone</a>
@@ -876,10 +879,11 @@
                 <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
                     <div class="mb-4">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="23" cy="23" r="20" stroke="#34A853" stroke-width="2" fill="none" />
-                            <path
-                                d="M23 12l-8 4v8c0 5 3.5 10 8 11.5 4.5-1.5 8-6.5 8-11.5v-8l-8-4zM18 20l3.5 3.5 6.5-6.5"
-                                stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M23 5L5 13v10c0 11 7.5 21 18 24 10.5-3 18-13 18-24V13L23 5z" stroke="#34A853" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M23 5L5 13v10c0 11 7.5 21 18 24V5z" fill="#34A853" />
+                            <path d="M16 23l5 5 9-9" stroke="#34A853" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">100% Liability Transfer</h3>
@@ -892,7 +896,7 @@
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="23" cy="23" r="20" stroke="#F58C29" stroke-width="2" fill="none" />
                             <path d="M23 12l-9 8v12h18V20l-9-8zM18 32v-8h10v8" stroke="#F58C29" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
+                                stroke-linecap="round" />
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">Immediate Property Value Uplift</h3>
@@ -903,10 +907,11 @@
                 <div class="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
                     <div class="mb-4">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="23" cy="23" r="20" stroke="#34A853" stroke-width="2" fill="none" />
+                            <circle cx="23" cy="15" r="8" stroke="#34A853" stroke-width="2" fill="#34A853" />
                             <path d="M15 15h16v12h-16V15zM15 31h16M21 31l-1 4h6l-1-4" stroke="#34A853" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <circle cx="23" cy="23" r="2" fill="#34A853" />
+                                stroke-linecap="round" />
+                            <circle cx="35" cy="35" r="8" fill="white" stroke="#34A853" stroke-width="2" />
+                            <path d="M35 32v6M32 35h6" stroke="#34A853" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">24/7 Professional Monitoring</h3>
@@ -961,9 +966,9 @@
                         <rect x="33" y="22" width="8" height="22" fill="#D4D4D8" stroke="#161616" stroke-width="2" />
                     </svg>
                     <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Increased Property Value</h3>
-                    <p class="mt-5 text-base text-gray-600 font-pj">Tech-enabled, secure, and reliably managed estates
-                        command higher sales prices and rents, positioning the estate at the top of the luxury
-                        market.</p>
+                    <p class="mt-5 text-base text-gray-600 font-pj">
+                        Tech-enabled, secure, and reliably managed estates command higher sales prices and rents,
+                        positioning the estate at the top of the luxury market.</p>
                 </div>
 
                 <!-- Operational Streamlining -->
@@ -979,8 +984,9 @@
                             stroke-linejoin="round" />
                     </svg>
                     <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Operational Streamlining</h3>
-                    <p class="mt-5 text-base text-gray-600 font-pj">The Estate App automates billing, fee collection,
-                        and governance, drastically reducing administrative chaos and stress on the management team.</p>
+                    <p class="mt-5 text-base text-gray-600 font-pj">
+                        The Estate App automates billing, fee collection, and governance, drastically reducing
+                        administrative chaos and stress on the management team.</p>
                 </div>
 
                 <!-- Liability Reduction -->
@@ -994,8 +1000,9 @@
                             stroke-linejoin="round" />
                     </svg>
                     <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Liability Reduction</h3>
-                    <p class="mt-5 text-base text-gray-600 font-pj">Transfer the risk of system failure, maintenance,
-                        and complex tech management entirely to I-World Networks, eliminating budget surprises.</p>
+                    <p class="mt-5 text-base text-gray-600 font-pj">
+                        Transfer the risk of system failure, maintenance, and complex tech management entirely to I-World
+                        Networks, eliminating budget surprises.</p>
                 </div>
 
                 <!-- Investment Program: Zero Expense -->
@@ -1009,8 +1016,9 @@
                             stroke-linecap="round" stroke-linejoin="round" fill="#D4D4D8" />
                     </svg>
                     <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Investment Program: At Zero Cost</h3>
-                    <p class="mt-5 text-base text-gray-600 font-pj">I-World Networks funds, builds, owns, and maintains
-                        all infrastructure. At zero expense to developers or HOAs.</p>
+                    <p class="mt-5 text-base text-gray-600 font-pj">
+                        I-World Networks funds, builds, owns, and maintains all infrastructure. At zero expense to
+                        developers or HOAs.</p>
                 </div>
 
                 <!-- Single Point of Contact -->
@@ -1024,9 +1032,9 @@
                         <path d="M35 32v6M32 35h6" stroke="#161616" stroke-width="2" stroke-linecap="round" />
                     </svg>
                     <h3 class="mt-12 text-xl font-bold text-gray-900 font-pj">Single Point of Contact</h3>
-                    <p class="mt-5 text-base text-gray-600 font-pj">One trusted technology partner replaces multiple
-                        fragmented vendors. Simplified communication, faster issue resolution, and cohesive service
-                        delivery.</p>
+                    <p class="mt-5 text-base text-gray-600 font-pj">
+                        One trusted technology partner replaces multiple fragmented vendors. Simplified communication,
+                        faster issue resolution, and cohesive service delivery.</p>
                 </div>
             </div>
         </div>
@@ -1062,7 +1070,7 @@
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                        d="M15 3.75L3.75 8.75V13.75C3.75 20.625 8.4375 26.875 15 28.75C21.5625 26.875 26.25 20.625 26.25 13.75V8.75L15 3.75ZM15 15H23.75C23.125 20.125 19.6875 24.5 15 25.875V15H6.25V10.375L15 6.5V15Z"
+                                        d="M15 2.5L3.75 8.75V13.75C3.75 20.625 8.4375 26.875 15 28.75C21.5625 26.875 26.25 20.625 26.25 13.75V8.75L15 2.5ZM15 15H23.75C23.125 20.125 19.6875 24.5 15 25.875V15H6.25V10.375L15 6.5V15Z"
                                         stroke="white" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
@@ -1132,7 +1140,7 @@
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M15 2.5C8.1 2.5 2.5 8.1 2.5 15C2.5 21.9 8.1 27.5 15 27.5C21.9 27.5 27.5 21.9 27.5 15C27.5 8.1 21.9 2.5 15 2.5ZM15 5C16.25 5 17.45 5.2 18.55 5.55L17.15 6.95C16.45 6.8 15.75 6.7 15 6.7V5ZM5 15C5 14.25 5.1 13.55 5.25 12.85L9.15 16.75C9.4 18.15 10.35 19.3 11.6 19.85L15 23.25V25C9.5 25 5 20.5 5 15ZM23.75 18.55C23.1 19.8 22.2 20.9 21.1 21.8L18.75 19.45V17.5C18.75 16.55 17.95 15.75 17 15.75H12.5V12.5C13.45 12.5 14.25 11.7 14.25 10.75V9.5H17.5C18.45 9.5 19.25 8.7 19.25 7.75V7.1C22.4 8.55 24.65 11.5 25 15H22.5C21.55 15 20.75 15.8 20.75 16.75V17.5L23.75 18.55Z"
-                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="#F58C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h3 class="py-5 text-white text-lg font-bold xl:text-xl">Diaspora Peace of Mind</h3>
@@ -1217,8 +1225,10 @@
                                 placeholder="Tell us about your estate (number of units, location, etc.)"
                                 required></textarea>
                             <button type="submit"
-                                class="w-full h-12 text-center text-white text-base font-semibold leading-6 rounded-full bg-iwn-orange shadow transition-all duration-700 hover:bg-iwn-orange-dark">Request
-                                Free Audit</button>
+                                class="g-recaptcha w-full h-12 text-center text-white text-base font-semibold leading-6 rounded-full bg-iwn-orange shadow transition-all duration-700 hover:bg-iwn-orange-dark"
+                                data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                                data-callback='onSubmit'
+                                data-action='submit'>Request Free Audit</button>
                         </form>
                     </div>
                 </div>

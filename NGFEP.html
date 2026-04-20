@@ -95,6 +95,10 @@
             transform: scale(1.1);
         }
     </style>
+
+    <!-- reCAPTCHA v2 Invisible -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="./recaptcha-config.js"></script>
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
@@ -819,8 +823,10 @@
                         </div>
                     </div>
                     <button type="submit"
-                        class="w-full bg-google-blue hover:bg-blue-600 text-white font-black py-4 rounded-xl shadow-xl shadow-google-blue/20 transition-all tracking-widest uppercase text-sm">Submit
-                        Application</button>
+                        class="g-recaptcha w-full bg-google-blue hover:bg-blue-600 text-white font-black py-4 rounded-xl shadow-xl shadow-google-blue/20 transition-all tracking-widest uppercase text-sm"
+                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                        data-callback='onSubmit'
+                        data-action='submit'>Submit Application</button>
                 </form>
             </div>
         </div>

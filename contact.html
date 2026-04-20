@@ -24,6 +24,11 @@
         rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    
+    <!-- reCAPTCHA v2 Invisible -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="./recaptcha-config.js"></script>
+    
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -404,8 +409,11 @@
                         </div>
                     </div>
                     <button
-                        class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-4 rounded-xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-2"
-                        type="submit">
+                        class="g-recaptcha w-full bg-primary hover:bg-opacity-90 text-white font-bold py-4 rounded-xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-2"
+                        type="submit"
+                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                        data-callback='onSubmit'
+                        data-action='submit'>
                         <span class="material-symbols-outlined">send</span> Submit Inquiry
                     </button>
                 </form>

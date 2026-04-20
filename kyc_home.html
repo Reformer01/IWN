@@ -57,6 +57,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <!-- reCAPTCHA v2 Invisible -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="./recaptcha-config.js"></script>
+
     <style>
         .kyc-header {
             background: url(./Assets/img/kyc-business-bg.png) top;
@@ -282,7 +287,11 @@
                 </div>
 
                 <!-- Submit button -->
-                <button type="submit" class="w-100 btn btn-success fw-bold fs-4">Register</button>
+                <button type="submit" 
+                        class="g-recaptcha w-100 btn btn-success fw-bold fs-4"
+                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                        data-callback='onSubmit'
+                        data-action='submit'>Register</button>
             </form>
         </div>
     </section>
@@ -475,7 +484,11 @@
                                     <input type="email" id="form5Example24" class="form-control"
                                         placeholder="Enter your Email Address" />
                                 </div>
-                                <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
+                                <button data-mdb-ripple-init type="submit" 
+                                        class="g-recaptcha btn btn-warn mt-2"
+                                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                                        data-callback='onSubmit'
+                                        data-action='submit'>
                                     Subscribe
                                 </button>
                             </div>
