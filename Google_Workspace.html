@@ -69,6 +69,8 @@
             }
         }
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="recaptcha-config.js"></script>
     <style>
         [x-cloak] {
             display: none !important;
@@ -1217,8 +1219,10 @@
                         </select>
                     </div>
                     <button type="submit"
-                        class="w-full bg-google-blue text-white font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-600 transition-all text-lg">Send
-                        Inquiry</button>
+                        class="g-recaptcha w-full bg-google-blue text-white font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-600 transition-all text-lg"
+                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                        data-callback='onSubmit'
+                        data-action='submit'>Send Inquiry</button>
                 </form>
             </div>
         </div>
