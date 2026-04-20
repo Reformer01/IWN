@@ -48,6 +48,10 @@
             background-color: rgba(255, 255, 255, 0.9);
         }
     </style>
+
+    <!-- reCAPTCHA v2 Invisible -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="./recaptcha-config.js"></script>
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
@@ -548,8 +552,11 @@
                         </div>
                     </div>
                     <button
-                        class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
-                        type="submit">REQUEST FREE SURVEY</button>
+                        class="g-recaptcha w-full bg-primary text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] transition-all"
+                        type="submit"
+                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                        data-callback='onSubmit'
+                        data-action='submit'>REQUEST FREE SURVEY</button>
                 </form>
             </div>
         </div>

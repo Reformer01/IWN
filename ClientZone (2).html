@@ -692,6 +692,10 @@
             }
         }
     </style>
+
+    <!-- reCAPTCHA v2 Invisible -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="./recaptcha-config.js"></script>
 </head>
 
 <body>
@@ -1050,7 +1054,11 @@
                             </div>
                             <input type="text" class="form-control" placeholder="Subject">
                             <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" 
+                                    class="g-recaptcha btn btn-primary"
+                                    data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                                    data-callback='onSubmit'
+                                    data-action='submit'>Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -1554,7 +1562,11 @@
                                     <input type="email" id="form5Example24" class="form-control"
                                         placeholder="Enter your Email Address" />
                                 </div>
-                                <button data-mdb-ripple-init type="submit" class="btn btn-warn mt-2">
+                                <button data-mdb-ripple-init type="submit" 
+                                        class="g-recaptcha btn btn-warn mt-2"
+                                        data-sitekey="6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn"
+                                        data-callback='onSubmit'
+                                        data-action='submit'>
                                     Subscribe
                                 </button>
                             </div>
