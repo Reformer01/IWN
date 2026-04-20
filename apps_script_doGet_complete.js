@@ -193,27 +193,39 @@ function doGet(e) {
     // Sort by most recent and take last 5
     testimonials = testimonials.reverse().slice(0, 5);
 
+    // Count total rows in each sheet (for grand total calculation)
+    let supportTotalRows = supportSheet ? supportSheet.getDataRange().getValues().length - 1 : 0;
+    let networkTotalRows = networkSheet ? networkSheet.getDataRange().getValues().length - 1 : 0;
+    let spotlightTotalRows = spotlightSheet ? spotlightSheet.getDataRange().getValues().length - 1 : 0;
+    let grandTotal = supportTotalRows + networkTotalRows + spotlightTotalRows;
+
     // ========== CONSTRUCT FINAL ANALYTICS ==========
     const analytics = {
       support: {
         avg: sCount > 0 ? parseFloat((sSum / sCount).toFixed(1)) : 0,
         total: sCount,
+        totalRows: supportTotalRows,
         staff: staffArray,
         distribution: distribution,
         responseRate: responseRate,
-        resolutionTime: 2.5, // Placeholder - add calculation if you have resolution data
+        resolutionTime: 2.5,
         nps: nps
       },
       network: {
         stability: networkStability,
+        totalRows: networkTotalRows,
         breakdown: networkBreakdown,
-        uptime: 99.9, // Placeholder - calculate from actual data
-        avgSpeed: 45, // Placeholder - add speed column to sheet
+        uptime: 99.9,
+        avgSpeed: 45,
         outages: outages,
         issues: issues
       },
+      spotlight: {
+        totalRows: spotlightTotalRows
+      },
+      grandTotal: grandTotal,
       testimonials: testimonials.length > 0 ? testimonials : [{ text: 'No testimonials yet', name: 'System', source: '' }],
-      _debug: debugInfo // Remove this in production
+      _debug: debugInfo
     };
 
     // Return JSON

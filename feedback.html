@@ -16,15 +16,26 @@
     <div id="status" class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-medium">Live Sync Active</div>
   </header>
 
+  <!-- Loading Indicator -->
+  <div id="loading-banner" class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded-xl mb-6">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined animate-spin">sync</span>
+      <span>Loading dashboard data...</span>
+    </div>
+  </div>
+
   <div id="error-banner" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-6">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined">error</span>
-        <span id="error-message">Unable to load live data. Showing demo data.</span>
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined">error</span>
+          <span id="error-message">Unable to load live data. Showing demo data.</span>
+        </div>
+        <button onclick="retryLoad()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-lg text-sm font-medium transition-colors">
+          Retry
+        </button>
       </div>
-      <button onclick="retryLoad()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-lg text-sm font-medium transition-colors">
-        Retry
-      </button>
+      <div id="debug-info" class="hidden text-xs font-mono bg-red-50 p-2 rounded mt-2"></div>
     </div>
   </div>
 
@@ -158,22 +169,53 @@
 
   async function updateDashboard() {
     const errorBanner = document.getElementById('error-banner');
+    const loadingBanner = document.getElementById('loading-banner');
     const statusEl = document.getElementById('status');
+    const debugInfo = document.getElementById('debug-info');
+    
+    // Show loading, hide error
+    loadingBanner.classList.remove('hidden');
+    errorBanner.classList.add('hidden');
+    debugInfo.classList.add('hidden');
+    statusEl.textContent = 'Loading...';
+    statusEl.className = 'bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium';
     
     try {
-      const response = await fetch(API_URL, { 
+      // Cache busting: add timestamp to URL
+      const urlWithCache = API_URL + '?t=' + Date.now();
+      console.log('Fetching from:', urlWithCache);
+      
+      const response = await fetch(urlWithCache, { 
         method: 'GET',
-        mode: 'cors'
+        mode: 'cors',
+        cache: 'no-cache'
       });
+      
+      console.log('Response status:', response.status);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
       const data = await response.json();
+      console.log('API Response:', data);
+      
+      // Validate response structure
+      if (!data || typeof data !== 'object') {
+        throw new Error('Invalid response format');
+      }
+      
+      // Check if we got real data or just zeros
+      const hasData = data.support?.total > 0 || data.network?.stability > 0 || data.testimonials?.length > 0;
+      
+      if (!hasData) {
+        console.warn('API returned empty data structure');
+      }
+      
       renderDashboard(data);
       
-      // Hide error banner if previously shown
+      // Hide loading and error banners
+      loadingBanner.classList.add('hidden');
       errorBanner.classList.add('hidden');
       statusEl.textContent = 'Live Sync Active';
       statusEl.className = 'bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-medium';
@@ -181,10 +223,21 @@
     } catch (error) {
       console.error('Dashboard error:', error);
       
-      // Show error banner
+      // Hide loading, show error
+      loadingBanner.classList.add('hidden');
       errorBanner.classList.remove('hidden');
+      
+      // Show debug info
+      debugInfo.classList.remove('hidden');
+      debugInfo.innerHTML = `
+        <strong>Error:</strong> ${error.message}<br>
+        <strong>API URL:</strong> ${API_URL}<br>
+        <strong>Time:</strong> ${new Date().toLocaleString()}<br>
+        ${error.message.includes('CORS') ? '<strong>Note:</strong> Use Live Server (not file://) to avoid CORS' : ''}
+      `;
+      
       document.getElementById('error-message').textContent = 
-        'Unable to load live data. ' + (error.message.includes('CORS') ? 'CORS policy blocked the request.' : 'API temporarily unavailable.') + ' Showing demo data.';
+        'Unable to load live data. ' + (error.message.includes('CORS') ? 'CORS policy blocked the request.' : error.message) + ' Showing demo data.';
       
       // Update status
       statusEl.textContent = 'Demo Mode';
@@ -207,10 +260,13 @@
       if (existingChart) existingChart.destroy();
     });
 
-    // Update Scores
-    document.getElementById('avg-sat').innerText = data.support.avg;
-    document.getElementById('net-stab').innerText = data.network.stability;
-    document.getElementById('total-resp').innerText = data.support.total;
+    // Update Scores with validation
+    const support = data.support || {};
+    const network = data.network || {};
+    
+    document.getElementById('avg-sat').innerText = support.avg || '0.0';
+    document.getElementById('net-stab').innerText = network.stability || '0.0';
+    document.getElementById('total-resp').innerText = support.total || 0;
     document.getElementById('stab-bar').style.width = (data.network.stability / 5 * 100) + '%';
 
     // Update new stats
