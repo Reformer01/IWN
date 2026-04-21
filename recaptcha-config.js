@@ -4,43 +4,24 @@
 
 const RECAPTCHA_SITE_KEY = '6LfqtsAsAAAAAIb9EnXnmCYo5GdoaKfPmTYHMjAn';
 
-// Track which form triggered reCAPTCHA
-let recaptchaTargetForm = null;
+// NOTE: The onSubmit callback is now defined in redesign-form.js
+// This file just provides configuration and helper functions
 
-// reCAPTCHA callback function - submits the form after validation
-function onSubmit(token) {
-    // Submit only the form that triggered reCAPTCHA
-    if (recaptchaTargetForm) {
-        recaptchaTargetForm.submit();
-    } else {
-        // Fallback: find the form containing the clicked button
-        const recaptchaElements = document.querySelectorAll('.g-recaptcha');
-        for (const element of recaptchaElements) {
-            const form = element.closest('form');
-            if (form) {
-                form.submit();
-                break;
-            }
-        }
-    }
-}
-
-// For AJAX forms - execute reCAPTCHA and get token
+// For manual reCAPTCHA execution if needed
 function executeRecaptcha(callback) {
     if (typeof grecaptcha !== 'undefined') {
         grecaptcha.execute().then(function(token) {
             callback(token);
         });
     } else {
-        callback(''); // Fallback if reCAPTCHA not loaded
+        console.error('reCAPTCHA not loaded');
+        callback('');
     }
 }
 
-// Alternative callback that accepts form ID
-function submitFormWithRecaptcha(formId) {
-    const form = document.getElementById(formId);
-    if (form) {
-        recaptchaTargetForm = form;
-        form.submit();
+// Reset reCAPTCHA
+function resetRecaptcha() {
+    if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset();
     }
 }
