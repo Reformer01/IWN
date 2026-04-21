@@ -1179,7 +1179,7 @@
             // Form submit
             document.getElementById('jobAppForm').addEventListener('submit', function (e) {
                 e.preventDefault();
-                const formData = new FormData(this);
+                const form = this;
                 const alertBox = document.getElementById('formAlert');
                 const loadingOverlay = document.getElementById('loadingOverlay');
                 const submitBtn = document.getElementById('submitBtn');
@@ -1188,10 +1188,25 @@
                 loadingOverlay.classList.add('show');
                 if (submitBtn) submitBtn.disabled = true;
 
-                fetch('./Assets/forms/form-validation.php', {
-                    method: 'POST',
-                    body: formData
-                })
+                // Execute reCAPTCHA and get token before submitting
+                if (typeof grecaptcha !== 'undefined') {
+                    grecaptcha.execute().then(function(token) {
+                        // Add reCAPTCHA token to form data
+                        const formData = new FormData(form);
+                        formData.set('g-recaptcha-response', token);
+                        submitFormWithToken(formData);
+                    });
+                } else {
+                    // Fallback if reCAPTCHA not loaded
+                    const formData = new FormData(form);
+                    submitFormWithToken(formData);
+                }
+
+                function submitFormWithToken(formData) {
+                    fetch('./Assets/forms/form-validation.php', {
+                        method: 'POST',
+                        body: formData
+                    })
                     .then(res => res.json())
                     .then(data => {
                         loadingOverlay.classList.remove('show');
@@ -1218,6 +1233,7 @@
                         alertBox.textContent = 'Network error. Please try again.';
                         alertBox.classList.remove('hidden');
                     });
+                }
             });
 
             // --- Dynamic Job Experience ---
