@@ -207,60 +207,68 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     // --- END ANTI-SPAM CHECK ---
 
-    // --- reCAPTCHA VERIFICATION (MANDATORY) ---
-    $recaptchaToken = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
+    // Get form subject to check if this is Google Ads Lead (excluded from reCAPTCHA)
+    $formSubject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
+    $isGoogleAdsLead = ($formSubject === 'Google Ads Lead');
     
-    // Require reCAPTCHA token - reject if missing
-    if (empty($recaptchaToken)) {
-        logDebug('reCAPTCHA token missing - rejecting submission', ['ip' => $clientIP]);
-        recordFailedRecaptcha($clientIP);
-        $data['status'] = false;
-        $data['message'] = 'Security verification required. Please complete the captcha and try again.';
-        echo json_encode($data);
-        exit;
-    }
-    
-    // Verify token with Google
-    $secretKey = '6LfqtsAsAAAAAOQjyONu0V38RORZ_GfUn7-8pfij';
-    $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
-    
-    $verifyData = [
-        'secret' => $secretKey,
-        'response' => $recaptchaToken,
-        'remoteip' => $clientIP
-    ];
-    
-    $ch = curl_init($verifyUrl . '?' . http_build_query($verifyData));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-    $verifyResponse = curl_exec($ch);
-    $curlError = curl_error($ch);
-    curl_close($ch);
-    
-    $responseData = json_decode($verifyResponse, true);
-    
-    logDebug('reCAPTCHA verification response', [
-        'ip' => $clientIP,
-        'success' => $responseData['success'] ?? false,
-        'score' => $responseData['score'] ?? 'N/A',
-        'curl_error' => $curlError
-    ]);
-    
-    // Check if verification was successful
-    if (!$responseData || !isset($responseData['success']) || $responseData['success'] !== true) {
-        logDebug('reCAPTCHA verification failed', ['ip' => $clientIP, 'response' => $responseData]);
-        $blocked = recordFailedRecaptcha($clientIP);
-        $data['status'] = false;
-        if ($blocked) {
-            $data['message'] = 'Your IP has been blocked due to multiple failed security checks.';
-        } else {
-            $data['message'] = 'Security verification failed. Please try again.';
+    // --- reCAPTCHA VERIFICATION (MANDATORY for non-Google Ads forms) ---
+    if (!$isGoogleAdsLead) {
+        $recaptchaToken = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
+        
+        // Require reCAPTCHA token - reject if missing
+        if (empty($recaptchaToken)) {
+            logDebug('reCAPTCHA token missing - rejecting submission', ['ip' => $clientIP]);
+            recordFailedRecaptcha($clientIP);
+            $data['status'] = false;
+            $data['message'] = 'Security verification required. Please complete the captcha and try again.';
+            echo json_encode($data);
+            exit;
         }
-        echo json_encode($data);
-        exit;
+        
+        // Verify token with Google
+        $secretKey = '6LfqtsAsAAAAAOQjyONu0V38RORZ_GfUn7-8pfij';
+        $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
+        
+        $verifyData = [
+            'secret' => $secretKey,
+            'response' => $recaptchaToken,
+            'remoteip' => $clientIP
+        ];
+        
+        $ch = curl_init($verifyUrl . '?' . http_build_query($verifyData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        $verifyResponse = curl_exec($ch);
+        $curlError = curl_error($ch);
+        curl_close($ch);
+        
+        $responseData = json_decode($verifyResponse, true);
+        
+        logDebug('reCAPTCHA verification response', [
+            'ip' => $clientIP,
+            'success' => $responseData['success'] ?? false,
+            'score' => $responseData['score'] ?? 'N/A',
+            'curl_error' => $curlError
+        ]);
+        
+        // Check if verification was successful
+        if (!$responseData || !isset($responseData['success']) || $responseData['success'] !== true) {
+            logDebug('reCAPTCHA verification failed', ['ip' => $clientIP, 'response' => $responseData]);
+            $blocked = recordFailedRecaptcha($clientIP);
+            $data['status'] = false;
+            if ($blocked) {
+                $data['message'] = 'Your IP has been blocked due to multiple failed security checks.';
+            } else {
+                $data['message'] = 'Security verification failed. Please try again.';
+            }
+            echo json_encode($data);
+            exit;
+        }
+        
+        logDebug('reCAPTCHA verification successful', ['ip' => $clientIP]);
+    } else {
+        logDebug('Skipping reCAPTCHA for Google Ads Lead form', ['ip' => $clientIP]);
     }
-    
-    logDebug('reCAPTCHA verification successful', ['ip' => $clientIP]);
     // --- END reCAPTCHA VERIFICATION ---
 
     // Record successful submission for rate limiting
