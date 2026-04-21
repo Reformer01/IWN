@@ -1,14 +1,9 @@
-# Allow POST requests to PHP files
-<FilesMatch "\.(php)$">
-    Order allow,deny
-    Allow from all
+RewriteEngine Off
+
+<LimitExcept GET POST OPTIONS>
+    Require all denied
+</LimitExcept>
+
+<FilesMatch "\.php$">
+    Require all granted
 </FilesMatch>
-
-# Enable PHP processing
-AddHandler application/x-httpd-php .php
-
-# Allow all HTTP methods
-<Limit GET POST PUT DELETE OPTIONS>
-    Order allow,deny
-    Allow from all
-</Limit>
