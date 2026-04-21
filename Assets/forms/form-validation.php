@@ -83,6 +83,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     // --- END ANTI-SPAM CHECK ---
 
+    // --- reCAPTCHA VERIFICATION (MANDATORY) ---
+    $recaptchaToken = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
+    
+    // Require reCAPTCHA token - reject if missing
+    if (empty($recaptchaToken)) {
+        logDebug('reCAPTCHA token missing - rejecting submission');
+        $data['status'] = false;
+        $data['message'] = 'Security verification required. Please complete the captcha and try again.';
+        echo json_encode($data);
+        exit;
+    }
+    
+    // Verify token with Google
+    $secretKey = '6LfqtsAsAAAAAOQjyONu0V38RORZ_GfUn7-8pfij';
+    $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
+    
+    $verifyData = [
+        'secret' => $secretKey,
+        'response' => $recaptchaToken,
+        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
+    ];
+    
+    $ch = curl_init($verifyUrl . '?' . http_build_query($verifyData));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    $verifyResponse = curl_exec($ch);
+    $curlError = curl_error($ch);
+    curl_close($ch);
+    
+    $responseData = json_decode($verifyResponse, true);
+    
+    logDebug('reCAPTCHA verification response', [
+        'response' => $verifyResponse,
+        'curl_error' => $curlError
+    ]);
+    
+    // Check if verification was successful
+    if (!$responseData || !isset($responseData['success']) || $responseData['success'] !== true) {
+        logDebug('reCAPTCHA verification failed', ['response' => $responseData]);
+        $data['status'] = false;
+        $data['message'] = 'Security verification failed. Please try again.';
+        echo json_encode($data);
+        exit;
+    }
+    
+    logDebug('reCAPTCHA verification successful');
+    // --- END reCAPTCHA VERIFICATION ---
+
     $fields = $_POST;
     $uploads = $_FILES;
     $content = $files = array();
