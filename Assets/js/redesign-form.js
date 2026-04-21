@@ -1,5 +1,34 @@
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Add custom toast styles to fix positioning
+    const toastStyles = document.createElement('style');
+    toastStyles.textContent = `
+        #toast-container {
+            position: fixed !important;
+            z-index: 999999 !important;
+            top: 12px !important;
+            right: 12px !important;
+            left: auto !important;
+            bottom: auto !important;
+        }
+        .toast {
+            position: relative !important;
+            overflow: hidden !important;
+            margin-bottom: 12px !important;
+            padding: 12px 24px !important;
+            width: 300px !important;
+            border-radius: 4px !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+            opacity: 1 !important;
+            background-color: #333 !important;
+            color: #fff !important;
+        }
+        .toast-success { background-color: #34A853 !important; }
+        .toast-error { background-color: #ea4335 !important; }
+        .toast-info { background-color: #F58C29 !important; }
+    `;
+    document.head.appendChild(toastStyles);
+    
     // Configure toastr
     if (typeof toastr !== 'undefined') {
         toastr.options = {
@@ -7,7 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             progressBar: true,
             positionClass: 'toast-top-right',
             timeOut: 5000,
-            extendedTimeOut: 1000
+            extendedTimeOut: 1000,
+            preventDuplicates: false,
+            newestOnTop: true
         };
     }
     
