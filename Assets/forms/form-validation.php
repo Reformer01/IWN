@@ -304,8 +304,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Iterate over input fields
     foreach ($fields as $field => $value) {
-        // Skip honeypot and internal fields
-        if (in_array($field, ['middle_name', 'website_url', 'form_token', 'subject'])) {
+        // Skip honeypot, internal fields, and reCAPTCHA response
+        if (in_array($field, ['middle_name', 'website_url', 'form_token', 'subject', 'g-recaptcha-response'])) {
             continue;
         }
 

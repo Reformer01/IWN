@@ -1,5 +1,16 @@
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Configure toastr
+    if (typeof toastr !== 'undefined') {
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            timeOut: 5000,
+            extendedTimeOut: 1000
+        };
+    }
+    
     const forms = document.querySelectorAll('form');
 
     forms.forEach(form => {
