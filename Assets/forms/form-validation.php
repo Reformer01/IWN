@@ -414,19 +414,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               'cc' => $cc
           ]);
       } else {
-          $to = 'adegelukolade@gmail.com';
-          $cc = [
-              'titilade.bakare@iworldnetworks.net',
-              'kikachukwu.omordia@iworldnetworks.net',
-              'jeffery.udoji@iworldnetworks.net',
-              'reformer.ejembi@iworldnetworks.net',
-              'emmanuel.oladimeji@iworldnetworks.net',
-              'kolade.adegelu@iworldnetworks.net',
-              'janet.oke@iworldnetworks.net',
-              'sales@iworldnetworks.net'
-          ];
+          // TESTING: Reformer only
+          $to = 'reformer.ejembi@iworldnetworks.net';
+          // $to = 'adegelukolade@gmail.com';
+          $cc = [];
+          // $cc = [
+          //     'titilade.bakare@iworldnetworks.net',
+          //     'kikachukwu.omordia@iworldnetworks.net',
+          //     'jeffery.udoji@iworldnetworks.net',
+          //     'reformer.ejembi@iworldnetworks.net',
+          //     'emmanuel.oladimeji@iworldnetworks.net',
+          //     'kolade.adegelu@iworldnetworks.net',
+          //     'janet.oke@iworldnetworks.net',
+          //     'sales@iworldnetworks.net'
+          // ];
 
-          logDebug('Falling back to default routing', [
+          logDebug('Falling back to default routing (TESTING - Reformer only)', [
               'subject' => $subject,
               'to' => $to,
               'cc' => $cc
