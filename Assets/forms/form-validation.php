@@ -5,10 +5,21 @@ ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/form_submissions.log');
 
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: POST, OPTIONS');
+    header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
+    header('Content-Type: application/json');
+    http_response_code(200);
+    echo json_encode(['status' => true, 'message' => 'OK']);
+    exit;
+}
+
 // Set headers
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header("Access-Control-Allow-Headers: X-Requested-With");
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
 header('Content-Type: application/json');
 
 require_once "mailer.php";
@@ -527,5 +538,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data['message'] = "Invalid Request method";
 }
 
-echo json_encode($data);
-?>
+// Ensure we always output valid JSON
+$output = json_encode($data);
+if ($output === false) {
+    // If json_encode fails, output a safe fallback
+    $output = json_encode(['status' => false, 'message' => 'Internal server error: JSON encoding failed']);
+}
+echo $output;

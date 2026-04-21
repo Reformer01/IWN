@@ -77,7 +77,13 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            // Check if response is OK before parsing JSON
+            if (!response.ok) {
+                throw new Error('Server error: ' + response.status + ' ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.status === true) {
                 showToast(data.message || 'Success!', 'success');
