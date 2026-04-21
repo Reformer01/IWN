@@ -29,12 +29,134 @@ function logDebug($message, $data = null) {
     error_log($log, 3, __DIR__ . '/form_submissions.log');
 }
 
+// --- SECURITY CONFIGURATION ---
+define('RATE_LIMIT_MAX', 10);           // Max submissions per IP per hour
+define('RATE_LIMIT_WINDOW', 3600);       // 1 hour in seconds
+define('TIMING_MIN_SECONDS', 3);         // Minimum time to fill form (seconds)
+define('BLOCK_THRESHOLD', 5);           // Failed reCAPTCHA attempts before block
+define('BLOCK_DURATION', 86400);        // Block duration in seconds (24 hours)
+
+// Get client IP (handle proxies)
+function getClientIP() {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    // Check for forwarded IP from Cloudflare/proxy
+    if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+        $ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        $ip = trim($ips[0]);
+    }
+    return filter_var($ip, FILTER_VALIDATE_IP) ?: '0.0.0.0';
+}
+
+// File-based rate limiting and blocking (works without database)
+function getSecurityFilePath($ip, $type = 'rate') {
+    $hash = md5($ip);
+    return __DIR__ . '/security_' . $type . '_' . substr($hash, 0, 8) . '.json';
+}
+
+// Check if IP is blocked
+function isIPBlocked($ip) {
+    $blockFile = getSecurityFilePath($ip, 'block');
+    if (file_exists($blockFile)) {
+        $blockData = json_decode(file_get_contents($blockFile), true);
+        if ($blockData && isset($blockData['blocked_until']) && time() < $blockData['blocked_until']) {
+            return $blockData['blocked_until'] - time();
+        }
+        // Block expired, remove file
+        @unlink($blockFile);
+    }
+    return false;
+}
+
+// Record failed reCAPTCHA attempt
+function recordFailedRecaptcha($ip) {
+    $failFile = getSecurityFilePath($ip, 'fail');
+    $failData = ['count' => 0, 'first_fail' => time(), 'last_fail' => time()];
+    
+    if (file_exists($failFile)) {
+        $failData = json_decode(file_get_contents($failFile), true) ?: $failData;
+        // Reset if older than 24 hours
+        if (time() - $failData['first_fail'] > 86400) {
+            $failData = ['count' => 0, 'first_fail' => time(), 'last_fail' => time()];
+        }
+    }
+    
+    $failData['count']++;
+    $failData['last_fail'] = time();
+    file_put_contents($failFile, json_encode($failData));
+    
+    // Check if should block
+    if ($failData['count'] >= BLOCK_THRESHOLD) {
+        $blockFile = getSecurityFilePath($ip, 'block');
+        $blockData = [
+            'blocked_until' => time() + BLOCK_DURATION,
+            'reason' => 'Too many failed reCAPTCHA attempts',
+            'fail_count' => $failData['count']
+        ];
+        file_put_contents($blockFile, json_encode($blockData));
+        logDebug('IP BLOCKED for excessive failed reCAPTCHA', ['ip' => $ip, 'fail_count' => $failData['count']]);
+        return true;
+    }
+    return false;
+}
+
+// Check rate limit
+function checkRateLimit($ip) {
+    $rateFile = getSecurityFilePath($ip, 'rate');
+    $rateData = ['submissions' => [], 'count' => 0];
+    
+    if (file_exists($rateFile)) {
+        $rateData = json_decode(file_get_contents($rateFile), true) ?: $rateData;
+    }
+    
+    $now = time();
+    // Clean old submissions outside the window
+    $rateData['submissions'] = array_filter($rateData['submissions'], function($time) use ($now) {
+        return ($now - $time) <= RATE_LIMIT_WINDOW;
+    });
+    
+    $rateData['count'] = count($rateData['submissions']);
+    return $rateData;
+}
+
+// Record a submission
+function recordSubmission($ip) {
+    $rateFile = getSecurityFilePath($ip, 'rate');
+    $rateData = checkRateLimit($ip);
+    $rateData['submissions'][] = time();
+    $rateData['count'] = count($rateData['submissions']);
+    file_put_contents($rateFile, json_encode($rateData));
+}
+
 // Log the incoming request
+$clientIP = getClientIP();
 logDebug('=== NEW FORM SUBMISSION ===', [
     'method' => $_SERVER['REQUEST_METHOD'],
-    'post_data' => $_POST,
+    'ip' => $clientIP,
+    'post_data_keys' => array_keys($_POST),
     'files' => !empty($_FILES) ? array_keys($_FILES) : []
 ]);
+
+// --- CHECK IF IP IS BLOCKED ---
+$blockedTime = isIPBlocked($clientIP);
+if ($blockedTime) {
+    logDebug('Blocked IP attempted submission', ['ip' => $clientIP, 'remaining' => $blockedTime . 's']);
+    $data['status'] = false;
+    $data['message'] = 'Your IP has been temporarily blocked due to suspicious activity. Please try again later.';
+    echo json_encode($data);
+    exit;
+}
+
+// --- RATE LIMITING CHECK ---
+$rateData = checkRateLimit($clientIP);
+if ($rateData['count'] >= RATE_LIMIT_MAX) {
+    logDebug('Rate limit exceeded', ['ip' => $clientIP, 'count' => $rateData['count'], 'limit' => RATE_LIMIT_MAX]);
+    $data['status'] = false;
+    $data['message'] = 'Too many submissions. Please wait an hour before trying again.';
+    echo json_encode($data);
+    exit;
+}
 
 // Simple duplicate submission prevention using session
 session_start();
@@ -51,28 +173,30 @@ $_SESSION['last_submission'] = $submissionKey;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // --- ANTI-SPAM CHECK (Honeypot & Timing) ---
     $isSpam = false;
+    $spamReason = '';
     
     // Check honeypot fields
     if (!empty($_POST['middle_name']) || !empty($_POST['website_url'])) {
         $isSpam = true;
+        $spamReason = 'honeypot';
         logDebug('Spam detected via honeypot', [
             'middle_name' => $_POST['middle_name'] ?? '',
             'website_url' => $_POST['website_url'] ?? ''
         ]);
     }
     
-    // Check submission timing (disabled due to client/server clock drift causing false positives)
-    /*
+    // Check submission timing (bots fill forms too fast)
     $formToken = isset($_POST['form_token']) ? (int)$_POST['form_token'] : 0;
     $currentTime = time();
-    if ($formToken > 0 && ($currentTime - $formToken < 3)) {
+    if ($formToken > 0 && ($currentTime - $formToken < TIMING_MIN_SECONDS)) {
         $isSpam = true;
+        $spamReason = 'timing';
         logDebug('Spam detected via timing', [
             'elapsed_seconds' => $currentTime - $formToken,
-            'token' => $formToken
+            'token' => $formToken,
+            'minimum' => TIMING_MIN_SECONDS
         ]);
     }
-    */
     
     // If spam, silently reject (return success to trick bot)
     if ($isSpam) {
@@ -88,7 +212,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Require reCAPTCHA token - reject if missing
     if (empty($recaptchaToken)) {
-        logDebug('reCAPTCHA token missing - rejecting submission');
+        logDebug('reCAPTCHA token missing - rejecting submission', ['ip' => $clientIP]);
+        recordFailedRecaptcha($clientIP);
         $data['status'] = false;
         $data['message'] = 'Security verification required. Please complete the captcha and try again.';
         echo json_encode($data);
@@ -102,7 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $verifyData = [
         'secret' => $secretKey,
         'response' => $recaptchaToken,
-        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
+        'remoteip' => $clientIP
     ];
     
     $ch = curl_init($verifyUrl . '?' . http_build_query($verifyData));
@@ -115,21 +240,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $responseData = json_decode($verifyResponse, true);
     
     logDebug('reCAPTCHA verification response', [
-        'response' => $verifyResponse,
+        'ip' => $clientIP,
+        'success' => $responseData['success'] ?? false,
+        'score' => $responseData['score'] ?? 'N/A',
         'curl_error' => $curlError
     ]);
     
     // Check if verification was successful
     if (!$responseData || !isset($responseData['success']) || $responseData['success'] !== true) {
-        logDebug('reCAPTCHA verification failed', ['response' => $responseData]);
+        logDebug('reCAPTCHA verification failed', ['ip' => $clientIP, 'response' => $responseData]);
+        $blocked = recordFailedRecaptcha($clientIP);
         $data['status'] = false;
-        $data['message'] = 'Security verification failed. Please try again.';
+        if ($blocked) {
+            $data['message'] = 'Your IP has been blocked due to multiple failed security checks.';
+        } else {
+            $data['message'] = 'Security verification failed. Please try again.';
+        }
         echo json_encode($data);
         exit;
     }
     
-    logDebug('reCAPTCHA verification successful');
+    logDebug('reCAPTCHA verification successful', ['ip' => $clientIP]);
     // --- END reCAPTCHA VERIFICATION ---
+
+    // Record successful submission for rate limiting
+    recordSubmission($clientIP);
 
     $fields = $_POST;
     $uploads = $_FILES;
