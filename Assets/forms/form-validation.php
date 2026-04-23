@@ -372,8 +372,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                       'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ],
                   'Osun' => [
-                      'to' => 'jeffery.udoji@iworldnetworks.net',
-                      'cc' => ['reformer.ejembi@iworldnetworks.net']
+                      'to' => 'reformer.ejembi@iworldnetworks.net',
+                      'cc' => ['emmanuel.oladimeji@iworldnetworks.net']
                   ],
                   'Ondo' => [
                       'to' => 'jeffery.udoji@iworldnetworks.net',
