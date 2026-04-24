@@ -569,6 +569,85 @@
                                 </div>
                             </div>
 
+                            <!-- Office Assistant Specific Requirements -->
+                            <div id="office-assistant-requirements" class="space-y-4" style="display: none;">
+                                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                                    <h4 class="font-semibold text-blue-900 mb-3">Please confirm the following key requirements:</h4>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you between 18-25 years of age? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="age_18_25" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="age_18_25" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you physically fit, well-dressed, and presentable? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="presentable" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="presentable" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Do you have a minimum of SSCE certificate? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="ssce_certificate" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="ssce_certificate" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Can you send and receive emails? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="email_capable" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="email_capable" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-slate-700">Are you willing to clean and maintain the office before 7:30 AM daily? *</span>
+                                            <div class="flex gap-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="early_cleaning" value="yes" required>
+                                                    <span class="text-sm">Yes</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="radio" name="early_cleaning" value="no" required>
+                                                    <span class="text-sm">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Job Experience -->
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 mb-2">Relevant Job
@@ -978,6 +1057,31 @@
                         'Vehicle maintenance support',
                         'Health insurance coverage'
                     ]
+                },
+                'Office Assistant': {
+                    title: 'Office Assistant, Abeokuta',
+                    responsibilities: [
+                        'Clean and maintain the office and its surroundings in an attractive state, ensuring completion before 7:30 AM',
+                        'Handle all official errands as assigned by management',
+                        'Welcome visitors and notify the appropriate staff members',
+                        'Assist with general administrative tasks and office organization',
+                        'Maintain a professional and respectful work environment'
+                    ],
+                    requirements: [
+                        'Age between 18-25 years',
+                        'Physically fit, well-dressed, and presentable',
+                        'Minimum of SSCE certificate required',
+                        'Must be able to send and receive emails',
+                        'Good communication and interpersonal skills',
+                        'Reliable and punctual with strong work ethic'
+                    ],
+                    benefits: [
+                        'Competitive salary of 70,000 NGN monthly',
+                        'A professional and respectful work environment',
+                        'Opportunity for career growth within the organization',
+                        'Health insurance coverage',
+                        'Paid time off and employee benefits'
+                    ]
                 }
             };
             
@@ -1046,6 +1150,15 @@
                     corporateDriverRequirements.style.display = 'block';
                 } else {
                     corporateDriverRequirements.style.display = 'none';
+                }
+            }
+
+            var officeAssistantRequirements = document.getElementById('office-assistant-requirements');
+            if (officeAssistantRequirements) {
+                if (getJobTitleFromURL() === 'Office Assistant') {
+                    officeAssistantRequirements.style.display = 'block';
+                } else {
+                    officeAssistantRequirements.style.display = 'none';
                 }
             }
 
