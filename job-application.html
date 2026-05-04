@@ -1320,11 +1320,19 @@
                 }
 
                 function submitFormWithToken(formData) {
+                    // Add 30-second timeout
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 30000);
+
                     fetch('./Assets/forms/form-validation.php', {
                         method: 'POST',
-                        body: formData
+                        body: formData,
+                        signal: controller.signal
                     })
-                    .then(res => res.json())
+                    .then(res => {
+                        clearTimeout(timeoutId);
+                        return res.json();
+                    })
                     .then(data => {
                         loadingOverlay.classList.remove('show');
                         if (submitBtn) submitBtn.disabled = false;
@@ -1342,12 +1350,18 @@
                             alertBox.classList.remove('hidden');
                         }
                     })
-                    .catch(() => {
+                    .catch(function(error) {
+                        clearTimeout(timeoutId);
                         loadingOverlay.classList.remove('show');
                         if (submitBtn) submitBtn.disabled = false;
 
-                        alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
-                        alertBox.textContent = 'Network error. Please try again.';
+                        if (error.name === 'AbortError') {
+                            alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
+                            alertBox.textContent = 'Request timed out. Please check your connection and try again.';
+                        } else {
+                            alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
+                            alertBox.textContent = 'Network error. Please try again.';
+                        }
                         alertBox.classList.remove('hidden');
                     });
                 }

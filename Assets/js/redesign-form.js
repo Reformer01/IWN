@@ -115,11 +115,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show processing toast
         showToast('Processing your request...', 'info');
 
+        // Add 30-second timeout
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
+
         fetch(action, {
             method: 'POST',
-            body: formData
+            body: formData,
+            signal: controller.signal
         })
         .then(response => {
+            clearTimeout(timeoutId);
             // Check if response is OK before parsing JSON
             if (!response.ok) {
                 throw new Error('Server error: ' + response.status + ' ' + response.statusText);
@@ -155,8 +161,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => {
+            clearTimeout(timeoutId);
             console.error('Error:', error);
-            showToast('Network error. Please try again.', 'error');
+            if (error.name === 'AbortError') {
+                showToast('Request timed out. Please check your connection and try again.', 'error');
+            } else {
+                showToast('Network error. Please try again.', 'error');
+            }
             // Reset reCAPTCHA on error
             if (typeof grecaptcha !== 'undefined') {
                 grecaptcha.reset();
