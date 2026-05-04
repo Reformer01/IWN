@@ -12,6 +12,9 @@ function executeRecaptcha(callback) {
     if (typeof grecaptcha !== 'undefined') {
         grecaptcha.execute().then(function(token) {
             callback(token);
+        }).catch(function(error) {
+            console.error('reCAPTCHA execution error:', error);
+            callback('');
         });
     } else {
         console.error('reCAPTCHA not loaded');
