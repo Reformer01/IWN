@@ -1305,6 +1305,13 @@
                         const formData = new FormData(form);
                         formData.set('g-recaptcha-response', token);
                         submitFormWithToken(formData);
+                    }).catch(function(error) {
+                        console.error('reCAPTCHA error:', error);
+                        loadingOverlay.classList.remove('show');
+                        if (submitBtn) submitBtn.disabled = false;
+                        alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
+                        alertBox.textContent = 'Verification failed. Please refresh and try again.';
+                        alertBox.classList.remove('hidden');
                     });
                 } else {
                     // Fallback if reCAPTCHA not loaded
