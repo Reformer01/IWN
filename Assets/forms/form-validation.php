@@ -218,12 +218,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     // --- END ANTI-SPAM CHECK ---
 
-    // Get form subject to check if this is Google Ads Lead (excluded from reCAPTCHA)
+    // Get form subject to check if this is excluded from reCAPTCHA
     $formSubject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
     $isGoogleAdsLead = ($formSubject === 'Google Ads Lead');
+    $isCareerApplication = ($formSubject === 'Career Application');
     
-    // --- reCAPTCHA VERIFICATION (MANDATORY for non-Google Ads forms) ---
-    if (!$isGoogleAdsLead) {
+    // --- reCAPTCHA VERIFICATION (MANDATORY for non-excluded forms) ---
+    if (!$isGoogleAdsLead && !$isCareerApplication) {
         $recaptchaToken = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
         
         // Require reCAPTCHA token - reject if missing
@@ -278,7 +279,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         logDebug('reCAPTCHA verification successful', ['ip' => $clientIP]);
     } else {
-        logDebug('Skipping reCAPTCHA for Google Ads Lead form', ['ip' => $clientIP]);
+        logDebug('Skipping reCAPTCHA for Google Ads Lead or Career Application form', ['ip' => $clientIP]);
     }
     // --- END reCAPTCHA VERIFICATION ---
 

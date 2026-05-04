@@ -150,9 +150,6 @@
         }
     </style>
 
-    <!-- reCAPTCHA v2 Invisible -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="./recaptcha-config.js"></script>
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
@@ -1298,26 +1295,9 @@
                 loadingOverlay.classList.add('show');
                 if (submitBtn) submitBtn.disabled = true;
 
-                // Execute reCAPTCHA and get token before submitting
-                if (typeof grecaptcha !== 'undefined') {
-                    grecaptcha.execute().then(function(token) {
-                        // Add reCAPTCHA token to form data
-                        const formData = new FormData(form);
-                        formData.set('g-recaptcha-response', token);
-                        submitFormWithToken(formData);
-                    }).catch(function(error) {
-                        console.error('reCAPTCHA error:', error);
-                        loadingOverlay.classList.remove('show');
-                        if (submitBtn) submitBtn.disabled = false;
-                        alertBox.className = 'mt-4 p-4 rounded-xl bg-red-100 border border-red-300 text-red-800';
-                        alertBox.textContent = 'Verification failed. Please refresh and try again.';
-                        alertBox.classList.remove('hidden');
-                    });
-                } else {
-                    // Fallback if reCAPTCHA not loaded
-                    const formData = new FormData(form);
-                    submitFormWithToken(formData);
-                }
+                // Submit form directly without reCAPTCHA
+                const formData = new FormData(form);
+                submitFormWithToken(formData);
 
                 function submitFormWithToken(formData) {
                     // Add 30-second timeout
