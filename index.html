@@ -41,11 +41,14 @@
             },
         };
     </script>
-    <!-- Inter font for Acctual-style nav -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         [x-cloak] {
             display: none !important;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         .hero-gradient {
@@ -53,79 +56,58 @@
             background-size: cover;
             background-position: center;
         }
-
-        /* Acctual-style nav */
-        .nav-link {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-weight: 400;
-            color: #8d8d8d;
-            transition: color 0.2s ease;
-        }
-        .nav-link:hover {
-            color: #000000;
-        }
-        .nav-link.active {
-            color: #000000;
-        }
-        .nav-cta {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-weight: 400;
-            background: #0d111b;
-            color: #ffffff;
-            border-radius: 100px;
-            padding: 6px 14px;
-            transition: all 0.2s ease;
-        }
-        .nav-cta:hover {
-            background: #1a1f2e;
-        }
-        .nav-dropdown {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 12px;
-            box-shadow: rgba(0, 0, 0, 0.06) 0px 2.5px 2.5px 0px;
-        }
     </style>
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="./index.html">
-                <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-10 object-contain">
+                <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
 
             <!-- Desktop Navigation -->
-            <div class="hidden lg:flex items-center gap-6 text-sm">
-                <a class="nav-link active whitespace-nowrap" href="./index.html">Home</a>
+            <div class="hidden lg:flex items-center gap-4 text-sm font-semibold text-slate-700">
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./index.html">Home</a>
                 <div class="relative group">
-                    <button class="nav-link flex items-center gap-1 whitespace-nowrap">
-                        Internet Service <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors whitespace-nowrap">
+                        Internet Service <span class="material-symbols-outlined text-[18px]">expand_more</span>
                     </button>
-                    <div class="absolute top-full left-0 w-56 nav-dropdown py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all mt-2">
-                        <a href="./internet_for_home.html" class="block px-4 py-2 nav-link hover:text-black">Home Internet</a>
-                        <a href="./internet-for-business.html" class="block px-4 py-2 nav-link hover:text-black">SMB Internet</a>
-                        <a href="./enterprise_internet.html" class="block px-4 py-2 nav-link hover:text-black">Enterprise Internet</a>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                        <a href="./internet_for_home.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Home Internet</a>
+                        <a href="./internet-for-business.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">SMB Internet</a>
+                        <a href="./enterprise_internet.html"
+                            class="block px-4 py-2 hover:bg-slate-50 hover:text-primary">Enterprise Internet</a>
                     </div>
                 </div>
-                <a class="nav-link whitespace-nowrap" href="./msp.html">Manage IT Services</a>
-                <a class="nav-link whitespace-nowrap" href="./SmartLife.html">Smart Life</a>
-                <a class="nav-link whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
-                <a class="nav-link whitespace-nowrap" href="./Google_Workspace.html">Google Cloud</a>
-                <a class="nav-link whitespace-nowrap" href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./msp.html">Manage IT
+                    Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./SmartLife.html">I-World
+                    Smart
+                    Life</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./NGFEP.html">NGFEP</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./Google_Workspace.html">Google
+                    Cloud Services</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="./careers.html">Careers</a>
+                <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://app.iwn.ng"
+                    target="_blank">Client Zone</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="https://app.iwn.ng" target="_blank" class="hidden md:block nav-link text-sm whitespace-nowrap">Client Zone</a>
-                <a href="./contact.html" class="hidden md:block nav-cta text-sm whitespace-nowrap">Contact Us</a>
+                <a href="./contact.html"
+                    class="hidden md:block bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all text-sm whitespace-nowrap">Contact
+                    Us</a>
 
                 <!-- Hamburger Button -->
-                <button class="lg:hidden p-2 text-gray-600 hover:text-black transition-colors"
+                <button class="lg:hidden p-2 text-slate-700 hover:text-primary transition-colors"
                     @click="mobileMenuOpen = !mobileMenuOpen">
-                    <span class="material-symbols-outlined text-2xl" x-show="!mobileMenuOpen">menu</span>
-                    <span class="material-symbols-outlined text-2xl" x-show="mobileMenuOpen" x-cloak>close</span>
+                    <span class="material-symbols-outlined text-3xl" x-show="!mobileMenuOpen">menu</span>
+                    <span class="material-symbols-outlined text-3xl" x-show="mobileMenuOpen" x-cloak>close</span>
                 </button>
             </div>
         </div>
