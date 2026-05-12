@@ -82,6 +82,30 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     function submitFormAjax(form, recaptchaToken) {
+        // Always honor native HTML validation before AJAX submission.
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        // Validate required checkbox groups flagged in markup.
+        const requiredCheckboxes = Array.from(form.querySelectorAll('input[type="checkbox"][data-group-required="true"][name]'));
+        if (requiredCheckboxes.length > 0) {
+            const requiredGroupNames = [...new Set(requiredCheckboxes.map((checkbox) => checkbox.name))];
+            for (const groupName of requiredGroupNames) {
+                const groupCheckboxes = form.querySelectorAll(`input[type="checkbox"][name="${groupName}"]`);
+                const hasSelection = Array.from(groupCheckboxes).some((checkbox) => checkbox.checked);
+                if (!hasSelection) {
+                    if (requiredCheckboxes[0] && typeof requiredCheckboxes[0].setCustomValidity === 'function') {
+                        requiredCheckboxes[0].setCustomValidity('Please select at least one option.');
+                        requiredCheckboxes[0].reportValidity();
+                        requiredCheckboxes[0].setCustomValidity('');
+                    }
+                    return;
+                }
+            }
+        }
+
         // Check if already submitting
         if (form.dataset.submitting === 'true') return;
 

@@ -218,11 +218,12 @@
                 <div class="row mb-3">
                     <div class="lato col-md-6">
                         <label for="input1" class="lato form-label">Family Name</label>
-                        <input type="text" class="lato form-control" id="input1">
+                        <input type="text" class="lato form-control" id="input1" required>
                     </div>
                     <div class="lato col-md-6">
                         <label for="select2" class="lato form-label">Family Size</label>
-                        <select class="lato form-select" id="select2">
+                        <select class="lato form-select" id="select2" required>
+                            <option value="" selected disabled>Select an option</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
@@ -236,7 +237,8 @@
                 <div class="lato row mb-3">
                     <div class="lato col-md-6">
                         <label for="select1" class="lato form-label">Contact Information (Phone Number, Email)</label>
-                        <select class="lato form-select" id="select1">
+                        <select class="lato form-select" id="select1" required>
+                            <option value="" selected disabled>Select an option</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
@@ -246,7 +248,7 @@
                     </div>
                     <div class="lato col-md-6">
                         <label for="input2" class="lato form-label">Choose Internet Plan</label>
-                        <input type="text" class="lato form-control" id="input2" placeholder=" Change Plan">
+                        <input type="text" class="lato form-control" id="input2" placeholder=" Change Plan" required>
                     </div>
                 </div>
 
@@ -254,7 +256,8 @@
                 <div class="lato row mb-3">
                     <div class="lato col-md-6">
                         <label for="select1" class="lato form-label">Number of Concurrent Users</label>
-                        <select class="lato form-select" id="select1">
+                        <select class="lato form-select" id="select1" required>
+                            <option value="" selected disabled>Select an option</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
@@ -264,7 +267,8 @@
                     </div>
                     <div class="lato col-md-6">
                         <label for="select1" class="lato form-label">Number of Gadgets</label>
-                        <select class="lato form-select" id="select1">
+                        <select class="lato form-select" id="select1" required>
+                            <option value="" selected disabled>Select an option</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
@@ -277,13 +281,13 @@
                 <div class="lato row mb-3">
                     <div class="lato col mb-3">
                         <label for="input4" class="lato form-label">Home Address</label>
-                        <input type="text" class="lato form-control" id="input4">
+                        <input type="text" class="lato form-control" id="input4" required>
                     </div>
                 </div>
                 <!-- Textarea -->
                 <div class="lato mb-3">
                     <label for="textarea" class="lato form-label">Add a Description</label>
-                    <textarea class="lato form-control" id="textarea" rows="7"></textarea>
+                    <textarea class="lato form-control" id="textarea" rows="7" required></textarea>
                 </div>
 
                 <!-- Submit button -->

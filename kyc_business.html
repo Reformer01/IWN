@@ -219,11 +219,12 @@
                 <div class="row mb-3">
                     <div class="lato col-md-6">
                         <label for="input1" class="lato form-label">Business/ Company Name</label>
-                        <input type="text" class="lato form-control" id="input1">
+                        <input type="text" class="lato form-control" id="input1" required>
                     </div>
                     <div class="lato col-md-6">
                         <label for="select2" class="lato form-label">Business/ Company Type</label>
-                        <select class="lato form-select" id="select2">
+                        <select class="lato form-select" id="select2" required>
+                            <option value="" selected disabled>Select an option</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
@@ -237,7 +238,8 @@
                 <div class="lato row mb-3">
                     <div class="lato col-md-6">
                         <label for="select1" class="lato form-label">Total Employee (In Range)</label>
-                        <select class="lato form-select" id="select1">
+                        <select class="lato form-select" id="select1" required>
+                            <option value="" selected disabled>Select an option</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
@@ -247,7 +249,7 @@
                     </div>
                     <div class="lato col-md-6">
                         <label for="input2" class="lato form-label">Choose Internet Plan</label>
-                        <input type="text" class="lato form-control" id="input2" placeholder=" Change Plan">
+                        <input type="text" class="lato form-control" id="input2" placeholder=" Change Plan" required>
                     </div>
                 </div>
 
@@ -256,13 +258,13 @@
                 <div class="lato row mb-3">
                     <div class="lato col mb-3">
                         <label for="input4" class="lato form-label">Business/ Company Location</label>
-                        <input type="text" class="lato form-control" id="input4">
+                        <input type="text" class="lato form-control" id="input4" required>
                     </div>
                 </div>
                 <!-- Textarea -->
                 <div class="lato mb-3">
                     <label for="textarea" class="lato form-label">Add a Description</label>
-                    <textarea class="lato form-control" id="textarea" rows="7"></textarea>
+                    <textarea class="lato form-control" id="textarea" rows="7" required></textarea>
                 </div>
 
                 <div class="kyc-upload">
@@ -273,7 +275,7 @@
                     <p class="lato fw-bold"> Click here to download <button class="lato btn btn-warn"
                             onclick="console.log('Button clicked!'); location.href='./Assets/documents/KNOW_YOUR_CUSTOMER.docx';">Download
                             KYC Form</button> <label class="lato" for="kyc-file">Upload KYC Form</label><input
-                            type="file" name="kyc-file" id="kyc-file" class="lato mx-3 btn btn-warn rounded-pill"></p>
+                            type="file" name="kyc-file" id="kyc-file" class="lato mx-3 btn btn-warn rounded-pill" required></p>
                 </div>
 
                 <!-- Submit button -->
