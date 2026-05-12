@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function submitFormAjax(form, recaptchaToken) {
         // Always honor native HTML validation before AJAX submission.
         if (!form.checkValidity()) {
+            showValidationError(form);
             form.reportValidity();
             return;
         }
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!hasSelection) {
                     if (requiredCheckboxes[0] && typeof requiredCheckboxes[0].setCustomValidity === 'function') {
                         requiredCheckboxes[0].setCustomValidity('Please select at least one option.');
+                        showToast('Please select at least one service required before submitting.', 'error');
                         requiredCheckboxes[0].reportValidity();
                         requiredCheckboxes[0].setCustomValidity('');
                     }
@@ -208,6 +210,68 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.disabled = false;
             btn.innerHTML = originalText;
         }
+    }
+
+    function showValidationError(form) {
+        const invalidField = form.querySelector(':invalid');
+        if (!invalidField) {
+            showToast('Please complete all required fields before submitting.', 'error');
+            return;
+        }
+
+        const fieldLabel = getFieldLabel(invalidField);
+        const missingValueMessage = fieldLabel
+            ? `Please complete "${fieldLabel}" before submitting.`
+            : 'Please complete all required fields before submitting.';
+
+        if (invalidField.validity && invalidField.validity.valueMissing) {
+            showToast(missingValueMessage, 'error');
+            return;
+        }
+
+        if (invalidField.validity && invalidField.validity.typeMismatch) {
+            showToast(`Please enter a valid value for "${fieldLabel || 'this field'}".`, 'error');
+            return;
+        }
+
+        if (invalidField.validity && invalidField.validity.patternMismatch) {
+            showToast(`Please match the expected format for "${fieldLabel || 'this field'}".`, 'error');
+            return;
+        }
+
+        showToast(missingValueMessage, 'error');
+    }
+
+    function getFieldLabel(field) {
+        if (field.id) {
+            const explicitLabel = formDocument().querySelector(`label[for="${field.id}"]`);
+            if (explicitLabel && explicitLabel.textContent) {
+                return explicitLabel.textContent.trim();
+            }
+        }
+
+        const wrappedLabel = field.closest('label');
+        if (wrappedLabel && wrappedLabel.textContent) {
+            return wrappedLabel.textContent.trim();
+        }
+
+        if (field.getAttribute('aria-label')) {
+            return field.getAttribute('aria-label').trim();
+        }
+
+        if (field.placeholder) {
+            return field.placeholder.trim();
+        }
+
+        if (field.name) {
+            return field.name.replace(/[_-]+/g, ' ').trim();
+        }
+
+        return '';
+    }
+
+    function formDocument() {
+        return document;
     }
 
     function showToast(message, type) {
