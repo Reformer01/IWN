@@ -359,17 +359,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               ]
           ],
           'Google Ads Lead' => [
-              'to' => 'jeffery.udoji@iworldnetworks.net',
-              'cc' => [
-                  'reformer.ejembi@iworldnetworks.net'
-              ],
+              'to' => 'reformer.ejembi@iworldnetworks.net',
+              'cc' => [],
               'state_routing' => [
                   'Ogun' => [
                       'to' => 'titilade.bakare@iworldnetworks.net',
                       'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ],
                   'Oyo' => [
-                      'to' => 'jeffery.udoji@iworldnetworks.net',
+                      'to' => 'titilade.bakare@iworldnetworks.net',
                       'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ],
                   'Osun' => [
@@ -377,7 +375,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                       'cc' => ['emmanuel.oladimeji@iworldnetworks.net']
                   ],
                   'Ondo' => [
-                      'to' => 'jeffery.udoji@iworldnetworks.net',
+                      'to' => 'emmanuel.oladimeji@iworldnetworks.net',
                       'cc' => ['reformer.ejembi@iworldnetworks.net']
                   ]
               ]
@@ -427,7 +425,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $cc = [
               'titilade.bakare@iworldnetworks.net',
               'kikachukwu.omordia@iworldnetworks.net',
-              'jeffery.udoji@iworldnetworks.net',
               'reformer.ejembi@iworldnetworks.net',
               'emmanuel.oladimeji@iworldnetworks.net',
               'kolade.adegelu@iworldnetworks.net',
