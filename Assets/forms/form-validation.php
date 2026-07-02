@@ -353,12 +353,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           ],
           'Google Workspace Enquiry' => [
               'to' => 'jude.alawode@iworldnetworks.net',
-              'cc' => [
-                  'kikachukwu.omordia@iworldnetworks.net',
-                  'kolade.adegelu@iworldnetworks.net'
-              ]
-          ],
-          'Google Ads Lead' => [
+               'cc' => [
+                   'kolade.adegelu@iworldnetworks.net'
+               ]
+           ],
+           'Google Ads Lead' => [
               'to' => 'reformer.ejembi@iworldnetworks.net',
               'cc' => [],
               'state_routing' => [
@@ -423,9 +422,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       } else {
           $to = 'adegelukolade@gmail.com';
           $cc = [
-              'titilade.bakare@iworldnetworks.net',
-              'kikachukwu.omordia@iworldnetworks.net',
-              'reformer.ejembi@iworldnetworks.net',
+          'titilade.bakare@iworldnetworks.net',
+               'reformer.ejembi@iworldnetworks.net',
               'emmanuel.oladimeji@iworldnetworks.net',
               'kolade.adegelu@iworldnetworks.net',
               'janet.oke@iworldnetworks.net',
