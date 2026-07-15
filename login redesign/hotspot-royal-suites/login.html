@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Royal Quality Suites | Login</title>
+    <!-- Inline fallback styles - no external dependencies -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+    <link href="./assets/fonts/material-icons.css" rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="./assets/js/tailwind.js"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4285F4",
+                        "google-blue": "#4285F4",
+                        "google-red": "#EA4335",
+                        "google-yellow": "#FBBC05",
+                        "google-green": "#34A853",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @keyframes drift {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.2) 0.5px, transparent 0.5px), radial-gradient(rgba(255, 255, 255, 0.2) 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-white min-h-screen flex flex-col relative overflow-x-hidden transition-colors duration-200">
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script type="text/javascript" src="./assets/js/md5.js"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+    </script>
+    $(endif)
+
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-pattern z-0"></div>
+    </div>
+
+    <header class="relative z-20 w-full bg-[#4a148c] shadow-lg">
+        <div
+            class="max-w-7xl mx-auto px-6 py-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <img src="./img/logo.png" alt="Royal Quality Suites Logo" class="h-10 md:h-14 object-contain">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 relative z-10 flex flex-col items-center justify-center px-4 py-8 w-full max-w-7xl mx-auto">
+        <div
+            class="w-full max-w-5xl bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-slate-100 dark:border-slate-700">
+            <div
+                class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px] bg-slate-100 dark:bg-slate-900 overflow-hidden group order-last lg:order-none">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    style='background-image: url("./img/Main%20image.png");'>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+                <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end items-start text-white">
+                    <div class="space-y-4 md:space-y-6 max-w-2xl">
+                        <h1 class="text-base md:text-5xl font-bold leading-tight tracking-tight">Welcome to Royal Quality Suites
+                        </h1>
+                        <p class="text-sm md:text-base text-white/80 max-w-xl">Experience luxury and comfort.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white dark:bg-slate-800">
+                <div class="max-w-sm mx-auto w-full">
+                    <div class="mb-8 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">Sign In</h2>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Please enter your credentials to connect
+                        </p>
+                    </div>
+                    <form name="login" action="$(link-login-only)" class="space-y-6" method="POST" $(if chap-id)
+                        onSubmit="return doLogin()" $(endif)>
+                        <input type="hidden" name="dst" value="$(link-orig)" />
+                        <input type="hidden" name="popup" value="true" />
+
+                        $(if error)
+                        <div
+                            class="p-3 rounded-lg bg-google-red/10 border border-google-red/20 text-google-red text-sm text-center">
+                            $(error)
+                        </div>
+                        $(endif)
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300"
+                                for="username">Username</label>
+                            <div class="relative">
+                                <span
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-google-blue material-symbols-outlined text-[20px]">person</span>
+                                <input
+                                    class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-google-blue focus:ring-2 focus:ring-google-blue/20 transition-all outline-none"
+                                    id="username" name="username" placeholder="Username" type="text" value="$(username)"
+                                    autofocus />
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300"
+                                    for="password">Password</label>
+                                <a class="text-sm text-google-blue font-medium hover:underline" href="#">Forgot
+                                    Password?</a>
+                            </div>
+                            <div class="relative">
+                                <span
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-google-blue material-symbols-outlined text-[20px]">lock</span>
+                                <input
+                                    class="w-full h-12 pl-11 pr-12 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-google-blue focus:ring-2 focus:ring-google-blue/20 transition-all outline-none"
+                                    id="password" name="password" placeholder="••••••••" type="password" />
+                                <button
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full h-12 bg-gradient-to-r from-google-blue via-google-red to-google-yellow hover:scale-[1.02] text-white font-semibold rounded-lg shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-2 group/btn"
+                            type="submit">
+                            Sign In
+                            <span
+                                class="material-symbols-outlined text-[20px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </button>
+
+                        $(if trial == 'yes')
+                        <div class="text-center pt-2">
+                            <p class="text-sm text-slate-500">
+                                Free trial available,
+                                <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+                                    class="text-google-blue font-medium hover:underline">click here</a>.
+                            </p>
+                        </div>
+                        $(endif)
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="relative z-10 py-6 px-6 text-center text-slate-500 text-sm">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+            <p>&copy; 2026 Royal Quality Suites</p>
+        </div>
+    </footer>
+</body>
+
+</html>
