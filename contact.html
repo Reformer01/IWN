@@ -271,7 +271,23 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+        <!-- Toll-Free Top Bar -->
+        <div class="bg-navy text-white text-xs py-2 px-6 border-b border-white/10">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-slate-300 font-medium hidden sm:inline">24/7 Operations Support Network Active</span>
+                    <span class="text-slate-300 font-medium sm:hidden">24/7 Support</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="tel:08000033000" class="flex items-center gap-1.5 text-primary hover:text-orange-400 font-extrabold transition-all">
+                        <span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                        Toll-Free Support: 0800 003 3000
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="./index.html">
                 <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
@@ -370,7 +386,7 @@
         </div>
     </nav>
 
-    <header class="relative h-[450px] overflow-hidden pt-20">
+    <header class="relative h-[450px] overflow-hidden pt-28">
 
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
@@ -581,6 +597,27 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Toll-Free Support Bento Card -->
+                <div class="bento-card bg-gradient-to-br from-primary to-orange-600 text-white rounded-bento p-8 relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+                    <div class="relative z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-white text-2xl animate-pulse">phone_in_talk</span>
+                            </div>
+                            <span class="text-white/80 text-xs font-bold uppercase tracking-widest block mb-1">Zero Charge Support</span>
+                            <h3 class="text-2xl font-extrabold mb-3">Toll-Free Support</h3>
+                            <p class="text-white/90 text-sm mb-6 leading-relaxed">Call us free of charge from any network in Nigeria (MTN, Airtel, Glo, 9mobile) 24/7/365.</p>
+                        </div>
+                        <div>
+                            <a href="tel:08000033000" class="block text-center bg-white text-primary hover:bg-slate-50 font-bold px-6 py-4 rounded-xl shadow-lg transition-all text-lg tracking-wider">
+                                0800 003 3000
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bento-card bg-white rounded-bento p-6 border border-slate-100">
                     <div class="flex items-start justify-between">
                         <div><span class="material-symbols-outlined text-primary mb-2">receipt_long</span>
@@ -776,8 +813,15 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div>
-                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Pioneering connectivity solutions for Nigerian
                         homes and businesses. Secure, fast, and always reliable.</p>
+                    <div class="mt-4 pt-4 border-t border-white/5 space-y-2">
+                        <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Toll-Free Support</p>
+                        <a href="tel:08000033000" class="flex items-center gap-2 text-primary hover:text-orange-400 font-bold text-sm transition-colors">
+                            <span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                            0800 003 3000
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>

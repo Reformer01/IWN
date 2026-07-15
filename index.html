@@ -239,7 +239,23 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+        <!-- Toll-Free Top Bar -->
+        <div class="bg-navy text-white text-xs py-2 px-6 border-b border-white/10">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-slate-300 font-medium hidden sm:inline">24/7 Operations Support Network Active</span>
+                    <span class="text-slate-300 font-medium sm:hidden">24/7 Support</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="tel:08000033000" class="flex items-center gap-1.5 text-primary hover:text-orange-400 font-extrabold transition-all">
+                        <span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                        Toll-Free Support: 0800 003 3000
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="./index.html">
                 <img src="./Assets/icons/logos/logo_1.png" alt="I-World Logo" class="h-12 object-contain">
             </a>
@@ -353,7 +369,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative w-full min-h-[700px] flex items-center hero-gradient pt-20">
+    <header class="relative w-full min-h-[700px] flex items-center hero-gradient pt-28">
 
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971358769"></script>
@@ -607,6 +623,90 @@
         </div>
     </section>
 
+    <!-- Toll-Free Support Showcase Section -->
+    <section class="py-20 bg-gradient-to-br from-navy via-slate-900 to-navy text-white relative overflow-hidden border-t border-b border-white/5">
+        <!-- Abstract background glow elements -->
+        <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-semibold">
+                        <span class="material-symbols-outlined text-base animate-pulse">call</span>
+                        Zero Cost Calling
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">
+                        Reach Us Instantly with <br />
+                        Our New <span class="text-primary">Toll-Free</span> Support Line
+                    </h2>
+                    <p class="text-slate-400 text-lg leading-relaxed max-w-xl">
+                        At I-World Networks, customer experience is our top priority. We've launched our official toll-free customer care number to ensure you can reach our expert support team at absolutely zero cost from any network in Nigeria.
+                    </p>
+                    
+                    <!-- Feature Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-primary text-xl">payments</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">100% Free of Charge</h4>
+                                <p class="text-slate-400 text-sm mt-1">No call credit or airtime required from any local network.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-secondary/20 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-secondary text-xl">schedule</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">24/7/365 Availability</h4>
+                                <p class="text-slate-400 text-sm mt-1">Our network engineers are always on standby to support you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative group">
+                        <!-- Card Border Glow -->
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-orange-600 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        
+                        <div class="relative bg-slate-900 border border-white/10 p-8 rounded-3xl text-center space-y-6">
+                            <div class="inline-flex w-16 h-16 rounded-full bg-primary/10 border border-primary/20 items-center justify-center mb-2">
+                                <span class="material-symbols-outlined text-primary text-3xl animate-bounce">phone_in_talk</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-2">Dial Now Toll-Free</span>
+                                <a href="tel:08000033000" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight hover:text-primary transition-colors block">
+                                    0800 003 3000
+                                </a>
+                            </div>
+                            
+                            <!-- Telecom Badges -->
+                            <div class="pt-4 border-t border-white/5">
+                                <p class="text-slate-500 text-xs font-semibold mb-3">Compatible with all major networks</p>
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs text-slate-300 font-bold">MTN</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs text-slate-300 font-bold">Airtel</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs text-slate-300 font-bold">Glo</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs text-slate-300 font-bold">9mobile</span>
+                                </div>
+                            </div>
+
+                            <a href="tel:08000033000" class="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-orange-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-primary/20 transition-all">
+                                <span class="material-symbols-outlined text-lg">call</span>
+                                Call Support Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section class="py-12 bg-white">
         <div class="container mx-auto px-6">
@@ -720,8 +820,15 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div>
-                    <p class="text-slate-400 text-sm leading-relaxed">Pioneering connectivity solutions for Nigerian
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Pioneering connectivity solutions for Nigerian
                         homes and businesses. Secure, fast, and always reliable.</p>
+                    <div class="mt-4 pt-4 border-t border-white/5 space-y-2">
+                        <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Toll-Free Support</p>
+                        <a href="tel:08000033000" class="flex items-center gap-2 text-primary hover:text-orange-400 font-bold text-sm transition-colors">
+                            <span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                            0800 003 3000
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Quick Links</h4>
