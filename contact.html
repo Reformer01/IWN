@@ -272,11 +272,13 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
         <!-- Toll-Free Top Bar -->
-        <div class="bg-navy text-white text-xs py-2 px-6 border-b border-white/10">
-            <div class="max-w-7xl mx-auto flex justify-center items-center">
-                <a href="tel:08000033000" class="flex items-center gap-1.5 text-primary hover:text-orange-400 font-extrabold transition-all">
+        <div class="bg-gradient-to-r from-orange-50 via-white to-orange-50 text-slate-800 text-xs py-2 px-6 border-b border-orange-200/60 shadow-sm">
+            <div class="max-w-7xl mx-auto flex justify-center items-center gap-2">
+                <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-slate-600 font-medium hidden sm:inline">24/7 Zero-Cost Customer Care:</span>
+                <a href="tel:08000033000" class="inline-flex items-center gap-1.5 text-primary hover:text-orange-700 font-bold transition-all">
                     <span class="material-symbols-outlined text-sm">phone_in_talk</span>
-                    Toll-Free Support: 0800 003 3000
+                    Toll-Free Support: <span class="font-extrabold tracking-wide">0800 003 3000</span>
                 </a>
             </div>
         </div>
