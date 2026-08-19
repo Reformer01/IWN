@@ -905,17 +905,58 @@
     <!-- Multi-step Form JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Job title from URL
+            // Job title from URL (Robust parser handling &, %26, and aliases)
             function getJobTitleFromURL() {
-                const params = new URLSearchParams(window.location.search);
-                return params.get('job') || '';
+                var search = window.location.search || '';
+                if (!search) return '';
+                
+                var rawValue = '';
+                var match = search.match(/[?&]job=([^&]+(?:&[^=]+)*)/i);
+                if (match && match[1]) {
+                    rawValue = match[1];
+                } else {
+                    var params = new URLSearchParams(search);
+                    rawValue = params.get('job') || '';
+                }
+                
+                var decoded = '';
+                try {
+                    decoded = decodeURIComponent(rawValue.replace(/\+/g, ' ')).trim();
+                } catch (e) {
+                    decoded = rawValue.replace(/\+/g, ' ').trim();
+                }
+
+                // Check lowercase for fuzzy matching / aliases
+                var lower = decoded.toLowerCase();
+                if (lower.includes('sales') && lower.includes('marketing')) {
+                    return 'Sales & Marketing Executive';
+                }
+                if (lower.includes('regional') && lower.includes('sales')) {
+                    return 'Regional Sales Manager';
+                }
+                if (lower.includes('google for education') || lower.includes('change management')) {
+                    return 'Google for Education Change Management Officer';
+                }
+                if (lower.includes('technician')) {
+                    return 'Field Technician';
+                }
+                if (lower.includes('driver')) {
+                    return 'Corporate Driver';
+                }
+                if (lower.includes('office assistant')) {
+                    return 'Office Assistant';
+                }
+                
+                return decoded;
             }
+
             var jobTitleInput = document.getElementById('jobTitle');
-            if (jobTitleInput) {
-                jobTitleInput.value = getJobTitleFromURL();
+            var resolvedJob = getJobTitleFromURL();
+            if (jobTitleInput && resolvedJob) {
+                jobTitleInput.value = resolvedJob;
             }
             
-            // Job details data
+            // Job details data for top summary box
             const jobDetailsData = {
                 'Google for Education Change Management Officer': {
                     location: 'Private Institutions within Nigeria',
@@ -930,16 +971,16 @@
                 'Sales & Marketing Executive': {
                     location: 'Akure, Ibadan, Ijebu Ode, Ota, Magboro, Abeokuta, Mowe/Ibafo axis',
                     education: 'Minimum of an OND in any relevant field',
-                    experience: '1+ year Telecoms/ISP sales is an advantage (Fieldwork focus)'
+                    experience: 'Fieldwork commitment | 1+ year Telecoms/ISP sales is an advantage'
                 },
                 'Sales & Marketing Officer': {
                     location: 'Akure, Ibadan, Ijebu Ode, Ota, Magboro, Abeokuta, Mowe/Ibafo axis',
                     education: 'Minimum of an OND in any relevant field',
-                    experience: '1+ year Telecoms/ISP sales is an advantage (Fieldwork focus)'
+                    experience: 'Fieldwork commitment | 1+ year Telecoms/ISP sales is an advantage'
                 },
                 'Regional Sales Manager': {
                     location: 'Regional Hub (Ogun / Oyo / Ondo / Osun - Assigned Territory)',
-                    education: 'B.Sc or HND in Business Admin, Marketing, Telecoms (M.Sc added advantage)',
+                    education: 'B.Sc or HND in Business Admin, Marketing, Telecoms (Master’s added advantage)',
                     experience: '3–5 years proven sales management in Telecoms / ISP / Tech'
                 },
                 'Corporate Driver': {
@@ -956,19 +997,86 @@
             
             // Populate job details
             var jobDetailsSection = document.getElementById('jobDetails');
-            var jobTitle = getJobTitleFromURL();
-            if (jobDetailsSection && jobTitle && jobDetailsData[jobTitle]) {
-                var details = jobDetailsData[jobTitle];
+            if (jobDetailsSection && resolvedJob && jobDetailsData[resolvedJob]) {
+                var details = jobDetailsData[resolvedJob];
                 document.getElementById('jobLocation').textContent = details.location;
                 document.getElementById('jobEducation').textContent = details.education;
                 document.getElementById('jobExperience').textContent = details.experience;
                 jobDetailsSection.classList.remove('hidden');
             }
             
-            // Job role details content
+            // Comprehensive Job Role details content
             const jobRoleDetails = {
+                'Sales & Marketing Executive': {
+                    title: 'Sales & Marketing Executive',
+                    company: 'I-World Networks Limited',
+                    summary: 'I-World Networks Limited is seeking highly motivated, results-driven Sales & Marketing Executives to aggressively promote our high-speed internet services, generate qualified leads, and expand our market presence. This role requires a strong commitment to fieldwork and a passion for exceeding sales targets.',
+                    locations: 'Akure, Ibadan, Ijebu Ode, Ota, Magboro, Abeokuta, Mowe/Ibafo axis.',
+                    responsibilities: [
+                        'Strategic Lead Generation: Execute lead generation strategies through market research, networking, industry events, door-to-door canvassing, and B2B marketing.',
+                        'Customer Acquisition: Proactively identify and close sales opportunities via B2B visits, direct sales, cold calling, and email outreach.',
+                        'Relationship Management: Cultivate long-term client relationships and propose tailored connectivity solutions.',
+                        'Performance: Consistently meet and exceed monthly and quarterly sales targets.',
+                        'Market Analysis: Monitor industry trends and competitor offerings to refine sales strategies.',
+                        'Reporting: Maintain accurate records of sales activities and pipeline status in the CRM.'
+                    ],
+                    requirements: [
+                        'Minimum of an OND in any relevant field.',
+                        'Proven ability and willingness to conduct extensive fieldwork.',
+                        'Exceptional verbal communication, presentation, and negotiation skills.',
+                        'High degree of self-motivation and competitive drive.',
+                        'Proficiency in Google Workspace and Microsoft Office Suite.',
+                        'Previous experience (1+ year) in Telecoms/ISP sales is a significant advantage.'
+                    ],
+                    benefits: [
+                        'Competitive Salary package',
+                        'Attractive performance-driven Commission structure',
+                        'Health Insurance (HMO) & company benefits',
+                        'Structured career growth and product training'
+                    ],
+                    howToApply: {
+                        email: 'hr.iworldnetworks@gmail.com',
+                        subject: 'Sales and Marketing Officer August 2026 - [Key Location] (e.g., Sales and Marketing Officer Aug - Ijebu Ode)',
+                        deadline: 'August 31, 2026'
+                    }
+                },
+                'Regional Sales Manager': {
+                    title: 'Regional Sales Manager',
+                    company: 'I-World Networks Limited',
+                    summary: 'We are seeking a high-performing, dynamic, and strategic Regional Sales Manager to take full operational ownership of an assigned regional sales territory. In this pivotal leadership role, you will oversee total regional revenue generation, manage the regional P&L, drive Enterprise client acquisition, and directly lead the recruitment, onboarding, training, and performance management of Regional Sales Executives and Territory Growth Executives.',
+                    locations: 'Regional Hub (Ogun / Oyo / Ondo / Osun - Assigned Territory)',
+                    responsibilities: [
+                        'Regional Leadership & Territory Management: Take overall charge of general sales and marketing operations within the assigned region. Deliver cumulative regional monthly targets across active Base Transceiver Station (BTS) coverage zones. Analyze market trends, competitor strategies, and customer demand within the region to identify new growth opportunities. Manage the regional operations budget, enforce corporate policies, and ensure compliance with regional regulations.',
+                        'Recruitment & Team Management (Sales Executives): Identify regional staffing needs and actively oversee the recruitment, selection, and onboarding of Sales Executives, Territory Growth Executives (TGEs), and Field Marketers. Cascade regional targets down to individual Sales Executives and establish clear daily/monthly performance quotas. Mentor, train, and coach sales personnel on direct selling, B2B negotiation, and account acquisition techniques. Conduct daily/weekly team meetings, pipeline evaluations, and performance reviews to maintain a high-converting sales pipeline.',
+                        'Business Development & Enterprise Client Acquisition: Lead strategic enterprise sales initiatives targeting high-value corporate clients, educational institutions, and government accounts. Promote and expand market adoption for the full suite of I-World Networks services (Home, SME, Enterprise, Google Cloud, NGFEP). Build and sustain strategic relationships with key stakeholders, dealers, and channel partners across the region.',
+                        'Reporting & Operational Oversight: Prepare and present comprehensive regional performance reports to Senior Management. Monitor sales CRM data, lead conversion rates, and account retention metrics. Collaborate with technical engineering teams to align sales growth with localized BTS network capacity.'
+                    ],
+                    requirements: [
+                        'Education: B.Sc. or HND in Business Administration, Marketing, Telecommunications, or any related field (Master\'s degree is an added advantage).',
+                        'Experience: Minimum of 3–5 years proven sales management experience in the Telecommunications, ISP, or Technology sector.',
+                        'People Leadership: Demonstrated track record of recruiting, managing, and building high-performing sales teams.',
+                        'Commercial Drive: Strong track record of meeting and exceeding competitive revenue quotas and business expansion targets.',
+                        'Technical Proficiency: Hands-on experience with Sales CRM platforms (e.g., HubSpot), data analytics, and Microsoft Office Suite.',
+                        'Skills: Excellent oral and written communication, negotiation, strategic planning, and presentation skills.'
+                    ],
+                    benefits: [
+                        'Competitive base salary package',
+                        'Performance-driven incentives and commission structures',
+                        'Official company vehicle and driver assigned for regional mobility (where applicable)',
+                        'Comprehensive Health Insurance (HMO) coverage',
+                        'Structured career progression and leadership growth opportunities'
+                    ],
+                    howToApply: {
+                        email: 'hr.iworldnetworks@gmail.com',
+                        subject: 'Regional Sales Manager - [Insert Preferred Region]',
+                        deadline: 'August 31, 2026'
+                    }
+                },
                 'Google for Education Change Management Officer': {
                     title: 'Google for Education Change Management Officer',
+                    company: 'I-World Networks Limited',
+                    summary: 'Lead digital transformation in educational institutions across Nigeria, empowering teachers and students through Google for Education tools.',
+                    locations: 'Private Institutions within Nigeria',
                     responsibilities: [
                         'Lead digital transformation initiatives in partner schools',
                         'Train educators on Google for Education tools and best practices',
@@ -993,6 +1101,9 @@
                 },
                 'Field Technician': {
                     title: 'Field Technician',
+                    company: 'I-World Networks Limited',
+                    summary: 'Deploy, configure, and maintain fiber and wireless network infrastructure across customer premises and regional BTS nodes.',
+                    locations: 'Abeokuta, Ibadan, Osogbo, Akure, Ota, Sagamu, Ijebu Ode',
                     responsibilities: [
                         'Install and maintain network infrastructure at client sites',
                         'Troubleshoot and resolve technical issues promptly',
@@ -1016,91 +1127,11 @@
                         'Health insurance and employee benefits'
                     ]
                 },
-                'Sales & Marketing Executive': {
-                    title: 'Sales & Marketing Executive',
-                    responsibilities: [
-                        'Execute lead generation strategies through market research, networking, industry events, door-to-door canvassing, and B2B marketing',
-                        'Proactively identify and close sales opportunities via B2B visits, direct sales, cold calling, and email outreach',
-                        'Cultivate long-term client relationships and propose tailored high-speed internet connectivity solutions',
-                        'Consistently meet and exceed monthly and quarterly sales targets and KPIs',
-                        'Monitor industry trends and competitor offerings to refine sales strategies',
-                        'Maintain accurate records of sales activities, pipeline progress, and customer feedback in CRM'
-                    ],
-                    requirements: [
-                        'Minimum of an OND in Marketing, Business Administration, or any relevant discipline',
-                        '1+ year of direct/field sales experience, preferably within the Telecoms or ISP industry (significant advantage)',
-                        'Strong commitment to daily fieldwork, direct canvassing, and proactive client visits',
-                        'Excellent verbal and written communication, presentation, and interpersonal skills',
-                        'Strong negotiation, closing, and relationship-building capabilities',
-                        'Proficiency in Google Workspace (Docs, Sheets, Slides) and MS Office'
-                    ],
-                    benefits: [
-                        'Competitive base salary package',
-                        'Attractive, performance-driven commission structure',
-                        'Field transport and communication allowances',
-                        'Continuous sales coaching, product training, and professional development',
-                        'Clear career progression opportunities within a rapidly growing ISP',
-                        'Health insurance (HMO) and company welfare benefits'
-                    ]
-                },
-                'Sales & Marketing Officer': {
-                    title: 'Sales & Marketing Officer',
-                    responsibilities: [
-                        'Execute lead generation strategies through market research, networking, industry events, door-to-door canvassing, and B2B marketing',
-                        'Proactively identify and close sales opportunities via B2B visits, direct sales, cold calling, and email outreach',
-                        'Cultivate long-term client relationships and propose tailored high-speed internet connectivity solutions',
-                        'Consistently meet and exceed monthly and quarterly sales targets and KPIs',
-                        'Monitor industry trends and competitor offerings to refine sales strategies',
-                        'Maintain accurate records of sales activities, pipeline progress, and customer feedback in CRM'
-                    ],
-                    requirements: [
-                        'Minimum of an OND in Marketing, Business Administration, or any relevant discipline',
-                        '1+ year of direct/field sales experience, preferably within the Telecoms or ISP industry (significant advantage)',
-                        'Strong commitment to daily fieldwork, direct canvassing, and proactive client visits',
-                        'Excellent verbal and written communication, presentation, and interpersonal skills',
-                        'Strong negotiation, closing, and relationship-building capabilities',
-                        'Proficiency in Google Workspace (Docs, Sheets, Slides) and MS Office'
-                    ],
-                    benefits: [
-                        'Competitive base salary package',
-                        'Attractive, performance-driven commission structure',
-                        'Field transport and communication allowances',
-                        'Continuous sales coaching, product training, and professional development',
-                        'Clear career progression opportunities within a rapidly growing ISP',
-                        'Health insurance (HMO) and company welfare benefits'
-                    ]
-                },
-                'Regional Sales Manager': {
-                    title: 'Regional Sales Manager',
-                    responsibilities: [
-                        'Drive regional revenue growth, subscriber acquisition, and market expansion across assigned states and territories',
-                        'Lead, mentor, and performance-manage territory sales supervisors, retail agents, and direct sales executives',
-                        'Develop and execute aggressive go-to-market strategies for retail FTTH and B2B enterprise connectivity',
-                        'Take full P&L ownership of regional sales operations, revenue targets, and cost-effective sales budgets',
-                        'Build and manage strategic partnerships with corporate enterprises, estates, developers, and local stakeholders',
-                        'Collaborate with Technical/NOC, Operations, and Customer Experience teams to ensure seamless service delivery',
-                        'Analyze regional sales data, market trends, and competitive intelligence to continuously refine sales approaches'
-                    ],
-                    requirements: [
-                        'B.Sc. or HND in Business Administration, Marketing, Telecommunications, or related field (Master’s or MBA added advantage)',
-                        '3–5 years of proven, high-impact sales management experience in Telecoms, ISP, or Technology',
-                        'Demonstrated success in building, leading, and scaling high-performing field and B2B sales teams',
-                        'Strong enterprise B2B sales acumen, contract negotiation, and key account management skills',
-                        'In-depth knowledge of wireless broadband, FTTH, enterprise connectivity, and Nigerian telecom landscape',
-                        'Data-driven mindset with proficiency in CRM tools (HubSpot), Google Workspace, and sales analytics',
-                        'Valid driver’s license and willingness to travel extensively within the assigned region'
-                    ],
-                    benefits: [
-                        'Highly competitive base salary commensurate with executive experience',
-                        'Lucrative performance-driven incentives, quarterly bonuses, and profit-sharing schemes',
-                        'Official company vehicle and dedicated driver assigned',
-                        'Comprehensive Health Insurance (HMO coverage) for you and family',
-                        'Executive leadership development and rapid career advancement',
-                        'Tools of trade: corporate laptop, phone line, and unlimited broadband connectivity'
-                    ]
-                },
                 'Corporate Driver': {
                     title: 'Corporate Driver',
+                    company: 'I-World Networks Limited',
+                    summary: 'Provide reliable, safe, and professional transportation for executives and staff across inter-state business routes.',
+                    locations: 'Interstate Travel Required',
                     responsibilities: [
                         'Safely transport staff and executives to various destinations',
                         'Maintain vehicle cleanliness and ensure regular maintenance',
@@ -1126,6 +1157,9 @@
                 },
                 'Office Assistant': {
                     title: 'Office Assistant, Abeokuta',
+                    company: 'I-World Networks Limited',
+                    summary: 'Support daily office administrative duties, organization, visitor reception, and general facility upkeep.',
+                    locations: 'Abeokuta, Ogun State',
                     responsibilities: [
                         'Clean and maintain the office and its surroundings in an attractive state, ensuring completion before 7:30 AM',
                         'Handle all official errands as assigned by management',
@@ -1154,52 +1188,85 @@
             // Populate job role details section
             var roleTitleEl = document.getElementById('roleTitle');
             var roleContentEl = document.getElementById('roleContent');
-            var jobRole = getJobTitleFromURL();
             
-            if (roleTitleEl && roleContentEl && jobRole && jobRoleDetails[jobRole]) {
-                var role = jobRoleDetails[jobRole];
+            if (roleTitleEl && roleContentEl && resolvedJob && jobRoleDetails[resolvedJob]) {
+                var role = jobRoleDetails[resolvedJob];
                 roleTitleEl.textContent = role.title;
                 
                 var html = '<div class="space-y-6">';
                 
+                // Role Summary
+                if (role.summary) {
+                    html += '<div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80">';
+                    html += '<h4 class="font-bold text-slate-900 mb-1.5 flex items-center gap-2 text-sm">';
+                    html += '<span class="material-symbols-outlined text-primary text-base">info</span>';
+                    html += 'Role Summary</h4>';
+                    html += '<p class="text-slate-700 text-sm leading-relaxed">' + role.summary + '</p>';
+                    html += '</div>';
+                }
+                
+                // Locations / Key Details
+                if (role.locations) {
+                    html += '<div class="flex items-start gap-2.5 text-sm text-slate-800 bg-orange-50/70 border border-orange-200/80 p-3.5 rounded-xl">';
+                    html += '<span class="material-symbols-outlined text-primary text-base mt-0.5 shrink-0">location_on</span>';
+                    html += '<div><strong class="text-slate-900">Available Locations / Assigned Territory:</strong> <span class="text-slate-700">' + role.locations + '</span></div>';
+                    html += '</div>';
+                }
+                
                 // Key Responsibilities
-                html += '<div>';
-                html += '<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">';
-                html += '<span class="material-symbols-outlined text-primary text-base">task</span>';
-                html += 'Key Responsibilities</h4>';
-                html += '<ul class="space-y-2 ml-6">';
-                role.responsibilities.forEach(function(item) {
-                    html += '<li class="text-slate-700 text-sm flex items-start gap-2">';
-                    html += '<span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>';
-                    html += '<span>' + item + '</span></li>';
-                });
-                html += '</ul></div>';
+                if (role.responsibilities && role.responsibilities.length) {
+                    html += '<div>';
+                    html += '<h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-base">';
+                    html += '<span class="material-symbols-outlined text-primary text-lg">task</span>';
+                    html += 'Key Responsibilities</h4>';
+                    html += '<ul class="space-y-2.5 ml-1 sm:ml-2">';
+                    role.responsibilities.forEach(function(item) {
+                        html += '<li class="text-slate-700 text-sm flex items-start gap-2.5">';
+                        html += '<span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">check_circle</span>';
+                        html += '<span class="leading-relaxed">' + item + '</span></li>';
+                    });
+                    html += '</ul></div>';
+                }
                 
                 // Requirements
-                html += '<div>';
-                html += '<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">';
-                html += '<span class="material-symbols-outlined text-primary text-base">verified</span>';
-                html += 'Requirements</h4>';
-                html += '<ul class="space-y-2 ml-6">';
-                role.requirements.forEach(function(item) {
-                    html += '<li class="text-slate-700 text-sm flex items-start gap-2">';
-                    html += '<span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>';
-                    html += '<span>' + item + '</span></li>';
-                });
-                html += '</ul></div>';
+                if (role.requirements && role.requirements.length) {
+                    html += '<div>';
+                    html += '<h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-base">';
+                    html += '<span class="material-symbols-outlined text-primary text-lg">verified</span>';
+                    html += 'Key Requirements & Qualifications</h4>';
+                    html += '<ul class="space-y-2.5 ml-1 sm:ml-2">';
+                    role.requirements.forEach(function(item) {
+                        html += '<li class="text-slate-700 text-sm flex items-start gap-2.5">';
+                        html += '<span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">check_circle</span>';
+                        html += '<span class="leading-relaxed">' + item + '</span></li>';
+                    });
+                    html += '</ul></div>';
+                }
                 
-                // Benefits
-                html += '<div class="bg-primary/5 rounded-xl p-4">';
-                html += '<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">';
-                html += '<span class="material-symbols-outlined text-primary text-base">stars</span>';
-                html += 'What We Offer</h4>';
-                html += '<ul class="space-y-2 ml-6">';
-                role.benefits.forEach(function(item) {
-                    html += '<li class="text-slate-700 text-sm flex items-start gap-2">';
-                    html += '<span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>';
-                    html += '<span>' + item + '</span></li>';
-                });
-                html += '</ul></div>';
+                // Benefits / What We Offer
+                if (role.benefits && role.benefits.length) {
+                    html += '<div class="bg-primary/5 rounded-xl p-4 border border-primary/15">';
+                    html += '<h4 class="font-bold text-slate-900 mb-2.5 flex items-center gap-2 text-base">';
+                    html += '<span class="material-symbols-outlined text-primary text-lg">stars</span>';
+                    html += 'What We Offer</h4>';
+                    html += '<ul class="space-y-2 ml-1 sm:ml-2">';
+                    role.benefits.forEach(function(item) {
+                        html += '<li class="text-slate-700 text-sm flex items-start gap-2.5">';
+                        html += '<span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">check_circle</span>';
+                        html += '<span class="leading-relaxed">' + item + '</span></li>';
+                    });
+                    html += '</ul></div>';
+                }
+                
+                // How to Apply / Email info
+                if (role.howToApply) {
+                    html += '<div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs text-slate-700 space-y-2">';
+                    html += '<div class="font-bold text-slate-900 text-sm flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">mail</span> How to Apply</div>';
+                    html += '<p class="text-slate-700">Interested and qualified candidates can apply using the online form below or send their CV & Application Letter to: <a href="mailto:' + role.howToApply.email + '" class="text-primary font-bold hover:underline">' + role.howToApply.email + '</a></p>';
+                    html += '<p><strong>Email Subject Line:</strong> <span class="bg-white px-2 py-0.5 rounded border border-slate-300 font-mono text-slate-900 inline-block mt-1">' + role.howToApply.subject + '</span></p>';
+                    html += '<p class="text-red-600 font-bold flex items-center gap-1"><span class="material-symbols-outlined text-sm">event</span> Application Deadline: ' + role.howToApply.deadline + '</p>';
+                    html += '</div>';
+                }
                 
                 html += '</div>';
                 roleContentEl.innerHTML = html;
