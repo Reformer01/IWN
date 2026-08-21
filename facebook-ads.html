@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Speed Unlimited Fibre &amp; Digital Infrastructure | I-World Networks</title>
+    <meta name="description"
+        content="Get blazing-fast, unlimited fibre internet and managed digital infrastructure for homes and businesses across Ibadan, Ogun, Osogbo, Akure, Sagamu &amp; Lagos. 99.9% uptime with local 24/7 support.">
+    <link rel="shortcut icon" href="./Assets/icons/favicon/favicon-32x32.png" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS with Forms -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "#FF6600",
+                        primary: "#FF6600",
+                        accent: "#59AF17",
+                        secondary: "#59AF17",
+                        "neutral-900": "#0B0F14",
+                        navy: "#0B0F14",
+                        steel: "#8A8F98",
+                        "warm-bg": "#F7F6F2",
+                        "card-bg": "#FDFDFD",
+                    },
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans", "sans-serif"],
+                        display: ["Lexend", "Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        /* HERO TOKENS (re-usable and consistent with design.md) */
+        :root {
+            --bg: #F7F6F2;        /* warm white */
+            --brand: #FF6600;     /* primary */
+            --accent: #59AF17;    /* green */
+            --neutral-900: #0B0F14;
+            --steel: #8A8F98;     /* graphite for arc */
+            --radius-md: 6px;
+
+            --space-xs: 8px;
+            --space-sm: 12px;
+            --space-md: 20px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --max-width: 1200px;
+
+            --fs-h1: clamp(32px, 5.5vw, 56px);
+            --fs-body: 16px;
+            --easing: cubic-bezier(.2, .9, .3, 1);
+        }
+
+        /* Basic page layout */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--neutral-900);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero {
+            background: var(--bg);
+            position: relative;
+            overflow: visible;
+            padding: clamp(28px, 6vw, 64px) 0 110px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* LEFT: headline and CTAs */
+        .hero__lead {
+            padding-right: 8px;
+        }
+
+        .label {
+            display: inline-block;
+            color: var(--brand);
+            font-weight: 700;
+            letter-spacing: .08em;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .hero__title {
+            font-size: var(--fs-h1);
+            line-height: 0.98;
+            margin: 6px 0 18px;
+            color: var(--neutral-900);
+            font-weight: 700;
+        }
+
+        .hero__accent {
+            color: var(--brand);
+            display: inline-block;
+        }
+
+        .accent-dot {
+            color: var(--accent);
+            margin-left: 4px;
+        }
+
+        .hero__sub {
+            color: #344245;
+            font-size: var(--fs-body);
+            max-width: 640px;
+            margin-bottom: 20px;
+        }
+
+        .hero__quick {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            font-weight: 700;
+            border: 0;
+            cursor: pointer;
+            border-radius: 28px;
+            padding: 12px 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 160ms var(--easing), box-shadow 160ms var(--easing);
+            text-decoration: none;
+        }
+
+        .btn--primary {
+            background: var(--brand);
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(255, 102, 0, 0.12);
+        }
+
+        .btn--primary:hover {
+            background: #E65C00;
+            box-shadow: 0 10px 26px rgba(255, 102, 0, 0.22);
+            transform: translateY(-1px);
+        }
+
+        .btn--ghost {
+            background: transparent;
+            color: var(--neutral-900);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 10px 18px;
+        }
+
+        .btn--ghost:hover {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        /* RIGHT: form */
+        .hero__form-wrap {
+            background: transparent;
+        }
+
+        .lead-form {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(10, 12, 18, 0.06);
+            border: 1px solid rgba(10, 12, 18, 0.03);
+        }
+
+        .lead-form .form-row {
+            margin-bottom: 12px;
+        }
+
+        .lead-form label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: var(--neutral-900);
+            font-weight: 600;
+        }
+
+        .lead-form input[type="text"],
+        .lead-form input[type="tel"],
+        .lead-form input[type="email"],
+        .lead-form select,
+        .lead-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(10, 12, 18, 0.06);
+            background: #fff;
+            color: var(--neutral-900);
+        }
+
+        .lead-form input:focus,
+        .lead-form select:focus,
+        .lead-form textarea:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.12);
+        }
+
+        .lead-form select {
+            appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, var(--steel) 50%), linear-gradient(135deg, var(--steel) 50%, transparent 50%);
+            background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+            background-size: 8px 8px, 8px 8px;
+            background-repeat: no-repeat;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .field-error {
+            color: #D9534F;
+            font-size: 13px;
+            min-height: 18px;
+            margin-top: 6px;
+        }
+
+        /* actions */
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+            align-items: center;
+        }
+
+        .btn--full {
+            flex: 1;
+            border-radius: 10px;
+            padding: 14px 20px;
+        }
+
+        .btn--outline {
+            background: transparent;
+            border: 1px solid rgba(10, 12, 18, 0.08);
+            padding: 12px 16px;
+            border-radius: 10px;
+        }
+
+        .btn--outline:hover {
+            background: #F3F4F6;
+        }
+
+        .form-message {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--neutral-900);
+            min-height: 22px;
+            text-align: center;
+        }
+
+        /* SVG arc (continuity) */
+        .hero__arc {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            height: 100px;
+            width: 100%;
+            --arc-color: var(--steel);
+            pointer-events: none;
+        }
+
+        .hero__arc path {
+            stroke: var(--steel);
+            opacity: 0.9;
+        }
+
+        /* Dot Grid Patterns */
+        .dot-matrix {
+            background-image: radial-gradient(rgba(11, 15, 20, 0.22) 1.5px, transparent 1.5px);
+            background-size: 14px 14px;
+        }
+
+        /* Section Headings */
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--brand);
+            font-size: 12.5px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-tag::after {
+            content: "";
+            display: inline-block;
+            width: 38px;
+            height: 2px;
+            background-color: var(--brand);
+        }
+
+        .section-title {
+            font-size: clamp(30px, 3.8vw, 48px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: var(--neutral-900);
+        }
+
+        .section-title-accent {
+            color: var(--brand);
+        }
+
+        /* Responsive: collapse to single column on small screens */
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .hero__form-wrap {
+                order: 2;
+            }
+
+            .hero__lead {
+                order: 1;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accessibility: reduce-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .btn,
+            .lead-form input,
+            .lead-form select,
+            .lead-form textarea {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="selection:bg-brand selection:text-white">
+
+    <!-- TOP PROMO STRIP -->
+    <div class="bg-neutral-900 text-white text-xs font-semibold py-2.5 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                <span>METRO FIBRE EXPANSION: <strong class="text-accent font-bold">ACTIVE COVERAGE IN OYO, OGUN, OSUN &amp; ONDO</strong></span>
+            </div>
+            <div class="flex items-center gap-6 text-slate-300">
+                <a href="tel:+234800000000" class="hover:text-white flex items-center gap-1.5 transition-colors">
+                    <span class="material-symbols-outlined text-sm text-brand">call</span>
+                    <span>Direct Hotline: <strong>0800 000 0000</strong></span>
+                </a>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="hidden md:inline text-slate-400">Zero Setup Fee This Week</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-50 bg-warm-bg/95 backdrop-blur-md border-b border-neutral-900/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-2">
+                <img src="./Assets/icons/logos/IWN no bg.png" alt="I-World Networks" class="h-10 w-auto object-contain">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-neutral-900">
+                <a href="#hero" class="hover:text-brand transition-colors">Get Free Quote</a>
+                <a href="#packages" class="hover:text-brand transition-colors">Pricing Plans</a>
+                <a href="#core-services" class="hover:text-brand transition-colors">Digital Solutions</a>
+                <a href="#our-difference" class="hover:text-brand transition-colors">Why I-World</a>
+                <a href="./contact.html" class="hover:text-brand transition-colors">Support</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="#hero" class="btn btn--primary !py-2.5 !px-5 text-sm !rounded-full">
+                    <span>Check Availability</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION (EXACT DROP-IN COMPONENT)     -->
+    <!-- ========================================== -->
+    <section id="hero" class="hero">
+        <div class="hero__inner container">
+            <!-- Left: Headline / supporting copy -->
+            <div class="hero__lead">
+                <span class="label">NOW AVAILABLE IN IBADAN, OGUN, OSOGBO, AKURE &amp; SAGAMU</span>
+
+                <h1 class="hero__title">
+                    High-Speed, Unlimited Internet<br />
+                    <span class="hero__accent">in Nigeria<span class="accent-dot">.</span></span>
+                </h1>
+
+                <p class="hero__sub">
+                    Get blazing-fast fibre for your home or business — unlimited data, 99.9% uptime,
+                    and local 24/7 support. Fill the form and a local sales rep will call you back.
+                </p>
+
+                <!-- 3 Quick Value Stats (matching Image 3) -->
+                <div class="grid grid-cols-3 gap-3 mb-6 pt-2">
+                    <div class="bg-white p-3 rounded-xl border border-neutral-900/5 shadow-sm">
+                        <div class="flex items-center gap-1.5 text-brand mb-1">
+                            <span class="material-symbols-outlined text-lg">speed</span>
+                            <strong class="text-neutral-900 text-xs sm:text-sm font-extrabold">55+ Mbps</strong>
+                        </div>
+                        <div class="text-slate-500 text-[11px] font-medium">Blazing-fast speeds</div>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-xl border border-neutral-900/5 shadow-sm">
+                        <div class="flex items-center gap-1.5 text-brand mb-1">
+                            <span class="material-symbols-outlined text-lg">all_inclusive</span>
+                            <strong class="text-neutral-900 text-xs sm:text-sm font-extrabold">Unlimited</strong>
+                        </div>
+                        <div class="text-slate-500 text-[11px] font-medium">No data caps</div>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-xl border border-neutral-900/5 shadow-sm">
+                        <div class="flex items-center gap-1.5 text-accent mb-1">
+                            <span class="material-symbols-outlined text-lg">verified_user</span>
+                            <strong class="text-neutral-900 text-xs sm:text-sm font-extrabold">99.9%</strong>
+                        </div>
+                        <div class="text-slate-500 text-[11px] font-medium">Always reliable</div>
+                    </div>
+                </div>
+
+                <div class="hero__quick">
+                    <button class="btn btn--primary" id="cta-availability" onclick="document.getElementById('fullname').focus();">Check Availability</button>
+                    <a class="btn btn--ghost" href="tel:+234800000000">Call Us Now</a>
+                </div>
+            </div>
+
+            <!-- Right: Detailed Lead Form with High-Intent Buyer Qualification -->
+            <aside class="hero__form-wrap" aria-label="Lead form">
+                <form id="leadForm" class="lead-form" novalidate>
+                    <div class="flex items-center justify-between pb-2 mb-3 border-b border-neutral-900/10">
+                        <h2 class="text-base font-extrabold text-neutral-900">Get a Free Quote &amp; Survey</h2>
+                        <span class="px-2.5 py-0.5 bg-accent/10 text-accent text-[11px] font-bold rounded-full">Fast Callback</span>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="fullname">Full name *</label>
+                        <input id="fullname" name="fullname" type="text" autocomplete="name" required
+                            placeholder="Jane Doe" />
+                        <div class="field-error" id="err-fullname" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-row two-col">
+                        <div>
+                            <label for="email">Email address *</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required
+                                placeholder="name@example.com" />
+                            <div class="field-error" id="err-email" aria-live="polite"></div>
+                        </div>
+
+                        <div>
+                            <label for="phone">Phone number *</label>
+                            <input id="phone" name="phone" inputmode="tel" type="tel" required
+                                placeholder="+234 800 000 0000" pattern="^\+?[0-9\s\-\(\)]{7,}$" />
+                            <div class="field-error" id="err-phone" aria-live="polite"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row two-col">
+                        <div>
+                            <label for="state">Select your state *</label>
+                            <select id="state" name="state" required>
+                                <option value="">Select your state</option>
+                                <option>Ibadan (Oyo)</option>
+                                <option>Ogun</option>
+                                <option>Osogbo (Osun)</option>
+                                <option>Akure (Ondo)</option>
+                                <option>Ijebu-Ode</option>
+                                <option>Sagamu</option>
+                                <option>Lagos</option>
+                                <option>Other</option>
+                            </select>
+                            <div class="field-error" id="err-state" aria-live="polite"></div>
+                        </div>
+
+                        <div>
+                            <label for="internetType">Internet type *</label>
+                            <select id="internetType" name="internetType" required>
+                                <option value="">Choose internet type</option>
+                                <option value="Home">Home (H-Lite / SmartHome)</option>
+                                <option value="Small Business">Small Business (U-Lite / SME)</option>
+                                <option value="Enterprise">Enterprise Dedicated Metro Fibre</option>
+                                <option value="ISP / Partner">ISP / Partner / Estate Wi-Fi</option>
+                            </select>
+                            <div class="field-error" id="err-internetType" aria-live="polite"></div>
+                        </div>
+                    </div>
+
+                    <!-- Filter / Prospect Qualification Fields -->
+                    <div class="form-row two-col">
+                        <div>
+                            <label for="decisionStage">Installation Timeline</label>
+                            <select id="decisionStage" name="decisionStage">
+                                <option value="Immediate (This Week)" selected>Ready now (This week)</option>
+                                <option value="Within 2 Weeks">Within 2 weeks</option>
+                                <option value="Next Month">Next month</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="preferred">Preferred callback time</label>
+                            <input id="preferred" name="preferred" type="text" placeholder="e.g. Weekdays 9–12" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="address">Your address *</label>
+                        <input id="address" name="address" type="text" placeholder="Street, Area, City" required />
+                        <div class="field-error" id="err-address" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn--primary btn--full">Get My Free Quote</button>
+                        <button type="button" class="btn btn--outline" id="saveLater">Save for later</button>
+                    </div>
+
+                    <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+                </form>
+            </aside>
+        </div>
+
+        <!-- continuity arc (delicate 2px graphite stroke) -->
+        <svg class="hero__arc" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,16 C360,48 1080,48 1440,16" fill="none" stroke="var(--arc-color)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SECTION 1B: GEOMETRIC BAUHAUS MONTAGE      -->
+    <!-- (Exact composite from Reference Image 3)   -->
+    <!-- ========================================== -->
+    <section class="py-14 md:py-20 bg-warm-bg border-b border-neutral-900/5 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="section-tag">NEXT-GENERATION FIBRE</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 leading-tight">
+                        Engineered for zero downtime.<br />
+                        <span class="text-brand">Designed for growth.</span>
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Our regional metro ring topology connects homes, headquarters, and remote branches directly to Tier-3 Nigerian data hubs, bypassing public network bottlenecks with dedicated throughput.
+                    </p>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="flex -space-x-2">
+                            <img src="./Assets/img/John.jpeg" alt="Client" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                            <img src="./Assets/img/side-view-smiley-woman-holding-phone.jpg" alt="Client" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                            <img src="./Assets/img/high-angle-woman-working-laptop.jpg" alt="Client" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                        </div>
+                        <div class="text-xs">
+                            <strong class="block text-neutral-900 font-bold">Trusted by 10,000+</strong>
+                            <span class="text-slate-500">Homes &amp; Fast-Growing Businesses in Nigeria</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Bauhaus Circular Montage (Pixel-accurate replication of image 3) -->
+                <div class="lg:col-span-7 flex justify-center relative">
+                    <!-- Dot Grid Matrix Top Right -->
+                    <div class="absolute -top-6 -right-6 w-36 h-28 dot-matrix pointer-events-none opacity-60"></div>
+
+                    <!-- Main Circular Montage Canvas -->
+                    <div class="relative w-[340px] sm:w-[460px] h-[340px] sm:h-[460px] rounded-full overflow-hidden bg-neutral-900 border-[6px] border-white shadow-2xl">
+                        <!-- Top-Left Green Semi-Arc / Quadrant -->
+                        <div class="absolute -top-10 -left-10 w-44 h-44 rounded-full bg-accent z-0"></div>
+
+                        <!-- Left Large Arched Architecture Photo -->
+                        <div class="absolute top-0 left-0 w-[58%] h-full overflow-hidden z-10">
+                            <img src="./Assets/img/smartlife.jpg" alt="Modern Building Infrastructure"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Top-Right Black Framed Office Professional -->
+                        <div class="absolute top-0 right-0 w-[42%] h-[50%] overflow-hidden bg-neutral-900 z-10 border-b-4 border-l-4 border-white">
+                            <img src="./Assets/img/WSBUSINESS1.jpg" alt="Professional on Laptop"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Bottom-Right Solid Orange Quadrant with Dark Curve & Matrix -->
+                        <div class="absolute bottom-0 right-0 w-[42%] h-[50%] bg-brand z-10 border-l-4 border-white relative overflow-hidden flex flex-col justify-end p-4">
+                            <!-- Inner dark curved arc -->
+                            <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full bg-neutral-900 opacity-95"></div>
+                            <!-- Small dot pattern in orange block -->
+                            <div class="absolute top-2 right-2 w-20 h-16 dot-matrix opacity-40"></div>
+                        </div>
+
+                        <!-- Floating Overlapping Center White Circle Badge -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-[40%] -translate-y-[45%] z-30 w-40 sm:w-48 h-40 sm:h-48 rounded-full bg-white shadow-xl border-4 border-white flex flex-col items-center justify-center p-4 text-center">
+                            <div class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center mb-1.5">
+                                <span class="material-symbols-outlined text-2xl">rocket_launch</span>
+                            </div>
+                            <span class="font-extrabold text-neutral-900 text-xs sm:text-sm tracking-tight leading-tight">Blazing fast.</span>
+                            <span class="font-extrabold text-neutral-900 text-xs sm:text-sm tracking-tight leading-tight">Always on.</span>
+                            <span class="font-extrabold text-accent text-xs sm:text-sm tracking-tight leading-tight">Always ahead.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: CORE SERVICES                   -->
+    <!-- (Exact replication of Reference Image 4)   -->
+    <!-- ========================================== -->
+    <section id="core-services" class="py-20 md:py-28 bg-warm-bg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Header Grid: Left Headline & Right Mast Visual -->
+            <div class="grid lg:grid-cols-12 gap-10 items-end mb-16">
+                <!-- Left Headline -->
+                <div class="lg:col-span-7">
+                    <span class="section-tag">CORE SERVICES</span>
+                    <h2 class="section-title">
+                        Solutions<br />
+                        Built for<br />
+                        <span class="section-title-accent">Real Impact<span class="accent-dot">.</span></span>
+                    </h2>
+                    <p class="mt-6 text-slate-600 max-w-xl text-base sm:text-lg leading-relaxed">
+                        From blazing-fast connectivity to fully managed IT and cloud collaboration, we deliver reliable solutions that power homes, businesses, and enterprises.
+                    </p>
+                </div>
+
+                <!-- Right Visual: Arch Telecom Mast Frame + Solid Orange Block + Dot Matrix -->
+                <div class="lg:col-span-5 flex justify-end items-end gap-3 relative">
+                    <!-- Dot Matrix Pattern -->
+                    <div class="absolute -top-12 left-6 w-28 h-20 dot-matrix opacity-70"></div>
+
+                    <!-- Arch Frame containing Telecom Tower -->
+                    <div class="w-48 sm:w-56 h-60 sm:h-72 rounded-t-full overflow-hidden bg-neutral-900 shadow-lg relative border-4 border-white">
+                        <img src="./Assets/img/Network Engineering.jpg" alt="Telecom Tower Mast"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Solid Orange Vertical Block -->
+                    <div class="w-24 sm:w-28 h-60 sm:h-72 bg-brand rounded-t-2xl shadow-lg border-4 border-white relative overflow-hidden">
+                        <div class="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-white/20"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Core Service Columns (01, 02, 03) -->
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Card 01: High-Speed Connectivity -->
+                <div class="bg-white rounded-2xl border border-neutral-900/10 shadow-sm overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-2xl">speed</span>
+                            </div>
+                            <span class="text-sm font-extrabold text-neutral-900 font-mono">01</span>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-neutral-900 mb-3 tracking-tight">High-Speed Connectivity</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Reliable, ultra-fast fibre internet designed for homes, businesses, and large enterprise networks.
+                        </p>
+                    </div>
+
+                    <div class="relative h-56 w-full overflow-hidden bg-slate-100">
+                        <img src="./Assets/img/routers/router 1.jpg" alt="High Speed Fiber Router"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <a href="#hero" class="absolute bottom-4 left-4 w-10 h-10 rounded-full bg-white text-neutral-900 shadow-lg flex items-center justify-center hover:bg-brand hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 02: Managed IT Services -->
+                <div class="bg-white rounded-2xl border border-neutral-900/10 shadow-sm overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-2xl">dns</span>
+                            </div>
+                            <span class="text-sm font-extrabold text-neutral-900 font-mono">02</span>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-neutral-900 mb-3 tracking-tight">Managed IT Services</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            End-to-end IT infrastructure management to keep your systems secure, efficient, and always running.
+                        </p>
+                    </div>
+
+                    <div class="relative h-56 w-full overflow-hidden bg-slate-100">
+                        <img src="./Assets/img/MITS.jpg" alt="Data Center Engineer"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <a href="#hero" class="absolute bottom-4 left-4 w-10 h-10 rounded-full bg-white text-accent shadow-lg flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 03: Cloud & Collaboration -->
+                <div class="bg-white rounded-2xl border border-neutral-900/10 shadow-sm overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="w-12 h-12 rounded-full bg-neutral-900 text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-2xl">cloud</span>
+                            </div>
+                            <span class="text-sm font-extrabold text-neutral-900 font-mono">03</span>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-neutral-900 mb-3 tracking-tight">Cloud &amp; Collaboration</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Google Workspace and cloud solutions that empower teams to collaborate and work from anywhere.
+                        </p>
+                    </div>
+
+                    <div class="relative h-56 w-full overflow-hidden bg-slate-100">
+                        <img src="./Assets/img/high-angle-woman-working-laptop.jpg" alt="Google Workspace Cloud Collaboration"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <a href="#hero" class="absolute bottom-4 left-4 w-10 h-10 rounded-full bg-white text-neutral-900 shadow-lg flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row: Concentric Arcs Graphic (Left) + Explore Link (Center) + Color Squares (Right) -->
+            <div class="mt-14 pt-8 flex flex-wrap items-center justify-between gap-6 border-t border-neutral-900/10">
+                <!-- Bottom Left Concentric Arcs -->
+                <div class="flex items-center gap-4">
+                    <div class="relative w-20 h-20 overflow-hidden">
+                        <svg class="w-20 h-20" viewBox="0 0 100 100" fill="none">
+                            <path d="M10,90 A80,80 0 0,1 90,10" stroke="#59AF17" stroke-width="4" stroke-linecap="round" fill="none" />
+                            <path d="M10,90 A55,55 0 0,1 65,35" stroke="#59AF17" stroke-width="3" opacity="0.6" fill="none" />
+                            <path d="M10,90 A30,30 0 0,1 40,60" stroke="#59AF17" stroke-width="2" opacity="0.3" fill="none" />
+                            <circle cx="90" cy="10" r="4" fill="#FF6600" />
+                        </svg>
+                    </div>
+                    <div class="w-5 h-5 bg-neutral-900"></div>
+                </div>
+
+                <!-- Center Link -->
+                <div>
+                    <a href="#packages" class="inline-flex items-center gap-2 font-extrabold text-neutral-900 text-base group">
+                        <span class="border-b-2 border-brand pb-0.5 group-hover:text-brand transition-colors">Explore all packages</span>
+                        <span class="material-symbols-outlined text-brand text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Right Color Squares (Orange, Green, Black) -->
+                <div class="flex items-center gap-2">
+                    <div class="w-3.5 h-3.5 bg-brand rounded-sm"></div>
+                    <div class="w-3.5 h-3.5 bg-accent rounded-sm"></div>
+                    <div class="w-3.5 h-3.5 bg-neutral-900 rounded-sm"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: OUR DIFFERENCE                  -->
+    <!-- (Exact replication of Reference Image 1)   -->
+    <!-- ========================================== -->
+    <section id="our-difference" class="py-20 md:py-28 bg-warm-bg relative overflow-hidden border-t border-neutral-900/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center mb-16">
+                <!-- Left Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="section-tag">OUR DIFFERENCE</span>
+                    <h2 class="section-title">
+                        More than<br />
+                        connectivity.<br />
+                        <span class="section-title-accent">We deliver<br />confidence<span class="accent-dot">.</span></span>
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg">
+                        We combine powerful infrastructure, local expertise, and people who care to deliver seamless experiences and measurable results.
+                    </p>
+
+                    <div>
+                        <a href="#leadForm" class="inline-flex items-center gap-2 font-extrabold text-neutral-900 text-base group">
+                            <span class="border-b-2 border-brand pb-0.5 group-hover:text-brand transition-colors">See how we work</span>
+                            <span class="material-symbols-outlined text-brand text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Giant Engineer Circular Mask + Orange Crescent Arc -->
+                <div class="lg:col-span-6 flex justify-center relative">
+                    <!-- Vector line & green connector dot -->
+                    <div class="absolute top-12 right-6 w-36 h-36 pointer-events-none hidden sm:block">
+                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+                            <circle cx="85" cy="15" r="7" fill="#59AF17" />
+                            <path d="M10,85 C40,40 70,25 85,15" stroke="#8A8F98" stroke-width="1.5" stroke-dasharray="3 3" />
+                        </svg>
+                    </div>
+
+                    <!-- Orange Crescent Shape Behind Mask -->
+                    <div class="absolute -right-4 top-1/4 w-32 sm:w-44 h-64 sm:h-80 rounded-r-full bg-brand -z-0"></div>
+
+                    <!-- Giant Circular Mask with I-World Field Engineer -->
+                    <div class="relative z-10 w-[300px] sm:w-[420px] h-[300px] sm:h-[420px] rounded-full overflow-hidden bg-neutral-900 border-8 border-white shadow-2xl">
+                        <img src="./Assets/img/Lagos-techie.png" alt="I-World Networks Engineer in Safety Gear"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Pillar Badges (Matching Image 1 bottom row) -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-neutral-900/10">
+                <!-- Pillar 1 -->
+                <div class="space-y-3">
+                    <div class="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center shadow-md">
+                        <span class="material-symbols-outlined text-2xl">cell_tower</span>
+                    </div>
+                    <h4 class="text-lg font-extrabold text-neutral-900 tracking-tight">Local Infrastructure</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Extensive fibre and wireless networks built across Nigeria.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="space-y-3">
+                    <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-md">
+                        <span class="material-symbols-outlined text-2xl">person_pin</span>
+                    </div>
+                    <h4 class="text-lg font-extrabold text-neutral-900 tracking-tight">Local Expertise</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        A Nigerian team that understands your needs and responds fast.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="space-y-3">
+                    <div class="w-12 h-12 rounded-full bg-neutral-900 text-white flex items-center justify-center shadow-md">
+                        <span class="material-symbols-outlined text-2xl">verified_user</span>
+                    </div>
+                    <h4 class="text-lg font-extrabold text-neutral-900 tracking-tight">Enterprise-Grade Reliability</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Redundant systems, proactive monitoring, and top-tier security.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="space-y-3">
+                    <div class="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center shadow-md">
+                        <span class="material-symbols-outlined text-2xl">handshake</span>
+                    </div>
+                    <h4 class="text-lg font-extrabold text-neutral-900 tracking-tight">People You Can Count On</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Real support from real people, whenever you need us.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Right Pie Chart Graphic & Dotted Grid -->
+            <div class="flex justify-end items-center gap-6 mt-12">
+                <div class="w-24 h-16 dot-matrix opacity-60"></div>
+                <div class="w-16 h-16 relative">
+                    <svg viewBox="0 0 100 100" class="w-16 h-16">
+                        <path d="M50,50 L50,0 A50,50 0 0,0 0,50 Z" fill="#59AF17" />
+                        <path d="M50,50 L50,100 A50,50 0 0,0 100,50 Z" fill="#0B0F14" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: WHY I-WORLD                     -->
+    <!-- (Exact replication of Reference Image 2)   -->
+    <!-- ========================================== -->
+    <section id="why-iworld" class="py-20 md:py-28 bg-warm-bg relative overflow-hidden border-t border-neutral-900/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Visual: Night Cityscape in Organic Frame + Orange Block + Green Leaf -->
+                <div class="lg:col-span-5 relative flex flex-col items-start">
+                    <!-- Top Dot Matrix -->
+                    <div class="absolute -top-8 left-10 w-28 h-20 dot-matrix opacity-60"></div>
+
+                    <!-- Organic Curved Frame containing Cityscape & Telecom Mast -->
+                    <div class="relative w-full max-w-[380px] h-[340px] sm:h-[400px] rounded-t-[120px] rounded-br-[120px] overflow-hidden bg-neutral-900 shadow-2xl border-4 border-white z-10">
+                        <img src="./Assets/img/beautiful-overhead-cityscape-shot-with-drone.jpg" alt="Illuminated Cityscape Telecom Mast at Night"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Solid Orange Geometric Block Overlap -->
+                    <div class="absolute top-8 -right-4 sm:-right-8 w-24 sm:w-32 h-44 sm:h-56 bg-brand rounded-tr-3xl shadow-lg border-4 border-white z-0"></div>
+
+                    <!-- Green Petal / Leaf Shape at Bottom -->
+                    <div class="w-40 sm:w-48 h-20 sm:h-24 bg-accent rounded-tl-full rounded-br-full -mt-6 ml-4 shadow-md z-20"></div>
+
+                    <!-- Bottom Left Dot Matrix -->
+                    <div class="w-20 h-16 dot-matrix opacity-50 mt-4"></div>
+                </div>
+
+                <!-- Right Content & 4 Stat Badges -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <span class="section-tag">WHY I-WORLD</span>
+                        <h2 class="section-title">
+                            Building connections.<br />
+                            Powering progress.<br />
+                            <span class="section-title-accent">Together<span class="accent-dot">.</span></span>
+                        </h2>
+                        <p class="mt-6 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+                            For over a decade, businesses and homes across Nigeria have trusted I-World Networks for speed, reliability, and outstanding support. We don't just connect you — we empower what's next.
+                        </p>
+                    </div>
+
+                    <!-- 4 Metric Counters (Exact match from Image 2) -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-4">
+                        <!-- Stat 1 -->
+                        <div class="space-y-2">
+                            <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-2xl">group</span>
+                            </div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">10,000+</div>
+                            <div class="text-xs sm:text-sm text-slate-500 font-semibold">Happy Customers</div>
+                        </div>
+
+                        <!-- Stat 2 -->
+                        <div class="space-y-2">
+                            <div class="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-2xl">sync_alt</span>
+                            </div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">99.9%</div>
+                            <div class="text-xs sm:text-sm text-slate-500 font-semibold">Network Reliability</div>
+                        </div>
+
+                        <!-- Stat 3 -->
+                        <div class="space-y-2">
+                            <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-2xl">location_on</span>
+                            </div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">6+ Cities</div>
+                            <div class="text-xs sm:text-sm text-slate-500 font-semibold">Nationwide Presence</div>
+                        </div>
+
+                        <!-- Stat 4 -->
+                        <div class="space-y-2">
+                            <div class="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-2xl">support_agent</span>
+                            </div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">24/7</div>
+                            <div class="text-xs sm:text-sm text-slate-500 font-semibold">Expert Support</div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-6 pt-4">
+                        <a href="./about.html" class="btn btn--ghost !rounded-full !py-3 !px-7 font-bold border-neutral-900/20 hover:border-neutral-900">
+                            <span>Learn our story</span>
+                            <span class="material-symbols-outlined text-brand text-base">arrow_forward</span>
+                        </a>
+                        <a href="#leadForm" class="inline-flex items-center gap-2 font-extrabold text-neutral-900 text-base group">
+                            <span class="group-hover:text-brand transition-colors">Partner with us</span>
+                            <span class="material-symbols-outlined text-brand text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Right Concentric Arcs Vector & Green Square -->
+            <div class="flex justify-end items-center gap-4 mt-8">
+                <div class="w-5 h-5 bg-accent"></div>
+                <div class="w-20 h-20 relative">
+                    <svg viewBox="0 0 100 100" class="w-20 h-20">
+                        <path d="M100,10 A90,90 0 0,0 10,100" stroke="#0B0F14" stroke-width="4" fill="none" />
+                        <path d="M100,35 A65,65 0 0,0 35,100" stroke="#0B0F14" stroke-width="2.5" opacity="0.5" fill="none" />
+                        <circle cx="10" cy="100" r="4" fill="#FF6600" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SECTION 5: TRANSPARENT PACKAGES & PRICING  -->
+    <!-- ========================================== -->
+    <section id="packages" class="py-20 md:py-28 bg-white border-t border-neutral-900/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="section-tag justify-center">PLANS &amp; PRICING</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                    Simple, Transparent Fibre Packages.
+                </h2>
+                <p class="mt-4 text-slate-600 text-base sm:text-lg">
+                    No data limits. No throttling. Free standard installation across covered regions.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Plan 1: H-Lite (Home Unlimited) -->
+                <div class="bg-warm-bg rounded-3xl p-8 border border-neutral-900/10 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-accent/15 text-accent text-xs font-bold rounded-full">Home &amp; Remote Work</span>
+                            <span class="material-symbols-outlined text-accent text-2xl">cottage</span>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-neutral-900 mb-2">H-Lite</h3>
+                        <p class="text-slate-500 text-xs mb-6">Perfect for streaming, gaming, and family devices</p>
+
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold text-neutral-900 font-display">₦27,500</span>
+                            <span class="text-slate-500 text-sm font-medium">/ month</span>
+                        </div>
+
+                        <ul class="space-y-3.5 mb-8 text-sm text-slate-700">
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                <strong>Up to 35 Mbps</strong> download speed
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                <strong>Unlimited Data</strong> — Zero monthly caps
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                Free Dual-Band Wi-Fi Router
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                24/7 Local Support Team
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#hero" class="btn btn--ghost !w-full !rounded-xl !py-3.5 font-bold border-neutral-900/20 hover:border-neutral-900 text-center">
+                        Select H-Lite
+                    </a>
+                </div>
+
+                <!-- Plan 2: U-Lite (SME Business - Featured) -->
+                <div class="bg-neutral-900 text-white rounded-3xl p-8 border-2 border-brand shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand text-white text-xs font-extrabold px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        Most Popular
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-brand/20 text-brand text-xs font-bold rounded-full">SME Business</span>
+                            <span class="material-symbols-outlined text-brand text-2xl">storefront</span>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white mb-2">U-Lite Business</h3>
+                        <p class="text-slate-400 text-xs mb-6">Designed for offices, retail stores, and commercial teams</p>
+
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold text-white font-display">₦32,500</span>
+                            <span class="text-slate-400 text-sm font-medium">/ month</span>
+                        </div>
+
+                        <ul class="space-y-3.5 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-brand text-lg">check_circle</span>
+                                <strong>Up to 50 Mbps</strong> burstable throughput
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-brand text-lg">check_circle</span>
+                                <strong>Unlimited Data</strong> — Guaranteed consistency
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-brand text-lg">check_circle</span>
+                                Priority 2-Hour Business Response SLA
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-brand text-lg">check_circle</span>
+                                Free Static IP Allocation
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#hero" class="btn btn--primary !w-full !rounded-xl !py-3.5 font-bold text-center">
+                        Select U-Lite Business
+                    </a>
+                </div>
+
+                <!-- Plan 3: Enterprise Dedicated Fibre -->
+                <div class="bg-warm-bg rounded-3xl p-8 border border-neutral-900/10 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-neutral-900/10 text-neutral-900 text-xs font-bold rounded-full">Custom Infrastructure</span>
+                            <span class="material-symbols-outlined text-neutral-900 text-2xl">domain</span>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-neutral-900 mb-2">Dedicated Enterprise</h3>
+                        <p class="text-slate-500 text-xs mb-6">For multi-branch banks, schools, hospitals &amp; factories</p>
+
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold text-neutral-900 font-display">Custom</span>
+                            <span class="text-slate-500 text-sm font-medium">SLA Quote</span>
+                        </div>
+
+                        <ul class="space-y-3.5 mb-8 text-sm text-slate-700">
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                <strong>1:1 Dedicated 100Mbps – 1Gbps+</strong>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                <strong>99.99% Uptime SLA</strong> with redundant routing
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                Dedicated Key Account Manager &amp; NOC
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+                                MPLS / SD-WAN &amp; Cloud Connect
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#hero" class="btn bg-neutral-900 hover:bg-neutral-800 text-white !w-full !rounded-xl !py-3.5 font-bold text-center">
+                        Request Enterprise Survey
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- FINAL CONVERSION BANNER                    -->
+    <!-- ========================================== -->
+    <section class="py-16 bg-neutral-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-6">
+            <span class="px-3.5 py-1.5 bg-brand/20 text-brand text-xs font-bold rounded-full uppercase tracking-wider">
+                Instant Coverage Feasibility
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+                Switch to Dependable, Fast Fibre Today.
+            </h2>
+            <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+                Fill the form above and our engineers will verify line-of-sight and fibre drop availability at your address.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                <a href="#hero" class="btn btn--primary !py-3.5 !px-8 text-base">
+                    <span>Check Availability</span>
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </a>
+                <a href="tel:+234800000000" class="btn bg-white/10 hover:bg-white/20 text-white !py-3.5 !px-8 text-base border border-white/20">
+                    <span class="material-symbols-outlined text-lg text-brand">call</span>
+                    <span>Speak with Support</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-neutral-900 border-t border-white/10 text-slate-400 text-xs py-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="./Assets/icons/logos/IWN no bg.png" alt="I-World Networks" class="h-8 w-auto filter brightness-200">
+                <span>&copy; 2026 I-World Networks Limited. All rights reserved.</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-6">
+                <a href="./privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="./terms-and-conditions.html" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="./coverage.html" class="hover:text-white transition-colors">Coverage Map</a>
+                <a href="./contact.html" class="hover:text-white transition-colors">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal front-end validation + submission (mock with qualification logic) -->
+    <script>
+        (function () {
+            const form = document.getElementById('leadForm');
+            const message = document.getElementById('formMessage');
+
+            function setError(id, text) {
+                const el = document.getElementById('err-' + id);
+                if (el) el.textContent = text || '';
+            }
+
+            function validate() {
+                let ok = true;
+                const fullname = form.fullname.value.trim();
+                const email = form.email.value.trim();
+                const phone = form.phone.value.trim();
+                const state = form.state.value;
+                const internetType = form.internetType.value;
+                const address = form.address ? form.address.value.trim() : '';
+
+                setError('fullname', '');
+                setError('email', '');
+                setError('phone', '');
+                setError('state', '');
+                setError('internetType', '');
+                if (document.getElementById('err-address')) setError('address', '');
+
+                if (!fullname) { setError('fullname', 'Please enter your full name.'); ok = false; }
+                if (!email || !/^\S+@\S+\.\S+$/.test(email)) { setError('email', 'Enter a valid email.'); ok = false; }
+                if (!phone || !/^\+?[0-9\s\-\(\)]{7,}$/.test(phone)) { setError('phone', 'Enter a valid phone number.'); ok = false; }
+                if (!state) { setError('state', 'Please select your state.'); ok = false; }
+                if (!internetType) { setError('internetType', 'Please select internet type.'); ok = false; }
+                if (form.address && !address) { setError('address', 'Please provide your address.'); ok = false; }
+
+                return ok;
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                message.textContent = '';
+                if (!validate()) return;
+
+                // show pending state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const origText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                // Prepare FormData for PHP endpoint & Apps Script webhook
+                const formData = new FormData();
+                formData.append('subject', 'Facebook Ads Lead');
+                formData.append('full_name', form.fullname.value.trim());
+                formData.append('email', form.email.value.trim());
+                formData.append('phone', form.phone.value.trim());
+                formData.append('state', form.state.value);
+                formData.append('internet_type', form.internetType.value);
+                formData.append('address', form.address ? form.address.value.trim() : '');
+                if (form.decisionStage) formData.append('decisionStage', form.decisionStage.value);
+                if (form.preferred) formData.append('preferred', form.preferred.value.trim());
+
+                try {
+                    const response = await fetch('./Assets/forms/form-validation.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json().catch(function() { return {}; });
+
+                    if (response.ok && result.status !== false) {
+                        message.style.color = '#59AF17';
+                        message.innerHTML = '<strong>Success!</strong> ' + (result.message || 'Your quote request was received. A local sales engineer will contact you shortly.');
+                        form.reset();
+                    } else {
+                        message.style.color = '#D9534F';
+                        message.textContent = result.message || 'Sorry — we could not submit your request. Please try again or call our hotline.';
+                    }
+                } catch (err) {
+                    message.style.color = '#D9534F';
+                    message.textContent = 'Network connection issue. Please check your internet and try again.';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = origText;
+                }
+            });
+
+            // quick accessibility: keyboard "save for later" action example
+            document.getElementById('saveLater').addEventListener('click', function () {
+                message.style.color = 'var(--neutral-900)';
+                message.textContent = 'Saved locally. Your details will be pre-filled when you return.';
+                try {
+                    localStorage.setItem('iwn_lead_saved', JSON.stringify({
+                        fullname: form.fullname.value.trim(),
+                        email: form.email.value.trim(),
+                        phone: form.phone.value.trim(),
+                        state: form.state.value,
+                        internetType: form.internetType.value
+                    }));
+                } catch (e) { }
+            });
+        })();
+    </script>
+</body>
+
+</html>

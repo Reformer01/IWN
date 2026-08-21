@@ -32,6 +32,22 @@ $data = [
 ];
 
 // Log function for better debugging
+function mapLeadState($state) {
+    $s = strtolower(trim((string)$state));
+    if ($s === '') {
+        return $state;
+    }
+    if (strpos($s, 'oyo') !== false || strpos($s, 'ibadan') !== false) return 'Oyo';
+    if (strpos($s, 'osun') !== false || strpos($s, 'osogbo') !== false || strpos($s, 'ilesa') !== false) return 'Osun';
+    if (strpos($s, 'ondo') !== false || strpos($s, 'akure') !== false) return 'Ondo';
+    if (strpos($s, 'lagos') !== false) return 'Lagos';
+    if (strpos($s, 'sagamu') !== false) return 'Sagamu';
+    if (strpos($s, 'ijebu') !== false) return 'Ijebu';
+    if (strpos($s, 'mowe') !== false || strpos($s, 'ibafo') !== false) return 'Mowe';
+    if (strpos($s, 'ogun') !== false || strpos($s, 'abeokuta') !== false) return 'Ogun';
+    return trim($state);
+}
+
 function logDebug($message, $data = null) {
     $log = '[' . date('Y-m-d H:i:s') . '] ' . $message . "\n";
     if ($data !== null) {
@@ -142,6 +158,16 @@ function recordSubmission($ip) {
 
 // Log the incoming request
 $clientIP = getClientIP();
+if (empty($_POST['full_name']) && !empty($_POST['fullname'])) {
+    $_POST['full_name'] = $_POST['fullname'];
+}
+if (empty($_POST['internet_type']) && !empty($_POST['internetType'])) {
+    $_POST['internet_type'] = $_POST['internetType'];
+}
+if (!empty($_POST['state'])) {
+    $_POST['state'] = mapLeadState($_POST['state']);
+}
+
 logDebug('=== NEW FORM SUBMISSION ===', [
     'method' => $_SERVER['REQUEST_METHOD'],
     'ip' => $clientIP,
@@ -220,11 +246,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get form subject to check if this is excluded from reCAPTCHA
     $formSubject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
-    $isGoogleAdsLead = ($formSubject === 'Google Ads Lead');
+    $adsLeadSubjects = ['Google Ads Lead', 'Facebook Ads Lead', 'LinkedIn Ads Lead'];
+    $isAdsLead = in_array($formSubject, $adsLeadSubjects, true);
     $isCareerApplication = ($formSubject === 'Career Application');
     
     // --- reCAPTCHA VERIFICATION (MANDATORY for non-excluded forms) ---
-    if (!$isGoogleAdsLead && !$isCareerApplication) {
+    if (!$isAdsLead && !$isCareerApplication) {
         $recaptchaToken = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
         
         // Require reCAPTCHA token - reject if missing
@@ -279,7 +306,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         logDebug('reCAPTCHA verification successful', ['ip' => $clientIP]);
     } else {
-        logDebug('Skipping reCAPTCHA for Google Ads Lead or Career Application form', ['ip' => $clientIP]);
+        logDebug('Skipping reCAPTCHA for ads lead or Career Application form', ['ip' => $clientIP, 'subject' => $formSubject]);
     }
     // --- END reCAPTCHA VERIFICATION ---
 
@@ -342,7 +369,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
-      // Define form configurations
+      // Define form configurations with full sales team routing
+      $adsStateRouting = [
+          'Ogun' => [
+              'to' => 'titilade.bakare@iworldnetworks.net',
+              'cc' => ['henry.adiene@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
+          ],
+          'Oyo' => [
+              'to' => 'jeffery.udoji@iworldnetworks.net',
+              'cc' => ['titilade.bakare@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
+          ],
+          'Lagos' => [
+              'to' => 'titilade.bakare@iworldnetworks.net',
+              'cc' => ['jeffery.udoji@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
+          ],
+          'Osun' => [
+              'to' => 'emmanuel.oladimeji@iworldnetworks.net',
+              'cc' => ['elizabeth.tola@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
+          ],
+          'Ondo' => [
+              'to' => 'ruth.suleimon@iworldnetworks.net',
+              'cc' => ['emmanuel.oladimeji@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
+          ],
+          'Sagamu' => [
+              'to' => 'janet.oke@iworldnetworks.net',
+              'cc' => ['reformer.ejembi@iworldnetworks.net']
+          ],
+          'Ijebu' => [
+              'to' => 'janet.oke@iworldnetworks.net',
+              'cc' => ['reformer.ejembi@iworldnetworks.net']
+          ],
+          'Mowe' => [
+              'to' => 'janet.oke@iworldnetworks.net',
+              'cc' => ['reformer.ejembi@iworldnetworks.net']
+          ]
+      ];
+
       $formConfigs = [
           'Career Application' => [
               'to' => 'hr.iworldnetworks@gmail.com',
@@ -360,24 +422,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            'Google Ads Lead' => [
               'to' => 'reformer.ejembi@iworldnetworks.net',
               'cc' => [],
-              'state_routing' => [
-                  'Ogun' => [
-                      'to' => 'titilade.bakare@iworldnetworks.net',
-                      'cc' => ['reformer.ejembi@iworldnetworks.net']
-                  ],
-                  'Oyo' => [
-                      'to' => 'titilade.bakare@iworldnetworks.net',
-                      'cc' => ['reformer.ejembi@iworldnetworks.net']
-                  ],
-                  'Osun' => [
-                      'to' => 'reformer.ejembi@iworldnetworks.net',
-                      'cc' => ['emmanuel.oladimeji@iworldnetworks.net']
-                  ],
-                  'Ondo' => [
-                      'to' => 'emmanuel.oladimeji@iworldnetworks.net',
-                      'cc' => ['reformer.ejembi@iworldnetworks.net']
-                  ]
-              ]
+              'state_routing' => $adsStateRouting
+          ],
+          'Facebook Ads Lead' => [
+              'to' => 'reformer.ejembi@iworldnetworks.net',
+              'cc' => [],
+              'state_routing' => $adsStateRouting
+          ],
+          'LinkedIn Ads Lead' => [
+              'to' => 'reformer.ejembi@iworldnetworks.net',
+              'cc' => [],
+              'state_routing' => $adsStateRouting
           ]
       ];
 
@@ -443,9 +498,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'cc' => $cc
     ]);
     
-    // --- GOOGLE SHEETS WEBHOOK (Google Ads Leads Only) ---
-    if ($subject === 'Google Ads Lead') {
-        // NOTE: The user must replace this URL with their active deployed Google Apps Script Web App URL
+    // --- LEAD ENGINE WEBHOOK (Google / Facebook / LinkedIn Ads) ---
+    $adsLeadSubjects = ['Google Ads Lead', 'Facebook Ads Lead', 'LinkedIn Ads Lead'];
+    if (in_array($subject, $adsLeadSubjects, true)) {
+        // Replace with the v2 Lead Engine Web App URL after deploying InboundWebhook.gs
         $webhookUrl = 'https://script.google.com/macros/s/AKfycbwkIwlN8C4DfsZROyusnc8QoUGulqsGUsr3Bjnxrj5k684EOe2oCVCeo15vfIorGndG/exec'; 
 
         if (!empty($webhookUrl) && strpos($webhookUrl, 'script.google.com') !== false) {
@@ -456,7 +512,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'phone' => isset($_POST['phone']) ? $_POST['phone'] : '',
                 'state' => isset($_POST['state']) ? $_POST['state'] : '',
                 'internet_type' => isset($_POST['internet_type']) ? $_POST['internet_type'] : '',
-                'address' => isset($_POST['address']) ? $_POST['address'] : ''
+                'address' => isset($_POST['address']) ? $_POST['address'] : '',
+                'source' => $subject,
+                'subject' => $subject,
+                'timeline' => isset($_POST['timeline']) ? $_POST['timeline'] : (isset($_POST['decisionStage']) ? $_POST['decisionStage'] : ''),
+                'scale' => isset($_POST['scale']) ? $_POST['scale'] : '',
+                'preferred' => isset($_POST['preferred']) ? $_POST['preferred'] : ''
             ];
 
             $ch = curl_init($webhookUrl);
@@ -473,8 +534,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $curlError = curl_error($ch);
             curl_close($ch);
             
-            logDebug('Google Sheets Webhook Triggered', [
+            logDebug('Lead Engine webhook triggered', [
                 'url' => $webhookUrl,
+                'subject' => $subject,
                 'response' => $webhookResponse,
                 'error' => $curlError
             ]);
