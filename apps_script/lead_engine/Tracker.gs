@@ -50,21 +50,26 @@ function updateDailyTrackerMetrics() {
 
   trackerSheet.getRange('A11:D11').merge().setValue('DIGITAL, TECHNICAL & DESIGN ACHIEVEMENTS TODAY')
     .setFontWeight('bold').setBackground('#c9daf8');
-  trackerSheet.getRange('A12').setValue('Lead Engine harvest + inbound routing (auto)');
-  trackerSheet.getRange('B12').setValue('See 06 Source Performance and 09 Distribution Log for today\'s activity.');
-  trackerSheet.getRange('C12').setValue('AUTO');
-  trackerSheet.getRange('D12').setValue('Reformer');
+  
+  const taskData = [
+    ['Engine Room Strategy Meeting (CSAT & Splynx)', 'Attended Engine room meeting to deliver updates on the CSAT app and align on methods to improve data accuracy on Splynx.', 'COMPLETED', 'Reformer'],
+    ['Customer Call & Interaction Logging', 'Added a dedicated feature enabling support staff to log calls, inquiries, and interactions with customers seamlessly.', 'COMPLETED', 'Reformer'],
+    ['Territory Sales Lead Distribution', 'Curated and distributed fresh targeted enterprise accounts to territory sales representatives across Southwest regions.', 'COMPLETED', 'Reformer'],
+    ['CSAT Mailing Suite & UI Designs', 'Engineered CSAT platform automated mailing capabilities and upgraded layout design templates.', 'COMPLETED', 'Reformer']
+  ];
 
-  trackerSheet.getRange('A14:D14').merge().setValue('NEXT STEPS & IMMEDIATE ACTION ITEMS')
+  trackerSheet.getRange('A12:D15').setValues(taskData);
+
+  trackerSheet.getRange('A17:D17').merge().setValue('NEXT STEPS & IMMEDIATE ACTION ITEMS')
     .setFontWeight('bold').setBackground('#fce5cd');
-  trackerSheet.getRange('A15:D15').setValues([['Action Item', 'Description / Objective', 'Target Completion', 'Owner / Assignee']])
+  trackerSheet.getRange('A18:D18').setValues([['Action Item', 'Description / Objective', 'Target Completion', 'Owner / Assignee']])
     .setFontWeight('bold').setBackground('#fff2cc');
-  trackerSheet.getRange('A16:D20').setValues([
-    ['Rep digest follow-up', 'Confirm each rep claimed today\'s raw leads in column P.', 'Today', 'Sales Reps'],
-    ['Inbound hot queue', 'Call web leads in 02 Inbound Web Leads within the hour.', 'Today', 'Assigned rep'],
-    ['Opportunity Radar', 'Review 07 Events & Opportunities for this week\'s expos/tenders.', 'This Week', 'Reformer'],
-    ['Source mix', 'Disable weak adapters in 00 Config if duplicate rate is high.', 'Friday', 'Reformer'],
-    ['Coverage check', 'Prioritize fiber cities listed in 00 Config coverage block.', 'Daily', 'Reformer & Sales']
+  trackerSheet.getRange('A19:D23').setValues([
+    ['Support Staff Call Log Adoption', 'Monitor customer support team adoption of the new call and interaction logging workflow.', 'Tomorrow', 'Reformer & Support Team'],
+    ['Splynx Data Accuracy Optimization', 'Implement discussed data hygiene parameters and sync optimizations on Splynx.', 'Next Week', 'Reformer & Engineering'],
+    ['CSAT Automated Trigger Validation', 'Perform live end-to-end testing on updated CSAT mail templates and automated triggers.', 'Monday', 'Reformer'],
+    ['Sales Pipeline Outreach Oversight', 'Review territory sales reps engagement and follow-up on newly distributed target accounts.', 'Daily', 'Reformer & Sales Reps'],
+    ['Regional Coverage Prioritization', 'Align new account prospecting with active metro fiber POPs across Ogun, Osun, Ondo, and Oyo.', 'Ongoing', 'Reformer']
   ]);
   trackerSheet.autoResizeColumns(1, 4);
   refreshSourceScoreboard();

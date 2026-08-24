@@ -7,6 +7,9 @@
 function onOpen() {
   const ui = SpreadsheetApp.getUi();
   ui.createMenu('IWN Lead Engine')
+    .addSeparator()
+    .addItem('⚠️  CLEAR all rubbish leads (fresh start)', 'clearAllLeadData')
+    .addSeparator()
     .addItem('0. Bootstrap workbook tabs', 'bootstrapLeadEngineWorkbook')
     .addItem('0. Reset & Reseed 00 Config (7 Reps & Feeds)', 'reseedConfigTab')
     .addItem('1. Harvest leads (all sources)', 'dailyLeadHarvest')
@@ -20,6 +23,77 @@ function onOpen() {
     .addItem('9. Install weekday triggers', 'installLeadEngineTriggers')
     .addItem('Add manual lead (sidebar)', 'showManualLeadSidebar')
     .addToUi();
+}
+
+/**
+ * Clear all rubbish leads and data from previous runs.
+ * Keeps all sheet tabs and headers intact — only deletes DATA rows.
+ * Also resets the lead ID counter and dedup registry.
+ */
+function clearAllLeadData() {
+  const ui = SpreadsheetApp.getUi();
+  const confirm = ui.alert(
+    '⚠️ Clear All Lead Data',
+    'This will DELETE all rows from:\n' +
+    '  • 01 Raw Inbound\n' +
+    '  • 02 Inbound Web Leads\n' +
+    '  • 03 Sales Pipeline\n' +
+    '  • 05 Lead Registry\n' +
+    '  • 06 Source Performance\n' +
+    '  • 08 Rep Assignments Today\n' +
+    '  • 09 Distribution Log\n\n' +
+    'Headers are kept. This cannot be undone.\n\nProceed?',
+    ui.ButtonSet.YES_NO
+  );
+  if (confirm !== ui.Button.YES) {
+    ui.alert('Cancelled — no data was deleted.');
+    return;
+  }
+
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheetsToWipe = [
+    IWN.SHEETS.RAW,          // 01 Raw Inbound
+    IWN.SHEETS.INBOUND,      // 02 Inbound Web Leads
+    IWN.SHEETS.PIPELINE,     // 03 Sales Pipeline
+    IWN.SHEETS.REGISTRY,     // 05 Lead Registry
+    IWN.SHEETS.SOURCE_PERF,  // 06 Source Performance
+    IWN.SHEETS.ASSIGNMENTS,  // 08 Rep Assignments Today
+    IWN.SHEETS.DIST_LOG      // 09 Distribution Log
+  ];
+
+  let cleared = 0;
+  sheetsToWipe.forEach(function (name) {
+    const sheet = ss.getSheetByName(name);
+    if (!sheet) return;
+    const last = sheet.getLastRow();
+    if (last > 1) {
+      sheet.deleteRows(2, last - 1);
+      cleared++;
+    }
+  });
+
+  // Reset the lead ID counter in 00 Config
+  const config = ss.getSheetByName(IWN.SHEETS.CONFIG);
+  if (config) {
+    const last = config.getLastRow();
+    for (let r = 2; r <= last; r++) {
+      const key = String(config.getRange(r, 1).getValue());
+      if (key === 'LAST_LEAD_ID') {
+        config.getRange(r, 2).setValue(1000);
+        break;
+      }
+    }
+  }
+
+  // Clear Apps Script cache (dedup registry)
+  try { CacheService.getScriptCache().removeAll(['IWN_REGISTRY']); } catch (e) {}
+
+  ui.alert(
+    '✅ Done! All rubbish leads cleared.',
+    cleared + ' sheet(s) wiped clean.\n\n' +
+    'Run IWN Lead Engine > 1. Harvest leads (all sources) to start fresh with real named company targets.',
+    ui.ButtonSet.OK
+  );
 }
 
 function installLeadEngineTriggers() {

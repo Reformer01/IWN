@@ -1,5 +1,15 @@
 /**
  * Orchestrate source adapters → raw sheet → pipeline.
+ *
+ * ACTIVE SOURCES:
+ *  ✅ GOOGLE_PLACES  — Curated named companies (always runs first)
+ *  ✅ OSM            — Real businesses from OpenStreetMap (hotels, factories, hospitals)
+ *
+ * DISABLED (noise / not real leads):
+ *  ❌ RSS_NEWS       — Disabled (news headlines, not companies)
+ *  ❌ GOOGLE_ALERTS  — Disabled (political/govt noise)
+ *  ❌ JOBS           — Disabled (job postings, not companies)
+ *  ❌ EVENTS         — Disabled (event announcements, not companies)
  */
 
 function dailyLeadHarvest() {
@@ -9,46 +19,43 @@ function dailyLeadHarvest() {
     return;
   }
 
-  const sources = iwnGetEnabledSources_();
-  const seasonal = iwnSeasonalTheme_(Number(Utilities.formatDate(new Date(), iwnSetting_('TIMEZONE', 'Africa/Lagos'), 'M')));
   const quotaTotal = Number(iwnSetting_('DAILY_QUOTA_PER_REP', 8)) * Math.max(iwnGetReps_().length, 1);
-  const perSource = Math.max(6, Math.ceil(quotaTotal / 3));
+  var harvested = [];
 
-  const order = ['RSS_NEWS', 'GOOGLE_ALERTS', 'JOBS', 'EVENTS', 'OSM'];
-  order.sort(function (a, b) {
-    const wa = (sources[a] && sources[a].weight || 1) * (seasonal.boost && seasonal.boost[a] || 1);
-    const wb = (sources[b] && sources[b].weight || 1) * (seasonal.boost && seasonal.boost[b] || 1);
-    return wb - wa;
-  });
+  // ── Source 1: CURATED TARGET ACCOUNTS (real named companies) ────────────────
+  try {
+    var targets = targetAccountsFetchLeads_(quotaTotal);
+    harvested = harvested.concat(targets || []);
+    Logger.log('TargetAccounts returned ' + (targets ? targets.length : 0) + ' leads');
+  } catch (err) {
+    Logger.log('TargetAccounts failed: ' + err);
+  }
 
-  let harvested = [];
-  order.forEach(function (id) {
-    if (!sources[id] || !sources[id].enabled) return;
-    if (harvested.length >= quotaTotal + 8) return;
-    let batch = [];
+  // ── Source 2: OSM (real businesses from map data) ──────────────────────────
+  if (harvested.length < quotaTotal) {
     try {
-      if (id === 'OSM') batch = osmFetchLeads_(perSource);
-      else if (id === 'RSS_NEWS') batch = rssNewsFetchLeads_(perSource);
-      else if (id === 'GOOGLE_ALERTS') batch = googleAlertsFetchLeads_(perSource);
-      else if (id === 'JOBS') batch = jobSignalsFetchLeads_(perSource);
-      else if (id === 'EVENTS') batch = eventsFetchLeadsAndOpportunities_(perSource);
+      var osmLeads = osmFetchLeads_(Math.max(6, quotaTotal - harvested.length));
+      harvested = harvested.concat(osmLeads || []);
+      Logger.log('OSM returned ' + (osmLeads ? osmLeads.length : 0) + ' leads');
     } catch (err) {
-      Logger.log(id + ' failed: ' + err);
+      Logger.log('OSM failed: ' + err);
     }
-    harvested = harvested.concat(batch || []);
-  });
+  }
 
+  // ── Filter out any placeholder/dummy data ──────────────────────────────────
   harvested = harvested.filter(function (lead) {
     return lead && lead.company && !/800 IWN LEAD/i.test(lead.phone || '');
   });
 
+  // ── Sort by coverage area (fiber-covered cities first) ─────────────────────
   if (iwnCoverageBoost_ && harvested.length) {
     harvested.sort(function (a, b) {
       return (iwnCoverageBoost_(b.location) ? 1 : 0) - (iwnCoverageBoost_(a.location) ? 1 : 0);
     });
   }
 
-  const rawRows = harvested.map(function (lead) {
+  // ── Write to raw sheet ─────────────────────────────────────────────────────
+  var rawRows = harvested.map(function (lead) {
     return [
       lead.discoveredAt || new Date(),
       lead.company,
@@ -65,7 +72,7 @@ function dailyLeadHarvest() {
   });
 
   if (rawRows.length) iwnAppend_(iwnSheet_(IWN.SHEETS.RAW), rawRows);
-  const written = processRawInboundLeads();
+  var written = processRawInboundLeads();
   Logger.log('Harvest collected ' + harvested.length + ', pipeline wrote ' + written);
   return written;
 }

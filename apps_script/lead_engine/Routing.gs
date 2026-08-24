@@ -19,6 +19,11 @@ function iwnTerritoryFromLocation_(location) {
   return { territory: 'Ogun', region: 'Ogun Region' };
 }
 
+/** Convenience wrapper — returns just the region string. */
+function iwnExtractRegion_(location) {
+  return iwnTerritoryFromLocation_(location).region;
+}
+
 function iwnMapStateKey_(state) {
   const s = String(state || '').toLowerCase();
   if (s.indexOf('oyo') !== -1 || s.indexOf('ibadan') !== -1) return 'Oyo';

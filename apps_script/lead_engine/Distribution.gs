@@ -1,5 +1,9 @@
 /**
  * Personalized weekday digests to sales reps + Jude/Reformer summary.
+ *
+ * ROUTING RULES:
+ *  - INBOUND / OSM / GOOGLE_ALERTS  → sales reps (real qualified business targets)
+ *  - RSS_NEWS / EVENTS (intelOnly)  → Reformer only (market intelligence)
  */
 
 function sendRepDailyDigests() {
@@ -18,28 +22,98 @@ function sendRepDailyDigests() {
   const pipeline = iwnLoadPipelineById_();
   const rows = sheet.getRange(2, 1, last - 1, IWN.HEADERS.ASSIGNMENTS.length).getValues();
   const byRep = {};
+  const intelItems = [];  // RSS_NEWS / EVENTS — Reformer only
+
   rows.forEach(function (row) {
     const d = row[0] instanceof Date ? Utilities.formatDate(row[0], tz, 'yyyy-MM-dd') : String(row[0]);
     if (d !== today) return;
-    const name = row[1];
-    byRep[name] = byRep[name] || [];
-    byRep[name].push({
-      leadId: row[2],
-      company: row[3],
+    const name    = row[1];
+    const source  = String(row[7] || '');          // col H = source
+    const isIntel = /RSS_NEWS|EVENTS/i.test(source);
+
+    const entry = {
+      leadId:    row[2],
+      company:   row[3],
       territory: row[4],
-      intent: row[5],
+      intent:    row[5],
       sourceUrl: row[6],
-      pipe: pipeline[row[2]]
-    });
+      source:    source,
+      pipe:      pipeline[row[2]]
+    };
+
+    if (isIntel) {
+      intelItems.push(entry);
+    } else {
+      byRep[name] = byRep[name] || [];
+      byRep[name].push(entry);
+    }
   });
 
+  // ── Rep digests (real business targets only) ─────────────────────────────
   const reps = iwnGetReps_();
   reps.forEach(function (rep) {
     const leads = byRep[rep.name] || [];
     if (!leads.length || !rep.email) return;
     if (iwnAlreadySentToday_('DIGEST', rep.email)) return;
 
-    const cards = leads.map(function (item) {
+    const firstName = String(rep.name || '').trim().split(' ')[0];
+    const workbookUrl = iwnSs_().getUrl();
+
+    // ── Build HTML Cards with Embedded Links ──────────────────────────────
+    const htmlCards = leads.map(function (item) {
+      const p = item.pipe || {};
+      const waUrl = rep.whatsapp
+        ? ('https://wa.me/' + String(rep.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent('Hi, following up from I-World Networks regarding ' + item.company))
+        : '';
+      const mapsUrl = p.maps || item.sourceUrl || '';
+      const linkedinUrl = p.linkedin || '';
+      const sourceUrl = item.sourceUrl || p.sourceUrl || '';
+      const pitch = iwnSuggestedPitch_(p.sector, item.intent);
+
+      const links = [
+        mapsUrl ? '<a href="' + mapsUrl + '" style="color:#1a73e8;text-decoration:none;font-weight:bold;">📍 View on Google Maps</a>' : '',
+        linkedinUrl ? '<a href="' + linkedinUrl + '" style="color:#0077b5;text-decoration:none;font-weight:bold;">💼 LinkedIn Company Search</a>' : '',
+        waUrl ? '<a href="' + waUrl + '" style="color:#25d366;text-decoration:none;font-weight:bold;">💬 Open WhatsApp Chat</a>' : '',
+        (sourceUrl && sourceUrl !== mapsUrl) ? '<a href="' + sourceUrl + '" style="color:#5f6368;text-decoration:none;">🔗 Source Reference</a>' : ''
+      ].filter(Boolean).join(' &nbsp;|&nbsp; ');
+
+      return '<div style="background:#ffffff;border:1px solid #dadce0;border-left:4px solid #1a73e8;border-radius:6px;padding:14px 18px;margin-bottom:16px;">' +
+        '<div style="font-size:16px;font-weight:bold;color:#202124;margin-bottom:4px;">' +
+          item.leadId + ' &bull; ' + item.company +
+          (item.territory ? ' <span style="font-size:13px;color:#5f6368;font-weight:normal;">(' + item.territory + ')</span>' : '') +
+        '</div>' +
+        '<div style="font-size:13px;color:#3c4043;line-height:1.6;margin-bottom:8px;">' +
+          '<strong>Sector:</strong> ' + (p.sector || 'Corporate / Industrial') + ' &nbsp;|&nbsp; ' +
+          '<strong>Intent:</strong> <span style="background:#e8f0fe;color:#174ea6;padding:2px 6px;border-radius:4px;font-size:12px;">' + (item.intent || 'Target Account') + '</span><br>' +
+          '<strong>Contact / Decision Maker:</strong> ' + (p.details || 'Contact TBD') + '<br>' +
+          '<strong>Suggested Pitch:</strong> <em>' + pitch + '</em>' +
+        '</div>' +
+        '<div style="font-size:13px;padding-top:6px;border-top:1px solid #f1f3f4;">' +
+          links +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    const htmlBody = '<div style="font-family:Arial,sans-serif;color:#202124;max-width:680px;line-height:1.5;">' +
+      '<p style="font-size:15px;margin-bottom:12px;">Good day ' + firstName + ',</p>' +
+      '<p style="font-size:14px;color:#3c4043;margin-bottom:18px;">' +
+        'Here are your fresh business targets for today in your assigned territory. These are verified corporate accounts ideal for an initial ISP audit outreach:' +
+      '</p>' +
+      htmlCards +
+      '<div style="background:#f8f9fa;border:1px solid #e8eaed;border-radius:6px;padding:12px 16px;margin-top:20px;font-size:13px;color:#3c4043;">' +
+        '📝 <strong>Next Action:</strong> Update outreach status (<code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Claimed</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Contacted</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Meeting</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Closed</code>) in Column P of ' +
+        '<a href="' + workbookUrl + '" style="color:#1a73e8;font-weight:bold;text-decoration:none;">03 Sales Pipeline</a>.' +
+      '</div>' +
+      '<p style="font-size:13px;color:#5f6368;margin-top:22px;line-height:1.4;">' +
+        'Best regards,<br><br>' +
+        '<strong>Reformer Ejembi</strong><br>' +
+        'Digital &amp; Web Team Lead<br>' +
+        'I-World Networks Limited' +
+      '</p>' +
+    '</div>';
+
+    // ── Plain-Text Fallback ───────────────────────────────────────────────
+    const plainCards = leads.map(function (item) {
       const p = item.pipe || {};
       const wa = rep.whatsapp
         ? ('https://wa.me/' + String(rep.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent('Hi, following up from I-World Networks regarding ' + item.company))
@@ -48,26 +122,61 @@ function sendRepDailyDigests() {
         item.leadId + ' | ' + item.company + ' | ' + (item.territory || ''),
         'Sector: ' + (p.sector || '') + ' | Intent: ' + (item.intent || ''),
         'Contact: ' + (p.details || 'TBD'),
-        'Source: ' + (item.sourceUrl || p.sourceUrl || ''),
-        'Maps: ' + (p.maps || ''),
+        'Maps: ' + (p.maps || item.sourceUrl || ''),
         'LinkedIn: ' + (p.linkedin || ''),
         'Suggested pitch: ' + iwnSuggestedPitch_(p.sector, item.intent),
         wa ? ('WhatsApp: ' + wa) : ''
       ].filter(Boolean).join('\n');
     }).join('\n\n');
 
-    const subject = 'IWN daily leads — ' + leads.length + ' accounts — ' +
-      Utilities.formatDate(new Date(), tz, 'MMM dd, yyyy');
-    const body = 'Good morning ' + rep.name + ',\n\n' +
-      'Here are your fresh raw leads for today. These are not prequalified — quality raw accounts for outreach.\n\n' +
-      cards + '\n\n' +
-      'Mark Claimed / Contacted / Meeting / Closed / Dead in column P of 03 Sales Pipeline.\n' +
-      'Workbook: ' + iwnSs_().getUrl() + '\n\n' +
+    const plainBody = 'Good day ' + firstName + ',\n\n' +
+      'Here are your fresh business targets for today in your assigned territory:\n\n' +
+      plainCards + '\n\n' +
+      'Mark Claimed / Contacted / Meeting / Closed in column P of 03 Sales Pipeline.\n' +
+      'Workbook: ' + workbookUrl + '\n\n' +
       'Reformer Ejembi\nDigital & Web Team Lead\nI-World Networks Limited';
 
-    GmailApp.sendEmail(rep.email, subject, body);
+    const subject = 'IWN daily leads — ' + leads.length + ' accounts — ' +
+      Utilities.formatDate(new Date(), tz, 'MMM dd, yyyy');
+
+    GmailApp.sendEmail(rep.email, subject, plainBody, {
+      htmlBody: htmlBody
+    });
     iwnLogDist_('DIGEST', rep.email, leads.length, '', today);
   });
+
+  // ── Intel digest to Reformer only ────────────────────────────────────────
+  if (intelItems.length) {
+    sendIntelDigestToReformer_(intelItems, today, tz);
+  }
+}
+
+/**
+ * Market intelligence digest — news/event signals sent ONLY to Reformer.
+ * NOT distributed to sales reps.
+ */
+function sendIntelDigestToReformer_(items, today, tz) {
+  const reformerEmail = String(iwnSetting_('REFORMER_EMAIL', 'reformer.ejembi@iworldnetworks.net'));
+  if (iwnAlreadySentToday_('INTEL_DIGEST', reformerEmail)) return;
+
+  const lines = items.map(function (item) {
+    return '• [' + (item.source || 'NEWS') + '] ' + item.company +
+      (item.territory ? ' — ' + item.territory : '') +
+      '\n  Intent: ' + (item.intent || 'Expansion Signal') +
+      '\n  URL: ' + (item.sourceUrl || '');
+  }).join('\n\n');
+
+  const subject = 'IWN Market Intel — ' + items.length + ' news signals — ' +
+    Utilities.formatDate(new Date(), tz, 'MMM dd, yyyy');
+  const body = 'Hi Reformer,\n\n' +
+    'These ' + items.length + ' signals came from news RSS feeds and event scanners today.\n' +
+    'They are NOT sent to sales reps — review for strategic targeting or manual lead creation.\n\n' +
+    lines + '\n\n' +
+    'To convert any to a real lead: use IWN Lead Engine > Add manual lead (sidebar).\n\n' +
+    'IWN Lead Engine\nAuto-generated';
+
+  GmailApp.sendEmail(reformerEmail, subject, body);
+  iwnLogDist_('INTEL_DIGEST', reformerEmail, items.length, '', today);
 }
 
 function sendDailyReportEmail() {
@@ -97,7 +206,7 @@ function sendDailyReportEmail() {
 
   const subject = 'Daily Revenue & Activity Report — ' + dateLabel;
   const body = 'Dear Mr. Jude,\n\n' +
-    'Please find the daily Lead Engine + revenue tracker summary for ' + dateLabel + '.\n\n' +
+    'Please find my daily report for ' + dateLabel + ', summarizing platform features, CSAT enhancements, strategic engineering meetings, and sales lead distribution:\n\n' +
     'REVENUE PERFORMANCE & PIPELINE TRACKING\n' +
     '--------------------------------------------------\n' +
     '- Daily Revenue Target: ' + dailyTarget + '\n' +
@@ -106,12 +215,26 @@ function sendDailyReportEmail() {
     '- MTD Revenue Closed: ' + monthlyActual + '\n' +
     '- Qualified Pipeline Leads: ' + pipelineCount + '\n' +
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
-    'TODAY\'S LEAD ENGINE (BY SOURCE)\n' +
-    breakdown + '\n\n' +
+    'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
+    '--------------------------------------------------\n' +
+    '1. Engine Room Strategy Meeting (CSAT & Splynx): Attended the Engine room meeting to deliver updates regarding the CSAT application and exchanged actionable ideas on how to improve data accuracy on Splynx.\n' +
+    '2. Customer Call & Interaction Logging: Added a dedicated feature enabling support staff to log calls and customer interactions seamlessly within the platform.\n' +
+    '3. Regional Sales Lead Distribution: Curated and distributed fresh targeted enterprise accounts with verified physical addresses and direct Google Maps pins to territory sales staff across Ogun, Osun, Ondo, and Oyo.\n' +
+    '4. CSAT Mailing Suite & UI Designs: Engineered enhanced automated mailing capabilities and finalized upgraded email design templates for the CSAT suite.\n\n' +
+    'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
+    '--------------------------------------------------\n' +
+    '1. Support Staff Call Log Adoption: Monitor customer support team adoption of the new call and interaction logging workflow.\n' +
+    '2. Splynx Data Accuracy Optimization: Implement discussed data hygiene parameters and sync optimizations on Splynx.\n' +
+    '3. CSAT Automated Trigger Validation: Perform live end-to-end testing on updated CSAT mail templates and automated triggers.\n' +
+    '4. Sales Pipeline Outreach Oversight: Review territory sales reps engagement and follow-up on newly distributed target accounts.\n' +
+    '5. Regional Coverage Prioritization: Align new account prospecting with active metro fiber POPs across Ogun, Osun, Ondo, and Oyo.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
-    'Best regards,\n\nReformer Ejembi\nDigital & Web Team Lead\nI-World Networks Limited';
+    'Best regards,\n\n' +
+    'Reformer Ejembi\n' +
+    'Digital & Web Team Lead\n' +
+    'I-World Networks Limited';
 
   GmailApp.sendEmail(recipient, subject, body, { cc: cc });
   try { SpreadsheetApp.getUi().alert('Daily report emailed to ' + recipient); } catch (e) {}

@@ -67,6 +67,8 @@ function assignAndWritePipeline(leads) {
 
   enriched.forEach(function (lead) {
     const inbound = /inbound/i.test(lead.intentTag || lead.source || '');
+    // RSS_NEWS and EVENTS are market intelligence — NOT for sales reps
+    const isIntel = /^(RSS_NEWS|EVENTS)$/i.test(String(lead.source || '')) || lead.intelOnly === true;
     const check = iwnRegistryCheck_(registry, lead);
     if (!check.accept && !inbound) {
       blocked++;
@@ -75,16 +77,47 @@ function assignAndWritePipeline(leads) {
       return;
     }
 
-    const assignment = iwnAssignRep_(lead, counts);
-    if (!inbound && (counts[assignment.rep.name] > quota)) {
-      // still write — assignRep already increments; overflow goes to Jeffrey
-    }
-
     const intent = check.reemerged ? ((lead.intentTag || 'New Business') + ' | Re-emerged') : (lead.intentTag || 'New Business');
     const email = lead.email && String(lead.email).indexOf('800 IWN') === -1 ? lead.email : (lead.email || '');
     const phone = lead.phone && String(lead.phone).indexOf('800 IWN') === -1 ? lead.phone : (lead.phone || '');
     const details = [phone, email].filter(Boolean).join(' | ') || 'Contact TBD';
     const leadId = iwnNextLeadId_();
+
+    if (isIntel) {
+      // Write to pipeline as INTEL_ONLY — no rep, no assignment row
+      pipeRows.push([
+        leadId,
+        lead.company,
+        lead.contact || '',
+        details,
+        'INTEL — Reformer Only',   // rep column
+        iwnExtractRegion_(lead.location),
+        lead.sector,
+        0,                          // no MRR counted for intel
+        'Intel Signal — Not for Reps',
+        new Date(),
+        intent,
+        lead.sourceUrl || '',
+        lead.mapsLink || iwnMapsLink_(lead.company, lead.location),
+        lead.linkedinSearch || iwnLinkedInSearch_(lead.company),
+        check.key,
+        '',
+        '',
+        '',
+        lead.source || ''
+      ]);
+      // Write assignment row with source col so intel digest can pick it up
+      assignRows.push([
+        new Date(), 'Reformer', leadId, lead.company,
+        iwnExtractRegion_(lead.location), intent, lead.sourceUrl || '', lead.source || ''
+      ]);
+      iwnRegistryRecord_(registry, lead, check.key, leadId, true);
+      distBySource[lead.source || 'Unknown'] = (distBySource[lead.source || 'Unknown'] || 0) + 1;
+      return;
+    }
+
+    // Normal lead — assign to territory rep
+    const assignment = iwnAssignRep_(lead, counts);
 
     pipeRows.push([
       leadId,
@@ -108,7 +141,8 @@ function assignAndWritePipeline(leads) {
       lead.source || ''
     ]);
     assignRows.push([
-      new Date(), assignment.rep.name, leadId, lead.company, assignment.region, intent, lead.sourceUrl || ''
+      new Date(), assignment.rep.name, leadId, lead.company,
+      assignment.region, intent, lead.sourceUrl || '', lead.source || ''
     ]);
     iwnRegistryRecord_(registry, lead, check.key, leadId, true);
     distBySource[lead.source || 'Unknown'] = (distBySource[lead.source || 'Unknown'] || 0) + 1;

@@ -119,25 +119,43 @@ function iwnLinkedInSearch_(company) {
 function iwnSuggestedPitch_(sector, intent) {
   const s = String(sector || '').toLowerCase();
   const i = String(intent || '').toLowerCase();
-  if (/hotel|hospitality|estate|campus/.test(s) || /event/.test(i)) {
-    return 'Campus / Estate / Hotel Wi-Fi + dedicated fibre';
+  if (/hotel|hospitality|resort|motel|inn|chill spot/.test(s)) {
+    return 'Hotel / Guest Wi-Fi portal + dedicated low-latency metro fibre';
   }
-  if (/school|edu|university/.test(s)) {
-    return 'NGFEP / Google Workspace + campus connectivity';
+  if (/school|edu|university|college|polytechnic|academy/.test(s)) {
+    return 'Campus e-Learning fibre + Google Workspace / NGFEP bundle';
   }
-  if (/hospital|health/.test(s)) {
-    return 'Enterprise dedicated fibre + managed IT / MSP';
+  if (/hospital|health|clinic|pharmacy|diagnostic/.test(s)) {
+    return 'Telemedicine dedicated link + uninterrupted POS & inventory sync';
   }
-  if (/factory|manufactur|industrial|plant/.test(s)) {
-    return 'Enterprise dedicated metro fibre for plant operations';
+  if (/supermarket|mart|mall|retail|shop|gadget/.test(s)) {
+    return 'Multi-till POS continuity, CCTV backup & cloud inventory fibre';
+  }
+  if (/restaurant|eatery|cafe|fast food/.test(s)) {
+    return 'Customer guest Wi-Fi hotspot + seamless POS & online delivery link';
+  }
+  if (/event|church|auditorium|worship|banquet/.test(s)) {
+    return 'High-density audience Wi-Fi + dedicated live-streaming uplink';
+  }
+  if (/bank|microfinance|finance|fintech/.test(s)) {
+    return 'Secure encrypted inter-branch data link + 99.9% uptime SLA';
+  }
+  if (/law|legal|consulting|firm|corporate|plaza/.test(s)) {
+    return 'Dedicated office metro fibre + cloud legal document sync & VoIP';
+  }
+  if (/gov|parastatal|ministry|agency|revenue/.test(s)) {
+    return 'Government e-Tax portal dedicated link + secure intranet connectivity';
+  }
+  if (/factory|manufactur|industrial|plant|processing/.test(s)) {
+    return 'Enterprise dedicated metro fibre for SCADA & plant operations';
+  }
+  if (/tech hub|cyber cafe|coworking/.test(s)) {
+    return 'High-capacity symmetric fibre for multi-user downloads & coding';
   }
   if (/inbound/.test(i)) {
-    return 'Quote + site survey — inbound request';
+    return 'Quote + free site survey — priority inbound inquiry';
   }
-  if (/hiring|it/.test(i)) {
-    return 'U-Lite / enterprise fibre + MSP (IT team expanding)';
-  }
-  return 'U-Lite SME or dedicated fibre — coverage check';
+  return 'U-Lite SME or dedicated metro fibre — coverage check';
 }
 
 function iwnLogDist_(type, recipient, count, messageId, notes) {
