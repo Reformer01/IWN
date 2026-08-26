@@ -52,24 +52,25 @@ function updateDailyTrackerMetrics() {
     .setFontWeight('bold').setBackground('#c9daf8');
   
   const taskData = [
-    ['Engine Room Strategy Meeting (CSAT & Splynx)', 'Attended Engine room meeting to deliver updates on the CSAT app and align on methods to improve data accuracy on Splynx.', 'COMPLETED', 'Reformer'],
-    ['Customer Call & Interaction Logging', 'Added a dedicated feature enabling support staff to log calls, inquiries, and interactions with customers seamlessly.', 'COMPLETED', 'Reformer'],
-    ['Territory Sales Lead Distribution', 'Curated and distributed fresh targeted enterprise accounts to territory sales representatives across Southwest regions.', 'COMPLETED', 'Reformer'],
-    ['CSAT Mailing Suite & UI Designs', 'Engineered CSAT platform automated mailing capabilities and upgraded layout design templates.', 'COMPLETED', 'Reformer']
+    ['CSAT Platform Enhancement & BTS Reconciliation', 'Integrated and refined Customer Support and Support Revenue modules, expanded automated mailing features, and resolved BTS data discrepancies.', 'COMPLETED', 'Reformer'],
+    ['CKA Examination App Strategy Meeting', 'Met with Johnson, Esther, and Adetola to architect CKA’s examination application, aligning on Google SSO and enterprise Google Workspace APIs.', 'COMPLETED', 'Reformer, Johnson, Esther, Adetola'],
+    ['Territory Sales Lead Distribution', 'Curated and distributed fresh targeted enterprise accounts with verified physical addresses to regional sales reps across Southwest coverage zones.', 'COMPLETED', 'Reformer'],
+    ['IT Systems & Endpoint Resolution', 'Diagnosed and resolved a device policy issue on Morenikeji’s Chromebook preventing authentication to secondary Google Workspace accounts.', 'COMPLETED', 'Reformer'],
+    ['Social Media Monitoring & Weekly Post Audit', 'Audited all official corporate social media channels, engaged user inquiries/comments, and reviewed reach/engagement metrics for last week’s campaigns.', 'COMPLETED', 'Reformer']
   ];
 
-  trackerSheet.getRange('A12:D15').setValues(taskData);
+  trackerSheet.getRange('A12:D16').setValues(taskData);
 
-  trackerSheet.getRange('A17:D17').merge().setValue('NEXT STEPS & IMMEDIATE ACTION ITEMS')
+  trackerSheet.getRange('A18:D18').merge().setValue('NEXT STEPS & IMMEDIATE ACTION ITEMS')
     .setFontWeight('bold').setBackground('#fce5cd');
-  trackerSheet.getRange('A18:D18').setValues([['Action Item', 'Description / Objective', 'Target Completion', 'Owner / Assignee']])
+  trackerSheet.getRange('A19:D19').setValues([['Action Item', 'Description / Objective', 'Target Completion', 'Owner / Assignee']])
     .setFontWeight('bold').setBackground('#fff2cc');
-  trackerSheet.getRange('A19:D23').setValues([
-    ['Support Staff Call Log Adoption', 'Monitor customer support team adoption of the new call and interaction logging workflow.', 'Tomorrow', 'Reformer & Support Team'],
-    ['Splynx Data Accuracy Optimization', 'Implement discussed data hygiene parameters and sync optimizations on Splynx.', 'Next Week', 'Reformer & Engineering'],
-    ['CSAT Automated Trigger Validation', 'Perform live end-to-end testing on updated CSAT mail templates and automated triggers.', 'Monday', 'Reformer'],
-    ['Sales Pipeline Outreach Oversight', 'Review territory sales reps engagement and follow-up on newly distributed target accounts.', 'Daily', 'Reformer & Sales Reps'],
-    ['Regional Coverage Prioritization', 'Align new account prospecting with active metro fiber POPs across Ogun, Osun, Ondo, and Oyo.', 'Ongoing', 'Reformer']
+  trackerSheet.getRange('A20:D24').setValues([
+    ['CKA School Stakeholder Discovery Session', 'Conduct formal discovery meeting with CKA school representatives to present proposed examination app architecture and Google SSO integration.', 'This Week', 'Reformer & Education Team'],
+    ['CSAT Support Revenue Module QA', 'Run end-to-end load testing on the newly refined Customer Support & Revenue modules within CSAT.', 'Tomorrow', 'Reformer'],
+    ['Sales Pipeline Territory Follow-up', 'Monitor sales representatives’ outreach cadence and claim updates on newly distributed target accounts in 03 Sales Pipeline.', 'Daily', 'Reformer & Sales Reps'],
+    ['Social Media Content Schedule (Week of Aug 24)', 'Prepare and schedule new digital marketing creatives and value-led connectivity flyers based on last week’s engagement review.', 'Wednesday', 'Reformer'],
+    ['Regional Metro Fiber Proactive Routing', 'Maintain alignment with network engineering on newly activated fiber routes in Ogun, Oyo, Osun, and Ondo.', 'Ongoing', 'Reformer']
   ]);
   trackerSheet.autoResizeColumns(1, 4);
   refreshSourceScoreboard();

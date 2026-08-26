@@ -206,7 +206,7 @@ function sendDailyReportEmail() {
 
   const subject = 'Daily Revenue & Activity Report — ' + dateLabel;
   const body = 'Dear Mr. Jude,\n\n' +
-    'Please find my daily report for ' + dateLabel + ', summarizing platform features, CSAT enhancements, strategic engineering meetings, and sales lead distribution:\n\n' +
+    'Please find my daily report for ' + dateLabel + ', summarizing CSAT platform enhancements, education application architecture, sales lead distribution, IT infrastructure support, and social media performance review:\n\n' +
     'REVENUE PERFORMANCE & PIPELINE TRACKING\n' +
     '--------------------------------------------------\n' +
     '- Daily Revenue Target: ' + dailyTarget + '\n' +
@@ -217,17 +217,18 @@ function sendDailyReportEmail() {
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
     'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
     '--------------------------------------------------\n' +
-    '1. Engine Room Strategy Meeting (CSAT & Splynx): Attended the Engine room meeting to deliver updates regarding the CSAT application and exchanged actionable ideas on how to improve data accuracy on Splynx.\n' +
-    '2. Customer Call & Interaction Logging: Added a dedicated feature enabling support staff to log calls and customer interactions seamlessly within the platform.\n' +
-    '3. Regional Sales Lead Distribution: Curated and distributed fresh targeted enterprise accounts with verified physical addresses and direct Google Maps pins to territory sales staff across Ogun, Osun, Ondo, and Oyo.\n' +
-    '4. CSAT Mailing Suite & UI Designs: Engineered enhanced automated mailing capabilities and finalized upgraded email design templates for the CSAT suite.\n\n' +
+    '1. CSAT Platform Enhancements & BTS Reconciliation: Refined and integrated core modules under Customer Support and Support Revenue, expanded automated mailing features, and resolved Base Transceiver Station (BTS) data discrepancies to ensure platform-wide accuracy.\n' +
+    '2. CKA Examination App Architecture & Strategy Meeting: Met with Johnson, Esther, and Adetola to evaluate and align on the optimal technical architecture for CKA’s examination needs, selecting core Google technologies (Single Sign-On / SSO and relevant Google Workspace APIs) for seamless identity and assessment management. A joint discovery meeting with the school representative is scheduled next.\n' +
+    '3. Regional Sales Lead Distribution: Curated and distributed fresh targeted enterprise accounts with verified physical addresses and direct Google Maps pins to territory sales representatives across Southwest coverage zones.\n' +
+    '4. IT Systems & Endpoint Resolution: Diagnosed and resolved an authentication/device policy issue on Morenikeji’s Chromebook that was preventing secondary Google Workspace account sign-ins, restoring full multi-account functionality.\n' +
+    '5. Digital Marketing & Social Media Audit: Audited all official corporate social media channels, engaged user inquiries and incoming direct messages, and evaluated reach/engagement performance for last week’s published campaigns and vacancy notices.\n\n' +
     'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
     '--------------------------------------------------\n' +
-    '1. Support Staff Call Log Adoption: Monitor customer support team adoption of the new call and interaction logging workflow.\n' +
-    '2. Splynx Data Accuracy Optimization: Implement discussed data hygiene parameters and sync optimizations on Splynx.\n' +
-    '3. CSAT Automated Trigger Validation: Perform live end-to-end testing on updated CSAT mail templates and automated triggers.\n' +
-    '4. Sales Pipeline Outreach Oversight: Review territory sales reps engagement and follow-up on newly distributed target accounts.\n' +
-    '5. Regional Coverage Prioritization: Align new account prospecting with active metro fiber POPs across Ogun, Osun, Ondo, and Oyo.\n\n' +
+    '1. CKA School Stakeholder Discovery Session: Conduct formal discovery meeting with CKA school representatives to present proposed examination app architecture and Google SSO integration.\n' +
+    '2. CSAT Support Revenue Module QA: Run end-to-end load testing on the newly refined Customer Support & Revenue modules within CSAT.\n' +
+    '3. Sales Pipeline Territory Follow-up: Monitor sales representatives’ outreach cadence and claim updates on newly distributed target accounts in 03 Sales Pipeline.\n' +
+    '4. Social Media Content Schedule (Week of Aug 24): Prepare and schedule new digital marketing creatives and value-led connectivity flyers based on last week’s engagement review.\n' +
+    '5. Regional Metro Fiber Proactive Routing: Maintain alignment with network engineering on newly activated fiber routes in Ogun, Oyo, Osun, and Ondo.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
