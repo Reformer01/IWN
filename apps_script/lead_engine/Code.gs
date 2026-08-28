@@ -152,12 +152,33 @@ function assignAndWritePipelineMorning() {
 
 function testGooglePlacesHarvest() {
   const ui = SpreadsheetApp.getUi();
-  ui.alert('Testing Google Places Live Harvest...\nPlease wait a few seconds.');
+  const apiKey = iwnGetPlacesApiKey_();
+  if (!apiKey) {
+    const res = ui.prompt(
+      '🔑 Places API Key Required',
+      'The Google Places API Key is not yet stored in this spreadsheet.\n\nPlease paste your Places API Key below:',
+      ui.ButtonSet.OK_CANCEL
+    );
+    if (res.getSelectedButton() === ui.Button.OK && res.getResponseText().trim()) {
+      iwnSaveApiKeys_(res.getResponseText().trim());
+      ui.alert('✅ Key saved! Now testing harvest...');
+    } else {
+      ui.alert('Harvest test cancelled. You can enter the key anytime via "⚙️ Configure API Keys".');
+      return;
+    }
+  }
+
+  const query = googlePlacesPickQueryForToday_();
   const leads = googlePlacesFetchLeads_(10);
+
   if (!leads || !leads.length) {
     ui.alert(
-      'Google Places Harvest Test',
-      'No leads returned. Check if the Places API key is enabled in Google Cloud Console with billing and Text Search enabled.',
+      'Google Places Harvest Test Result',
+      'Query tested: "' + (query || 'N/A') + '"\n\n' +
+      '0 leads returned. Possible reasons:\n' +
+      '1. The Places API (New) may need a minute to finish enabling in Google Cloud.\n' +
+      '2. All businesses found in this query may already be in "05 Lead Registry".\n' +
+      '3. Check Apps Script Executions log for any HTTP error status codes.',
       ui.ButtonSet.OK
     );
     return;
@@ -169,6 +190,7 @@ function testGooglePlacesHarvest() {
 
   ui.alert(
     '✅ Google Places Live Harvest Success!',
+    'Query: "' + query + '"\n' +
     'Fetched ' + leads.length + ' fresh operational business leads!\n\nSample leads:\n\n' + sample,
     ui.ButtonSet.OK
   );
