@@ -156,10 +156,11 @@ function seedConfigContent_(sheet) {
   ]);
 
   sheet.getRange('A12:B12').setValues([['Setting', 'Value']]).setFontWeight('bold').setBackground('#c9daf8');
-  sheet.getRange('A13:B24').setValues([
+  sheet.getRange('A13:B25').setValues([
     ['DAILY_QUOTA_PER_REP', 8],
     ['DEDUP_WINDOW_DAYS', 90],
     ['STALE_DAYS', 14],
+    ['PLACES_API_KEY', ''],
     ['CSE_API_KEY', ''],
     ['CSE_CX', ''],
     ['JUDE_EMAIL', 'jude.alawode@iworldnetworks.net'],
@@ -171,13 +172,14 @@ function seedConfigContent_(sheet) {
     ['MAX_ENRICH_LOOKUPS_PER_RUN', 20]
   ]);
 
-  sheet.getRange('A26:C26').setValues([['SourceId', 'Enabled', 'Weight']]).setFontWeight('bold').setBackground('#fff2cc');
-  sheet.getRange('A27:C31').setValues([
+  sheet.getRange('A27:C27').setValues([['SourceId', 'Enabled', 'Weight']]).setFontWeight('bold').setBackground('#fff2cc');
+  sheet.getRange('A28:C33').setValues([
+    ['GOOGLE_PLACES', true, 1],
     ['OSM', true, 1],
-    ['RSS_NEWS', true, 1],
-    ['GOOGLE_ALERTS', true, 1],
-    ['JOBS', true, 1],
-    ['EVENTS', true, 1]
+    ['RSS_NEWS', false, 1],
+    ['GOOGLE_ALERTS', false, 1],
+    ['JOBS', false, 1],
+    ['EVENTS', false, 1]
   ]);
 
   sheet.getRange('A33:C33').setValues([['Kind', 'Url', 'Enabled']]).setFontWeight('bold').setBackground('#fce5cd');

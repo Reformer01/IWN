@@ -157,3 +157,59 @@ function iwnCoverageBoost_(location) {
   }
   return false;
 }
+
+function iwnGetPlacesApiKey_() {
+  const props = PropertiesService.getScriptProperties();
+  const fromProps = props.getProperty('PLACES_API_KEY');
+  if (fromProps && fromProps.trim()) return fromProps.trim();
+  const fromSetting = iwnSetting_('PLACES_API_KEY', '');
+  if (fromSetting && String(fromSetting).trim()) return String(fromSetting).trim();
+  return '';
+}
+
+function iwnGetGeminiApiKey_() {
+  const props = PropertiesService.getScriptProperties();
+  const fromProps = props.getProperty('GEMINI_API_KEY');
+  if (fromProps && fromProps.trim()) return fromProps.trim();
+  const fromSetting = iwnSetting_('GEMINI_API_KEY', '');
+  if (fromSetting && String(fromSetting).trim()) return String(fromSetting).trim();
+  return '';
+}
+
+function iwnGetApolloApiKey_() {
+  const props = PropertiesService.getScriptProperties();
+  const fromProps = props.getProperty('APOLLO_API_KEY');
+  if (fromProps && fromProps.trim()) return fromProps.trim();
+  const fromSetting = iwnSetting_('APOLLO_API_KEY', '');
+  if (fromSetting && String(fromSetting).trim()) return String(fromSetting).trim();
+  return '';
+}
+
+function iwnSaveApiKeys_(placesKey, geminiKey, apolloKey) {
+  const props = PropertiesService.getScriptProperties();
+  if (placesKey !== undefined) props.setProperty('PLACES_API_KEY', placesKey.trim());
+  if (geminiKey !== undefined) props.setProperty('GEMINI_API_KEY', geminiKey.trim());
+  if (apolloKey !== undefined) props.setProperty('APOLLO_API_KEY', apolloKey.trim());
+  // Clear cached settings
+  try { CacheService.getScriptCache().remove('IWN_SETTINGS'); } catch (e) {}
+}
+
+function iwnGetPlacesCustomQueries_() {
+  const sheet = iwnSheet_(IWN.SHEETS.CONFIG);
+  const values = sheet.getDataRange().getValues();
+  const queries = [];
+  let inQueries = false;
+  for (let i = 0; i < values.length; i++) {
+    const a = String(values[i][0] || '').trim();
+    if (a === 'Custom Places Search Queries' || a === 'PlacesQuery') {
+      inQueries = true;
+      continue;
+    }
+    if (inQueries) {
+      if (!a || a.indexOf('NOTE:') === 0 || a === 'Setting') break;
+      queries.push(a);
+    }
+  }
+  return queries;
+}
+

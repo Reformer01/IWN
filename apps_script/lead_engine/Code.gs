@@ -12,6 +12,8 @@ function onOpen() {
     .addSeparator()
     .addItem('0. Bootstrap workbook tabs', 'bootstrapLeadEngineWorkbook')
     .addItem('0. Reset & Reseed 00 Config (7 Reps & Feeds)', 'reseedConfigTab')
+    .addItem('⚙️ Configure API Keys (Places / Gemini / Apollo)', 'setupApiKeysModal')
+    .addItem('🔍 Test Google Places Live Harvest', 'testGooglePlacesHarvest')
     .addItem('1. Harvest leads (all sources)', 'dailyLeadHarvest')
     .addItem('2. Process unprocessed raw leads', 'processRawInboundLeads')
     .addItem('3. Update daily revenue tracker', 'updateDailyTrackerMetrics')
@@ -147,3 +149,46 @@ function submitManualLead(payload) {
 function assignAndWritePipelineMorning() {
   processRawInboundLeads();
 }
+
+function testGooglePlacesHarvest() {
+  const ui = SpreadsheetApp.getUi();
+  ui.alert('Testing Google Places Live Harvest...\nPlease wait a few seconds.');
+  const leads = googlePlacesFetchLeads_(10);
+  if (!leads || !leads.length) {
+    ui.alert(
+      'Google Places Harvest Test',
+      'No leads returned. Check if the Places API key is enabled in Google Cloud Console with billing and Text Search enabled.',
+      ui.ButtonSet.OK
+    );
+    return;
+  }
+
+  const sample = leads.slice(0, 3).map(function(l, i) {
+    return (i + 1) + '. ' + l.company + '\n   📍 ' + l.location + '\n   📞 ' + (l.phone || 'N/A') + '\n   🌐 ' + (l.sourceUrl || 'N/A');
+  }).join('\n\n');
+
+  ui.alert(
+    '✅ Google Places Live Harvest Success!',
+    'Fetched ' + leads.length + ' fresh operational business leads!\n\nSample leads:\n\n' + sample,
+    ui.ButtonSet.OK
+  );
+}
+
+function setupApiKeysModal() {
+  const ui = SpreadsheetApp.getUi();
+  const currentKey = iwnGetPlacesApiKey_();
+  const res = ui.prompt(
+    '⚙️ Configure Google Places API Key',
+    'Enter your Google Places API Key below (stored securely in ScriptProperties):\n\nCurrent Key: ' + (currentKey ? currentKey.substring(0, 10) + '...' : 'Not set'),
+    ui.ButtonSet.OK_CANCEL
+  );
+
+  if (res.getSelectedButton() === ui.Button.OK) {
+    const key = res.getResponseText().trim();
+    if (key) {
+      iwnSaveApiKeys_(key);
+      ui.alert('✅ Google Places API Key saved successfully to ScriptProperties!');
+    }
+  }
+}
+

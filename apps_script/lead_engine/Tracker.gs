@@ -52,13 +52,15 @@ function updateDailyTrackerMetrics() {
     .setFontWeight('bold').setBackground('#c9daf8');
   
   const taskData = [
-    ['CSAT Platform Enhancement & BTS Reconciliation', 'Integrated and refined Customer Support and Support Revenue modules, expanded automated mailing features, and resolved BTS data discrepancies.', 'COMPLETED', 'Reformer'],
-    ['CKA Examination App Strategy Meeting', 'Met with Johnson, Esther, and Adetola to architect CKA’s examination application, aligning on Google SSO and enterprise Google Workspace APIs.', 'COMPLETED', 'Reformer, Johnson, Esther, Adetola'],
-    ['Territory Sales Lead Distribution', 'Curated and distributed fresh targeted enterprise accounts with verified physical addresses to regional sales reps across Southwest coverage zones.', 'COMPLETED', 'Reformer'],
-    ['IT Systems & Endpoint Resolution', 'Diagnosed and resolved a device policy issue on Morenikeji’s Chromebook preventing authentication to secondary Google Workspace accounts.', 'COMPLETED', 'Reformer'],
-    ['Social Media Monitoring & Weekly Post Audit', 'Audited all official corporate social media channels, engaged user inquiries/comments, and reviewed reach/engagement metrics for last week’s campaigns.', 'COMPLETED', 'Reformer']
+    ['CUAB License Increase Escalation Follow-Up', 'Followed up on Crescent University Abeokuta (CUAB) Google Workspace license increase request to expedite activation and administrative approval.', 'COMPLETED', 'Reformer & Team'],
+    ['Sales Team BTS MRR Platform Training', 'Conducted an interactive operational training session with sales staff on utilizing the CSAT platform to track and extract their BTS MRR performance data.', 'COMPLETED', 'Reformer & Sales Team'],
+    ['CSAT Platform Feature Enhancements & Core Optimization', 'Developed and deployed core enhancements, stability updates, and usability improvements across the CSAT platform.', 'COMPLETED', 'Reformer'],
+    ['Customer Complaint Frequency & Classification Architecture', 'Explored and scoped architectural frameworks within CSAT to categorize complaint types and analyze customer issue frequency trends.', 'IN PROGRESS', 'Reformer & Support Team'],
+    ['New Customer Welcome Guide & Billing Documentation', 'Collaborated with the Billing & Accounts Department to structure and standardize the official welcome guide and onboarding documentation for new subscribers.', 'COMPLETED', 'Reformer & Billing']
   ];
 
+  // Clear rows 12-30 to ensure clean overwrite
+  trackerSheet.getRange('A12:D30').clearContent().clearFormat();
   trackerSheet.getRange('A12:D16').setValues(taskData);
 
   trackerSheet.getRange('A18:D18').merge().setValue('NEXT STEPS & IMMEDIATE ACTION ITEMS')
@@ -66,11 +68,11 @@ function updateDailyTrackerMetrics() {
   trackerSheet.getRange('A19:D19').setValues([['Action Item', 'Description / Objective', 'Target Completion', 'Owner / Assignee']])
     .setFontWeight('bold').setBackground('#fff2cc');
   trackerSheet.getRange('A20:D24').setValues([
-    ['CKA School Stakeholder Discovery Session', 'Conduct formal discovery meeting with CKA school representatives to present proposed examination app architecture and Google SSO integration.', 'This Week', 'Reformer & Education Team'],
-    ['CSAT Support Revenue Module QA', 'Run end-to-end load testing on the newly refined Customer Support & Revenue modules within CSAT.', 'Tomorrow', 'Reformer'],
-    ['Sales Pipeline Territory Follow-up', 'Monitor sales representatives’ outreach cadence and claim updates on newly distributed target accounts in 03 Sales Pipeline.', 'Daily', 'Reformer & Sales Reps'],
-    ['Social Media Content Schedule (Week of Aug 24)', 'Prepare and schedule new digital marketing creatives and value-led connectivity flyers based on last week’s engagement review.', 'Wednesday', 'Reformer'],
-    ['Regional Metro Fiber Proactive Routing', 'Maintain alignment with network engineering on newly activated fiber routes in Ogun, Oyo, Osun, and Ondo.', 'Ongoing', 'Reformer']
+    ['CSAT Complaint Analytics Module Implementation', 'Finalize data models and UI widgets to track complaint recurrence frequency and issue categorization in CSAT.', 'Tomorrow', 'Reformer & Support'],
+    ['CUAB License Quota Activation Verification', 'Confirm final license increase provisioning on Google Admin Console for CUAB.', 'Friday', 'Reformer & Johnson'],
+    ['New Customer Welcome Guide Rollout', 'Finalize digital distribution workflow and automated billing dispatch for the welcome guide.', 'Friday', 'Reformer & Billing'],
+    ['Sales BTS MRR Data Utilization Monitoring', 'Monitor sales team daily adoption of the BTS MRR dashboard across all territories.', 'Ongoing', 'Reformer & Sales Reps'],
+    ['Sales Pipeline Territory Outreach Cadence', 'Review rep activity cadence on newly assigned target enterprise accounts in 03 Sales Pipeline.', 'Daily', 'Reformer & Sales Reps']
   ]);
   trackerSheet.autoResizeColumns(1, 4);
   refreshSourceScoreboard();

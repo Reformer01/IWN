@@ -70,7 +70,7 @@ function assignAndWritePipeline(leads) {
     // RSS_NEWS and EVENTS are market intelligence — NOT for sales reps
     const isIntel = /^(RSS_NEWS|EVENTS)$/i.test(String(lead.source || '')) || lead.intelOnly === true;
     const check = iwnRegistryCheck_(registry, lead);
-    if (!check.accept && !inbound) {
+    if (!check.accept && !inbound && !lead.forceAccept) {
       blocked++;
       blockedBySource[lead.source || 'Unknown'] = (blockedBySource[lead.source || 'Unknown'] || 0) + 1;
       iwnRegistryMarkBlocked_(registry, check.key);

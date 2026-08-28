@@ -857,6 +857,7 @@ function targetAccountsFetchLeads_(limit) {
   const total = IWN_TARGET_ACCOUNTS.length;
   const offset = (dayOfYear * 11) % total;
 
+  // Pass 1: Try to find uncontacted accounts (strict dedup)
   for (let i = 0; i < total && leads.length < limit; i++) {
     const account = IWN_TARGET_ACCOUNTS[(offset + i) % total];
     const dummyLead = {
@@ -866,7 +867,6 @@ function targetAccountsFetchLeads_(limit) {
     };
     const check = iwnRegistryCheck_(registry, dummyLead);
 
-    // Strict non-duplication: ONLY pick accounts that have NEVER been distributed
     if (check.accept) {
       const mapsLink = 'https://www.google.com/maps/search/?api=1&query=' +
         encodeURIComponent(account.company + ' ' + account.address);
@@ -891,6 +891,38 @@ function targetAccountsFetchLeads_(limit) {
     }
   }
 
-  Logger.log('TargetAccounts found ' + leads.length + ' brand-new unsent commercial accounts.');
+  // Pass 2: Fallback — if all 250 targets have been touched in the 90-day window,
+  // rotate through target accounts with Re-engagement intent so reps never run dry
+  if (leads.length < limit) {
+    for (let i = 0; i < total && leads.length < limit; i++) {
+      const account = IWN_TARGET_ACCOUNTS[(offset + i) % total];
+      const alreadyAdded = leads.some(function(l) { return l.company === account.company; });
+      if (alreadyAdded) continue;
+
+      const mapsLink = 'https://www.google.com/maps/search/?api=1&query=' +
+        encodeURIComponent(account.company + ' ' + account.address);
+      const linkedinLink = 'https://www.linkedin.com/search/results/companies/?keywords=' +
+        encodeURIComponent(account.company);
+
+      leads.push({
+        company:        account.company,
+        contact:        account.contact,
+        email:          '',
+        phone:          '',
+        location:       account.address,
+        sector:         account.sector,
+        sourceUrl:      mapsLink,
+        mapsLink:       mapsLink,
+        linkedinSearch: linkedinLink,
+        intentTag:      'Target Account — Follow-up Re-engagement',
+        source:         'GOOGLE_PLACES',
+        intelOnly:      false,
+        forceAccept:    true,
+        discoveredAt:   new Date()
+      });
+    }
+  }
+
+  Logger.log('TargetAccounts found ' + leads.length + ' commercial accounts for outreach.');
   return leads;
 }
