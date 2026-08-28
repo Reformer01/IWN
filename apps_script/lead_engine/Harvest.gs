@@ -54,9 +54,16 @@ function dailyLeadHarvest(isScheduled) {
     }
   }
 
-  // ── Filter out any placeholder/dummy data ──────────────────────────────────
+  // ── Filter out any placeholder/dummy data and enforce strict registry dedup ──
+  const registry = iwnLoadRegistry_();
+  const seenKeys = {};
   harvested = harvested.filter(function (lead) {
-    return lead && lead.company && !/800 IWN LEAD/i.test(lead.phone || '');
+    if (!lead || !lead.company || /800 IWN LEAD/i.test(lead.phone || '')) return false;
+    const check = iwnRegistryCheck_(registry, lead);
+    if (!check.accept) return false;
+    if (seenKeys[check.key]) return false;
+    seenKeys[check.key] = true;
+    return true;
   });
 
   // ── Sort by coverage area (fiber-covered cities first) ─────────────────────

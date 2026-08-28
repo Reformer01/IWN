@@ -884,45 +884,13 @@ function targetAccountsFetchLeads_(limit) {
         mapsLink:       mapsLink,
         linkedinSearch: linkedinLink,
         intentTag:      'Target Account — Priority Outreach',
-        source:         'GOOGLE_PLACES',
+        source:         'TARGET_ACCOUNTS',
         intelOnly:      false,
         discoveredAt:   new Date()
       });
     }
   }
 
-  // Pass 2: Fallback — if all 250 targets have been touched in the 90-day window,
-  // rotate through target accounts with Re-engagement intent so reps never run dry
-  if (leads.length < limit) {
-    for (let i = 0; i < total && leads.length < limit; i++) {
-      const account = IWN_TARGET_ACCOUNTS[(offset + i) % total];
-      const alreadyAdded = leads.some(function(l) { return l.company === account.company; });
-      if (alreadyAdded) continue;
-
-      const mapsLink = 'https://www.google.com/maps/search/?api=1&query=' +
-        encodeURIComponent(account.company + ' ' + account.address);
-      const linkedinLink = 'https://www.linkedin.com/search/results/companies/?keywords=' +
-        encodeURIComponent(account.company);
-
-      leads.push({
-        company:        account.company,
-        contact:        account.contact,
-        email:          '',
-        phone:          '',
-        location:       account.address,
-        sector:         account.sector,
-        sourceUrl:      mapsLink,
-        mapsLink:       mapsLink,
-        linkedinSearch: linkedinLink,
-        intentTag:      'Target Account — Follow-up Re-engagement',
-        source:         'GOOGLE_PLACES',
-        intelOnly:      false,
-        forceAccept:    true,
-        discoveredAt:   new Date()
-      });
-    }
-  }
-
-  Logger.log('TargetAccounts found ' + leads.length + ' commercial accounts for outreach.');
+  Logger.log('TargetAccounts found ' + leads.length + ' uncontacted commercial accounts for outreach.');
   return leads;
 }
