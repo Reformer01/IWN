@@ -96,9 +96,12 @@ function sendRepDailyDigests() {
 
     const htmlBody = '<div style="font-family:Arial,sans-serif;color:#202124;max-width:680px;line-height:1.5;">' +
       '<p style="font-size:15px;margin-bottom:12px;">Good day ' + firstName + ',</p>' +
-      '<p style="font-size:14px;color:#3c4043;margin-bottom:18px;">' +
+      '<p style="font-size:14px;color:#3c4043;margin-bottom:14px;">' +
         'Here are your fresh business targets for today in your assigned territory. These are verified corporate accounts ideal for an initial ISP audit outreach:' +
       '</p>' +
+      '<div style="background:#fef7e0;border:1px solid #f9ab00;border-left:4px solid #f29900;border-radius:4px;padding:10px 14px;margin-bottom:18px;font-size:13px;color:#7a4b04;line-height:1.4;">' +
+        '💡 <strong>Rep Note:</strong> If any account listed below has already been contacted or claimed previously by your team, please ignore it or mark it as <em>Contacted</em> in the pipeline and focus your outreach on the fresh new accounts.' +
+      '</div>' +
       htmlCards +
       '<div style="background:#f8f9fa;border:1px solid #e8eaed;border-radius:6px;padding:12px 16px;margin-top:20px;font-size:13px;color:#3c4043;">' +
         '📝 <strong>Next Action:</strong> Update outreach status (<code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Claimed</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Contacted</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Meeting</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Closed</code>) in Column P of ' +
@@ -131,6 +134,7 @@ function sendRepDailyDigests() {
 
     const plainBody = 'Good day ' + firstName + ',\n\n' +
       'Here are your fresh business targets for today in your assigned territory:\n\n' +
+      'NOTE: If any account listed below has already been contacted by your team previously, please ignore it or mark it accordingly in the pipeline and focus on the fresh new accounts.\n\n' +
       plainCards + '\n\n' +
       'Mark Claimed / Contacted / Meeting / Closed in column P of 03 Sales Pipeline.\n' +
       'Workbook: ' + workbookUrl + '\n\n' +

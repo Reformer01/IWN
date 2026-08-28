@@ -22,13 +22,11 @@ function googlePlacesFetchLeads_(limit) {
     return [];
   }
 
-  const query = googlePlacesPickQueryForToday_();
-  if (!query) {
-    Logger.log('GooglePlacesAdapter: No query generated.');
+  const queries = googlePlacesGetDailyQueriesList_();
+  if (!queries || !queries.length) {
+    Logger.log('GooglePlacesAdapter: No queries generated.');
     return [];
   }
-
-  Logger.log('GooglePlacesAdapter: Executing query -> ' + query);
 
   const endpoint = 'https://places.googleapis.com/v1/places:searchText';
   const fieldMask = [
@@ -42,101 +40,147 @@ function googlePlacesFetchLeads_(limit) {
     'places.primaryType'
   ].join(',');
 
-  const payload = {
-    textQuery: query,
-    pageSize: Math.min(20, Math.max(limit * 2, 10)),
-    languageCode: 'en'
-  };
-
-  const options = {
-    method: 'post',
-    contentType: 'application/json',
-    headers: {
-      'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': fieldMask
-    },
-    payload: JSON.stringify(payload),
-    muteHttpExceptions: true
-  };
-
-  let res;
-  try {
-    res = UrlFetchApp.fetch(endpoint, options);
-  } catch (err) {
-    Logger.log('GooglePlacesAdapter: UrlFetch error: ' + err);
-    return [];
-  }
-
-  const code = res.getResponseCode();
-  if (code < 200 || code >= 300) {
-    Logger.log('GooglePlacesAdapter HTTP ' + code + ': ' + res.getContentText());
-    return [];
-  }
-
-  let data;
-  try {
-    data = JSON.parse(res.getContentText());
-  } catch (e) {
-    Logger.log('GooglePlacesAdapter: Failed to parse JSON response.');
-    return [];
-  }
-
-  const places = (data && data.places) || [];
-  if (!places.length) {
-    Logger.log('GooglePlacesAdapter: 0 places returned for query: ' + query);
-    return [];
-  }
-
   const registry = iwnLoadRegistry_();
   const leads = [];
+  const seenInBatch = {};
 
-  for (let i = 0; i < places.length && leads.length < limit; i++) {
-    const p = places[i];
-    // Must be currently operational
-    if (p.businessStatus && p.businessStatus !== 'OPERATIONAL') continue;
+  for (let qIdx = 0; qIdx < queries.length && leads.length < limit; qIdx++) {
+    const query = queries[qIdx];
+    Logger.log('GooglePlacesAdapter: Executing query (' + (qIdx + 1) + '/' + queries.length + ') -> ' + query);
 
-    const name = (p.displayName && p.displayName.text) ? p.displayName.text.trim() : '';
-    if (!name || name.length < 3) continue;
-
-    const address = p.formattedAddress || '';
-    const phone = p.nationalPhoneNumber || p.internationalPhoneNumber || '';
-    const website = p.websiteUri || '';
-    const mapsUri = p.googleMapsUri || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + ' ' + address));
-    const sector = googlePlacesDetectSector_(p.primaryType, name, query);
-
-    const dummyLead = {
-      company: name,
-      location: address,
-      sector: sector
+    const payload = {
+      textQuery: query,
+      pageSize: 20,
+      languageCode: 'en'
     };
 
-    const check = iwnRegistryCheck_(registry, dummyLead);
-    if (!check.accept) {
-      Logger.log('GooglePlaces: Blocked duplicate in registry -> ' + name);
+    const options = {
+      method: 'post',
+      contentType: 'application/json',
+      headers: {
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': fieldMask
+      },
+      payload: JSON.stringify(payload),
+      muteHttpExceptions: true
+    };
+
+    let res;
+    try {
+      res = UrlFetchApp.fetch(endpoint, options);
+    } catch (err) {
+      Logger.log('GooglePlacesAdapter: UrlFetch error: ' + err);
       continue;
     }
 
-    const linkedinLink = 'https://www.linkedin.com/search/results/companies/?keywords=' + encodeURIComponent(name);
+    const code = res.getResponseCode();
+    if (code < 200 || code >= 300) {
+      Logger.log('GooglePlacesAdapter HTTP ' + code + ': ' + res.getContentText());
+      continue;
+    }
 
-    leads.push({
-      company:        name,
-      contact:        'General Manager / IT Director',
-      email:          '',
-      phone:          phone,
-      location:       address,
-      sector:         sector,
-      sourceUrl:      website || mapsUri,
-      mapsLink:       mapsUri,
-      linkedinSearch: linkedinLink,
-      intentTag:      'Live Places Discovery',
-      source:         'GOOGLE_PLACES',
-      intelOnly:      false,
-      discoveredAt:   new Date()
-    });
+    let data;
+    try {
+      data = JSON.parse(res.getContentText());
+    } catch (e) {
+      Logger.log('GooglePlacesAdapter: Failed to parse JSON response.');
+      continue;
+    }
+
+    const places = (data && data.places) || [];
+    for (let i = 0; i < places.length && leads.length < limit; i++) {
+      const p = places[i];
+      if (p.businessStatus && p.businessStatus !== 'OPERATIONAL') continue;
+
+      const name = (p.displayName && p.displayName.text) ? p.displayName.text.trim() : '';
+      if (!name || name.length < 3) continue;
+
+      const address = p.formattedAddress || '';
+      const phone = p.nationalPhoneNumber || p.internationalPhoneNumber || '';
+      const website = p.websiteUri || '';
+      const mapsUri = p.googleMapsUri || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + ' ' + address));
+      const sector = googlePlacesDetectSector_(p.primaryType, name, query);
+
+      const dummyLead = {
+        company: name,
+        location: address,
+        sector: sector
+      };
+
+      const check = iwnRegistryCheck_(registry, dummyLead);
+      if (!check.accept || seenInBatch[check.key]) {
+        Logger.log('GooglePlaces: Blocked duplicate in registry -> ' + name);
+        continue;
+      }
+      seenInBatch[check.key] = true;
+
+      const linkedinLink = 'https://www.linkedin.com/search/results/companies/?keywords=' + encodeURIComponent(name);
+
+      leads.push({
+        company:        name,
+        contact:        'General Manager / IT Director',
+        email:          '',
+        phone:          phone,
+        location:       address,
+        sector:         sector,
+        sourceUrl:      website || mapsUri,
+        mapsLink:       mapsUri,
+        linkedinSearch: linkedinLink,
+        intentTag:      'Live Places Discovery',
+        source:         'GOOGLE_PLACES',
+        intelOnly:      false,
+        discoveredAt:   new Date()
+      });
+    }
+
+    // Gentle breather between API calls
+    if (leads.length < limit && qIdx < queries.length - 1) {
+      Utilities.sleep(500);
+    }
   }
 
   Logger.log('GooglePlacesAdapter: Harvested ' + leads.length + ' fresh operational commercial leads.');
   return leads;
+}
+
+/**
+ * Return list of search queries for today across multiple cities & sectors
+ */
+function googlePlacesGetDailyQueriesList_() {
+  const custom = iwnGetPlacesCustomQueries_();
+  if (custom && custom.length) return custom;
+
+  const tz = iwnSetting_('TIMEZONE', 'Africa/Lagos');
+  const dayOfYear = Number(Utilities.formatDate(new Date(), tz, 'D'));
+
+  const cities = [
+    'Ibadan, Oyo State, Nigeria',
+    'Abeokuta, Ogun State, Nigeria',
+    'Sagamu & Ijebu-Ode, Ogun State, Nigeria',
+    'Agbara Industrial Estate & Ota, Ogun State, Nigeria',
+    'Osogbo, Osun State, Nigeria',
+    'Akure, Ondo State, Nigeria',
+    'Ikeja, Lagos, Nigeria',
+    'Lekki & Victoria Island, Lagos, Nigeria'
+  ];
+
+  const sectors = [
+    'shopping malls OR commercial plazas OR retail supermarkets in ',
+    'manufacturing companies OR factories OR industrial plants in ',
+    'private hospitals OR specialist clinics OR medical diagnostic centers in ',
+    'hotels OR resorts OR event conference centres in ',
+    'private universities OR colleges OR academies in ',
+    'corporate offices OR logistics hubs OR finance companies in '
+  ];
+
+  const queries = [];
+  for (let s = 0; s < sectors.length; s++) {
+    const cityIdx = (dayOfYear + s) % cities.length;
+    const sectorIdx = (dayOfYear * 2 + s) % sectors.length;
+    queries.push(sectors[sectorIdx] + cities[cityIdx]);
+  }
+
+  return queries;
 }
 
 /**
