@@ -59,88 +59,120 @@ function sendRepDailyDigests() {
     const firstName = String(rep.name || '').trim().split(' ')[0];
     const workbookUrl = iwnSs_().getUrl();
 
-    // ── Build HTML Cards with Embedded Links ──────────────────────────────
-    const htmlCards = leads.map(function (item) {
+    // ── Build Ultra-Clean HTML Cards ──────────────────────────────────────
+    const htmlCards = leads.map(function (item, idx) {
       const p = item.pipe || {};
       const waUrl = rep.whatsapp
-        ? ('https://wa.me/' + String(rep.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent('Hi, following up from I-World Networks regarding ' + item.company))
+        ? ('https://wa.me/' + String(rep.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent('Good day, I am following up from I-World Networks regarding enterprise internet connectivity for ' + item.company))
         : '';
       const mapsUrl = p.maps || item.sourceUrl || '';
       const linkedinUrl = p.linkedin || '';
       const sourceUrl = item.sourceUrl || p.sourceUrl || '';
       const pitch = iwnSuggestedPitch_(p.sector, item.intent);
+      const phone = (p.details && p.details !== 'Contact TBD') ? p.details : 'Check Google Maps';
 
-      const links = [
-        mapsUrl ? '<a href="' + mapsUrl + '" style="color:#1a73e8;text-decoration:none;font-weight:bold;">📍 View on Google Maps</a>' : '',
-        linkedinUrl ? '<a href="' + linkedinUrl + '" style="color:#0077b5;text-decoration:none;font-weight:bold;">💼 LinkedIn Company Search</a>' : '',
-        waUrl ? '<a href="' + waUrl + '" style="color:#25d366;text-decoration:none;font-weight:bold;">💬 Open WhatsApp Chat</a>' : '',
-        (sourceUrl && sourceUrl !== mapsUrl) ? '<a href="' + sourceUrl + '" style="color:#5f6368;text-decoration:none;">🔗 Source Reference</a>' : ''
-      ].filter(Boolean).join(' &nbsp;|&nbsp; ');
+      const buttons = [
+        mapsUrl ? '<a href="' + mapsUrl + '" target="_blank" style="display:inline-block;padding:6px 12px;margin:3px 6px 3px 0;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;">📍 Google Maps</a>' : '',
+        waUrl ? '<a href="' + waUrl + '" target="_blank" style="display:inline-block;padding:6px 12px;margin:3px 6px 3px 0;background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;">💬 WhatsApp</a>' : '',
+        linkedinUrl ? '<a href="' + linkedinUrl + '" target="_blank" style="display:inline-block;padding:6px 12px;margin:3px 6px 3px 0;background:#f8fafc;color:#334155;border:1px solid #cbd5e1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;">💼 LinkedIn</a>' : ''
+      ].filter(Boolean).join('');
 
-      return '<div style="background:#ffffff;border:1px solid #dadce0;border-left:4px solid #1a73e8;border-radius:6px;padding:14px 18px;margin-bottom:16px;">' +
-        '<div style="font-size:16px;font-weight:bold;color:#202124;margin-bottom:4px;">' +
-          item.leadId + ' &bull; ' + item.company +
-          (item.territory ? ' <span style="font-size:13px;color:#5f6368;font-weight:normal;">(' + item.territory + ')</span>' : '') +
+      return '<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden;">' +
+        '<div style="background:#f8fafc;padding:12px 18px;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;">' +
+          '<div>' +
+            '<span style="display:inline-block;background:#0284c7;color:#ffffff;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:12px;margin-right:8px;">#' + (idx + 1) + '</span>' +
+            '<strong style="font-size:15px;color:#0f172a;">' + item.company + '</strong>' +
+          '</div>' +
         '</div>' +
-        '<div style="font-size:13px;color:#3c4043;line-height:1.6;margin-bottom:8px;">' +
-          '<strong>Sector:</strong> ' + (p.sector || 'Corporate / Industrial') + ' &nbsp;|&nbsp; ' +
-          '<strong>Intent:</strong> <span style="background:#e8f0fe;color:#174ea6;padding:2px 6px;border-radius:4px;font-size:12px;">' + (item.intent || 'Target Account') + '</span><br>' +
-          '<strong>Contact / Decision Maker:</strong> ' + (p.details || 'Contact TBD') + '<br>' +
-          '<strong>Suggested Pitch:</strong> <em>' + pitch + '</em>' +
-        '</div>' +
-        '<div style="font-size:13px;padding-top:6px;border-top:1px solid #f1f3f4;">' +
-          links +
+        '<div style="padding:14px 18px;font-size:13px;color:#334155;line-height:1.6;">' +
+          '<table style="width:100%;border-collapse:collapse;font-size:13px;">' +
+            '<tr>' +
+              '<td style="padding:3px 0;color:#64748b;width:80px;vertical-align:top;"><strong>Sector:</strong></td>' +
+              '<td style="padding:3px 0;color:#0f172a;">' + (p.sector || 'Corporate / Commercial') + ' &nbsp; <span style="background:#e0f2fe;color:#0369a1;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;">' + (item.territory || 'Southwest') + '</span></td>' +
+            '</tr>' +
+            '<tr>' +
+              '<td style="padding:3px 0;color:#64748b;vertical-align:top;"><strong>Phone / Contact:</strong></td>' +
+              '<td style="padding:3px 0;color:#0f172a;font-weight:600;">' + phone + '</td>' +
+            '</tr>' +
+            '<tr>' +
+              '<td style="padding:3px 0;color:#64748b;vertical-align:top;"><strong>Pitch Focus:</strong></td>' +
+              '<td style="padding:3px 0;color:#475569;font-style:italic;">' + pitch + '</td>' +
+            '</tr>' +
+          '</table>' +
+          '<div style="margin-top:12px;padding-top:10px;border-top:1px dashed #e2e8f0;">' +
+            buttons +
+          '</div>' +
         '</div>' +
       '</div>';
     }).join('');
 
-    const htmlBody = '<div style="font-family:Arial,sans-serif;color:#202124;max-width:680px;line-height:1.5;">' +
-      '<p style="font-size:15px;margin-bottom:12px;">Good day ' + firstName + ',</p>' +
-      '<p style="font-size:14px;color:#3c4043;margin-bottom:14px;">' +
-        'Here are your fresh business targets for today in your assigned territory. These are verified corporate accounts ideal for an initial ISP audit outreach:' +
-      '</p>' +
-      '<div style="background:#fef7e0;border:1px solid #f9ab00;border-left:4px solid #f29900;border-radius:4px;padding:10px 14px;margin-bottom:18px;font-size:13px;color:#7a4b04;line-height:1.4;">' +
-        '💡 <strong>Rep Note:</strong> If any account listed below has already been contacted or claimed previously by your team, please ignore it or mark it as <em>Contacted</em> in the pipeline and focus your outreach on the fresh new accounts.' +
+    const htmlBody = '<div style="background:#f1f5f9;padding:24px 12px;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Helvetica,Arial,sans-serif;">' +
+      '<div style="max-width:620px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);border:1px solid #e2e8f0;">' +
+
+        // ── Brand Header ────────────────────────────────────────────────────
+        '<div style="background:#0f172a;padding:24px 28px;text-align:left;">' +
+          '<div style="font-size:11px;letter-spacing:1.5px;font-weight:bold;color:#38bdf8;text-transform:uppercase;margin-bottom:4px;">I-World Networks &bull; Sales Lead Engine</div>' +
+          '<h1 style="margin:0;font-size:20px;font-weight:700;color:#ffffff;">Daily Outbound Prospects</h1>' +
+          '<div style="font-size:12px;color:#94a3b8;margin-top:4px;">' + Utilities.formatDate(new Date(), tz, 'EEEE, MMMM dd, yyyy') + ' &bull; Assigned to ' + rep.name + '</div>' +
+        '</div>' +
+
+        // ── Body Container ──────────────────────────────────────────────────
+        '<div style="padding:24px 28px;">' +
+          '<p style="font-size:14px;color:#334155;margin-top:0;margin-bottom:14px;line-height:1.5;">' +
+            'Hello <strong>' + firstName + '</strong>,<br>' +
+            'Here are your <strong>' + leads.length + ' commercial business targets</strong> for today in your territory. Please review each account, conduct your initial discovery calls, and offer our free corporate site survey:' +
+          '</p>' +
+
+          // ── Duplicate Notice Banner ───────────────────────────────────────
+          '<div style="background:#fffbeb;border:1px solid #fef3c7;border-left:4px solid #f59e0b;border-radius:6px;padding:10px 14px;margin-bottom:20px;font-size:12px;color:#92400e;line-height:1.4;">' +
+            '💡 <strong>Team Note:</strong> If any account below is already active or in conversation with your team, mark it as <em>Contacted</em> in the pipeline sheet and prioritize the new accounts.' +
+          '</div>' +
+
+          htmlCards +
+
+          // ── Action CTA Box ────────────────────────────────────────────────
+          '<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;margin-top:24px;">' +
+            '<div style="font-size:13px;color:#475569;margin-bottom:10px;">Remember to update outreach status in the shared tracker:</div>' +
+            '<a href="' + workbookUrl + '" style="display:inline-block;padding:9px 18px;background:#0284c7;color:#ffffff;font-size:13px;font-weight:bold;text-decoration:none;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.05);">Open 03 Sales Pipeline Sheet &rarr;</a>' +
+          '</div>' +
+
+          // ── Sign-off ──────────────────────────────────────────────────────
+          '<div style="margin-top:24px;padding-top:16px;border-top:1px solid #f1f5f9;font-size:12px;color:#64748b;line-height:1.5;">' +
+            'Best regards,<br>' +
+            '<strong style="color:#0f172a;font-size:13px;">Reformer Ejembi</strong><br>' +
+            'Digital &amp; Web Team Lead &bull; I-World Networks Limited<br>' +
+            '<a href="https://iworldnetworks.net" style="color:#0284c7;text-decoration:none;">iworldnetworks.net</a>' +
+          '</div>' +
+
+        '</div>' +
       '</div>' +
-      htmlCards +
-      '<div style="background:#f8f9fa;border:1px solid #e8eaed;border-radius:6px;padding:12px 16px;margin-top:20px;font-size:13px;color:#3c4043;">' +
-        '📝 <strong>Next Action:</strong> Update outreach status (<code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Claimed</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Contacted</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Meeting</code>, <code style="background:#e8eaed;padding:2px 4px;border-radius:3px;">Closed</code>) in Column P of ' +
-        '<a href="' + workbookUrl + '" style="color:#1a73e8;font-weight:bold;text-decoration:none;">03 Sales Pipeline</a>.' +
-      '</div>' +
-      '<p style="font-size:13px;color:#5f6368;margin-top:22px;line-height:1.4;">' +
-        'Best regards,<br><br>' +
-        '<strong>Reformer Ejembi</strong><br>' +
-        'Digital &amp; Web Team Lead<br>' +
-        'I-World Networks Limited' +
-      '</p>' +
     '</div>';
 
     // ── Plain-Text Fallback ───────────────────────────────────────────────
-    const plainCards = leads.map(function (item) {
+    const plainCards = leads.map(function (item, idx) {
       const p = item.pipe || {};
       const wa = rep.whatsapp
-        ? ('https://wa.me/' + String(rep.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent('Hi, following up from I-World Networks regarding ' + item.company))
+        ? ('https://wa.me/' + String(rep.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent('Good day from I-World Networks regarding ' + item.company))
         : '';
       return [
-        item.leadId + ' | ' + item.company + ' | ' + (item.territory || ''),
-        'Sector: ' + (p.sector || '') + ' | Intent: ' + (item.intent || ''),
-        'Contact: ' + (p.details || 'TBD'),
-        'Maps: ' + (p.maps || item.sourceUrl || ''),
-        'LinkedIn: ' + (p.linkedin || ''),
-        'Suggested pitch: ' + iwnSuggestedPitch_(p.sector, item.intent),
+        '[' + (idx + 1) + '] ' + item.company + ' (' + (item.territory || 'SW Nigeria') + ')',
+        'Sector: ' + (p.sector || 'Corporate') + ' | Contact: ' + (p.details || 'TBD'),
+        'Maps: ' + (p.maps || item.sourceUrl || 'N/A'),
+        'LinkedIn: ' + (p.linkedin || 'N/A'),
+        'Pitch: ' + iwnSuggestedPitch_(p.sector, item.intent),
         wa ? ('WhatsApp: ' + wa) : ''
       ].filter(Boolean).join('\n');
     }).join('\n\n');
 
     const plainBody = 'Good day ' + firstName + ',\n\n' +
-      'Here are your fresh business targets for today in your assigned territory:\n\n' +
-      'NOTE: If any account listed below has already been contacted by your team previously, please ignore it or mark it accordingly in the pipeline and focus on the fresh new accounts.\n\n' +
+      'Here are your ' + leads.length + ' fresh business targets for today in ' + (rep.territories ? rep.territories.join(', ') : 'your territory') + ':\n\n' +
+      'NOTE: If any account below is already active or in conversation with your team, mark it accordingly in the pipeline.\n\n' +
       plainCards + '\n\n' +
-      'Mark Claimed / Contacted / Meeting / Closed in column P of 03 Sales Pipeline.\n' +
-      'Workbook: ' + workbookUrl + '\n\n' +
+      'Update status in Column P of 03 Sales Pipeline:\n' +
+      workbookUrl + '\n\n' +
       'Reformer Ejembi\nDigital & Web Team Lead\nI-World Networks Limited';
 
-    const subject = 'IWN daily leads — ' + leads.length + ' accounts — ' +
+    const subject = '🎯 IWN Daily Leads — ' + leads.length + ' Target Accounts — ' +
       Utilities.formatDate(new Date(), tz, 'MMM dd, yyyy');
 
     GmailApp.sendEmail(rep.email, subject, plainBody, {
