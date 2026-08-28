@@ -402,6 +402,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           'Mowe' => [
               'to' => 'janet.oke@iworldnetworks.net',
               'cc' => ['reformer.ejembi@iworldnetworks.net']
+          ],
+          'Ota' => [
+              'to' => 'janet.oke@iworldnetworks.net',
+              'cc' => ['reformer.ejembi@iworldnetworks.net']
+          ],
+          'Agbara' => [
+              'to' => 'janet.oke@iworldnetworks.net',
+              'cc' => ['reformer.ejembi@iworldnetworks.net']
           ]
       ];
 

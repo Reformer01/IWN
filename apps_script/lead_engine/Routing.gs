@@ -10,12 +10,13 @@ function iwnTerritoryFromLocation_(location) {
   const loc = String(location || '');
   if (/akure|ondo/i.test(loc)) return { territory: 'Ondo', region: 'Akure/Ondo' };
   if (/osogbo|osun|ilesa/i.test(loc)) return { territory: 'Osun', region: 'Osun Region' };
+  if (/ota|agbara/i.test(loc)) return { territory: 'Ota', region: 'Ota/Agbara' };
   if (/sagamu/i.test(loc)) return { territory: 'Sagamu', region: 'Sagamu/Ijebu' };
   if (/ijebu/i.test(loc)) return { territory: 'Ijebu', region: 'Sagamu/Ijebu' };
   if (/mowe|ibafo/i.test(loc)) return { territory: 'Mowe', region: 'Mowe/Ibafo' };
   if (/lagos|ikoyi|ikeja|lekki/i.test(loc)) return { territory: 'Lagos', region: 'Lagos' };
   if (/ibadan|oyo/i.test(loc)) return { territory: 'Oyo', region: 'Oyo Region' };
-  if (/abeokuta|ota|agbara|ogun/i.test(loc)) return { territory: 'Ogun', region: 'Ogun Region' };
+  if (/abeokuta|ogun/i.test(loc)) return { territory: 'Abeokuta', region: 'Abeokuta/Ogun' };
   return { territory: 'Ogun', region: 'Ogun Region' };
 }
 
@@ -30,11 +31,12 @@ function iwnMapStateKey_(state) {
   if (s.indexOf('osun') !== -1 || s.indexOf('osogbo') !== -1 || s.indexOf('ilesa') !== -1) return 'Osun';
   if (s.indexOf('ondo') !== -1 || s.indexOf('akure') !== -1) return 'Ondo';
   if (s.indexOf('lagos') !== -1) return 'Lagos';
+  if (s.indexOf('ota') !== -1 || s.indexOf('agbara') !== -1) return 'Ota';
   if (s.indexOf('sagamu') !== -1) return 'Sagamu';
   if (s.indexOf('ijebu') !== -1) return 'Ijebu';
   if (s.indexOf('mowe') !== -1 || s.indexOf('ibafo') !== -1) return 'Mowe';
-  if (s.indexOf('ogun') !== -1 || s.indexOf('abeokuta') !== -1) return 'Ogun';
-  return String(state || 'Ogun');
+  if (s.indexOf('ogun') !== -1 || s.indexOf('abeokuta') !== -1) return 'Abeokuta';
+  return String(state || 'Abeokuta');
 }
 
 function iwnRepsForTerritory_(territory) {
