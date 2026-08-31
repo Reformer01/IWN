@@ -160,8 +160,9 @@ function googlePlacesGetDailyQueriesList_() {
     'Agbara Industrial Estate & Ota, Ogun State, Nigeria',
     'Osogbo, Osun State, Nigeria',
     'Akure, Ondo State, Nigeria',
-    'Ikeja, Lagos, Nigeria',
-    'Lekki & Victoria Island, Lagos, Nigeria'
+    'Ijebu-Ode, Ogun State, Nigeria',
+    'Sagamu, Ogun State, Nigeria'
+    // NOTE: Lagos is excluded — IWN does not operate in Lagos
   ];
 
   const sectors = [
@@ -203,8 +204,9 @@ function googlePlacesPickQueryForToday_() {
     'Agbara Industrial Estate & Ota, Ogun State, Nigeria',
     'Osogbo, Osun State, Nigeria',
     'Akure, Ondo State, Nigeria',
-    'Ikeja & Ikeja GRA, Lagos, Nigeria',
-    'Lekki Phase 1 & Victoria Island, Lagos, Nigeria'
+    'Ijebu-Ode, Ogun State, Nigeria',
+    'Mowe & Ibafo, Ogun State, Nigeria'
+    // NOTE: Lagos is excluded — IWN does not operate in Lagos
   ];
 
   const sectors = [

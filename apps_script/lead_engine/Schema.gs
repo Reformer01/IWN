@@ -146,7 +146,7 @@ function seedConfigContent_(sheet) {
   sheet.getRange('A3:F3').setValues([['Name', 'Email', 'WhatsApp', 'Territories', 'DailyQuota', 'Active']])
     .setFontWeight('bold').setBackground('#d9ead3');
   sheet.getRange('A4:F10').setValues([
-    ['Titilade Bakare', 'titilade.bakare@iworldnetworks.net', '08131529077', 'Abeokuta,Lagos', 8, true],
+    ['Titilade Bakare', 'titilade.bakare@iworldnetworks.net', '08131529077', 'Abeokuta', 8, true],
     ['Emmanuel Oladimeji', 'emmanuel.oladimeji@iworldnetworks.net', '08036265524', 'Osun,Osogbo,Ilesa', 8, true],
     ['Janet Oke', 'janet.oke@iworldnetworks.net', '07066053380', 'Ota,Agbara,Sagamu,Ijebu,Mowe,Ibafo', 8, true],
     ['Ruth Suleimon', 'ruth.suleimon@iworldnetworks.net', '08165106653', 'Ondo,Akure', 8, true],

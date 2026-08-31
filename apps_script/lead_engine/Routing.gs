@@ -1,20 +1,22 @@
 /**
  * Territory routing aligned with Assets/forms/form-validation.php sales map.
- * Titilade: Ogun, Oyo, Lagos
+ * Titilade: Abeokuta (Ogun)
  * Emmanuel: Osun, Ondo
- * Janet: Sagamu, Ijebu, Mowe, Ibafo
+ * Janet: Ota, Agbara, Sagamu, Ijebu, Mowe, Ibafo
  * Jeffrey: overflow / enterprise nationwide
+ * EXCLUDED: Lagos — IWN does not operate in Lagos. Lagos leads are dropped.
  */
 
 function iwnTerritoryFromLocation_(location) {
   const loc = String(location || '');
+  // Hard block — IWN does not operate in Lagos
+  if (/lagos|ikoyi|ikeja|lekki|victoria island|ajah|surulere|yaba/i.test(loc)) return null;
   if (/akure|ondo/i.test(loc)) return { territory: 'Ondo', region: 'Akure/Ondo' };
   if (/osogbo|osun|ilesa/i.test(loc)) return { territory: 'Osun', region: 'Osun Region' };
   if (/ota|agbara/i.test(loc)) return { territory: 'Ota', region: 'Ota/Agbara' };
   if (/sagamu/i.test(loc)) return { territory: 'Sagamu', region: 'Sagamu/Ijebu' };
   if (/ijebu/i.test(loc)) return { territory: 'Ijebu', region: 'Sagamu/Ijebu' };
   if (/mowe|ibafo/i.test(loc)) return { territory: 'Mowe', region: 'Mowe/Ibafo' };
-  if (/lagos|ikoyi|ikeja|lekki/i.test(loc)) return { territory: 'Lagos', region: 'Lagos' };
   if (/ibadan|oyo/i.test(loc)) return { territory: 'Oyo', region: 'Oyo Region' };
   if (/abeokuta|ogun/i.test(loc)) return { territory: 'Abeokuta', region: 'Abeokuta/Ogun' };
   return { territory: 'Ogun', region: 'Ogun Region' };
@@ -27,10 +29,11 @@ function iwnExtractRegion_(location) {
 
 function iwnMapStateKey_(state) {
   const s = String(state || '').toLowerCase();
+  // Hard block — Lagos is out of service area
+  if (s.indexOf('lagos') !== -1 || s.indexOf('ikeja') !== -1 || s.indexOf('lekki') !== -1) return null;
   if (s.indexOf('oyo') !== -1 || s.indexOf('ibadan') !== -1) return 'Oyo';
   if (s.indexOf('osun') !== -1 || s.indexOf('osogbo') !== -1 || s.indexOf('ilesa') !== -1) return 'Osun';
   if (s.indexOf('ondo') !== -1 || s.indexOf('akure') !== -1) return 'Ondo';
-  if (s.indexOf('lagos') !== -1) return 'Lagos';
   if (s.indexOf('ota') !== -1 || s.indexOf('agbara') !== -1) return 'Ota';
   if (s.indexOf('sagamu') !== -1) return 'Sagamu';
   if (s.indexOf('ijebu') !== -1) return 'Ijebu';

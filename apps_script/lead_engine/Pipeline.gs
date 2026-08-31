@@ -117,6 +117,14 @@ function assignAndWritePipeline(leads) {
     }
 
     // Normal lead — assign to territory rep
+    const info = iwnTerritoryFromLocation_(lead.location);
+    if (!info) {
+      // Lead is in an out-of-service area (e.g. Lagos) — hard drop
+      Logger.log('Pipeline: Dropped out-of-service-area lead — ' + lead.company + ' (' + lead.location + ')');
+      blocked++;
+      blockedBySource[lead.source || 'Unknown'] = (blockedBySource[lead.source || 'Unknown'] || 0) + 1;
+      return;
+    }
     const assignment = iwnAssignRep_(lead, counts);
 
     pipeRows.push([
