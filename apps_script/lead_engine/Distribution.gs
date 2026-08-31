@@ -242,7 +242,7 @@ function sendDailyReportEmail() {
 
   const subject = 'Daily Revenue & Activity Report — ' + dateLabel;
   const body = 'Dear Mr. Jude,\n\n' +
-    'Please find my daily report for ' + dateLabel + ', summarizing CUAB license increase escalation follow-up, sales team BTS MRR platform training, CSAT platform feature enhancements, customer complaint analytics architecture, and new customer onboarding documentation:\n\n' +
+    'Please find my daily report for ' + dateLabel + ':\n\n' +
     'REVENUE PERFORMANCE & PIPELINE TRACKING\n' +
     '--------------------------------------------------\n' +
     '- Daily Revenue Target: ' + dailyTarget + '\n' +
@@ -253,18 +253,20 @@ function sendDailyReportEmail() {
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
     'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
     '--------------------------------------------------\n' +
-    '1. CUAB License Increase Escalation Follow-Up: Followed up with technical support & account management on the Crescent University Abeokuta (CUAB) Google Workspace license increase request to expedite provisioning and administrative approval.\n' +
-    '2. Sales Team BTS MRR Platform Training: Conducted an interactive operational training session with the sales team on utilizing the CSAT platform to track, query, and extract their BTS MRR performance data.\n' +
-    '3. CSAT Platform Feature Enhancements: Developed and deployed core enhancements, stability updates, and usability optimizations across active CSAT platform modules.\n' +
-    '4. Customer Complaint Frequency & Classification Architecture: Explored and scoped architectural frameworks within CSAT to categorize complaint types and track customer issue recurrence frequency.\n' +
-    '5. New Customer Welcome Guide & Billing Documentation: Collaborated with the Billing & Accounts Department to structure and standardize the official welcome guide and onboarding documentation for new subscribers.\n\n' +
+    '1. BTS Customer Data Upload: Uploaded the updated BTS customer information provided by the Technical and Support teams to the CSAT platform.\n' +
+    '2. CKA Exam Proctoring Meeting: Had a meeting with the CKA team, CMO team, and Johnson to explore options for improving CKA exam proctoring. Discussed the future of the proctoring platform, proposed Chromebooks and Chrome-native tools, and aligned on next steps for improving the Chrome extension and developing a companion web application.\n' +
+    '3. CKA Web Application Architecture: Began drafting the architecture of the CKA proctoring web application to share with Johnson so co-development can commence.\n' +
+    '4. CMO Monthly Reporting Meeting: Met with the CMOs to walk them through generating usage reports from the Google Admin Console for their monthly reporting needs.\n' +
+    '5. Daily Lead Dispatch: Sent daily leads to the sales team and continued improving the lead generation and territory routing mechanism.\n' +
+    '6. Customer Engagement: Sent feedback requests and invoice reminders to current customers through the platform.\n' +
+    '7. Routine Operations: Completed routine checks on the IWN website and social media channels — no issues found.\n\n' +
     'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
     '--------------------------------------------------\n' +
-    '1. CSAT Complaint Analytics Module: Finalize data models and UI widgets to track complaint frequency and issue categorization in CSAT.\n' +
-    '2. CUAB License Quota Activation: Confirm final license increase activation on Google Admin Console for CUAB.\n' +
-    '3. New Customer Welcome Guide Rollout: Finalize digital distribution workflow and automated billing dispatch for the welcome guide.\n' +
-    '4. Sales BTS MRR Adoption Monitoring: Monitor sales team daily engagement and BTS MRR data utilization across all territories.\n' +
-    '5. Sales Pipeline Territory Outreach Cadence: Review sales representatives outreach cadence on newly assigned target enterprise accounts in 03 Sales Pipeline.\n\n' +
+    '1. CKA Web Application: Finalize and share the application architecture with Johnson to begin co-development.\n' +
+    '2. Chrome Extension Improvements: Implement the proctoring extension enhancements agreed upon in today\'s CKA/CMO meeting.\n' +
+    '3. CMO Usage Reports: Follow up with CMOs to confirm they can independently generate their monthly Admin Console reports.\n' +
+    '4. Lead Engine: Monitor the updated territory routing (Lagos exclusion, Ota/Agbara to Janet) through the week.\n' +
+    '5. Sales Pipeline Review: Review sales rep outreach cadence on newly assigned pipeline targets.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
