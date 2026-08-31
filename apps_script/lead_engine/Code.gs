@@ -24,6 +24,8 @@ function onOpen() {
     .addItem('8. Weekly source review email', 'weeklySourceReview')
     .addItem('9. Install weekday triggers', 'installLeadEngineTriggers')
     .addItem('Add manual lead (sidebar)', 'showManualLeadSidebar')
+    .addSeparator()
+    .addItem('📝 Log today\'s tasks', 'logTodaysTasks')
     .addToUi();
 }
 
