@@ -44,14 +44,146 @@ function sendRepDailyDigests() {
     if (isIntel) {
       intelItems.push(entry);
     } else {
+      // ── Osun territory guard: ONLY Ruth receives Osun leads ───────────────
+      const isOsunLead = /osun|osogbo|ilesa/i.test(String(entry.territory || ''));
+      if (isOsunLead && !/ruth/i.test(name)) {
+        Logger.log('Distribution: Osun lead blocked from ' + name + ' — only Ruth receives Osun leads: ' + entry.company);
+        return;
+      }
       byRep[name] = byRep[name] || [];
       byRep[name].push(entry);
     }
   });
 
+  // ── Grouping rules — merge reps who share the same digest ─────────────────
+  // Rule 1: Henry Adiene + Titilade Bakare → send combined email to both
+  const henryLeads     = byRep['Henry Adiene']    || [];
+  const titiladeLeads  = byRep['Titilade Bakare']  || [];
+  const henryTitiGroup = henryLeads.concat(titiladeLeads);
+
+  // Rule 2: Elizabeth Tola + Emmanuel Oladimeji → send combined email to both
+  const elizabethLeads  = byRep['Elizabeth Tola']       || [];
+  const emmanuelLeads   = byRep['Emmanuel Oladimeji']   || [];
+  const elizEmmaGroup   = elizabethLeads.concat(emmanuelLeads);
+
+  // Mark individual keys as handled so main loop skips them
+  const GROUPED_REPS = {
+    'Henry Adiene':      'HENRY_TITILADE_GROUP',
+    'Titilade Bakare':   'HENRY_TITILADE_GROUP',
+    'Elizabeth Tola':    'ELIZ_EMMA_GROUP',
+    'Emmanuel Oladimeji':'ELIZ_EMMA_GROUP'
+  };
+
   // ── Rep digests (real business targets only) ─────────────────────────────
   const reps = iwnGetReps_();
+
+  // ── Helper: send a combined digest to multiple reps ───────────────────────
+  function sendGroupedDigest(groupLeads, groupReps) {
+    if (!groupLeads.length) return;
+    // Check if any rep in group already received today
+    const anyAlreadySent = groupReps.some(function(r) {
+      return iwnAlreadySentToday_('DIGEST', r.email);
+    });
+    if (anyAlreadySent) return;
+
+    const groupEmails  = groupReps.map(function(r) { return r.email; }).join(',');
+    const groupNames   = groupReps.map(function(r) { return r.name.split(' ')[0]; }).join(' & ');
+    const allTerritories = groupReps.reduce(function(acc, r) {
+      return acc.concat(r.territories || []);
+    }, []);
+
+    const tz         = iwnSetting_('TIMEZONE', 'Africa/Lagos');
+    const workbookUrl = iwnSs_().getUrl();
+
+    const htmlCards = groupLeads.map(function (item, idx) {
+      const p = item.pipe || {};
+      // WhatsApp link rotates: first rep gets priority
+      const firstRep = groupReps[0];
+      const waUrl = firstRep.whatsapp
+        ? ('https://wa.me/' + String(firstRep.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent('Good day, I am following up from I-World Networks regarding enterprise internet connectivity for ' + item.company))
+        : '';
+      const mapsUrl    = p.maps || item.sourceUrl || '';
+      const linkedinUrl = p.linkedin || '';
+      const pitch      = iwnSuggestedPitch_(p.sector, item.intent);
+      const phone      = (p.details && p.details !== 'Contact TBD') ? p.details : 'Check Google Maps';
+      const buttons = [
+        mapsUrl    ? '<a href="' + mapsUrl    + '" target="_blank" style="display:inline-block;padding:6px 12px;margin:3px 6px 3px 0;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;">📍 Google Maps</a>' : '',
+        waUrl      ? '<a href="' + waUrl      + '" target="_blank" style="display:inline-block;padding:6px 12px;margin:3px 6px 3px 0;background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;">💬 WhatsApp</a>' : '',
+        linkedinUrl ? '<a href="' + linkedinUrl + '" target="_blank" style="display:inline-block;padding:6px 12px;margin:3px 6px 3px 0;background:#f8fafc;color:#334155;border:1px solid #cbd5e1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;">💼 LinkedIn</a>' : ''
+      ].filter(Boolean).join('');
+
+      return '<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden;">' +
+        '<div style="background:#f8fafc;padding:12px 18px;border-bottom:1px solid #e2e8f0;">' +
+          '<span style="display:inline-block;background:#0284c7;color:#ffffff;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:12px;margin-right:8px;">#' + (idx + 1) + '</span>' +
+          '<strong style="font-size:15px;color:#0f172a;">' + item.company + '</strong>' +
+        '</div>' +
+        '<div style="padding:14px 18px;font-size:13px;color:#334155;line-height:1.6;">' +
+          '<table style="width:100%;border-collapse:collapse;font-size:13px;">' +
+            '<tr><td style="padding:3px 0;color:#64748b;width:80px;"><strong>Sector:</strong></td><td>' + (p.sector || 'Corporate') + ' &nbsp;<span style="background:#e0f2fe;color:#0369a1;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600;">' + (item.territory || 'SW Nigeria') + '</span></td></tr>' +
+            '<tr><td style="padding:3px 0;color:#64748b;"><strong>Phone:</strong></td><td style="font-weight:600;">' + phone + '</td></tr>' +
+            '<tr><td style="padding:3px 0;color:#64748b;"><strong>Pitch:</strong></td><td style="font-style:italic;color:#475569;">' + pitch + '</td></tr>' +
+          '</table>' +
+          '<div style="margin-top:12px;padding-top:10px;border-top:1px dashed #e2e8f0;">' + buttons + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    const htmlBody = '<div style="background:#f1f5f9;padding:24px 12px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;">' +
+      '<div style="max-width:620px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);border:1px solid #e2e8f0;">' +
+        '<div style="background:#0f172a;padding:24px 28px;">' +
+          '<div style="font-size:11px;letter-spacing:1.5px;font-weight:bold;color:#38bdf8;text-transform:uppercase;margin-bottom:4px;">I-World Networks &bull; Sales Lead Engine</div>' +
+          '<h1 style="margin:0;font-size:20px;font-weight:700;color:#ffffff;">Daily Outbound Prospects</h1>' +
+          '<div style="font-size:12px;color:#94a3b8;margin-top:4px;">' + Utilities.formatDate(new Date(), tz, 'EEEE, MMMM dd, yyyy') + ' &bull; Assigned to ' + groupNames + '</div>' +
+        '</div>' +
+        '<div style="padding:24px 28px;">' +
+          '<p style="font-size:14px;color:#334155;margin-top:0;margin-bottom:14px;line-height:1.5;">Hello <strong>' + groupNames + '</strong>,<br>Here are your <strong>' + groupLeads.length + ' combined commercial business targets</strong> for today. Please coordinate between yourselves, conduct initial discovery calls, and offer our free corporate site survey:</p>' +
+          '<div style="background:#fffbeb;border:1px solid #fef3c7;border-left:4px solid #f59e0b;border-radius:6px;padding:10px 14px;margin-bottom:20px;font-size:12px;color:#92400e;line-height:1.4;">💡 <strong>Team Note:</strong> This is a combined digest for your joint territory. If any account is already active or in conversation with your team, mark it as <em>Contacted</em> in the pipeline and prioritize the new accounts.</div>' +
+          htmlCards +
+          '<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;margin-top:24px;">' +
+            '<div style="font-size:13px;color:#475569;margin-bottom:10px;">Update outreach status in the shared tracker:</div>' +
+            '<a href="' + workbookUrl + '" style="display:inline-block;padding:9px 18px;background:#0284c7;color:#ffffff;font-size:13px;font-weight:bold;text-decoration:none;border-radius:6px;">Open 03 Sales Pipeline Sheet &rarr;</a>' +
+          '</div>' +
+          '<div style="margin-top:24px;padding-top:16px;border-top:1px solid #f1f5f9;font-size:12px;color:#64748b;">' +
+            'Best regards,<br><strong style="color:#0f172a;font-size:13px;">Reformer Ejembi</strong><br>Digital &amp; Web Team Lead &bull; I-World Networks Limited<br>' +
+            '<a href="https://iworldnetworks.net" style="color:#0284c7;text-decoration:none;">iworldnetworks.net</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+
+    const plainBody = 'Good day ' + groupNames + ',\n\nHere are your ' + groupLeads.length + ' combined targets for today:\n\n' +
+      groupLeads.map(function(item, idx) {
+        const p = item.pipe || {};
+        return '[' + (idx+1) + '] ' + item.company + ' (' + (item.territory||'SW Nigeria') + ')\n' +
+          'Sector: ' + (p.sector||'Corporate') + ' | Contact: ' + (p.details||'TBD') + '\n' +
+          'Maps: ' + (p.maps||item.sourceUrl||'N/A');
+      }).join('\n\n') +
+      '\n\nUpdate status in 03 Sales Pipeline:\n' + workbookUrl + '\n\nReformer Ejembi\nDigital & Web Team Lead\nI-World Networks Limited';
+
+    const subject = '🎯 IWN Daily Leads — ' + groupLeads.length + ' Target Accounts — ' +
+      Utilities.formatDate(new Date(), tz, 'MMM dd, yyyy');
+
+    GmailApp.sendEmail(groupReps[0].email, subject, plainBody, {
+      htmlBody: htmlBody,
+      cc: groupReps.slice(1).map(function(r){return r.email;}).join(',')
+    });
+    groupReps.forEach(function(r) {
+      iwnLogDist_('DIGEST', r.email, groupLeads.length, '', today);
+    });
+  }
+
+  // ── Fire grouped digests first ─────────────────────────────────────────────
+  const henryRep    = reps.filter(function(r){ return r.name === 'Henry Adiene'; })[0];
+  const titiladeRep = reps.filter(function(r){ return r.name === 'Titilade Bakare'; })[0];
+  const elizRep     = reps.filter(function(r){ return r.name === 'Elizabeth Tola'; })[0];
+  const emmaRep     = reps.filter(function(r){ return r.name === 'Emmanuel Oladimeji'; })[0];
+
+  if (henryRep && titiladeRep) sendGroupedDigest(henryTitiGroup, [henryRep, titiladeRep]);
+  if (elizRep  && emmaRep)     sendGroupedDigest(elizEmmaGroup,  [elizRep, emmaRep]);
+
   reps.forEach(function (rep) {
+    // Skip reps handled by a group digest above
+    if (GROUPED_REPS[rep.name]) return;
     const leads = byRep[rep.name] || [];
     if (!leads.length || !rep.email) return;
     if (iwnAlreadySentToday_('DIGEST', rep.email)) return;
@@ -253,20 +385,18 @@ function sendDailyReportEmail() {
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
     'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
     '--------------------------------------------------\n' +
-    '1. BTS Customer Data Upload: Uploaded the updated BTS customer information provided by the Technical and Support teams to the CSAT platform.\n' +
-    '2. CKA Exam Proctoring Meeting: Had a meeting with the CKA team, CMO team, and Johnson to explore options for improving CKA exam proctoring. Discussed the future of the proctoring platform, proposed Chromebooks and Chrome-native tools, and aligned on next steps for improving the Chrome extension and developing a companion web application.\n' +
-    '3. CKA Web Application Architecture: Began drafting the architecture of the CKA proctoring web application to share with Johnson so co-development can commence.\n' +
-    '4. CMO Monthly Reporting Meeting: Met with the CMOs to walk them through generating usage reports from the Google Admin Console for their monthly reporting needs.\n' +
-    '5. Daily Lead Dispatch: Sent daily leads to the sales team and continued improving the lead generation and territory routing mechanism.\n' +
-    '6. Customer Engagement: Sent feedback requests and invoice reminders to current customers through the platform.\n' +
-    '7. Routine Operations: Completed routine checks on the IWN website and social media channels — no issues found.\n\n' +
+    '1. Training & Reporting — Google Admin Console: Conducted Google Admin Console training with the CMOs. Generated usage reports through the CSAT platform and attended a management update meeting on application developments and best usage practices.\n' +
+    '2. Executive Update: Shared a brief executive summary of key application insights with the CEO.\n' +
+    '3. CKE Examination Solution Development: Worked extensively on the CKE exam solution, covering both the web application and the browser extension. Implemented Single Sign-On (SSO) for the web application and began error testing.\n' +
+    '4. Sales & Leads Coordination: Sent today\'s leads to the sales team, collected their feedback, and set up new lead disbursement to commence from tomorrow.\n' +
+    '5. Brand Engagement: Responded to trending topics about network services online, particularly on Instagram, to increase brand visibility and engagement for I-World Networks.\n\n' +
     'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
     '--------------------------------------------------\n' +
-    '1. CKA Web Application: Finalize and share the application architecture with Johnson to begin co-development.\n' +
-    '2. Chrome Extension Improvements: Implement the proctoring extension enhancements agreed upon in today\'s CKA/CMO meeting.\n' +
-    '3. CMO Usage Reports: Follow up with CMOs to confirm they can independently generate their monthly Admin Console reports.\n' +
-    '4. Lead Engine: Monitor the updated territory routing (Lagos exclusion, Ota/Agbara to Janet) through the week.\n' +
-    '5. Sales Pipeline Review: Review sales rep outreach cadence on newly assigned pipeline targets.\n\n' +
+    '1. CKE Web Application: Continue SSO implementation, resolve outstanding errors from today\'s testing, and advance to the next development phase.\n' +
+    '2. CKE Browser Extension: Implement proctoring extension improvements agreed upon in the CKA/CMO sessions.\n' +
+    '3. Lead Disbursement: Begin distributing new leads to the sales team from tomorrow as planned.\n' +
+    '4. CMO Reports: Follow up with CMOs to confirm they can independently run their monthly Admin Console reports.\n' +
+    '5. Brand Engagement: Continue monitoring trending industry conversations and responding on behalf of IWN.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
