@@ -385,18 +385,18 @@ function sendDailyReportEmail() {
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
     'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
     '--------------------------------------------------\n' +
-    '1. Training & Reporting — Google Admin Console: Conducted Google Admin Console training with the CMOs. Generated usage reports through the CSAT platform and attended a management update meeting on application developments and best usage practices.\n' +
-    '2. Executive Update: Shared a brief executive summary of key application insights with the CEO.\n' +
-    '3. CKE Examination Solution Development: Worked extensively on the CKE exam solution, covering both the web application and the browser extension. Implemented Single Sign-On (SSO) for the web application and began error testing.\n' +
-    '4. Sales & Leads Coordination: Sent today\'s leads to the sales team, collected their feedback, and set up new lead disbursement to commence from tomorrow.\n' +
-    '5. Brand Engagement: Responded to trending topics about network services online, particularly on Instagram, to increase brand visibility and engagement for I-World Networks.\n\n' +
+    '1. Training & Support — Google Admin Console: Attended training with Bokola on Google Admin Console. Worked on features to enable the accounts department to pull accurate support revenue data from the CSAT platform, and explained platform usage to the accountants.\n' +
+    '2. CKA Exam Proctoring Development: Continued work on the City of Knowledge (CKE) extension and their exam proctoring web application. Tested the application with a mock Google Form. Firebase project will be created tomorrow to continue further integrations.\n' +
+    '3. Business Development & Research: Studied Calviro Studio LLC\'s request, assessed how IWN can assist them, and identified a path to onboarding them as a new business client.\n' +
+    '4. Sales & Leads: Sent today\'s daily leads to the sales team and added additional prospects to the pipeline.\n' +
+    '5. Reporting & Brand Presence: Completed and sent daily report. Worked on maintaining active and engaged social media presence for I-World Networks.\n\n' +
     'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
     '--------------------------------------------------\n' +
-    '1. CKE Web Application: Continue SSO implementation, resolve outstanding errors from today\'s testing, and advance to the next development phase.\n' +
-    '2. CKE Browser Extension: Implement proctoring extension improvements agreed upon in the CKA/CMO sessions.\n' +
-    '3. Lead Disbursement: Begin distributing new leads to the sales team from tomorrow as planned.\n' +
-    '4. CMO Reports: Follow up with CMOs to confirm they can independently run their monthly Admin Console reports.\n' +
-    '5. Brand Engagement: Continue monitoring trending industry conversations and responding on behalf of IWN.\n\n' +
+    '1. CKE Firebase Setup: Create Firebase project tomorrow to continue authentication and database integrations for the CKE proctoring web application.\n' +
+    '2. CKE Extension: Continue testing and refinement of the City of Knowledge browser extension.\n' +
+    '3. Calviro Studio LLC: Prepare a proposal or follow-up on how IWN can address their requirements and move toward onboarding.\n' +
+    '4. Accounts CSAT Feature: Monitor and validate the support revenue data pull feature now that it has been explained to the accounts team.\n' +
+    '5. Lead Engine: Continue daily lead dispatch and monitor pipeline engagement from the sales team.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
