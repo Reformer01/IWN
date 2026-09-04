@@ -385,18 +385,18 @@ function sendDailyReportEmail() {
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
     'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
     '--------------------------------------------------\n' +
-    '1. Training & Support — Google Admin Console: Attended training with Bokola on Google Admin Console. Worked on features to enable the accounts department to pull accurate support revenue data from the CSAT platform, and explained platform usage to the accountants.\n' +
-    '2. CKA Exam Proctoring Development: Continued work on the City of Knowledge (CKE) extension and their exam proctoring web application. Tested the application with a mock Google Form. Firebase project will be created tomorrow to continue further integrations.\n' +
-    '3. Business Development & Research: Studied Calviro Studio LLC\'s request, assessed how IWN can assist them, and identified a path to onboarding them as a new business client.\n' +
-    '4. Sales & Leads: Sent today\'s daily leads to the sales team and added additional prospects to the pipeline.\n' +
-    '5. Reporting & Brand Presence: Completed and sent daily report. Worked on maintaining active and engaged social media presence for I-World Networks.\n\n' +
+    '1. Doveland International School Presentation: Attended the planning meeting and received my assigned role. Attended the full presentation, presented my designated part, and answered questions from the Doveland International School team.\n' +
+    '2. Sales & Marketing: Sent today\'s daily leads to the sales team. Completed routine checks on IWN\'s social media channels.\n' +
+    '3. CKEA Exam Lock Extension & Web Application: Continued active development on the City of Knowledge exam lock browser extension and the accompanying proctoring web application. Followed up with Johnson on the development progress and next steps.\n' +
+    '4. CSAT Platform Enhancements: Incorporated feedback from the support team into the CSAT platform. Integrated ticketing SLA management, ticketing login functionality, and additional platform features.\n' +
+    '5. IT Support — PRTG IP Update: Assisted with updating the PRTG monitoring system to the new IP address as directed by the Engineer.\n\n' +
     'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
     '--------------------------------------------------\n' +
-    '1. CKE Firebase Setup: Create Firebase project tomorrow to continue authentication and database integrations for the CKE proctoring web application.\n' +
-    '2. CKE Extension: Continue testing and refinement of the City of Knowledge browser extension.\n' +
-    '3. Calviro Studio LLC: Prepare a proposal or follow-up on how IWN can address their requirements and move toward onboarding.\n' +
-    '4. Accounts CSAT Feature: Monitor and validate the support revenue data pull feature now that it has been explained to the accounts team.\n' +
-    '5. Lead Engine: Continue daily lead dispatch and monitor pipeline engagement from the sales team.\n\n' +
+    '1. Doveland International School: Follow up on action items and decisions from today\'s presentation with the Doveland team.\n' +
+    '2. CKEA Development: Continue extension and web application development; align with Johnson on upcoming milestones.\n' +
+    '3. Firebase Setup: Proceed with creating the Firebase project for the CKEA proctoring web application to enable authentication and database integrations.\n' +
+    '4. CSAT Platform: Continue iterating on the platform based on ongoing support team feedback.\n' +
+    '5. Lead Engine: Maintain daily lead dispatch and monitor sales team pipeline engagement.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
