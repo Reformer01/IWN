@@ -385,18 +385,18 @@ function sendDailyReportEmail() {
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
     'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
     '--------------------------------------------------\n' +
-    '1. Doveland International School Presentation: Attended the planning meeting and received my assigned role. Attended the full presentation, presented my designated part, and answered questions from the Doveland International School team.\n' +
-    '2. Sales & Marketing: Sent today\'s daily leads to the sales team. Completed routine checks on IWN\'s social media channels.\n' +
-    '3. CKEA Exam Lock Extension & Web Application: Continued active development on the City of Knowledge exam lock browser extension and the accompanying proctoring web application. Followed up with Johnson on the development progress and next steps.\n' +
-    '4. CSAT Platform Enhancements: Incorporated feedback from the support team into the CSAT platform. Integrated ticketing SLA management, ticketing login functionality, and additional platform features.\n' +
-    '5. IT Support — PRTG IP Update: Assisted with updating the PRTG monitoring system to the new IP address as directed by the Engineer.\n\n' +
+    '1. Calviro & Google Cloud Prospects Meeting: Attended a meeting to discuss Calviro Studio and other Google Cloud prospect proposals with management.\n' +
+    '2. Admin Console Training — Bukola: Conducted Google Admin Console training session with Bukola.\n' +
+    '3. Sales & Leads: Sent today\'s daily leads digest to the sales team.\n' +
+    '4. Google Cloud Escalation: Escalated the two Google Cloud prospect cases to Digicloud Support via email to seek guidance on how to proceed with the proposals.\n' +
+    '5. Customer Engagement — CSAT Platform: Sent payment reminders and feedback requests to customers through the CSAT platform.\n\n' +
     'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
     '--------------------------------------------------\n' +
-    '1. Doveland International School: Follow up on action items and decisions from today\'s presentation with the Doveland team.\n' +
-    '2. CKEA Development: Continue extension and web application development; align with Johnson on upcoming milestones.\n' +
-    '3. Firebase Setup: Proceed with creating the Firebase project for the CKEA proctoring web application to enable authentication and database integrations.\n' +
-    '4. CSAT Platform: Continue iterating on the platform based on ongoing support team feedback.\n' +
-    '5. Lead Engine: Maintain daily lead dispatch and monitor sales team pipeline engagement.\n\n' +
+    '1. Calviro Studio & Google Cloud Prospects: Await response from Digicloud Support and follow up to advance proposals.\n' +
+    '2. CKEA Development: Continue extension and web application development; advance Firebase integration.\n' +
+    '3. Bukola Admin Console: Confirm Bukola can independently navigate the Admin Console following today\'s training.\n' +
+    '4. Lead Engine: Maintain daily lead dispatch and monitor sales team pipeline engagement.\n' +
+    '5. CSAT Follow-Up: Track customer responses to payment reminders and feedback requests.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
