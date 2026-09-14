@@ -385,18 +385,18 @@ function sendDailyReportEmail() {
     '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
     'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
     '--------------------------------------------------\n' +
-    '1. Calviro & Google Cloud Prospects Meeting: Attended a meeting to discuss Calviro Studio and other Google Cloud prospect proposals with management.\n' +
-    '2. Admin Console Training — Bukola: Conducted Google Admin Console training session with Bukola.\n' +
-    '3. Sales & Leads: Sent today\'s daily leads digest to the sales team.\n' +
-    '4. Google Cloud Escalation: Escalated the two Google Cloud prospect cases to Digicloud Support via email to seek guidance on how to proceed with the proposals.\n' +
-    '5. Customer Engagement — CSAT Platform: Sent payment reminders and feedback requests to customers through the CSAT platform.\n\n' +
+    '1. Sales Pipeline Guidance — Team Communication: Sent the sales team a detailed guidance email on using the pipeline classifier (Column P) to update lead statuses, preventing duplicate sends and improving lead targeting accuracy.\n' +
+    '2. Monthly Google Business Alignment Meeting: Attended the monthly Google Business alignment meeting with the broader team.\n' +
+    '3. Sales Leads — Weekly Digest: Sent the weekly leads digest to the sales team.\n' +
+    '4. Sales Roles Flyer: Designed an updated flyer for open sales positions and uploaded it to all IWN social media channels. Also shared with relevant team members.\n' +
+    '5. NGFEP Website SEO: Worked on improving the NGFEP website SEO — already seeing measurable improvements in traffic and clicks.\n\n' +
     'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
     '--------------------------------------------------\n' +
-    '1. Calviro Studio & Google Cloud Prospects: Await response from Digicloud Support and follow up to advance proposals.\n' +
-    '2. CKEA Development: Continue extension and web application development; advance Firebase integration.\n' +
-    '3. Bukola Admin Console: Confirm Bukola can independently navigate the Admin Console following today\'s training.\n' +
-    '4. Lead Engine: Maintain daily lead dispatch and monitor sales team pipeline engagement.\n' +
-    '5. CSAT Follow-Up: Track customer responses to payment reminders and feedback requests.\n\n' +
+    '1. Pipeline Classifier: Monitor sales team compliance with the updated column P guidance and follow up manually on any incorrectly classified leads.\n' +
+    '2. Sales Recruitment: Monitor engagement on the open roles flyer across social media channels.\n' +
+    '3. NGFEP SEO: Continue SEO optimisation efforts and track performance metrics week-on-week.\n' +
+    '4. CKEA Development: Continue extension and web application development; advance Firebase integration.\n' +
+    '5. Lead Engine: Maintain daily lead dispatch and monitor pipeline engagement from the sales team.\n\n' +
     'DIRECT SHEET LINKS:\n' +
     '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
     '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +

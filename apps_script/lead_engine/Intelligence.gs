@@ -101,7 +101,10 @@ function recycleStaleLeads() {
   let moved = 0;
   rows.forEach(function (row, i) {
     const claimed = String(row[IWN.PIPE.CLAIMED] || '').trim();
+    // Skip leads with any set status — terminal states must never be recycled
     if (claimed) return;
+    // Extra guard: explicitly skip terminal statuses even if somehow uncaught above
+    if (/closed|dead|not ideal|existing customer/i.test(claimed)) return;
     const age = iwnDaysSince_(row[IWN.PIPE.DATE]);
     if (age < staleDays) return;
     const current = row[IWN.PIPE.REP];

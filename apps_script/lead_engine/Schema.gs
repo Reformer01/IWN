@@ -90,7 +90,17 @@ function bootstrapLeadEngineWorkbook() {
   const pipeline = ss.getSheetByName(IWN.SHEETS.PIPELINE);
   const claimedCol = pipeline.getRange(2, IWN.PIPE.CLAIMED + 1, Math.max(pipeline.getMaxRows() - 1, 1), 1);
   const rule = SpreadsheetApp.newDataValidation()
-    .requireValueInList(['', 'Claimed', 'Contacted', 'Meeting', 'Closed', 'Dead'], true)
+    .requireValueInList([
+      '',
+      'Claimed',
+      'Contacted',
+      'Meeting',
+      'Proposal Sent',
+      'Closed',
+      'Dead',
+      'Not Ideal',
+      'Existing Customer'
+    ], true)
     .setAllowInvalid(true)
     .build();
   claimedCol.setDataValidation(rule);
