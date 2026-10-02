@@ -6,6 +6,23 @@
  *  - RSS_NEWS / EVENTS (intelOnly)  → Reformer only (market intelligence)
  */
 
+function onOpen() {
+  const ui = SpreadsheetApp.getUi();
+  ui.createMenu('IWN Lead Engine')
+    .addItem('4. Send daily report to Jude', 'sendDailyReportEmail')
+    .addItem('5. Send today\'s digests to reps', 'sendRepDailyDigests')
+    .addItem('3. Update daily revenue tracker', 'updateDailyTrackerMetrics')
+    .addItem('1. Harvest leads (all sources)', 'dailyLeadHarvest')
+    .addItem('2. Process unprocessed raw leads', 'processRawInboundLeads')
+    .addItem('7. Recycle stale unclaimed leads', 'recycleStaleLeads')
+    .addSeparator()
+    .addItem('0. Bootstrap workbook tabs', 'bootstrapLeadEngineWorkbook')
+    .addItem('0. Reset & Reseed 00 Config', 'reseedConfigTab')
+    .addItem('⚙️ Configure API Keys', 'setupApiKeysModal')
+    .addItem('Add manual lead (sidebar)', 'showManualLeadSidebar')
+    .addToUi();
+}
+
 function sendRepDailyDigests() {
   bootstrapIfNeeded_();
   if (!iwnIsWeekday_()) return;
@@ -355,59 +372,181 @@ function sendDailyReportEmail() {
   const tz = ss.getSpreadsheetTimeZone();
   const dateLabel = Utilities.formatDate(new Date(), tz, 'MMM dd, yyyy');
   const recipient = String(iwnSetting_('JUDE_EMAIL', 'jude.alawode@iworldnetworks.net'));
-  const cc = String(iwnSetting_('REFORMER_EMAIL', 'reformer.ejembi@iworldnetworks.net'));
 
-  const dailyTarget = tracker.getRange('B5').getDisplayValue();
-  const dailyActual = tracker.getRange('C5').getDisplayValue();
-  const dailyVariance = tracker.getRange('D5').getDisplayValue();
-  const monthlyTarget = tracker.getRange('B6').getDisplayValue();
-  const monthlyActual = tracker.getRange('C6').getDisplayValue();
-  const pipelineCount = tracker.getRange('C7').getDisplayValue();
-  const pipelineMRR = tracker.getRange('C8').getDisplayValue();
-
-  const breakdown = iwnSourceBreakdownToday_();
   const spreadsheetId = ss.getId();
   const sheetId = tracker.getSheetId();
   const singleSheetUrl = ss.getUrl() + '#gid=' + sheetId;
-  const pdfExportUrl = 'https://docs.google.com/spreadsheets/d/' + spreadsheetId +
-    '/export?format=pdf&gid=' + sheetId + '&portrait=false&size=A4&fitw=true';
 
-  const subject = 'Daily Revenue & Activity Report — ' + dateLabel;
-  const body = 'Dear Mr. Jude,\n\n' +
-    'Please find my daily report for ' + dateLabel + ':\n\n' +
-    'REVENUE PERFORMANCE & PIPELINE TRACKING\n' +
-    '--------------------------------------------------\n' +
-    '- Daily Revenue Target: ' + dailyTarget + '\n' +
-    '- Daily Revenue Closed Today: ' + dailyActual + ' (Variance: ' + dailyVariance + ')\n' +
-    '- Monthly Revenue Target: ' + monthlyTarget + '\n' +
-    '- MTD Revenue Closed: ' + monthlyActual + '\n' +
-    '- Qualified Pipeline Leads: ' + pipelineCount + '\n' +
-    '- Total Pipeline MRR Value: ' + pipelineMRR + '\n\n' +
-    'TECHNICAL, DIGITAL & MANAGEMENT ACHIEVEMENTS TODAY\n' +
-    '--------------------------------------------------\n' +
-    '1. Sales Pipeline Guidance — Team Communication: Sent the sales team a detailed guidance email on using the pipeline classifier (Column P) to update lead statuses, preventing duplicate sends and improving lead targeting accuracy.\n' +
-    '2. Monthly Google Business Alignment Meeting: Attended the monthly Google Business alignment meeting with the broader team.\n' +
-    '3. Sales Leads — Weekly Digest: Sent the weekly leads digest to the sales team.\n' +
-    '4. Sales Roles Flyer: Designed an updated flyer for open sales positions and uploaded it to all IWN social media channels. Also shared with relevant team members.\n' +
-    '5. NGFEP Website SEO: Worked on improving the NGFEP website SEO — already seeing measurable improvements in traffic and clicks.\n\n' +
-    'NEXT STEPS & IMMEDIATE ACTION ITEMS\n' +
-    '--------------------------------------------------\n' +
-    '1. Pipeline Classifier: Monitor sales team compliance with the updated column P guidance and follow up manually on any incorrectly classified leads.\n' +
-    '2. Sales Recruitment: Monitor engagement on the open roles flyer across social media channels.\n' +
-    '3. NGFEP SEO: Continue SEO optimisation efforts and track performance metrics week-on-week.\n' +
-    '4. CKEA Development: Continue extension and web application development; advance Firebase integration.\n' +
-    '5. Lead Engine: Maintain daily lead dispatch and monitor pipeline engagement from the sales team.\n\n' +
-    'DIRECT SHEET LINKS:\n' +
-    '- Open Revenue Tracker: ' + singleSheetUrl + '\n' +
-    '- Download PDF (Tracker Only): ' + pdfExportUrl + '\n\n' +
-    'Best regards,\n\n' +
+  const conv = iwnLeadConversionStats_();
+  const subject = 'Daily Activity Report - ' + dateLabel;
+
+  let closedDetailsHtml = '';
+  let closedDetailsText = '';
+  if (conv.closedDeals.length > 0) {
+    closedDetailsHtml = '<br><span style="color: #15803d; font-size: 12px;">Deals Won: ' +
+      conv.closedDeals.map(function(d){ return d.company + ' (' + (d.rep || 'Sales') + ' - ₦' + d.mrr.toLocaleString() + ')'; }).join(', ') + '</span>';
+    closedDetailsText = '\n  Deals: ' + conv.closedDeals.map(function(d){ return d.company + ' (' + (d.rep || 'Sales') + ' - ₦' + d.mrr.toLocaleString() + ')'; }).join(', ');
+  }
+
+  const htmlBody = '<div style="font-family: Arial, sans-serif; font-size: 14px; color: #222222; line-height: 1.5;">' +
+    '<p>Dear Mr. Jude,</p>' +
+    '<p>Please find my daily report for ' + dateLabel + ' below:</p>' +
+    '<table style="width: 100%; max-width: 780px; border-collapse: collapse; border: 1px solid #333333; margin: 18px 0; font-size: 13px;">' +
+      '<tr>' +
+        '<td style="width: 25%; padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">Tasks Completed Today</td>' +
+        '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
+          '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
+            '<li style="margin-bottom: 8px;">Had a meeting with Mr. Jeffrey on improving sales lead conversions and CSAT data accuracy. Adjourned to tomorrow due to the unavailability of key members from the sales, support, and accounts teams.</li>' +
+            '<li style="margin-bottom: 8px;">Escalated Digicloud\'s requirements for the CUAB license increase to the CUAB team. Freed up 431 licenses by archiving inactive users in the process.</li>' +
+            '<li style="margin-bottom: 8px;">Tested the CKA exam lock extension with Mr. Kenny during the school\'s first test of the session.</li>' +
+            '<li style="margin-bottom: 8px;">Followed up on the FUMSSA deal and communicated management\'s feedback to Johnson.</li>' +
+            '<li style="margin-bottom: 4px;">Sent the daily leads digest to the sales team.</li>' +
+          '</ul>' +
+        '</td>' +
+      '</tr>' +
+      '<tr>' +
+        '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">2. Sales Leads & Pipeline Tracking</td>' +
+        '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
+          '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
+            '<li style="margin-bottom: 6px;"><strong>Closed Won:</strong> ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsHtml + '</li>' +
+            '<li style="margin-bottom: 6px;"><strong>Active Outreach:</strong> ' + conv.contacted + ' Contacted &bull; ' + conv.meeting + ' Meeting &bull; ' + conv.proposalSent + ' Proposal Sent &bull; ' + conv.claimed + ' Claimed</li>' +
+            '<li style="margin-bottom: 6px;"><strong>Classified Out:</strong> ' + conv.existingCustomer + ' Existing Customer &bull; ' + conv.notIdeal + ' Not Ideal &bull; ' + conv.dead + ' Dead</li>' +
+            '<li style="margin-bottom: 4px;"><strong>Pending Outreach:</strong> ' + conv.unclaimed + ' unassigned / awaiting rep update</li>' +
+          '</ul>' +
+        '</td>' +
+      '</tr>' +
+      '<tr>' +
+        '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">3. Planned Tasks</td>' +
+        '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
+          '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
+            '<li style="margin-bottom: 6px;">Resume the meeting with Mr. Jeffrey, sales, support, and accounts teams on lead conversion and CSAT improvements.</li>' +
+            '<li style="margin-bottom: 6px;">Meeting with Candice and Lerato on upgrading our status to certified Google partners.</li>' +
+            '<li style="margin-bottom: 4px;">Continue follow-up on the FUMSSA deal.</li>' +
+          '</ul>' +
+        '</td>' +
+      '</tr>' +
+      '<tr>' +
+        '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">4. Challenges / Blockers</td>' +
+        '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">None</td>' +
+      '</tr>' +
+      '<tr>' +
+        '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">5. Recommendations</td>' +
+        '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">None</td>' +
+      '</tr>' +
+    '</table>' +
+    '<p style="margin-top: 16px;">The updated revenue figures and pipeline tracking can be reviewed in the <a href="' + singleSheetUrl + '" target="_blank" style="color: #1a73e8; text-decoration: underline;">Revenue and Pipeline Tracker</a>.</p>' +
+    '<p style="margin-top: 20px;">Best regards,<br><strong>Reformer Ejembi</strong><br>Digital & Web Team Lead<br>I-World Networks Limited</p>' +
+  '</div>';
+
+  const plainBody = 'Dear Mr. Jude,\n\n' +
+    'Please find my daily report for ' + dateLabel + ' below:\n\n' +
+    'Tasks Completed Today:\n' +
+    '- Had a meeting with Mr. Jeffrey on improving sales lead conversions and CSAT data accuracy. Adjourned to tomorrow due to the unavailability of key members from the sales, support, and accounts teams.\n' +
+    '- Escalated Digicloud\'s requirements for the CUAB license increase to the CUAB team. Freed up 431 licenses by archiving inactive users in the process.\n' +
+    '- Tested the CKA exam lock extension with Mr. Kenny during the school\'s first test of the session.\n' +
+    '- Followed up on the FUMSSA deal and communicated management\'s feedback to Johnson.\n' +
+    '- Sent the daily leads digest to the sales team.\n\n' +
+    '2. Sales Leads & Pipeline Tracking:\n' +
+    '- Closed Won: ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsText + '\n' +
+    '- Active Outreach: ' + conv.contacted + ' Contacted, ' + conv.meeting + ' Meeting, ' + conv.proposalSent + ' Proposal Sent, ' + conv.claimed + ' Claimed\n' +
+    '- Classified Out: ' + conv.existingCustomer + ' Existing Customer, ' + conv.notIdeal + ' Not Ideal, ' + conv.dead + ' Dead\n' +
+    '- Pending Outreach: ' + conv.unclaimed + ' unassigned / awaiting rep update\n\n' +
+    '3. Planned Tasks:\n' +
+    '- Resume the meeting with Mr. Jeffrey, sales, support, and accounts teams on lead conversion and CSAT improvements.\n' +
+    '- Meeting with Candice and Lerato on upgrading our status to certified Google partners.\n' +
+    '- Continue follow-up on the FUMSSA deal.\n\n' +
+    '4. Challenges / Blockers:\n' +
+    'None\n\n' +
+    '5. Recommendations:\n' +
+    'None\n\n' +
+    'The updated revenue figures and pipeline tracking can be reviewed in the Revenue and Pipeline Tracker:\n' +
+    singleSheetUrl + '\n\n' +
+    'Best regards,\n' +
     'Reformer Ejembi\n' +
     'Digital & Web Team Lead\n' +
     'I-World Networks Limited';
 
-  GmailApp.sendEmail(recipient, subject, body, { cc: cc });
+  GmailApp.sendEmail(recipient, subject, plainBody, { htmlBody: htmlBody });
   try { SpreadsheetApp.getUi().alert('Daily report emailed to ' + recipient); } catch (e) {}
   iwnLogDist_('JUDE_REPORT', recipient, 0, '', dateLabel);
+}
+
+function iwnLeadConversionStats_() {
+  const sheet = iwnSheet_(IWN.SHEETS.PIPELINE);
+  const last = sheet.getLastRow();
+  if (last < 2) {
+    return {
+      total: 0,
+      claimed: 0,
+      contacted: 0,
+      meeting: 0,
+      proposalSent: 0,
+      closedCount: 0,
+      closedMRR: 0,
+      closedDeals: [],
+      dead: 0,
+      notIdeal: 0,
+      existingCustomer: 0,
+      unclaimed: 0
+    };
+  }
+  const rows = sheet.getRange(2, 1, last - 1, IWN.HEADERS.PIPELINE.length).getValues();
+  let claimed = 0, contacted = 0, meeting = 0, proposalSent = 0;
+  let closedCount = 0, closedMRR = 0;
+  let dead = 0, notIdeal = 0, existingCustomer = 0, unclaimed = 0;
+  const closedDeals = [];
+
+  rows.forEach(function (r) {
+    const rawColP = String(r[IWN.PIPE.CLAIMED] || '').trim();
+    const status = rawColP || String(r[IWN.PIPE.STATUS] || '').trim();
+
+    let rawMrr = r[IWN.PIPE.MRR];
+    let mrr = 0;
+    if (typeof rawMrr === 'number') {
+      mrr = rawMrr;
+    } else if (rawMrr) {
+      mrr = Number(String(rawMrr).replace(/[^0-9.]/g, '')) || 0;
+    }
+    const company = String(r[IWN.PIPE.COMPANY] || '').trim();
+    const rep = String(r[IWN.PIPE.REP] || '').trim();
+
+    if (/closed/i.test(status)) {
+      closedCount++;
+      closedMRR += mrr;
+      if (company) closedDeals.push({ company: company, rep: rep, mrr: mrr });
+    } else if (/proposal/i.test(status)) {
+      proposalSent++;
+    } else if (/meeting/i.test(status)) {
+      meeting++;
+    } else if (/contacted/i.test(status)) {
+      contacted++;
+    } else if (/claimed/i.test(status)) {
+      claimed++;
+    } else if (/existing/i.test(status)) {
+      existingCustomer++;
+    } else if (/not\s*ideal/i.test(status)) {
+      notIdeal++;
+    } else if (/dead/i.test(status)) {
+      dead++;
+    } else {
+      unclaimed++;
+    }
+  });
+
+  return {
+    total: rows.length,
+    claimed: claimed,
+    contacted: contacted,
+    meeting: meeting,
+    proposalSent: proposalSent,
+    closedCount: closedCount,
+    closedMRR: closedMRR,
+    closedDeals: closedDeals,
+    dead: dead,
+    notIdeal: notIdeal,
+    existingCustomer: existingCustomer,
+    unclaimed: unclaimed
+  };
 }
 
 function iwnLoadPipelineById_() {
