@@ -396,11 +396,10 @@ function sendDailyReportEmail() {
         '<td style="width: 25%; padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">Tasks Completed Today</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
           '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 8px;">Had a meeting with Mr. Jeffrey on improving sales lead conversions and CSAT data accuracy. Adjourned to tomorrow due to the unavailability of key members from the sales, support, and accounts teams.</li>' +
-            '<li style="margin-bottom: 8px;">Escalated Digicloud\'s requirements for the CUAB license increase to the CUAB team. Freed up 431 licenses by archiving inactive users in the process.</li>' +
-            '<li style="margin-bottom: 8px;">Tested the CKA exam lock extension with Mr. Kenny during the school\'s first test of the session.</li>' +
-            '<li style="margin-bottom: 8px;">Followed up on the FUMSSA deal and communicated management\'s feedback to Johnson.</li>' +
-            '<li style="margin-bottom: 4px;">Sent the daily leads digest to the sales team.</li>' +
+            '<li style="margin-bottom: 8px;">Started the Associate Cloud Engineer certification, as it is part of the technical credentials recommended by Digicloud.</li>' +
+            '<li style="margin-bottom: 8px;">Sent the daily lead digest to the sales team.</li>' +
+            '<li style="margin-bottom: 8px;">Removed connection fee information and fixed a few syntax errors on the company website.</li>' +
+            '<li style="margin-bottom: 4px;">Conducted Google Services and NGFEP orientation training with the new staff member, Grace.</li>' +
           '</ul>' +
         '</td>' +
       '</tr>' +
@@ -418,11 +417,8 @@ function sendDailyReportEmail() {
       '<tr>' +
         '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">3. Planned Tasks</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
-          '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 6px;">Resume the meeting with Mr. Jeffrey, sales, support, and accounts teams on lead conversion and CSAT improvements.</li>' +
-            '<li style="margin-bottom: 6px;">Meeting with Candice and Lerato on upgrading our status to certified Google partners.</li>' +
-            '<li style="margin-bottom: 4px;">Continue follow-up on the FUMSSA deal.</li>' +
-          '</ul>' +
+          'None' +
+          '' +
         '</td>' +
       '</tr>' +
       '<tr>' +
@@ -441,20 +437,17 @@ function sendDailyReportEmail() {
   const plainBody = 'Dear Mr. Jude,\n\n' +
     'Please find my daily report for ' + dateLabel + ' below:\n\n' +
     'Tasks Completed Today:\n' +
-    '- Had a meeting with Mr. Jeffrey on improving sales lead conversions and CSAT data accuracy. Adjourned to tomorrow due to the unavailability of key members from the sales, support, and accounts teams.\n' +
-    '- Escalated Digicloud\'s requirements for the CUAB license increase to the CUAB team. Freed up 431 licenses by archiving inactive users in the process.\n' +
-    '- Tested the CKA exam lock extension with Mr. Kenny during the school\'s first test of the session.\n' +
-    '- Followed up on the FUMSSA deal and communicated management\'s feedback to Johnson.\n' +
-    '- Sent the daily leads digest to the sales team.\n\n' +
+    '- Started the Associate Cloud Engineer certification, as it is part of the technical credentials recommended by Digicloud.\n' +
+    '- Sent the daily lead digest to the sales team.\n' +
+    '- Removed connection fee information and fixed a few syntax errors on the company website.\n' +
+    '- Conducted Google Services and NGFEP orientation training with the new staff member, Grace.\n\n' +
     '2. Sales Leads & Pipeline Tracking:\n' +
     '- Closed Won: ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsText + '\n' +
     '- Active Outreach: ' + conv.contacted + ' Contacted, ' + conv.meeting + ' Meeting, ' + conv.proposalSent + ' Proposal Sent, ' + conv.claimed + ' Claimed\n' +
     '- Classified Out: ' + conv.existingCustomer + ' Existing Customer, ' + conv.notIdeal + ' Not Ideal, ' + conv.dead + ' Dead\n' +
     '- Pending Outreach: ' + conv.unclaimed + ' unassigned / awaiting rep update\n\n' +
     '3. Planned Tasks:\n' +
-    '- Resume the meeting with Mr. Jeffrey, sales, support, and accounts teams on lead conversion and CSAT improvements.\n' +
-    '- Meeting with Candice and Lerato on upgrading our status to certified Google partners.\n' +
-    '- Continue follow-up on the FUMSSA deal.\n\n' +
+    'None\n\n' +
     '4. Challenges / Blockers:\n' +
     'None\n\n' +
     '5. Recommendations:\n' +
