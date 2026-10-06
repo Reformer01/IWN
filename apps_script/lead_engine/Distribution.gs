@@ -396,10 +396,13 @@ function sendDailyReportEmail() {
         '<td style="width: 25%; padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">Tasks Completed Today</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
           '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 8px;">Started the Associate Cloud Engineer certification, as it is part of the technical credentials recommended by Digicloud.</li>' +
-            '<li style="margin-bottom: 8px;">Sent the daily lead digest to the sales team.</li>' +
-            '<li style="margin-bottom: 8px;">Removed connection fee information and fixed a few syntax errors on the company website.</li>' +
-            '<li style="margin-bottom: 4px;">Conducted Google Services and NGFEP orientation training with the new staff member, Grace.</li>' +
+            '<li style="margin-bottom: 8px;">Verified the Achievers University hotspot page fix.</li>' +
+            '<li style="margin-bottom: 8px;">Attended sales meeting to discuss daily leads conversions, future paid ads plans, CSAT regional growth metrics, and enterprise leads pipeline integration.</li>' +
+            '<li style="margin-bottom: 8px;">Sent daily leads digest to sales team.</li>' +
+            '<li style="margin-bottom: 8px;">Hid NGFEP page links from the IWN website.</li>' +
+            '<li style="margin-bottom: 8px;">Worked on new CSAT platform features following the sales department meeting.</li>' +
+            '<li style="margin-bottom: 8px;">Uploaded June &ndash; September closed sales deals to the CSAT platform.</li>' +
+            '<li style="margin-bottom: 4px;">Completed hands-on lab for Associate Google Cloud Engineer certification covering IAM and Admin.</li>' +
           '</ul>' +
         '</td>' +
       '</tr>' +
@@ -437,10 +440,13 @@ function sendDailyReportEmail() {
   const plainBody = 'Dear Mr. Jude,\n\n' +
     'Please find my daily report for ' + dateLabel + ' below:\n\n' +
     'Tasks Completed Today:\n' +
-    '- Started the Associate Cloud Engineer certification, as it is part of the technical credentials recommended by Digicloud.\n' +
-    '- Sent the daily lead digest to the sales team.\n' +
-    '- Removed connection fee information and fixed a few syntax errors on the company website.\n' +
-    '- Conducted Google Services and NGFEP orientation training with the new staff member, Grace.\n\n' +
+    '- Verified the Achievers University hotspot page fix.\n' +
+    '- Attended sales meeting to discuss daily leads conversions, future paid ads plans, CSAT regional growth metrics, and enterprise leads pipeline integration.\n' +
+    '- Sent daily leads digest to sales team.\n' +
+    '- Hid NGFEP page links from the IWN website.\n' +
+    '- Worked on new CSAT platform features following the sales department meeting.\n' +
+    '- Uploaded June - September closed sales deals to the CSAT platform.\n' +
+    '- Completed hands-on lab for Associate Google Cloud Engineer certification covering IAM and Admin.\n\n' +
     '2. Sales Leads & Pipeline Tracking:\n' +
     '- Closed Won: ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsText + '\n' +
     '- Active Outreach: ' + conv.contacted + ' Contacted, ' + conv.meeting + ' Meeting, ' + conv.proposalSent + ' Proposal Sent, ' + conv.claimed + ' Claimed\n' +
