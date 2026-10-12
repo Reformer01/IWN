@@ -418,7 +418,11 @@ function sendDailyReportEmail() {
       '<tr>' +
         '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">3. Planned Tasks</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
-          'None' +
+          '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
+            '<li style="margin-bottom: 8px;">Follow up with Johnson on the FUMSSA invoice.</li>' +
+            '<li style="margin-bottom: 8px;">Continue Cloud Engineer Certification learning path.</li>' +
+            '<li style="margin-bottom: 4px;">Complete the provisioning of Regents\' licenses once feedback is received from Google.</li>' +
+          '</ul>' +
         '</td>' +
       '</tr>' +
       '<tr>' +
@@ -448,7 +452,9 @@ function sendDailyReportEmail() {
     '- Classified Out: ' + conv.existingCustomer + ' Existing Customer, ' + conv.notIdeal + ' Not Ideal, ' + conv.dead + ' Dead\n' +
     '- Pending Outreach: ' + conv.unclaimed + ' unassigned / awaiting rep update\n\n' +
     '3. Planned Tasks:\n' +
-    'None\n\n' +
+    '- Follow up with Johnson on the FUMSSA invoice.\n' +
+    '- Continue Cloud Engineer Certification learning path.\n' +
+    '- Complete the provisioning of Regents\' licenses once feedback is received from Google.\n\n' +
     '4. Challenges / Blockers:\n' +
     'None\n\n' +
     '5. Recommendations:\n' +
