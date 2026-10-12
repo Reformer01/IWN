@@ -396,10 +396,11 @@ function sendDailyReportEmail() {
         '<td style="width: 25%; padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">Tasks Completed Today</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
           '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 8px;">Sent daily lead digest to the sales staff.</li>' +
-            '<li style="margin-bottom: 8px;">Designed Customer Service Week visual graphic.</li>' +
-            '<li style="margin-bottom: 8px;">Started development of the centralized platform for integration and remote access of biometric machines.</li>' +
-            '<li style="margin-bottom: 4px;">Continued work on integrating the sales team enterprise leads pipeline into the CSAT platform.</li>' +
+            '<li style="margin-bottom: 8px;">Sent daily lead digest to the sales team.</li>' +
+            '<li style="margin-bottom: 8px;">Completed reseller transfer of the Regents International School client to our portfolio, and submitted the special request form for Chrome Education Upgrade licenses.</li>' +
+            '<li style="margin-bottom: 8px;">Researched and evaluated Hoop Telecoms\' proposal, providing feedback and recommended next steps to management.</li>' +
+            '<li style="margin-bottom: 8px;">Resolved a 2-Step Verification (2SV) issue for Johnson on his new Lifeforte Workspace account.</li>' +
+            '<li style="margin-bottom: 4px;">Assisted the CMOs at CUAB in resolving an issue preventing them from adding a new user on a Chromebook.</li>' +
           '</ul>' +
         '</td>' +
       '</tr>' +
@@ -417,11 +418,7 @@ function sendDailyReportEmail() {
       '<tr>' +
         '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">3. Planned Tasks</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
-          '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 8px;">Finish development of the biometric dashboard demo.</li>' +
-            '<li style="margin-bottom: 8px;">Continue Associate Cloud Engineer certification course.</li>' +
-            '<li style="margin-bottom: 4px;">Finalise LinkedIn ads plan.</li>' +
-          '</ul>' +
+          'None' +
         '</td>' +
       '</tr>' +
       '<tr>' +
@@ -440,19 +437,18 @@ function sendDailyReportEmail() {
   const plainBody = 'Dear Mr. Jude,\n\n' +
     'Please find my daily report for ' + dateLabel + ' below:\n\n' +
     'Tasks Completed Today:\n' +
-    '- Sent daily lead digest to the sales staff.\n' +
-    '- Designed Customer Service Week visual graphic.\n' +
-    '- Started development of the centralized platform for integration and remote access of biometric machines.\n' +
-    '- Continued work on integrating the sales team enterprise leads pipeline into the CSAT platform.\n\n' +
+    '- Sent daily lead digest to the sales team.\n' +
+    '- Completed reseller transfer of the Regents International School client to our portfolio, and submitted the special request form for Chrome Education Upgrade licenses.\n' +
+    '- Researched and evaluated Hoop Telecoms\' proposal, providing feedback and recommended next steps to management.\n' +
+    '- Resolved a 2-Step Verification (2SV) issue for Johnson on his new Lifeforte Workspace account.\n' +
+    '- Assisted the CMOs at CUAB in resolving an issue preventing them from adding a new user on a Chromebook.\n\n' +
     '2. Sales Leads & Pipeline Tracking:\n' +
     '- Closed Won: ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsText + '\n' +
     '- Active Outreach: ' + conv.contacted + ' Contacted, ' + conv.meeting + ' Meeting, ' + conv.proposalSent + ' Proposal Sent, ' + conv.claimed + ' Claimed\n' +
     '- Classified Out: ' + conv.existingCustomer + ' Existing Customer, ' + conv.notIdeal + ' Not Ideal, ' + conv.dead + ' Dead\n' +
     '- Pending Outreach: ' + conv.unclaimed + ' unassigned / awaiting rep update\n\n' +
     '3. Planned Tasks:\n' +
-    '- Finish development of the biometric dashboard demo.\n' +
-    '- Continue Associate Cloud Engineer certification course.\n' +
-    '- Finalise LinkedIn ads plan.\n\n' +
+    'None\n\n' +
     '4. Challenges / Blockers:\n' +
     'None\n\n' +
     '5. Recommendations:\n' +
