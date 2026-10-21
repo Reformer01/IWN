@@ -397,12 +397,9 @@ function sendDailyReportEmail() {
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
           '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
             '<li style="margin-bottom: 8px;">Sent daily lead digest to the sales team.</li>' +
-            '<li style="margin-bottom: 8px;">Followed up on Regents license provisioning process and updated the client that the licenses have been successfully provisioned.</li>' +
-            '<li style="margin-bottom: 8px;">Created company recruitment accounts on Indeed, MyJobMag, and JobGuru. Posted the Sales Executive opening on Indeed (added Mr. Jude and HR as admin reviewers) while JobGuru identity verification is ongoing.</li>' +
-            '<li style="margin-bottom: 8px;">Continued Google Cloud Engineer certification learning path.</li>' +
-            '<li style="margin-bottom: 8px;">Biometric Platform (Features & Admin): Implemented employee bulk CSV import, timezone-aware punch corrections, soft deactivate/reactivate, branch/device editing, and role-gated user administration.</li>' +
-            '<li style="margin-bottom: 8px;">Biometric Platform (Ingest Pipeline): Enabled detailed TCP gateway logging in <code>/var/log/attendance-gateway.log</code>, verified public accessibility on port 5005, and validated end-to-end simulated device punches through queue and sightings.</li>' +
-            '<li style="margin-bottom: 4px;">Biometric Platform (Bug Fixes & Mobile UI): Fixed report date filter, CSV column mapping, dynamic Postgres parameters, and dialog dropdown labels; optimized all pages for mobile (390px) and established green testing baseline (53 tests).</li>' +
+            '<li style="margin-bottom: 8px;">Developed the NGFEP K-12 page on the NGFEP website using comprehensive source materials provided by management (completion scheduled for tomorrow).</li>' +
+            '<li style="margin-bottom: 8px;">Prepared the virtual attendance system ahead of scheduled testing and live demonstration tomorrow.</li>' +
+            '<li style="margin-bottom: 4px;">Completed the CPQ (Configure, Price, Quote) system codebase in line with management specifications (with optional proposal template drafting remaining).</li>' +
           '</ul>' +
         '</td>' +
       '</tr>' +
@@ -421,9 +418,9 @@ function sendDailyReportEmail() {
         '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">3. Planned Tasks</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
           '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 8px;">Work with Tosin from Ibadan to update their ZKTeco terminal settings and test live attendance sync.</li>' +
-            '<li style="margin-bottom: 8px;">Continue Google Cloud Engineer certification course.</li>' +
-            '<li style="margin-bottom: 4px;">Finalize JobGuru verification and post the remaining job vacancy listings.</li>' +
+            '<li style="margin-bottom: 8px;">Finalize and publish the NGFEP K-12 page on the NGFEP website.</li>' +
+            '<li style="margin-bottom: 8px;">Conduct testing and live demo of the virtual attendance system.</li>' +
+            '<li style="margin-bottom: 4px;">Draft optional proposal templates for the CPQ system.</li>' +
           '</ul>' +
         '</td>' +
       '</tr>' +
@@ -444,21 +441,18 @@ function sendDailyReportEmail() {
     'Please find my daily report for ' + dateLabel + ' below:\n\n' +
     'Tasks Completed Today:\n' +
     '- Sent daily lead digest to the sales team.\n' +
-    '- Followed up on Regents license provisioning process and updated the client that the licenses have been successfully provisioned.\n' +
-    '- Created company recruitment accounts on Indeed, MyJobMag, and JobGuru. Posted the Sales Executive opening on Indeed (added Mr. Jude and HR as admin reviewers) while JobGuru identity verification is ongoing.\n' +
-    '- Continued Google Cloud Engineer certification learning path.\n' +
-    '- Biometric Platform (Features & Admin): Implemented employee bulk CSV import, timezone-aware punch corrections, soft deactivate/reactivate, branch/device editing, and role-gated user administration.\n' +
-    '- Biometric Platform (Ingest Pipeline): Enabled detailed TCP gateway logging in /var/log/attendance-gateway.log, verified public accessibility on port 5005, and validated end-to-end simulated device punches through queue and sightings.\n' +
-    '- Biometric Platform (Bug Fixes & Mobile UI): Fixed report date filter, CSV column mapping, dynamic Postgres parameters, and dialog dropdown labels; optimized all pages for mobile (390px) and established green testing baseline (53 tests).\n\n' +
+    '- Developed the NGFEP K-12 page on the NGFEP website using comprehensive source materials provided by management (completion scheduled for tomorrow).\n' +
+    '- Prepared the virtual attendance system ahead of scheduled testing and live demonstration tomorrow.\n' +
+    '- Completed the CPQ (Configure, Price, Quote) system codebase in line with management specifications (with optional proposal template drafting remaining).\n\n' +
     '2. Sales Leads & Pipeline Tracking:\n' +
     '- Closed Won: ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsText + '\n' +
     '- Active Outreach: ' + conv.contacted + ' Contacted, ' + conv.meeting + ' Meeting, ' + conv.proposalSent + ' Proposal Sent, ' + conv.claimed + ' Claimed\n' +
     '- Classified Out: ' + conv.existingCustomer + ' Existing Customer, ' + conv.notIdeal + ' Not Ideal, ' + conv.dead + ' Dead\n' +
     '- Pending Outreach: ' + conv.unclaimed + ' unassigned / awaiting rep update\n\n' +
     '3. Planned Tasks:\n' +
-    '- Work with Tosin from Ibadan to update their ZKTeco terminal settings and test live attendance sync.\n' +
-    '- Continue Google Cloud Engineer certification course.\n' +
-    '- Finalize JobGuru verification and post the remaining job vacancy listings.\n\n' +
+    '- Finalize and publish the NGFEP K-12 page on the NGFEP website.\n' +
+    '- Conduct testing and live demo of the virtual attendance system.\n' +
+    '- Draft optional proposal templates for the CPQ system.\n\n' +
     '4. Challenges / Blockers:\n' +
     'None\n\n' +
     '5. Recommendations:\n' +
