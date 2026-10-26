@@ -396,10 +396,11 @@ function sendDailyReportEmail() {
         '<td style="width: 25%; padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">Tasks Completed Today</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
           '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 8px;">Added additional features to the virtual punch-in / attendance platform.</li>' +
-            '<li style="margin-bottom: 8px;">Sent customer churn risk win-back email campaign (443 emails) via the CSAT platform, offering 2 weeks complimentary service added to their monthly subscription upon return.</li>' +
-            '<li style="margin-bottom: 8px;">Forwarded customer survey feedback to the billing and support teams for operational review and action.</li>' +
-            '<li style="margin-bottom: 4px;">Trained the billing team on leveraging the CSAT platform to design email campaigns, resolve customer complaints, and monitor email open rates and financial metrics.</li>' +
+            '<li style="margin-bottom: 8px;">Sent daily leads digest to the sales team.</li>' +
+            '<li style="margin-bottom: 8px;">Dispatched the remaining batch of churned customer win-back messages (978 emails) via the CSAT platform.</li>' +
+            '<li style="margin-bottom: 8px;">Presented demonstrations of the CPQ (Configure, Price, Quote) and Virtual Attendance platforms to management.</li>' +
+            '<li style="margin-bottom: 8px;">Implemented minor adjustments on the attendance platform following management feedback.</li>' +
+            '<li style="margin-bottom: 4px;">Advanced CPQ platform development based on extensive feedback and specifications provided by the Chairman, pending another review on Wednesday.</li>' +
           '</ul>' +
         '</td>' +
       '</tr>' +
@@ -418,8 +419,8 @@ function sendDailyReportEmail() {
         '<td style="padding: 12px; font-weight: bold; vertical-align: top; border: 1px solid #333333; background: #fafafa;">3. Planned Tasks</td>' +
         '<td style="padding: 12px; vertical-align: top; border: 1px solid #333333;">' +
           '<ul style="margin: 0; padding-left: 18px; line-height: 1.6;">' +
-            '<li style="margin-bottom: 8px;">Present CPQ (Configure, Price, Quote) and virtual attendance system demonstrations to management.</li>' +
-            '<li style="margin-bottom: 4px;">Send an additional 978 churn risk win-back messages to targeted customers.</li>' +
+            '<li style="margin-bottom: 8px;">Finalize CPQ platform updates based on the Chairman\'s feedback ahead of Wednesday\'s review.</li>' +
+            '<li style="margin-bottom: 4px;">Monitor delivery and response metrics from the completed 978 customer win-back campaign.</li>' +
           '</ul>' +
         '</td>' +
       '</tr>' +
@@ -439,18 +440,19 @@ function sendDailyReportEmail() {
   const plainBody = 'Dear Mr. Jude,\n\n' +
     'Please find my daily report for ' + dateLabel + ' below:\n\n' +
     'Tasks Completed Today:\n' +
-    '- Added additional features to the virtual punch-in / attendance platform.\n' +
-    '- Sent customer churn risk win-back email campaign (443 emails) via the CSAT platform, offering 2 weeks complimentary service added to their monthly subscription upon return.\n' +
-    '- Forwarded customer survey feedback to the billing and support teams for operational review and action.\n' +
-    '- Trained the billing team on leveraging the CSAT platform to design email campaigns, resolve customer complaints, and monitor email open rates and financial metrics.\n\n' +
+    '- Sent daily leads digest to the sales team.\n' +
+    '- Dispatched the remaining batch of churned customer win-back messages (978 emails) via the CSAT platform.\n' +
+    '- Presented demonstrations of the CPQ (Configure, Price, Quote) and Virtual Attendance platforms to management.\n' +
+    '- Implemented minor adjustments on the attendance platform following management feedback.\n' +
+    '- Advanced CPQ platform development based on extensive feedback and specifications provided by the Chairman, pending another review on Wednesday.\n\n' +
     '2. Sales Leads & Pipeline Tracking:\n' +
     '- Closed Won: ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsText + '\n' +
     '- Active Outreach: ' + conv.contacted + ' Contacted, ' + conv.meeting + ' Meeting, ' + conv.proposalSent + ' Proposal Sent, ' + conv.claimed + ' Claimed\n' +
     '- Classified Out: ' + conv.existingCustomer + ' Existing Customer, ' + conv.notIdeal + ' Not Ideal, ' + conv.dead + ' Dead\n' +
     '- Pending Outreach: ' + conv.unclaimed + ' unassigned / awaiting rep update\n\n' +
     '3. Planned Tasks:\n' +
-    '- Present CPQ (Configure, Price, Quote) and virtual attendance system demonstrations to management.\n' +
-    '- Send an additional 978 churn risk win-back messages to targeted customers.\n\n' +
+    '- Finalize CPQ platform updates based on the Chairman\'s feedback ahead of Wednesday\'s review.\n' +
+    '- Monitor delivery and response metrics from the completed 978 customer win-back campaign.\n\n' +
     '4. Challenges / Blockers:\n' +
     'None\n\n' +
     '5. Recommendations:\n' +
