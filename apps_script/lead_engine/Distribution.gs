@@ -400,6 +400,7 @@ function sendDailyReportEmail() {
             '<li style="margin-bottom: 8px;">Dispatched the remaining batch of churned customer win-back messages (978 emails) via the CSAT platform.</li>' +
             '<li style="margin-bottom: 8px;">Presented demonstrations of the CPQ (Configure, Price, Quote) and Virtual Attendance platforms to management.</li>' +
             '<li style="margin-bottom: 8px;">Implemented minor adjustments on the attendance platform following management feedback.</li>' +
+            '<li style="margin-bottom: 8px;">Collated monthly attendance logs across all regions and forwarded them to the accounts department for review.</li>' +
             '<li style="margin-bottom: 4px;">Advanced CPQ platform development based on extensive feedback and specifications provided by the Chairman, pending another review on Wednesday.</li>' +
           '</ul>' +
         '</td>' +
@@ -444,6 +445,7 @@ function sendDailyReportEmail() {
     '- Dispatched the remaining batch of churned customer win-back messages (978 emails) via the CSAT platform.\n' +
     '- Presented demonstrations of the CPQ (Configure, Price, Quote) and Virtual Attendance platforms to management.\n' +
     '- Implemented minor adjustments on the attendance platform following management feedback.\n' +
+    '- Collated monthly attendance logs across all regions and forwarded them to the accounts department for review.\n' +
     '- Advanced CPQ platform development based on extensive feedback and specifications provided by the Chairman, pending another review on Wednesday.\n\n' +
     '2. Sales Leads & Pipeline Tracking:\n' +
     '- Closed Won: ' + conv.closedCount + ' deals' + (conv.closedMRR ? ' (Total MRR: ₦' + conv.closedMRR.toLocaleString() + ')' : '') + closedDetailsText + '\n' +
