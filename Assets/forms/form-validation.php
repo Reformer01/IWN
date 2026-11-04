@@ -246,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get form subject to check if this is excluded from reCAPTCHA
     $formSubject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
-    $adsLeadSubjects = ['Google Ads Lead', 'Facebook Ads Lead', 'LinkedIn Ads Lead'];
+    $adsLeadSubjects = ['Google Ads Lead', 'Facebook Ads Lead', 'LinkedIn Ads Lead', 'EdgeFiber Estate Test-Drive', 'Ijapo Estate Test-Drive'];
     $isAdsLead = in_array($formSubject, $adsLeadSubjects, true);
     $isCareerApplication = ($formSubject === 'Career Application');
     
@@ -437,6 +437,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               'to' => 'reformer.ejembi@iworldnetworks.net',
               'cc' => [],
               'state_routing' => $adsStateRouting
+          ],
+          'EdgeFiber Estate Test-Drive' => [
+              'to' => 'ruth.suleimon@iworldnetworks.net',
+              'cc' => ['emmanuel.oladimeji@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net', 'sales@iworldnetworks.net'],
+              'state_routing' => $adsStateRouting
+          ],
+          'Ijapo Estate Test-Drive' => [
+              'to' => 'ruth.suleimon@iworldnetworks.net',
+              'cc' => ['emmanuel.oladimeji@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net', 'sales@iworldnetworks.net'],
+              'state_routing' => $adsStateRouting
           ]
       ];
 
@@ -503,7 +513,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ]);
     
     // --- LEAD ENGINE WEBHOOK (Google / Facebook / LinkedIn Ads) ---
-    $adsLeadSubjects = ['Google Ads Lead', 'Facebook Ads Lead', 'LinkedIn Ads Lead'];
+    $adsLeadSubjects = ['Google Ads Lead', 'Facebook Ads Lead', 'LinkedIn Ads Lead', 'EdgeFiber Estate Test-Drive', 'Ijapo Estate Test-Drive'];
     if (in_array($subject, $adsLeadSubjects, true)) {
         // Replace with the v2 Lead Engine Web App URL after deploying InboundWebhook.gs
         $webhookUrl = 'https://script.google.com/macros/s/AKfycbwkIwlN8C4DfsZROyusnc8QoUGulqsGUsr3Bjnxrj5k684EOe2oCVCeo15vfIorGndG/exec'; 

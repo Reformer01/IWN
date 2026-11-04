@@ -1,0 +1,18 @@
+# Enable Rewrite Engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # 1. Remove .html from browser URL by redirecting .html requests to clean URL
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+([^.]+)\.html[\s?] [NC]
+    RewriteRule ^ %1 [R=301,L]
+
+    # 2. If requested path is an existing directory, let Apache serve index.html
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 3. If requested path + .html exists as a file, rewrite internally to it
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^([^/]+)/?$ $1.html [L]
+</IfModule>
+
