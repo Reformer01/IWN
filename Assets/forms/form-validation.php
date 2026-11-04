@@ -380,12 +380,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               'cc' => ['titilade.bakare@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
           ],
           'Osun' => [
-              'to' => 'lukmon.obasa@iworldnetworks.net',
-              'cc' => ['elizabeth.tola@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
+              'to' => 'elizabeth.tola@iworldnetworks.net',
+              'cc' => ['reformer.ejembi@iworldnetworks.net']
           ],
           'Ondo' => [
               'to' => 'ruth.suleimon@iworldnetworks.net',
-              'cc' => ['lukmon.obasa@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
+              'cc' => ['reformer.ejembi@iworldnetworks.net']
           ],
           'Sagamu' => [
               'to' => 'janet.oke@iworldnetworks.net',
@@ -440,13 +440,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           ],
           'EdgeFiber Estate Test-Drive' => [
               'to' => 'ruth.suleimon@iworldnetworks.net',
-              'cc' => ['lukmon.obasa@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net'],
-              'state_routing' => $adsStateRouting
+              'cc' => ['lukmon.obasa@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
           ],
           'Ijapo Estate Test-Drive' => [
               'to' => 'ruth.suleimon@iworldnetworks.net',
-              'cc' => ['lukmon.obasa@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net'],
-              'state_routing' => $adsStateRouting
+              'cc' => ['lukmon.obasa@iworldnetworks.net', 'reformer.ejembi@iworldnetworks.net']
           ]
       ];
 
@@ -491,9 +489,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       } else {
           $to = 'adegelukolade@gmail.com';
           $cc = [
-          'titilade.bakare@iworldnetworks.net',
-               'reformer.ejembi@iworldnetworks.net',
-              'lukmon.obasa@iworldnetworks.net',
+              'titilade.bakare@iworldnetworks.net',
+              'reformer.ejembi@iworldnetworks.net',
               'kolade.adegelu@iworldnetworks.net',
               'janet.oke@iworldnetworks.net',
               'sales@iworldnetworks.net'
