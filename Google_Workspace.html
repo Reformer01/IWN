@@ -353,10 +353,6 @@
                     class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-google-blue transition-colors flex items-center gap-3">
                     <span class="material-symbols-outlined text-google-blue">home_iot_device</span> I-World Smart Life
                 </a>
-                <!-- <a href="./NGFEP.html"
-                    class="px-4 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 hover:text-google-blue transition-colors flex items-center gap-3">
-                    <span class="material-symbols-outlined text-google-blue">school</span> NGFEP
-                </a>
                 <a href="./Google_Workspace.html"
                     class="px-4 py-3 rounded-xl font-bold text-google-blue hover:bg-slate-50 transition-colors flex items-center gap-3">
                     <span class="material-symbols-outlined text-google-blue">cloud</span> Google Cloud Services
@@ -1437,7 +1433,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Convert USD to NGN
-            async function convertUsdn(usdAmount) {
+            async function convertUsdToNgn(usdAmount) {
                 try {
                     // First try to get the latest rate from an API (free tier)
                     const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
