@@ -129,46 +129,43 @@
         </div>
     </header>
 
-    <!-- HERO: FULL-BLEED, FULL-VIEWPORT IMAGE — NOTHING ON TOP OF THE IMAGE -->
-    <section class="relative w-full h-screen min-h-[560px] max-h-[820px] overflow-hidden">
-        <!-- Full-bleed hero image — absolutely nothing obstructs it -->
+    <!-- HERO BANNER: 100% VISIBLE IMAGE — UNCLUTTERED, ZERO OVERLAPPING TEXT, NO CROPPING ON MOBILE -->
+    <section class="w-full bg-slate-950 flex items-center justify-center">
         <img src="../Assets/img/Edgefiber Drive.jpg"
-             alt="Ijapo Estate, Akure — EdgeFiber™ Community Drive"
-             class="absolute inset-0 w-full h-full object-cover object-center"
+             alt="Ijapo Estate, Akure — EdgeFiber™ 30-Day Free Test-Drive"
+             class="w-full h-auto max-h-[85vh] object-contain block mx-auto"
              fetchpriority="high">
-        <!-- Bottom-to-top gradient — only darkens the lower 40% for text legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent"></div>
+    </section>
 
-        <!-- Bottom-pinned text overlay — text sits at the bottom, image is fully visible -->
-        <div class="absolute bottom-0 left-0 right-0 px-6 sm:px-10 pb-10 pt-20">
-            <div class="max-w-7xl mx-auto">
-                <!-- Location badge -->
-                <div class="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-white">
+    <!-- CALL-TO-ACTION & INTRO BAR (Directly below hero image, off the graphic entirely) -->
+    <section class="bg-navy text-white py-8 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-white">
                     <span class="material-symbols-outlined text-primary text-sm">location_on</span>
                     <span>Ijapo Estate, Akure, Ondo State</span>
                     <span class="text-white/40">•</span>
                     <span class="text-secondary font-semibold">Official Community Drive</span>
                 </div>
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white leading-tight max-w-3xl">
-                    Experience Pure Optical Fiber in Your Home for 30 Days —
-                    <span class="text-primary">Completely Free</span>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white leading-tight">
+                    Experience Pure Optical Fiber for 30 Days — <span class="text-primary">Completely Free</span>
                 </h1>
-                <p class="mt-3 text-sm sm:text-base text-slate-200 max-w-xl leading-relaxed">
-                    Official Light-Up Date: <strong class="text-primary">1st January, 2027</strong> &nbsp;·&nbsp; ₦0.00 Cost &nbsp;·&nbsp; Zero Obligation
+                <p class="text-xs sm:text-sm text-slate-300">
+                    Official Light-Up Date: <strong class="text-primary font-bold">1st January, 2027</strong> &nbsp;·&nbsp; ₦0.00 Cost &nbsp;·&nbsp; Free Wi-Fi Optical Router &nbsp;·&nbsp; Zero Obligation
                 </p>
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a href="#enrollment-form"
-                        class="inline-flex items-center gap-2 bg-primary hover:bg-orange-600 text-white px-7 py-3 rounded-full font-display font-bold text-sm shadow-lg shadow-primary/30 transition-all">
-                        Enroll Now — It's Free
-                        <span class="material-symbols-outlined text-base">arrow_downward</span>
-                    </a>
-                    <a href="https://wa.me/2348036265524?text=Hello%20i-World%20Networks,%20I%20am%20a%20resident%20of%20Ijapo%20Estate%20Akure%20inquiring%20about%20the%2030-Day%20Free%20EdgeFiber%20Test-Drive"
-                        target="_blank" rel="noopener"
-                        class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/25 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all">
-                        <span class="material-symbols-outlined text-base text-secondary">chat</span>
-                        WhatsApp Akure Desk
-                    </a>
-                </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 shrink-0">
+                <a href="#enrollment-form"
+                    class="inline-flex items-center gap-2 bg-primary hover:bg-orange-600 text-white px-7 py-3 rounded-full font-display font-bold text-sm shadow-lg shadow-primary/30 transition-all">
+                    <span>Enroll Now — Free</span>
+                    <span class="material-symbols-outlined text-base">arrow_downward</span>
+                </a>
+                <a href="https://wa.me/2348036265524?text=Hello%20i-World%20Networks,%20I%20am%20a%20resident%20of%20Ijapo%20Estate%20Akure%20inquiring%20about%20the%2030-Day%20Free%20EdgeFiber%20Test-Drive"
+                    target="_blank" rel="noopener"
+                    class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 py-3 rounded-full font-semibold text-sm transition-all">
+                    <span class="material-symbols-outlined text-base text-secondary">chat</span>
+                    <span>WhatsApp Desk</span>
+                </a>
             </div>
         </div>
     </section>
