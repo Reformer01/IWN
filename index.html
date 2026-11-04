@@ -240,6 +240,12 @@
 </head>
 
 <body class="bg-background-light text-slate-900 font-body antialiased">
+    <!-- Global Clean URL (Remove .html extension client-side if served directly) -->
+    <script>
+        if (window.location.protocol.startsWith('http') && window.location.pathname.endsWith('.html')) {
+            window.history.replaceState(null, '', window.location.pathname.replace(/\.html$/, '') + window.location.search + window.location.hash);
+        }
+    </script>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200" x-data="{ mobileMenuOpen: false }">
